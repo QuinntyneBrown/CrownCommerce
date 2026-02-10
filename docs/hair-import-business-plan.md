@@ -35,7 +35,7 @@
 ### Elegant / High-End
 | # | Name | Notes |
 |---|------|-------|
-| 1 | **Hace Hair Co.** | Clean, modern, ties to existing brand concept; short .com potential |
+| 1 | **Origin Hair Co.** | Clean, modern, ties to existing brand concept; short .com potential |
 | 2 | **Crown & Glory Hair** | Evokes royalty and empowerment; @crownandgloryhair |
 | 3 | **Empress Luxe Hair** | Luxury + power; @empressluxehair |
 | 4 | **Aurum Hair Collection** | "Aurum" means gold in Latin; sophisticated, unique |
@@ -51,7 +51,7 @@
 | 10 | **Lush Lengths** | Alliterative, rolls off the tongue; @lushlengths |
 | 11 | **Bundles & Beyond** | Descriptive yet aspirational; @bundlesandbeyond |
 | 12 | **The Hair Plug** | Casual, culturally connected; @thehairplug |
-| 13 | **Laid by Hace** | "Laid" hair is a compliment in the community; personal brand angle |
+| 13 | **Laid by Origin** | "Laid" hair is a compliment in the community; personal brand angle |
 
 ### International / Exotic Flair
 | # | Name | Notes |
@@ -68,7 +68,7 @@
 | 19 | **Melanin Mane Co.** | Celebrates identity; strong brand recognition; @melaninmaneco |
 | 20 | **Her Royal Strands** | Regal, playful, memorable; @herroyalstrands |
 
-**Strongest candidates for .com availability:** Hace Hair Co., Aurum Hair Collection, Mane Vault, Pelo Luxe, Reine Hair, Silk Route Hair. Secure matching handles on Instagram, TikTok, and Facebook before registering.
+**Strongest candidates for .com availability:** Origin Hair Co., Aurum Hair Collection, Mane Vault, Pelo Luxe, Reine Hair, Silk Route Hair. Secure matching handles on Instagram, TikTok, and Facebook before registering.
 
 ---
 
@@ -561,7 +561,7 @@
 
 **Engagement (3-5 per post):** #hairtransformation #hairgoals #beforeandafterhair #blackgirlhair #naturalhaircommunity
 
-**Branded:** #HaceHair #OriginHairCollective #HaceHairCanada
+**Branded:** #OriginHair #OriginHairCollective #OriginHairCanada
 
 ## Advertising Budget
 
