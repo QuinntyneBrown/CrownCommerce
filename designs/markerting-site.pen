@@ -1,0 +1,4303 @@
+{
+  "version": "2.7",
+  "children": [
+    {
+      "type": "frame",
+      "id": "aJhR4",
+      "x": 0,
+      "y": 0,
+      "name": "Origin Hair - Mobile (390px)",
+      "clip": true,
+      "width": 390,
+      "fill": "#0B0A08",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "eoe6S",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 64,
+          "padding": [
+            0,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "BS4Tv",
+              "name": "Logo",
+              "fill": "#C9A052",
+              "content": "ORIGIN",
+              "fontFamily": "Fraunces",
+              "fontSize": 22,
+              "fontWeight": "600",
+              "letterSpacing": 4
+            },
+            {
+              "type": "icon_font",
+              "id": "DILMu",
+              "name": "menuIcon",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "menu",
+              "iconFontFamily": "lucide",
+              "fill": "#FAF7F0"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "UXhF8",
+          "name": "Hero Section",
+          "width": "fill_container",
+          "height": 560,
+          "fill": [
+            "#0B0A08CC",
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 0,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#0B0A0800",
+                  "position": 0
+                },
+                {
+                  "color": "#0B0A08",
+                  "position": 0.85
+                }
+              ]
+            }
+          ],
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            40,
+            24,
+            48,
+            24
+          ],
+          "justifyContent": "end",
+          "children": [
+            {
+              "type": "frame",
+              "id": "JUGQa",
+              "name": "Badge",
+              "fill": "#C9A05220",
+              "cornerRadius": 100,
+              "gap": 8,
+              "padding": [
+                6,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "MXECO",
+                  "name": "badgeDot",
+                  "fill": "#C9A052",
+                  "width": 6,
+                  "height": 6
+                },
+                {
+                  "type": "text",
+                  "id": "lvgNM",
+                  "name": "badgeText",
+                  "fill": "#C9A052",
+                  "content": "NOW ACCEPTING PRE-ORDERS",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.5
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "BsMNr",
+              "name": "Headline",
+              "fill": "#FAF7F0",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Your Hair, Your Origin Story",
+              "lineHeight": 1.1,
+              "fontFamily": "Fraunces",
+              "fontSize": 38,
+              "fontWeight": "500",
+              "letterSpacing": -0.8
+            },
+            {
+              "type": "text",
+              "id": "aF5ZS",
+              "name": "Subline",
+              "fill": "#9A9590",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Premium virgin hair extensions crafted for the woman who demands excellence. Luxury you can feel, confidence you can see.",
+              "lineHeight": 1.5,
+              "fontFamily": "DM Sans",
+              "fontSize": 15
+            },
+            {
+              "type": "frame",
+              "id": "eLbh6",
+              "name": "CTA Row",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HencH",
+                  "name": "CTA Button",
+                  "fill": "#C9A052",
+                  "cornerRadius": 100,
+                  "gap": 8,
+                  "padding": [
+                    16,
+                    28
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jt24Y",
+                      "name": "ctaBtnText",
+                      "fill": "#0B0A08",
+                      "content": "SHOP COLLECTION",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "700",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "dpOXu",
+                      "name": "ctaBtnArrow",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "arrow-right",
+                      "iconFontFamily": "lucide",
+                      "fill": "#0B0A08"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Y5Kbb",
+          "name": "Trust Bar",
+          "width": "fill_container",
+          "fill": "#161412",
+          "padding": [
+            16,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "RoVTV",
+              "name": "trust1",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "nJ4Nk",
+                  "name": "trust1Icon",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "gem",
+                  "iconFontFamily": "lucide",
+                  "fill": "#C9A052"
+                },
+                {
+                  "type": "text",
+                  "id": "FflPS",
+                  "name": "trust1Text",
+                  "fill": "#9A9590",
+                  "content": "100% Virgin Hair",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.5
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YXYoO",
+              "name": "trust2",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "yM5mR",
+                  "name": "trust2Icon",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "truck",
+                  "iconFontFamily": "lucide",
+                  "fill": "#C9A052"
+                },
+                {
+                  "type": "text",
+                  "id": "WNC6W",
+                  "name": "trust2Text",
+                  "fill": "#9A9590",
+                  "content": "Free Shipping $150+",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.5
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WLLz0",
+              "name": "trust3",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "YJ7pD",
+                  "name": "trust3Icon",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "shield-check",
+                  "iconFontFamily": "lucide",
+                  "fill": "#C9A052"
+                },
+                {
+                  "type": "text",
+                  "id": "TMH94",
+                  "name": "trust3Text",
+                  "fill": "#9A9590",
+                  "content": "Quality Guaranteed",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EkADH",
+          "name": "Brand Story",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            56,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "MPHSp",
+              "name": "aboutLabel",
+              "fill": "#C9A052",
+              "content": "OUR STORY",
+              "textAlign": "center",
+              "fontFamily": "DM Sans",
+              "fontSize": 11,
+              "fontWeight": "600",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "h944X",
+              "name": "aboutHeadline",
+              "fill": "#FAF7F0",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Where Luxury Meets Community",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Fraunces",
+              "fontSize": 28,
+              "fontWeight": "500",
+              "letterSpacing": -0.5
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 1,
+              "id": "Zz7Yt",
+              "name": "aboutDivider",
+              "fill": "#C9A052",
+              "width": 48,
+              "height": 2
+            },
+            {
+              "type": "text",
+              "id": "4KvXQ",
+              "name": "aboutBody",
+              "fill": "#9A9590",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Origin Hair Collective was born from a simple belief: every woman deserves hair that makes her feel extraordinary. Based in the heart of Mississauga, we source only the finest virgin hair extensions — ethically sourced, meticulously crafted, and designed to last.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "DM Sans",
+              "fontSize": 15
+            },
+            {
+              "type": "text",
+              "id": "uFcT6",
+              "name": "aboutEmphasis",
+              "fill": "#C9A052",
+              "content": "This isn't just hair. It's your origin story.",
+              "textAlign": "center",
+              "fontFamily": "Fraunces",
+              "fontSize": 18,
+              "fontWeight": "500",
+              "fontStyle": "italic"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "7P0W9",
+          "name": "Products Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            56,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "NdoK2",
+              "name": "productsHeader",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "1uTwc",
+                  "name": "productsLabel",
+                  "fill": "#C9A052",
+                  "content": "THE COLLECTION",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "NtR8u",
+                  "name": "productsHeadline",
+                  "fill": "#FAF7F0",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Premium Hair, Curated For You",
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 28,
+                  "fontWeight": "500",
+                  "letterSpacing": -0.5
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RU0dE",
+              "name": "Products Grid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "IFZMq",
+                  "name": "Product Card - Bundles",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "#161412",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "4WquX",
+                      "name": "Card Image",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "pawel_czerwinski",
+                        "link": "https://unsplash.com/@pawel_czerwinski",
+                        "author": "Pawel Czerwinski"
+                      },
+                      "width": "fill_container",
+                      "height": 220,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1695278255455-9afc87008775?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI0MDR8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "wZpYb",
+                      "name": "card1Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "3R6kw",
+                          "name": "card1Tag",
+                          "fill": "#C9A052",
+                          "content": "BESTSELLER",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "hNW2x",
+                          "name": "card1Title",
+                          "fill": "#FAF7F0",
+                          "content": "Virgin Hair Bundles",
+                          "fontFamily": "Fraunces",
+                          "fontSize": 22,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.3
+                        },
+                        {
+                          "type": "text",
+                          "id": "0OoDr",
+                          "name": "card1Desc",
+                          "fill": "#9A9590",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Brazilian, Peruvian & Malaysian textures. Straight, body wave, deep wave & more. 12\" to 30\" lengths.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "text",
+                          "id": "xePM9",
+                          "name": "card1Price",
+                          "fill": "#C9A052",
+                          "content": "From $85 CAD",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "6W9wu",
+                  "name": "Product Card - Closures",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "#161412",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "bYBba",
+                      "name": "Card Image",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "indiboy",
+                        "link": "https://unsplash.com/@indiboy",
+                        "author": "Aman Singh"
+                      },
+                      "width": "fill_container",
+                      "height": 220,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1693655131341-f9965310f32d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI0MDR8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2IoDA",
+                      "name": "card2Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "CGiFL",
+                          "name": "card2Tag",
+                          "fill": "#B8816B",
+                          "content": "ESSENTIAL",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "mZWRk",
+                          "name": "card2Title",
+                          "fill": "#FAF7F0",
+                          "content": "Lace Closures",
+                          "fontFamily": "Fraunces",
+                          "fontSize": 22,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.3
+                        },
+                        {
+                          "type": "text",
+                          "id": "HvvGs",
+                          "name": "card2Desc",
+                          "fill": "#9A9590",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "HD lace closures for a seamless, natural look. 4x4 and 5x5 options in every texture. Invisible. Undetectable.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "text",
+                          "id": "67jmA",
+                          "name": "card2Price",
+                          "fill": "#B8816B",
+                          "content": "From $65 CAD",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pe9hk",
+                  "name": "Product Card - Frontals",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "#161412",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "TBhLF",
+                      "name": "Card Image",
+                      "width": "fill_container",
+                      "height": 220,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1770752407458.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UNIEw",
+                      "name": "card3Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 20,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YGRIo",
+                          "name": "card3Tag",
+                          "fill": "#C9A052",
+                          "content": "PREMIUM",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "wMjD2",
+                          "name": "card3Title",
+                          "fill": "#FAF7F0",
+                          "content": "Lace Frontals",
+                          "fontFamily": "Fraunces",
+                          "fontSize": 22,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.3
+                        },
+                        {
+                          "type": "text",
+                          "id": "Jpah9",
+                          "name": "card3Desc",
+                          "fill": "#9A9590",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "13x4 and 13x6 HD lace frontals for full hairline coverage. Pre-plucked, bleached knots. Create any style.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "text",
+                          "id": "Npvno",
+                          "name": "card3Price",
+                          "fill": "#C9A052",
+                          "content": "From $95 CAD",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pOxNS",
+          "name": "Why Origin Section",
+          "width": "fill_container",
+          "fill": "#161412",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            56,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "jbLxJ",
+              "name": "benefitsHeader",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "7J7eU",
+                  "name": "benefitsLabel",
+                  "fill": "#C9A052",
+                  "content": "WHY ORIGIN",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "5oISl",
+                  "name": "benefitsHeadline",
+                  "fill": "#FAF7F0",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "The Origin Difference",
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 28,
+                  "fontWeight": "500",
+                  "letterSpacing": -0.5
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zbnyd",
+              "name": "Benefits Grid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "PI7ZF",
+                  "name": "b1",
+                  "width": "fill_container",
+                  "fill": "#1E1C18",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05215"
+                  },
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "on6fN",
+                      "name": "b1IconWrap",
+                      "width": 44,
+                      "height": 44,
+                      "fill": "#C9A05215",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "ExPzn",
+                          "name": "b1Icon",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "sparkles",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "ODvRK",
+                      "name": "b1Title",
+                      "fill": "#FAF7F0",
+                      "content": "Ethically Sourced",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OVhDs",
+                      "name": "b1Desc",
+                      "fill": "#9A9590",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "100% virgin human hair from trusted suppliers. No synthetics, no shortcuts. Every bundle meets our luxury standard.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "i3GCq",
+                  "name": "b2",
+                  "width": "fill_container",
+                  "fill": "#1E1C18",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05215"
+                  },
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "PNELb",
+                      "name": "b2IconWrap",
+                      "width": 44,
+                      "height": 44,
+                      "fill": "#C9A05215",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "d6PbO",
+                          "name": "b2Icon",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "heart",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ztu1U",
+                      "name": "b2Title",
+                      "fill": "#FAF7F0",
+                      "content": "Built For Longevity",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Mn3YV",
+                      "name": "b2Desc",
+                      "fill": "#9A9590",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Our hair lasts 12+ months with proper care. Minimal shedding, no tangling, and colour-safe. Invest once, slay all year.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5bBrs",
+                  "name": "b3",
+                  "width": "fill_container",
+                  "fill": "#1E1C18",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05215"
+                  },
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "MTrbe",
+                      "name": "b3IconWrap",
+                      "width": 44,
+                      "height": 44,
+                      "fill": "#C9A05215",
+                      "cornerRadius": 12,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "Z2PdN",
+                          "name": "b3Icon",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "users",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "8BqFi",
+                      "name": "b3Title",
+                      "fill": "#FAF7F0",
+                      "content": "Community First",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fPlDA",
+                      "name": "b3Desc",
+                      "fill": "#9A9590",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "More than a brand — we're a collective. Join a community of women who celebrate each other, share styling tips, and uplift one another.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 14
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yMoyB",
+          "name": "Testimonials Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            56,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "SiHa2",
+              "name": "testLabel",
+              "fill": "#C9A052",
+              "content": "WHAT THEY SAY",
+              "fontFamily": "DM Sans",
+              "fontSize": 11,
+              "fontWeight": "600",
+              "letterSpacing": 3
+            },
+            {
+              "type": "frame",
+              "id": "1AaJ2",
+              "name": "testCard",
+              "width": "fill_container",
+              "fill": "#161412",
+              "cornerRadius": 20,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#C9A05215"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fQlEB",
+                  "name": "testQuoteIcon",
+                  "fill": "#C9A05240",
+                  "content": "“",
+                  "lineHeight": 0.5,
+                  "fontFamily": "Fraunces",
+                  "fontSize": 64
+                },
+                {
+                  "type": "text",
+                  "id": "5PW1O",
+                  "name": "testQuote",
+                  "fill": "#FAF7F0",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "I've tried every hair brand out there. Origin is different — the quality is unmatched, the texture is beautiful, and it literally lasts forever. I'm never going back.",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 16,
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "frame",
+                  "id": "Yr8nH",
+                  "name": "testAuthor",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dnJQn",
+                      "name": "testStars",
+                      "fill": "#C9A052",
+                      "content": "★ ★ ★ ★ ★",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ckbr6",
+                      "name": "testName",
+                      "fill": "#9A9590",
+                      "content": "— Jasmine T., Toronto",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "qPsJD",
+          "name": "Community Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            56,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "F1YkF",
+              "name": "commHeader",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                0,
+                24
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gOi8G",
+                  "name": "commLabel",
+                  "fill": "#C9A052",
+                  "content": "JOIN THE COLLECTIVE",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "ESeB2",
+                  "name": "commHeadline",
+                  "fill": "#FAF7F0",
+                  "content": "Follow the Journey",
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 28,
+                  "fontWeight": "500",
+                  "letterSpacing": -0.5
+                },
+                {
+                  "type": "text",
+                  "id": "Rkhsb",
+                  "name": "commHandle",
+                  "fill": "#B8816B",
+                  "content": "@OriginHairCollective",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "r4r9g",
+              "name": "Photo Grid",
+              "width": "fill_container",
+              "height": 130,
+              "gap": 3,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "YjXre",
+                  "name": "photo1",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "codemathics",
+                    "link": "https://unsplash.com/@codemathics",
+                    "author": "Clement Hugbo"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1704287060425-9051c1140b86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI0NzZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "j8gym",
+                  "name": "photo2",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "ionelaaaaa",
+                    "link": "https://unsplash.com/@ionelaaaaa",
+                    "author": "Ionela Mat"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1707812343087-c9ff9e5abb43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI0Nzd8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "0Pp7Z",
+                  "name": "photo3",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "silverkblack",
+                    "link": "https://unsplash.com/@silverkblack",
+                    "author": "Vitaly Gariev"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1758874384719-5a157c27b092?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI0Nzd8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZGU3S",
+              "name": "Photo Grid 2",
+              "width": "fill_container",
+              "height": 130,
+              "gap": 3,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "j276r",
+                  "name": "photo4",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "aalolens",
+                    "link": "https://unsplash.com/@aalolens",
+                    "author": "Aalo Lens"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1758738880475-dac2ab1c92d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI0Nzd8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "HWdnC",
+                  "name": "photo5",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "we_are_details",
+                    "link": "https://unsplash.com/@we_are_details",
+                    "author": "Ilona Panych"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1583599499601-6ace8c41b622?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI0Nzh8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "sNzhr",
+                  "name": "photo6",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "rosemarymedia",
+                    "link": "https://unsplash.com/@rosemarymedia",
+                    "author": "Rosemary Media"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1655153382700-1751c27309f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI0Nzh8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xz7vv",
+          "name": "Final CTA",
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#1A1508",
+                "position": 0
+              },
+              {
+                "color": "#0B0A08",
+                "position": 1
+              }
+            ]
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            64,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Bq5C9",
+              "name": "ctaHeadline",
+              "fill": "#FAF7F0",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Ready to Write Your Origin Story?",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Fraunces",
+              "fontSize": 28,
+              "fontWeight": "500",
+              "letterSpacing": -0.5
+            },
+            {
+              "type": "text",
+              "id": "vi3wW",
+              "name": "ctaSub",
+              "fill": "#9A9590",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Join hundreds of women across the GTA who trust Origin Hair Collective for their premium hair needs.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "DM Sans",
+              "fontSize": 15
+            },
+            {
+              "type": "frame",
+              "id": "2F34b",
+              "name": "ctaButton",
+              "fill": "#C9A052",
+              "cornerRadius": 100,
+              "gap": 8,
+              "padding": [
+                18,
+                36
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "nAhzT",
+                  "name": "ctaBtnTxt",
+                  "fill": "#0B0A08",
+                  "content": "SHOP NOW",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "icon_font",
+                  "id": "CiNcO",
+                  "name": "ctaBtnArr",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "arrow-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#0B0A08"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "4gvdz",
+              "name": "ctaTrust",
+              "fill": "#6B6860",
+              "content": "Free shipping on orders over $150 · 30-day quality guarantee",
+              "textAlign": "center",
+              "fontFamily": "DM Sans",
+              "fontSize": 12
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "nkh5E",
+          "name": "Footer",
+          "width": "fill_container",
+          "fill": "#0A0908",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            40,
+            24,
+            32,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "g8YnN",
+              "name": "footerTop",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xiHD2",
+                  "name": "footerLogo",
+                  "fill": "#C9A052",
+                  "content": "ORIGIN",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 20,
+                  "fontWeight": "600",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "DGu61",
+                  "name": "footerTagline",
+                  "fill": "#6B6860",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Premium hair extensions for the woman who demands excellence. Based in Mississauga, serving the GTA and beyond.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "DM Sans",
+                  "fontSize": 13
+                },
+                {
+                  "type": "frame",
+                  "id": "uF9e2",
+                  "name": "footerSocials",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "CDpBX",
+                      "name": "socialIg",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "instagram",
+                      "iconFontFamily": "lucide",
+                      "fill": "#9A9590"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "2c4Hv",
+                      "name": "socialTt",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "music",
+                      "iconFontFamily": "lucide",
+                      "fill": "#9A9590"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "Z2E8Q",
+                      "name": "socialMail",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "mail",
+                      "iconFontFamily": "lucide",
+                      "fill": "#9A9590"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QQoeH",
+              "name": "footerLinks",
+              "width": "fill_container",
+              "gap": 24,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "6FrLS",
+                  "name": "linkCol1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QjTGi",
+                      "name": "linkCol1Title",
+                      "fill": "#FAF7F0",
+                      "content": "Shop",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "werZA",
+                      "name": "linkCol1a",
+                      "fill": "#6B6860",
+                      "content": "Bundles",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "63D8F",
+                      "name": "linkCol1b",
+                      "fill": "#6B6860",
+                      "content": "Closures",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "8BYQv",
+                      "name": "linkCol1c",
+                      "fill": "#6B6860",
+                      "content": "Frontals",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "p0qz0",
+                      "name": "linkCol1d",
+                      "fill": "#6B6860",
+                      "content": "Bundle Deals",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "K4TvZ",
+                  "name": "linkCol2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "y9vyL",
+                      "name": "linkCol2Title",
+                      "fill": "#FAF7F0",
+                      "content": "Company",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "s1RPI",
+                      "name": "linkCol2a",
+                      "fill": "#6B6860",
+                      "content": "Our Story",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "HHuc3",
+                      "name": "linkCol2b",
+                      "fill": "#6B6860",
+                      "content": "Contact",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "wDk5J",
+                      "name": "linkCol2c",
+                      "fill": "#6B6860",
+                      "content": "Wholesale",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "9Ac9b",
+                      "name": "linkCol2d",
+                      "fill": "#6B6860",
+                      "content": "Ambassador Program",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DVwbe",
+                  "name": "linkCol3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "24mTG",
+                      "name": "linkCol3Title",
+                      "fill": "#FAF7F0",
+                      "content": "Support",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "7Wu3y",
+                      "name": "linkCol3a",
+                      "fill": "#6B6860",
+                      "content": "Hair Care Guide",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "S0hPR",
+                      "name": "linkCol3b",
+                      "fill": "#6B6860",
+                      "content": "Shipping Info",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "CuKni",
+                      "name": "linkCol3c",
+                      "fill": "#6B6860",
+                      "content": "Returns",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "TjXnD",
+                      "name": "linkCol3d",
+                      "fill": "#6B6860",
+                      "content": "FAQ",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "N4nbY",
+              "name": "footerDivider",
+              "fill": "#1E1C18",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "Pm4AM",
+              "name": "footerBottom",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ygjcO",
+                  "name": "copyright",
+                  "fill": "#4A4840",
+                  "content": "© 2026 Origin Hair Collective. All rights reserved.",
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11
+                },
+                {
+                  "type": "text",
+                  "id": "kgUPj",
+                  "name": "location",
+                  "fill": "#4A4840",
+                  "content": "Mississauga, Ontario, Canada",
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "HL7Uj",
+      "x": 500,
+      "y": 0,
+      "name": "Origin Hair - Desktop (1440px)",
+      "clip": true,
+      "width": 1440,
+      "fill": "#0B0A08",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "NHmNq",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 80,
+          "padding": [
+            0,
+            80
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "sBDbQ",
+              "name": "dLogo",
+              "fill": "#C9A052",
+              "content": "ORIGIN",
+              "fontFamily": "Fraunces",
+              "fontSize": 24,
+              "fontWeight": "600",
+              "letterSpacing": 5
+            },
+            {
+              "type": "frame",
+              "id": "MiCaF",
+              "name": "dNav",
+              "gap": 36,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "iw5O3",
+                  "name": "dNav1",
+                  "fill": "#9A9590",
+                  "content": "Collection",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "U83JR",
+                  "name": "dNav2",
+                  "fill": "#9A9590",
+                  "content": "Our Story",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "zRxNt",
+                  "name": "dNav3",
+                  "fill": "#9A9590",
+                  "content": "Hair Care",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "YlWPy",
+                  "name": "dNav4",
+                  "fill": "#9A9590",
+                  "content": "Wholesale",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "YP5ql",
+                  "name": "dNavCta",
+                  "fill": "#C9A052",
+                  "cornerRadius": 100,
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    28
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "X7zZc",
+                      "name": "dNavCtaText",
+                      "fill": "#0B0A08",
+                      "content": "SHOP NOW",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "SoVsH",
+          "name": "Hero Section",
+          "width": "fill_container",
+          "height": 680,
+          "fill": "#0B0A08",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "eTI6Q",
+              "name": "dHeroContent",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 28,
+              "padding": [
+                0,
+                80
+              ],
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ltdH1",
+                  "name": "dHeroBadge",
+                  "fill": "#C9A05220",
+                  "cornerRadius": 100,
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "IvjEX",
+                      "name": "dBadgeDot",
+                      "fill": "#C9A052",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "vvoCM",
+                      "name": "dBadgeText",
+                      "fill": "#C9A052",
+                      "content": "NOW ACCEPTING PRE-ORDERS",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "XX9RD",
+                  "name": "dHeroH1",
+                  "fill": "#FAF7F0",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Your Hair, Your Origin Story",
+                  "lineHeight": 1.08,
+                  "fontFamily": "Fraunces",
+                  "fontSize": 60,
+                  "fontWeight": "500",
+                  "letterSpacing": -1.5
+                },
+                {
+                  "type": "text",
+                  "id": "Cgwlm",
+                  "name": "dHeroSub",
+                  "fill": "#9A9590",
+                  "textGrowth": "fixed-width",
+                  "width": 480,
+                  "content": "Premium virgin hair extensions crafted for the woman who demands excellence. Luxury you can feel, confidence you can see.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "DM Sans",
+                  "fontSize": 18
+                },
+                {
+                  "type": "frame",
+                  "id": "ennbV",
+                  "name": "dCtaRow",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "dCqNK",
+                      "name": "dCtaBtn",
+                      "fill": "#C9A052",
+                      "cornerRadius": 100,
+                      "gap": 8,
+                      "padding": [
+                        18,
+                        36
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AKesp",
+                          "name": "dCtaBtnTxt",
+                          "fill": "#0B0A08",
+                          "content": "SHOP THE COLLECTION",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 14,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.2
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "fcqMF",
+                          "name": "dCtaBtnArr",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "arrow-right",
+                          "iconFontFamily": "lucide",
+                          "fill": "#0B0A08"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "biTQe",
+                      "name": "dCtaSecondary",
+                      "cornerRadius": 100,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#C9A05240"
+                      },
+                      "gap": 8,
+                      "padding": [
+                        18,
+                        36
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "cCcdl",
+                          "name": "dCtaSecTxt",
+                          "fill": "#C9A052",
+                          "content": "OUR STORY",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 14,
+                          "fontWeight": "600",
+                          "letterSpacing": 1.2
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Y9Sh2",
+              "name": "Hero Image",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "./images/generated-1770752566708.png",
+                "mode": "fill"
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "eD5tD",
+          "name": "Trust Bar",
+          "width": "fill_container",
+          "fill": "#161412",
+          "gap": 48,
+          "padding": [
+            20,
+            80
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "96tu1",
+              "name": "dt1",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "ixn9t",
+                  "name": "dt1i",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "gem",
+                  "iconFontFamily": "lucide",
+                  "fill": "#C9A052"
+                },
+                {
+                  "type": "text",
+                  "id": "Ouy9G",
+                  "name": "dt1t",
+                  "fill": "#9A9590",
+                  "content": "100% Virgin Hair",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uTaUk",
+              "name": "dt2",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "GGPYv",
+                  "name": "dt2i",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "truck",
+                  "iconFontFamily": "lucide",
+                  "fill": "#C9A052"
+                },
+                {
+                  "type": "text",
+                  "id": "MbAFA",
+                  "name": "dt2t",
+                  "fill": "#9A9590",
+                  "content": "Free Shipping Over $150",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "R6HMg",
+              "name": "dt3",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "JQb09",
+                  "name": "dt3i",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "shield-check",
+                  "iconFontFamily": "lucide",
+                  "fill": "#C9A052"
+                },
+                {
+                  "type": "text",
+                  "id": "rtdfi",
+                  "name": "dt3t",
+                  "fill": "#9A9590",
+                  "content": "30-Day Quality Guarantee",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nKBXv",
+              "name": "dt4",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "Jlk7Q",
+                  "name": "dt4i",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "heart",
+                  "iconFontFamily": "lucide",
+                  "fill": "#C9A052"
+                },
+                {
+                  "type": "text",
+                  "id": "X41H8",
+                  "name": "dt4t",
+                  "fill": "#9A9590",
+                  "content": "Canadian Black-Owned",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TikMS",
+          "name": "Brand Story",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            80,
+            280
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "N6qCM",
+              "name": "dAboutLabel",
+              "fill": "#C9A052",
+              "content": "OUR STORY",
+              "fontFamily": "DM Sans",
+              "fontSize": 12,
+              "fontWeight": "600",
+              "letterSpacing": 3
+            },
+            {
+              "type": "text",
+              "id": "kmXYR",
+              "name": "dAboutH",
+              "fill": "#FAF7F0",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Where Luxury Meets Community",
+              "lineHeight": 1.15,
+              "textAlign": "center",
+              "fontFamily": "Fraunces",
+              "fontSize": 42,
+              "fontWeight": "500",
+              "letterSpacing": -0.8
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 1,
+              "id": "1Mji7",
+              "name": "dAboutDiv",
+              "fill": "#C9A052",
+              "width": 56,
+              "height": 2
+            },
+            {
+              "type": "text",
+              "id": "6lBHp",
+              "name": "dAboutBody",
+              "fill": "#9A9590",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Origin Hair Collective was born from a simple belief: every woman deserves hair that makes her feel extraordinary. Based in the heart of Mississauga, we source only the finest virgin hair extensions — ethically sourced, meticulously crafted, and designed to last.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "DM Sans",
+              "fontSize": 17
+            },
+            {
+              "type": "text",
+              "id": "cF8cC",
+              "name": "dAboutEm",
+              "fill": "#C9A052",
+              "content": "This isn't just hair. It's your origin story.",
+              "textAlign": "center",
+              "fontFamily": "Fraunces",
+              "fontSize": 22,
+              "fontWeight": "500",
+              "fontStyle": "italic"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "9yZEE",
+          "name": "Products Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": 80,
+          "children": [
+            {
+              "type": "frame",
+              "id": "h4DGl",
+              "name": "dProdHeader",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Xphph",
+                  "name": "dProdLabel",
+                  "fill": "#C9A052",
+                  "content": "THE COLLECTION",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "BTBds",
+                  "name": "dProdH",
+                  "fill": "#FAF7F0",
+                  "content": "Premium Hair, Curated For You",
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 42,
+                  "fontWeight": "500",
+                  "letterSpacing": -0.8
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qdya7",
+              "name": "Products Grid",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Bk4Rl",
+                  "name": "Product Card - Bundles",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "#161412",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "yMR3l",
+                      "name": "dc1Img",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "zsarpong",
+                        "link": "https://unsplash.com/@zsarpong",
+                        "author": "Z Sarpong"
+                      },
+                      "width": "fill_container",
+                      "height": 280,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1672622934288-08b77766e7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI2MTB8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hhlYZ",
+                      "name": "dc1Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "T0A6v",
+                          "name": "dc1Tag",
+                          "fill": "#C9A052",
+                          "content": "BESTSELLER",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "jISxa",
+                          "name": "dc1Title",
+                          "fill": "#FAF7F0",
+                          "content": "Virgin Hair Bundles",
+                          "fontFamily": "Fraunces",
+                          "fontSize": 24,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.3
+                        },
+                        {
+                          "type": "text",
+                          "id": "waqan",
+                          "name": "dc1Desc",
+                          "fill": "#9A9590",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Brazilian, Peruvian & Malaysian textures. Straight, body wave, deep wave & more. 12\" to 30\" lengths.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "DM Sans",
+                          "fontSize": 14
+                        },
+                        {
+                          "type": "text",
+                          "id": "9p4u6",
+                          "name": "dc1Price",
+                          "fill": "#C9A052",
+                          "content": "From $85 CAD",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kjNO1",
+                  "name": "Product Card - Closures",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "#161412",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "COY0E",
+                      "name": "dc2Img",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "junaidrahxm",
+                        "link": "https://unsplash.com/@junaidrahxm",
+                        "author": "Junaid Rahim"
+                      },
+                      "width": "fill_container",
+                      "height": 280,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1768219778067-40d9edc03c5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI2MTF8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zB8q6",
+                      "name": "dc2Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "UIhuD",
+                          "name": "dc2Tag",
+                          "fill": "#B8816B",
+                          "content": "ESSENTIAL",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "eBhra",
+                          "name": "dc2Title",
+                          "fill": "#FAF7F0",
+                          "content": "Lace Closures",
+                          "fontFamily": "Fraunces",
+                          "fontSize": 24,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.3
+                        },
+                        {
+                          "type": "text",
+                          "id": "2tPSS",
+                          "name": "dc2Desc",
+                          "fill": "#9A9590",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "HD lace closures for a seamless, natural look. 4x4 and 5x5 options in every texture.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "DM Sans",
+                          "fontSize": 14
+                        },
+                        {
+                          "type": "text",
+                          "id": "qjjb2",
+                          "name": "dc2Price",
+                          "fill": "#B8816B",
+                          "content": "From $65 CAD",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QettN",
+                  "name": "Product Card - Frontals",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "#161412",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OeyOF",
+                      "name": "dc3Img",
+                      "width": "fill_container",
+                      "height": 280,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1770752613490.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "OIQQ8",
+                      "name": "dc3Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "EnOSz",
+                          "name": "dc3Tag",
+                          "fill": "#C9A052",
+                          "content": "PREMIUM",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "kAMyH",
+                          "name": "dc3Title",
+                          "fill": "#FAF7F0",
+                          "content": "Lace Frontals",
+                          "fontFamily": "Fraunces",
+                          "fontSize": 24,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.3
+                        },
+                        {
+                          "type": "text",
+                          "id": "5XKFr",
+                          "name": "dc3Desc",
+                          "fill": "#9A9590",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "13x4 and 13x6 HD lace frontals for full hairline coverage. Pre-plucked with bleached knots.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "DM Sans",
+                          "fontSize": 14
+                        },
+                        {
+                          "type": "text",
+                          "id": "LSoDd",
+                          "name": "dc3Price",
+                          "fill": "#C9A052",
+                          "content": "From $95 CAD",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BvNdx",
+          "name": "Why Origin Section",
+          "width": "fill_container",
+          "fill": "#161412",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": 80,
+          "children": [
+            {
+              "type": "frame",
+              "id": "sdIFu",
+              "name": "dBenHeader",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Ozoei",
+                  "name": "dBenLabel",
+                  "fill": "#C9A052",
+                  "content": "WHY ORIGIN",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "6KDMo",
+                  "name": "dBenH",
+                  "fill": "#FAF7F0",
+                  "content": "The Origin Difference",
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 42,
+                  "fontWeight": "500",
+                  "letterSpacing": -0.8
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "tdOjy",
+              "name": "dBenGrid",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "8wfo5",
+                  "name": "db1",
+                  "width": "fill_container",
+                  "fill": "#1E1C18",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05215"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "yf9H7",
+                      "name": "db1Wrap",
+                      "width": 52,
+                      "height": 52,
+                      "fill": "#C9A05215",
+                      "cornerRadius": 14,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "lGrZU",
+                          "name": "db1Icon",
+                          "width": 24,
+                          "height": 24,
+                          "iconFontName": "sparkles",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "2S3MQ",
+                      "name": "db1Title",
+                      "fill": "#FAF7F0",
+                      "content": "Ethically Sourced",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "EEw50",
+                      "name": "db1Desc",
+                      "fill": "#9A9590",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "100% virgin human hair from trusted suppliers. No synthetics, no shortcuts. Every bundle meets our luxury standard.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jNT0I",
+                  "name": "db2",
+                  "width": "fill_container",
+                  "fill": "#1E1C18",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05215"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ZqvmM",
+                      "name": "db2Wrap",
+                      "width": 52,
+                      "height": 52,
+                      "fill": "#C9A05215",
+                      "cornerRadius": 14,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "Zn5ia",
+                          "name": "db2Icon",
+                          "width": 24,
+                          "height": 24,
+                          "iconFontName": "heart",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "BhOfy",
+                      "name": "db2Title",
+                      "fill": "#FAF7F0",
+                      "content": "Built For Longevity",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ks8N9",
+                      "name": "db2Desc",
+                      "fill": "#9A9590",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Our hair lasts 12+ months with proper care. Minimal shedding, no tangling, and colour-safe. Invest once, slay all year.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "S1XH4",
+                  "name": "db3",
+                  "width": "fill_container",
+                  "fill": "#1E1C18",
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05215"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "dFSuH",
+                      "name": "db3Wrap",
+                      "width": 52,
+                      "height": 52,
+                      "fill": "#C9A05215",
+                      "cornerRadius": 14,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "MFDLX",
+                          "name": "db3Icon",
+                          "width": 24,
+                          "height": 24,
+                          "iconFontName": "users",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "ntmGS",
+                      "name": "db3Title",
+                      "fill": "#FAF7F0",
+                      "content": "Community First",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MIPcb",
+                      "name": "db3Desc",
+                      "fill": "#9A9590",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "More than a brand — we're a collective. Join a community of women who celebrate each other and uplift one another.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 15
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "nXQjU",
+          "name": "Testimonials Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            80,
+            200
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "iMccd",
+              "name": "dTestLabel",
+              "fill": "#C9A052",
+              "content": "WHAT THEY SAY",
+              "fontFamily": "DM Sans",
+              "fontSize": 12,
+              "fontWeight": "600",
+              "letterSpacing": 3
+            },
+            {
+              "type": "frame",
+              "id": "nDobQ",
+              "name": "dTestCard",
+              "width": "fill_container",
+              "fill": "#161412",
+              "cornerRadius": 20,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#C9A05215"
+              },
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                48,
+                64
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "uJOFU",
+                  "name": "dTestQIcon",
+                  "fill": "#C9A05230",
+                  "content": "“",
+                  "lineHeight": 0.5,
+                  "fontFamily": "Fraunces",
+                  "fontSize": 80
+                },
+                {
+                  "type": "text",
+                  "id": "frlND",
+                  "name": "dTestQuote",
+                  "fill": "#FAF7F0",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "I've tried every hair brand out there. Origin is different — the quality is unmatched, the texture is beautiful, and it literally lasts forever. I'm never going back.",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 20,
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "frame",
+                  "id": "5yoJb",
+                  "name": "dTestAuth",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "thCRs",
+                      "name": "dTestStars",
+                      "fill": "#C9A052",
+                      "content": "★ ★ ★ ★ ★",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "reMN7",
+                      "name": "dTestName",
+                      "fill": "#9A9590",
+                      "content": "— Jasmine T., Toronto",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QBBnF",
+          "name": "Community Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            80,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "42xgd",
+              "name": "dCommHeader",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                0,
+                80
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zd4d2",
+                  "name": "dCommLabel",
+                  "fill": "#C9A052",
+                  "content": "JOIN THE COLLECTIVE",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "BmW43",
+                  "name": "dCommH",
+                  "fill": "#FAF7F0",
+                  "content": "Follow the Journey",
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 42,
+                  "fontWeight": "500",
+                  "letterSpacing": -0.8
+                },
+                {
+                  "type": "text",
+                  "id": "VAmkk",
+                  "name": "dCommHandle",
+                  "fill": "#B8816B",
+                  "content": "@OriginHairCollective",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 16,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Cvbsx",
+              "name": "dPhotoGrid",
+              "width": "fill_container",
+              "height": 240,
+              "gap": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "OZKa9",
+                  "name": "dp1",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "krivitskiy",
+                    "link": "https://unsplash.com/@krivitskiy",
+                    "author": "Alexander Krivitskiy"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1612041712051-ed5c64a4646f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI2NjJ8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "ulXne",
+                  "name": "dp2",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "enginakyurt",
+                    "link": "https://unsplash.com/@enginakyurt",
+                    "author": "engin akyurt"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1583743599150-3b6048ecf084?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI2NjN8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "10uHA",
+                  "name": "dp3",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "jaysoundo",
+                    "link": "https://unsplash.com/@jaysoundo",
+                    "author": "Jay Soundo"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1760135119333-bc76583e498a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI2NjN8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "oTiIl",
+                  "name": "dp4",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "missswiss",
+                    "link": "https://unsplash.com/@missswiss",
+                    "author": "Ashley Piszek"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI2NjN8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "eFFVM",
+                  "name": "dp5",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "chasingfireflies",
+                    "link": "https://unsplash.com/@chasingfireflies",
+                    "author": "Gary Edmonstone"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1560564066-a3a5cfc81584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI2NjN8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "Cvn1t",
+                  "name": "dp6",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "natinati",
+                    "link": "https://unsplash.com/@natinati",
+                    "author": "Nataliya Melnychuk"
+                  },
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1709971393539-d95f2c0eae43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NTI2NjR8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wRf6B",
+          "name": "Final CTA",
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#1A1508",
+                "position": 0
+              },
+              {
+                "color": "#0B0A08",
+                "position": 1
+              }
+            ]
+          },
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            100,
+            200
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "VCEZ6",
+              "name": "dFCtaH",
+              "fill": "#FAF7F0",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Ready to Write Your Origin Story?",
+              "lineHeight": 1.15,
+              "textAlign": "center",
+              "fontFamily": "Fraunces",
+              "fontSize": 48,
+              "fontWeight": "500",
+              "letterSpacing": -1
+            },
+            {
+              "type": "text",
+              "id": "hnAMh",
+              "name": "dFCtaSub",
+              "fill": "#9A9590",
+              "textGrowth": "fixed-width",
+              "width": 640,
+              "content": "Join hundreds of women across the GTA who trust Origin Hair Collective for their premium hair needs. Experience the difference that quality makes.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "DM Sans",
+              "fontSize": 18
+            },
+            {
+              "type": "frame",
+              "id": "7lMjR",
+              "name": "dFCtaBtn",
+              "fill": "#C9A052",
+              "cornerRadius": 100,
+              "gap": 10,
+              "padding": [
+                20,
+                44
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qBFkt",
+                  "name": "dFCtaBtnTxt",
+                  "fill": "#0B0A08",
+                  "content": "SHOP THE COLLECTION",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 15,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "icon_font",
+                  "id": "Dam48",
+                  "name": "dFCtaBtnArr",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "arrow-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#0B0A08"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "DHpON",
+              "name": "dFCtaTrust",
+              "fill": "#6B6860",
+              "content": "Free shipping on orders over $150 · 30-day quality guarantee · Canadian Black-owned business",
+              "textAlign": "center",
+              "fontFamily": "DM Sans",
+              "fontSize": 13
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "7Iu6A",
+          "name": "Footer",
+          "width": "fill_container",
+          "fill": "#0A0908",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            56,
+            80,
+            40,
+            80
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "O4bmO",
+              "name": "dFooterTop",
+              "width": "fill_container",
+              "gap": 80,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "A6JQp",
+                  "name": "dFooterBrand",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Lq2km",
+                      "name": "dFLogo",
+                      "fill": "#C9A052",
+                      "content": "ORIGIN",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 22,
+                      "fontWeight": "600",
+                      "letterSpacing": 5
+                    },
+                    {
+                      "type": "text",
+                      "id": "e1r9w",
+                      "name": "dFTagline",
+                      "fill": "#6B6860",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Premium hair extensions for the woman who demands excellence. Based in Mississauga, serving the GTA and beyond.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "DM Sans",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "frame",
+                      "id": "IFdSx",
+                      "name": "dFSocials",
+                      "gap": 20,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "wGXwz",
+                          "name": "dFSIg",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "instagram",
+                          "iconFontFamily": "lucide",
+                          "fill": "#9A9590"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "qTcxS",
+                          "name": "dFSTt",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "music",
+                          "iconFontFamily": "lucide",
+                          "fill": "#9A9590"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "ruYg6",
+                          "name": "dFSMail",
+                          "width": 22,
+                          "height": 22,
+                          "iconFontName": "mail",
+                          "iconFontFamily": "lucide",
+                          "fill": "#9A9590"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qnOtN",
+                  "name": "dFC1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rBCvR",
+                      "name": "dFC1T",
+                      "fill": "#FAF7F0",
+                      "content": "Shop",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "WXhdw",
+                      "name": "dFC1a",
+                      "fill": "#6B6860",
+                      "content": "Bundles",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "vqzeC",
+                      "name": "dFC1b",
+                      "fill": "#6B6860",
+                      "content": "Closures",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "njns5",
+                      "name": "dFC1c",
+                      "fill": "#6B6860",
+                      "content": "Frontals",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "mVqh9",
+                      "name": "dFC1d",
+                      "fill": "#6B6860",
+                      "content": "Bundle Deals",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DxRH7",
+                  "name": "dFC2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xKJCm",
+                      "name": "dFC2T",
+                      "fill": "#FAF7F0",
+                      "content": "Company",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "JgO21",
+                      "name": "dFC2a",
+                      "fill": "#6B6860",
+                      "content": "Our Story",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "ft7CH",
+                      "name": "dFC2b",
+                      "fill": "#6B6860",
+                      "content": "Contact",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "COHcB",
+                      "name": "dFC2c",
+                      "fill": "#6B6860",
+                      "content": "Wholesale",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "RiffZ",
+                      "name": "dFC2d",
+                      "fill": "#6B6860",
+                      "content": "Ambassador Program",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZyeoK",
+                  "name": "dFC3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pZMg2",
+                      "name": "dFC3T",
+                      "fill": "#FAF7F0",
+                      "content": "Support",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "i7Uxk",
+                      "name": "dFC3a",
+                      "fill": "#6B6860",
+                      "content": "Hair Care Guide",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "uH6YI",
+                      "name": "dFC3b",
+                      "fill": "#6B6860",
+                      "content": "Shipping Info",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "E6aCx",
+                      "name": "dFC3c",
+                      "fill": "#6B6860",
+                      "content": "Returns & Exchanges",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "M2j2G",
+                      "name": "dFC3d",
+                      "fill": "#6B6860",
+                      "content": "FAQ",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "RJDwF",
+              "name": "dFDiv",
+              "fill": "#1E1C18",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "Zt1wj",
+              "name": "dFBottom",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "s5bXU",
+                  "name": "dFCopy",
+                  "fill": "#4A4840",
+                  "content": "© 2026 Origin Hair Collective. All rights reserved.",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12
+                },
+                {
+                  "type": "text",
+                  "id": "ZO7C8",
+                  "name": "dFLoc",
+                  "fill": "#4A4840",
+                  "content": "Mississauga, Ontario, Canada",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "YltaM",
+      "x": 0,
+      "y": 5480,
+      "name": "Business Card - Front",
+      "clip": true,
+      "width": 700,
+      "height": 400,
+      "fill": "#0B0A08",
+      "cornerRadius": 12,
+      "stroke": {
+        "align": "inside",
+        "thickness": 1,
+        "fill": "#C9A05230"
+      },
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "CAfxd",
+          "x": 0,
+          "y": 0,
+          "name": "frontInner",
+          "width": 700,
+          "height": 400,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            80
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "j5mQO",
+              "name": "frontAccentTop",
+              "fill": "#C9A052",
+              "width": 40,
+              "height": 1
+            },
+            {
+              "type": "text",
+              "id": "9Ax7J",
+              "name": "frontLogo",
+              "fill": "#C9A052",
+              "content": "ORIGIN",
+              "fontFamily": "Fraunces",
+              "fontSize": 42,
+              "fontWeight": "600",
+              "letterSpacing": 12
+            },
+            {
+              "type": "text",
+              "id": "wbqje",
+              "name": "frontSub",
+              "fill": "#9A9590",
+              "content": "HAIR COLLECTIVE",
+              "fontFamily": "DM Sans",
+              "fontSize": 11,
+              "fontWeight": "500",
+              "letterSpacing": 5
+            },
+            {
+              "type": "rectangle",
+              "id": "JvTSx",
+              "name": "frontAccentBot",
+              "fill": "#C9A052",
+              "width": 40,
+              "height": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "dYZjN",
+      "x": 780,
+      "y": 5480,
+      "name": "Business Card - Back",
+      "clip": true,
+      "width": 700,
+      "height": 400,
+      "fill": "#0B0A08",
+      "cornerRadius": 12,
+      "stroke": {
+        "align": "inside",
+        "thickness": 1,
+        "fill": "#C9A05230"
+      },
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "8Nul2",
+          "x": 0,
+          "y": 0,
+          "name": "backLayout",
+          "width": 700,
+          "height": 400,
+          "layout": "vertical",
+          "padding": [
+            48,
+            56
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "USDEU",
+              "name": "backTop",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BqUh3",
+                  "name": "backName",
+                  "fill": "#FAF7F0",
+                  "content": "Quinntyne Brown",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 28,
+                  "fontWeight": "500",
+                  "letterSpacing": -0.3
+                },
+                {
+                  "type": "text",
+                  "id": "dD7Y2",
+                  "name": "backTitle",
+                  "fill": "#C9A052",
+                  "content": "Founder & CEO",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "bSPnL",
+              "name": "backDivider",
+              "fill": "#C9A05240",
+              "width": 48,
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "ugBSN",
+              "name": "backBottom",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "SXcVE",
+                  "name": "backContact",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OcsSi",
+                      "name": "contactRow1",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "Txr8T",
+                          "name": "c1Icon",
+                          "width": 13,
+                          "height": 13,
+                          "iconFontName": "globe",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qeL58",
+                          "name": "c1Text",
+                          "fill": "#9A9590",
+                          "content": "originhaircollective.com",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 12
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fHwzW",
+                      "name": "contactRow2",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "blbri",
+                          "name": "c2Icon",
+                          "width": 13,
+                          "height": 13,
+                          "iconFontName": "mail",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        },
+                        {
+                          "type": "text",
+                          "id": "l64lZ",
+                          "name": "c2Text",
+                          "fill": "#9A9590",
+                          "content": "hello@originhaircollective.com",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 12
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "WjQsZ",
+                      "name": "contactRow3",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "st8CA",
+                          "name": "c3Icon",
+                          "width": 13,
+                          "height": 13,
+                          "iconFontName": "instagram",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        },
+                        {
+                          "type": "text",
+                          "id": "jFecK",
+                          "name": "c3Text",
+                          "fill": "#9A9590",
+                          "content": "@OriginHairCollective",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 12
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "0SdjU",
+                      "name": "contactRow4",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "6swq1",
+                          "name": "c4Icon",
+                          "width": 13,
+                          "height": 13,
+                          "iconFontName": "map-pin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#C9A052"
+                        },
+                        {
+                          "type": "text",
+                          "id": "TX6FA",
+                          "name": "c4Text",
+                          "fill": "#9A9590",
+                          "content": "Toronto, ON",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 12
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Cpt4B",
+                  "name": "backLogoWrap",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "AHEhJ",
+                      "name": "backLogo",
+                      "fill": "#C9A05240",
+                      "content": "ORIGIN",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 16,
+                      "fontWeight": "600",
+                      "letterSpacing": 4
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ArsFz",
+      "x": 0,
+      "y": 5980,
+      "name": "Coming Soon - IG Story (9:16)",
+      "clip": true,
+      "width": 390,
+      "height": 693,
+      "fill": "#0B0A08",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "9tXvQ",
+          "x": 0,
+          "y": 0,
+          "name": "BG Image",
+          "width": 390,
+          "height": 693,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/generated-1770754919820.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "wNFfG",
+          "x": 0,
+          "y": 0,
+          "name": "Overlay",
+          "width": 390,
+          "height": 693,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#0B0A0890",
+                "position": 0
+              },
+              {
+                "color": "#0B0A08CC",
+                "position": 0.4
+              },
+              {
+                "color": "#0B0A08F0",
+                "position": 0.75
+              },
+              {
+                "color": "#0B0A08",
+                "position": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "frame",
+          "id": "wRtEz",
+          "x": 0,
+          "y": 0,
+          "name": "Content",
+          "width": 390,
+          "height": 693,
+          "layout": "vertical",
+          "padding": [
+            48,
+            32
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "44r14",
+              "name": "storyTop",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tyHdz",
+                  "name": "storyLogo",
+                  "fill": "#C9A052",
+                  "content": "ORIGIN",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 20,
+                  "fontWeight": "600",
+                  "letterSpacing": 6
+                },
+                {
+                  "type": "text",
+                  "id": "haCny",
+                  "name": "storyLogoSub",
+                  "fill": "#9A9590",
+                  "content": "HAIR COLLECTIVE",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 9,
+                  "fontWeight": "500",
+                  "letterSpacing": 4
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bnjWy",
+              "name": "storyCenter",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "wBp90",
+                  "name": "storyAccent1",
+                  "fill": "#C9A052",
+                  "width": 32,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "P8y9a",
+                  "name": "storyComingLabel",
+                  "fill": "#FAF7F0",
+                  "content": "COMING SOON",
+                  "lineHeight": 1.1,
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 42,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "rectangle",
+                  "id": "abTy6",
+                  "name": "storyAccent2",
+                  "fill": "#C9A052",
+                  "width": 32,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "XWdU5",
+                  "name": "storyTagline",
+                  "fill": "#9A9590",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Premium Virgin Hair Extensions\nCrafted For Excellence",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14
+                },
+                {
+                  "type": "frame",
+                  "id": "lVWMe",
+                  "name": "storyDate",
+                  "fill": "#C9A05215",
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "padding": [
+                    10,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IAPCA",
+                      "name": "storyDateText",
+                      "fill": "#C9A052",
+                      "content": "SPRING 2026",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "iHuJI",
+              "name": "storyBottom",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZUkUD",
+                  "name": "storyHandle",
+                  "fill": "#6B6860",
+                  "content": "@OriginHairCollective",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "wLTTU",
+                  "name": "storyWebsite",
+                  "fill": "#4A4840",
+                  "content": "originhaircollective.com",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "M6yEG",
+      "x": 490,
+      "y": 5980,
+      "name": "Coming Soon - Square Post (1:1)",
+      "clip": true,
+      "width": 540,
+      "height": 540,
+      "fill": "#0B0A08",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "wWGsW",
+          "x": 0,
+          "y": 0,
+          "name": "BG Image",
+          "width": 540,
+          "height": 540,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/generated-1770754941912.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "5Dy5C",
+          "x": 0,
+          "y": 0,
+          "name": "Overlay",
+          "width": 540,
+          "height": 540,
+          "fill": [
+            "#0B0A08B0",
+            {
+              "type": "gradient",
+              "gradientType": "radial",
+              "enabled": true,
+              "rotation": 0,
+              "size": {
+                "width": 1,
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#0B0A0800",
+                  "position": 0
+                },
+                {
+                  "color": "#0B0A08E0",
+                  "position": 0.7
+                },
+                {
+                  "color": "#0B0A08",
+                  "position": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "L3208",
+          "x": 0,
+          "y": 0,
+          "name": "Content",
+          "width": 540,
+          "height": 540,
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 48,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "o0j4G",
+              "name": "sqLogo",
+              "fill": "#C9A052",
+              "content": "ORIGIN",
+              "fontFamily": "Fraunces",
+              "fontSize": 18,
+              "fontWeight": "600",
+              "letterSpacing": 6
+            },
+            {
+              "type": "rectangle",
+              "id": "ZbE6o",
+              "name": "sqAccent1",
+              "fill": "#C9A052",
+              "width": 40,
+              "height": 1
+            },
+            {
+              "type": "text",
+              "id": "bsHSL",
+              "name": "sqHeadline",
+              "fill": "#FAF7F0",
+              "content": "Coming\nSoon",
+              "lineHeight": 1.05,
+              "textAlign": "center",
+              "fontFamily": "Fraunces",
+              "fontSize": 56,
+              "fontWeight": "500",
+              "letterSpacing": 1
+            },
+            {
+              "type": "rectangle",
+              "id": "Da2R4",
+              "name": "sqAccent2",
+              "fill": "#C9A052",
+              "width": 40,
+              "height": 1
+            },
+            {
+              "type": "text",
+              "id": "3ZvvE",
+              "name": "sqTagline",
+              "fill": "#9A9590",
+              "content": "Premium Virgin Hair Extensions",
+              "textAlign": "center",
+              "fontFamily": "DM Sans",
+              "fontSize": 14,
+              "letterSpacing": 1
+            },
+            {
+              "type": "frame",
+              "id": "iDdvJ",
+              "name": "sqDatePill",
+              "fill": "#C9A05215",
+              "cornerRadius": 100,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#C9A05230"
+              },
+              "padding": [
+                10,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n8STd",
+                  "name": "sqDateTxt",
+                  "fill": "#C9A052",
+                  "content": "SPRING 2026",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "iVNBG",
+              "name": "sqHandle",
+              "fill": "#6B6860",
+              "content": "@OriginHairCollective",
+              "fontFamily": "DM Sans",
+              "fontSize": 11,
+              "fontWeight": "500"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "akkgu",
+      "x": 1130,
+      "y": 5980,
+      "name": "Coming Soon - Landscape (16:9)",
+      "clip": true,
+      "width": 700,
+      "height": 394,
+      "fill": "#0B0A08",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Fi6f5",
+          "x": 0,
+          "y": 0,
+          "name": "BG Image",
+          "width": 700,
+          "height": 394,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/generated-1770754964915.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "PEh9E",
+          "x": 0,
+          "y": 0,
+          "name": "Overlay",
+          "width": 700,
+          "height": 394,
+          "fill": [
+            "#0B0A08A0",
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 90,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#0B0A08",
+                  "position": 0
+                },
+                {
+                  "color": "#0B0A0860",
+                  "position": 0.45
+                },
+                {
+                  "color": "#0B0A08A0",
+                  "position": 0.7
+                },
+                {
+                  "color": "#0B0A08",
+                  "position": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "G9Gqv",
+          "x": 0,
+          "y": 0,
+          "name": "Content",
+          "width": 700,
+          "height": 394,
+          "padding": [
+            48,
+            56
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "IpMo2",
+              "name": "lsLeft",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CVaWD",
+                  "name": "lsLogo",
+                  "fill": "#C9A052",
+                  "content": "ORIGIN",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 16,
+                  "fontWeight": "600",
+                  "letterSpacing": 5
+                },
+                {
+                  "type": "text",
+                  "id": "LlbnJ",
+                  "name": "lsHL",
+                  "fill": "#FAF7F0",
+                  "content": "Coming Soon",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Fraunces",
+                  "fontSize": 48,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.5
+                },
+                {
+                  "type": "rectangle",
+                  "id": "KEm8e",
+                  "name": "lsDiv",
+                  "fill": "#C9A052",
+                  "width": 40,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "yEfpY",
+                  "name": "lsTag",
+                  "fill": "#9A9590",
+                  "textGrowth": "fixed-width",
+                  "width": 300,
+                  "content": "Premium Virgin Hair Extensions\nCrafted For Excellence",
+                  "lineHeight": 1.6,
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14
+                },
+                {
+                  "type": "frame",
+                  "id": "YvtVR",
+                  "name": "lsDatePill",
+                  "fill": "#C9A05215",
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "padding": [
+                    10,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Yy29c",
+                      "name": "lsDateTxt",
+                      "fill": "#C9A052",
+                      "content": "SPRING 2026",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VmLcp",
+              "name": "lsRight",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "justifyContent": "end",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "OCxAF",
+                  "name": "lsHandle",
+                  "fill": "#6B6860",
+                  "content": "@OriginHairCollective",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "36k1K",
+                  "name": "lsWeb",
+                  "fill": "#4A4840",
+                  "content": "originhaircollective.com",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
