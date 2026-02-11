@@ -13,3 +13,4 @@ export { FooterLinkColumnComponent, type FooterLink } from './lib/footer-link-co
 export { SocialIconsComponent, type SocialLink } from './lib/social-icons/social-icons';
 export { LogoComponent } from './lib/logo/logo';
 export { DividerComponent } from './lib/divider/divider';
+export { CloseButtonComponent } from './lib/close-button/close-button';

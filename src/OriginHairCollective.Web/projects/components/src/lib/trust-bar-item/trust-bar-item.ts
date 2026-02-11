@@ -1,10 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'lib-trust-bar-item',
   template: `
     <div class="trust-item">
-      <span class="trust-item__icon" [innerHTML]="iconSvg()"></span>
+      <span class="trust-item__icon" [innerHTML]="safeIcon()"></span>
       <span class="trust-item__text">{{ text() }}</span>
     </div>
   `,
@@ -19,11 +20,11 @@ import { Component, input } from '@angular/core';
       display: flex;
       align-items: center;
       color: #c9a052;
+    }
 
-      :host ::ng-deep svg {
-        width: 16px;
-        height: 16px;
-      }
+    :host ::ng-deep .trust-item__icon svg {
+      width: 16px;
+      height: 16px;
     }
 
     .trust-item__text {
@@ -39,7 +40,7 @@ import { Component, input } from '@angular/core';
         letter-spacing: 0.5px;
       }
 
-      .trust-item__icon :host ::ng-deep svg {
+      :host ::ng-deep .trust-item__icon svg {
         width: 14px;
         height: 14px;
       }
@@ -47,6 +48,10 @@ import { Component, input } from '@angular/core';
   `,
 })
 export class TrustBarItemComponent {
+  private sanitizer = inject(DomSanitizer);
+
   text = input.required<string>();
   iconSvg = input.required<string>();
+
+  safeIcon = computed(() => this.sanitizer.bypassSecurityTrustHtml(this.iconSvg()));
 }

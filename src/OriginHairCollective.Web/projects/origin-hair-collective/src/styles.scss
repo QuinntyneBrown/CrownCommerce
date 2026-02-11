@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-gold: #c9a052;
+  --color-rose: #b8816b;
+  --color-bg-primary: #0b0a08;
+  --color-bg-secondary: #161412;
+  --color-bg-card: #1e1c18;
+  --color-text-primary: #faf7f0;
+  --color-text-secondary: #9a9590;
+  --color-text-muted: #6b6860;
+  --color-text-faint: #4a4840;
+  --color-border: rgba(201, 160, 82, 0.082);
+  --color-gold-bg: rgba(201, 160, 82, 0.125);
+
+  --font-heading: 'Fraunces', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}

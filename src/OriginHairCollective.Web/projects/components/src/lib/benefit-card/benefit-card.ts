@@ -1,11 +1,12 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'lib-benefit-card',
   template: `
     <article class="benefit-card">
       <div class="benefit-card__icon-wrap">
-        <span class="benefit-card__icon" [innerHTML]="iconSvg()"></span>
+        <span class="benefit-card__icon" [innerHTML]="safeIcon()"></span>
       </div>
       <h3 class="benefit-card__title">{{ title() }}</h3>
       <p class="benefit-card__description">{{ description() }}</p>
@@ -36,11 +37,11 @@ import { Component, input } from '@angular/core';
       display: flex;
       align-items: center;
       color: #c9a052;
+    }
 
-      :host ::ng-deep svg {
-        width: 24px;
-        height: 24px;
-      }
+    :host ::ng-deep .benefit-card__icon svg {
+      width: 24px;
+      height: 24px;
     }
 
     .benefit-card__title {
@@ -71,7 +72,7 @@ import { Component, input } from '@angular/core';
         border-radius: 12px;
       }
 
-      .benefit-card__icon :host ::ng-deep svg {
+      :host ::ng-deep .benefit-card__icon svg {
         width: 22px;
         height: 22px;
       }
@@ -87,7 +88,11 @@ import { Component, input } from '@angular/core';
   `,
 })
 export class BenefitCardComponent {
+  private sanitizer = inject(DomSanitizer);
+
   iconSvg = input.required<string>();
   title = input.required<string>();
   description = input.required<string>();
+
+  safeIcon = computed(() => this.sanitizer.bypassSecurityTrustHtml(this.iconSvg()));
 }

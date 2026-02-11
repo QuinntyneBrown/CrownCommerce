@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(md-to-pdf:*)"
+      "Bash(md-to-pdf:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(npx ng build:*)",
+      "Bash(npx ng serve:*)"
     ]
   }
 }

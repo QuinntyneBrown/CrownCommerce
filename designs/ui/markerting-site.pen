@@ -144,7 +144,8 @@
               "content": "Premium virgin hair extensions crafted for the woman who demands excellence. Luxury you can feel, confidence you can see.",
               "lineHeight": 1.5,
               "fontFamily": "DM Sans",
-              "fontSize": 15
+              "fontSize": 15,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -358,7 +359,8 @@
               "lineHeight": 1.7,
               "textAlign": "center",
               "fontFamily": "DM Sans",
-              "fontSize": 15
+              "fontSize": 15,
+              "fontWeight": "normal"
             },
             {
               "type": "text",
@@ -501,7 +503,8 @@
                           "content": "Brazilian, Peruvian & Malaysian textures. Straight, body wave, deep wave & more. 12\" to 30\" lengths.",
                           "lineHeight": 1.5,
                           "fontFamily": "DM Sans",
-                          "fontSize": 13
+                          "fontSize": 13,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -587,7 +590,8 @@
                           "content": "HD lace closures for a seamless, natural look. 4x4 and 5x5 options in every texture. Invisible. Undetectable.",
                           "lineHeight": 1.5,
                           "fontFamily": "DM Sans",
-                          "fontSize": 13
+                          "fontSize": 13,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -667,7 +671,8 @@
                           "content": "13x4 and 13x6 HD lace frontals for full hairline coverage. Pre-plucked, bleached knots. Create any style.",
                           "lineHeight": 1.5,
                           "fontFamily": "DM Sans",
-                          "fontSize": 13
+                          "fontSize": 13,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -804,7 +809,8 @@
                       "content": "100% virgin human hair from trusted suppliers. No synthetics, no shortcuts. Every bundle meets our luxury standard.",
                       "lineHeight": 1.6,
                       "fontFamily": "DM Sans",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -867,7 +873,8 @@
                       "content": "Our hair lasts 12+ months with proper care. Minimal shedding, no tangling, and colour-safe. Invest once, slay all year.",
                       "lineHeight": 1.6,
                       "fontFamily": "DM Sans",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -930,7 +937,8 @@
                       "content": "More than a brand — we're a collective. Join a community of women who celebrate each other, share styling tips, and uplift one another.",
                       "lineHeight": 1.6,
                       "fontFamily": "DM Sans",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -987,7 +995,8 @@
                   "content": "“",
                   "lineHeight": 0.5,
                   "fontFamily": "Fraunces",
-                  "fontSize": 64
+                  "fontSize": 64,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "text",
@@ -1001,6 +1010,7 @@
                   "textAlign": "center",
                   "fontFamily": "DM Sans",
                   "fontSize": 16,
+                  "fontWeight": "normal",
                   "fontStyle": "italic"
                 },
                 {
@@ -1291,7 +1301,8 @@
               "lineHeight": 1.6,
               "textAlign": "center",
               "fontFamily": "DM Sans",
-              "fontSize": 15
+              "fontSize": 15,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -1337,7 +1348,8 @@
               "content": "Free shipping on orders over $150 · 30-day quality guarantee",
               "textAlign": "center",
               "fontFamily": "DM Sans",
-              "fontSize": 12
+              "fontSize": 12,
+              "fontWeight": "normal"
             }
           ]
         },
@@ -1385,7 +1397,8 @@
                   "content": "Premium hair extensions for the woman who demands excellence. Based in Mississauga, serving the GTA and beyond.",
                   "lineHeight": 1.6,
                   "fontFamily": "DM Sans",
-                  "fontSize": 13
+                  "fontSize": 13,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
@@ -1462,7 +1475,8 @@
                       "fill": "#6B6860",
                       "content": "Bundles",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -1471,7 +1485,8 @@
                       "fill": "#6B6860",
                       "content": "Closures",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -1480,7 +1495,8 @@
                       "fill": "#6B6860",
                       "content": "Frontals",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -1489,7 +1505,8 @@
                       "fill": "#6B6860",
                       "content": "Bundle Deals",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -1519,7 +1536,8 @@
                       "fill": "#6B6860",
                       "content": "Our Story",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -1528,7 +1546,8 @@
                       "fill": "#6B6860",
                       "content": "Contact",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -1537,7 +1556,8 @@
                       "fill": "#6B6860",
                       "content": "Wholesale",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -1546,7 +1566,8 @@
                       "fill": "#6B6860",
                       "content": "Ambassador Program",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -1576,7 +1597,8 @@
                       "fill": "#6B6860",
                       "content": "Hair Care Guide",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -1585,7 +1607,8 @@
                       "fill": "#6B6860",
                       "content": "Shipping Info",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -1594,7 +1617,8 @@
                       "fill": "#6B6860",
                       "content": "Returns",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -1603,7 +1627,8 @@
                       "fill": "#6B6860",
                       "content": "FAQ",
                       "fontFamily": "DM Sans",
-                      "fontSize": 12
+                      "fontSize": 12,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -1634,7 +1659,8 @@
                   "content": "© 2026 Origin Hair Collective. All rights reserved.",
                   "textAlign": "center",
                   "fontFamily": "DM Sans",
-                  "fontSize": 11
+                  "fontSize": 11,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "text",
@@ -1644,7 +1670,8 @@
                   "content": "Mississauga, Ontario, Canada",
                   "textAlign": "center",
                   "fontFamily": "DM Sans",
-                  "fontSize": 11
+                  "fontSize": 11,
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -1844,7 +1871,8 @@
                   "content": "Premium virgin hair extensions crafted for the woman who demands excellence. Luxury you can feel, confidence you can see.",
                   "lineHeight": 1.6,
                   "fontFamily": "DM Sans",
-                  "fontSize": 18
+                  "fontSize": 18,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
@@ -2129,7 +2157,8 @@
               "lineHeight": 1.7,
               "textAlign": "center",
               "fontFamily": "DM Sans",
-              "fontSize": 17
+              "fontSize": 17,
+              "fontWeight": "normal"
             },
             {
               "type": "text",
@@ -2265,7 +2294,8 @@
                           "content": "Brazilian, Peruvian & Malaysian textures. Straight, body wave, deep wave & more. 12\" to 30\" lengths.",
                           "lineHeight": 1.6,
                           "fontFamily": "DM Sans",
-                          "fontSize": 14
+                          "fontSize": 14,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -2351,7 +2381,8 @@
                           "content": "HD lace closures for a seamless, natural look. 4x4 and 5x5 options in every texture.",
                           "lineHeight": 1.6,
                           "fontFamily": "DM Sans",
-                          "fontSize": 14
+                          "fontSize": 14,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -2431,7 +2462,8 @@
                           "content": "13x4 and 13x6 HD lace frontals for full hairline coverage. Pre-plucked with bleached knots.",
                           "lineHeight": 1.6,
                           "fontFamily": "DM Sans",
-                          "fontSize": 14
+                          "fontSize": 14,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -2561,7 +2593,8 @@
                       "content": "100% virgin human hair from trusted suppliers. No synthetics, no shortcuts. Every bundle meets our luxury standard.",
                       "lineHeight": 1.6,
                       "fontFamily": "DM Sans",
-                      "fontSize": 15
+                      "fontSize": 15,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -2624,7 +2657,8 @@
                       "content": "Our hair lasts 12+ months with proper care. Minimal shedding, no tangling, and colour-safe. Invest once, slay all year.",
                       "lineHeight": 1.6,
                       "fontFamily": "DM Sans",
-                      "fontSize": 15
+                      "fontSize": 15,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -2687,7 +2721,8 @@
                       "content": "More than a brand — we're a collective. Join a community of women who celebrate each other and uplift one another.",
                       "lineHeight": 1.6,
                       "fontFamily": "DM Sans",
-                      "fontSize": 15
+                      "fontSize": 15,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -2747,7 +2782,8 @@
                   "content": "“",
                   "lineHeight": 0.5,
                   "fontFamily": "Fraunces",
-                  "fontSize": 80
+                  "fontSize": 80,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "text",
@@ -2761,6 +2797,7 @@
                   "textAlign": "center",
                   "fontFamily": "DM Sans",
                   "fontSize": 20,
+                  "fontWeight": "normal",
                   "fontStyle": "italic"
                 },
                 {
@@ -3041,7 +3078,8 @@
               "lineHeight": 1.6,
               "textAlign": "center",
               "fontFamily": "DM Sans",
-              "fontSize": 18
+              "fontSize": 18,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -3087,7 +3125,8 @@
               "content": "Free shipping on orders over $150 · 30-day quality guarantee · Canadian Black-owned business",
               "textAlign": "center",
               "fontFamily": "DM Sans",
-              "fontSize": 13
+              "fontSize": 13,
+              "fontWeight": "normal"
             }
           ]
         },
@@ -3142,7 +3181,8 @@
                       "content": "Premium hair extensions for the woman who demands excellence. Based in Mississauga, serving the GTA and beyond.",
                       "lineHeight": 1.6,
                       "fontFamily": "DM Sans",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "frame",
@@ -3211,7 +3251,8 @@
                       "fill": "#6B6860",
                       "content": "Bundles",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -3220,7 +3261,8 @@
                       "fill": "#6B6860",
                       "content": "Closures",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -3229,7 +3271,8 @@
                       "fill": "#6B6860",
                       "content": "Frontals",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -3238,7 +3281,8 @@
                       "fill": "#6B6860",
                       "content": "Bundle Deals",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -3268,7 +3312,8 @@
                       "fill": "#6B6860",
                       "content": "Our Story",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -3277,7 +3322,8 @@
                       "fill": "#6B6860",
                       "content": "Contact",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -3286,7 +3332,8 @@
                       "fill": "#6B6860",
                       "content": "Wholesale",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -3295,7 +3342,8 @@
                       "fill": "#6B6860",
                       "content": "Ambassador Program",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -3325,7 +3373,8 @@
                       "fill": "#6B6860",
                       "content": "Hair Care Guide",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -3334,7 +3383,8 @@
                       "fill": "#6B6860",
                       "content": "Shipping Info",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -3343,7 +3393,8 @@
                       "fill": "#6B6860",
                       "content": "Returns & Exchanges",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -3352,7 +3403,8 @@
                       "fill": "#6B6860",
                       "content": "FAQ",
                       "fontFamily": "DM Sans",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -3381,7 +3433,8 @@
                   "fill": "#4A4840",
                   "content": "© 2026 Origin Hair Collective. All rights reserved.",
                   "fontFamily": "DM Sans",
-                  "fontSize": 12
+                  "fontSize": 12,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "text",
@@ -3390,7 +3443,8 @@
                   "fill": "#4A4840",
                   "content": "Mississauga, Ontario, Canada",
                   "fontFamily": "DM Sans",
-                  "fontSize": 12
+                  "fontSize": 12,
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -3587,7 +3641,8 @@
                           "fill": "#9A9590",
                           "content": "originhaircollective.com",
                           "fontFamily": "DM Sans",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -3615,7 +3670,8 @@
                           "fill": "#9A9590",
                           "content": "hello@originhaircollective.com",
                           "fontFamily": "DM Sans",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -3643,7 +3699,8 @@
                           "fill": "#9A9590",
                           "content": "@OriginHairCollective",
                           "fontFamily": "DM Sans",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -3671,7 +3728,8 @@
                           "fill": "#9A9590",
                           "content": "Toronto, ON",
                           "fontFamily": "DM Sans",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -3864,7 +3922,8 @@
                   "lineHeight": 1.6,
                   "textAlign": "center",
                   "fontFamily": "DM Sans",
-                  "fontSize": 14
+                  "fontSize": 14,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
@@ -3923,7 +3982,8 @@
                   "fill": "#4A4840",
                   "content": "originhaircollective.com",
                   "fontFamily": "DM Sans",
-                  "fontSize": 11
+                  "fontSize": 11,
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -4057,6 +4117,7 @@
               "textAlign": "center",
               "fontFamily": "DM Sans",
               "fontSize": 14,
+              "fontWeight": "normal",
               "letterSpacing": 1
             },
             {
@@ -4231,7 +4292,8 @@
                   "content": "Premium Virgin Hair Extensions\nCrafted For Excellence",
                   "lineHeight": 1.6,
                   "fontFamily": "DM Sans",
-                  "fontSize": 14
+                  "fontSize": 14,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
@@ -4291,9 +4353,466 @@
                   "fill": "#4A4840",
                   "content": "originhaircollective.com",
                   "fontFamily": "DM Sans",
-                  "fontSize": 10
+                  "fontSize": 10,
+                  "fontWeight": "normal"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "MBcOM",
+      "x": 0,
+      "y": 6773,
+      "name": "Favicon / ICO Design",
+      "width": 900,
+      "fill": "#0F0E0C",
+      "layout": "vertical",
+      "gap": 40,
+      "padding": 48,
+      "children": [
+        {
+          "type": "text",
+          "id": "y5VIE",
+          "name": "title",
+          "fill": "#C9A052",
+          "content": "Favicon / ICO Design",
+          "fontFamily": "Fraunces",
+          "fontSize": 28,
+          "fontWeight": "600",
+          "letterSpacing": 2
+        },
+        {
+          "type": "text",
+          "id": "DYcyO",
+          "name": "subtitle",
+          "fill": "#9A9590",
+          "content": "Web favicon for Origin Hair Collective — optimized for 16×16 through 256×256",
+          "fontFamily": "DM Sans",
+          "fontSize": 13
+        },
+        {
+          "type": "frame",
+          "id": "t9EX4",
+          "name": "previewRow",
+          "width": "fill_container",
+          "gap": 32,
+          "alignItems": "end",
+          "children": [
+            {
+              "type": "frame",
+              "id": "yQNW5",
+              "name": "lblWrap",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "mUe2Z",
+                  "name": "256x256 Reference",
+                  "width": 256,
+                  "height": 256,
+                  "fill": "#0B0A08",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "rVYTY",
+                      "x": 28,
+                      "y": 28,
+                      "name": "bgRing",
+                      "fill": "transparent",
+                      "width": 200,
+                      "height": 200,
+                      "stroke": {
+                        "align": "center",
+                        "thickness": 3,
+                        "fill": "#C9A052"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZO1u5",
+                      "x": 80,
+                      "y": 52,
+                      "name": "monogram",
+                      "fill": "#C9A052",
+                      "content": "O",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 120,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "qoDHq",
+                      "x": 108,
+                      "y": 20,
+                      "name": "accentTop",
+                      "fill": "#C9A052",
+                      "width": 40,
+                      "height": 2
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "YC1hp",
+                      "x": 108,
+                      "y": 234,
+                      "name": "accentBot",
+                      "fill": "#C9A052",
+                      "width": 40,
+                      "height": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "0GC8P",
+                  "name": "lbl256",
+                  "fill": "#9A9590",
+                  "content": "256×256 (reference)",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "u6ez2",
+              "name": "preview64",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "djITT",
+                  "name": "64x64",
+                  "width": 64,
+                  "height": 64,
+                  "fill": "#0B0A08",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "aDQtY",
+                      "x": 7,
+                      "y": 7,
+                      "name": "ring64",
+                      "width": 50,
+                      "height": 50,
+                      "stroke": {
+                        "align": "center",
+                        "thickness": 1.5,
+                        "fill": "#C9A052"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "WFgPb",
+                      "x": 20,
+                      "y": 12,
+                      "name": "o64",
+                      "fill": "#C9A052",
+                      "content": "O",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 30,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "lLrjW",
+                      "x": 27,
+                      "y": 5,
+                      "name": "at64",
+                      "fill": "#C9A052",
+                      "width": 10,
+                      "height": 1
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "1QRnM",
+                      "x": 27,
+                      "y": 58,
+                      "name": "ab64",
+                      "fill": "#C9A052",
+                      "width": 10,
+                      "height": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "uaNxu",
+                  "name": "lbl64",
+                  "fill": "#9A9590",
+                  "content": "64×64",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VxPsF",
+              "name": "preview48",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "6fK0N",
+                  "name": "48x48",
+                  "width": 48,
+                  "height": 48,
+                  "fill": "#0B0A08",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "HxQ9N",
+                      "x": 5,
+                      "y": 5,
+                      "name": "ring48",
+                      "width": 38,
+                      "height": 38,
+                      "stroke": {
+                        "align": "center",
+                        "thickness": 1,
+                        "fill": "#C9A052"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "EonlH",
+                      "x": 15,
+                      "y": 9,
+                      "name": "o48",
+                      "fill": "#C9A052",
+                      "content": "O",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 22,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "uVab4",
+                      "x": 20,
+                      "y": 3,
+                      "name": "at48",
+                      "fill": "#C9A052",
+                      "width": 8,
+                      "height": 1
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "WLp7o",
+                      "x": 20,
+                      "y": 44,
+                      "name": "ab48",
+                      "fill": "#C9A052",
+                      "width": 8,
+                      "height": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "jirk1",
+                  "name": "lbl48",
+                  "fill": "#9A9590",
+                  "content": "48×48",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jvhCA",
+              "name": "preview32",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "15PLK",
+                  "name": "32x32",
+                  "width": 32,
+                  "height": 32,
+                  "fill": "#0B0A08",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "BRl5M",
+                      "x": 3,
+                      "y": 3,
+                      "name": "ring32",
+                      "width": 26,
+                      "height": 26,
+                      "stroke": {
+                        "align": "center",
+                        "thickness": 1,
+                        "fill": "#C9A052"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "8IfG6",
+                      "x": 9,
+                      "y": 5,
+                      "name": "o32",
+                      "fill": "#C9A052",
+                      "content": "O",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "NbuQE",
+                  "name": "lbl32",
+                  "fill": "#9A9590",
+                  "content": "32×32",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ErSZW",
+              "name": "preview16",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zYR9B",
+                  "name": "16x16",
+                  "width": 16,
+                  "height": 16,
+                  "fill": "#0B0A08",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "Cr50B",
+                      "x": 1,
+                      "y": 1,
+                      "name": "ring16",
+                      "width": 14,
+                      "height": 14,
+                      "stroke": {
+                        "align": "center",
+                        "thickness": 1,
+                        "fill": "#C9A052"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "UqA3f",
+                      "x": 4,
+                      "y": 2,
+                      "name": "o16",
+                      "fill": "#C9A052",
+                      "content": "O",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 8,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Ee5oD",
+                  "name": "lbl16",
+                  "fill": "#9A9590",
+                  "content": "16×16",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "xU2cX",
+          "name": "divider",
+          "fill": "#C9A05220",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "frame",
+          "id": "C7Nfl",
+          "name": "specNotes",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "rlb4E",
+              "name": "n1",
+              "fill": "#FAF7F0",
+              "content": "ICO Sizes: 16×16 · 32×32 · 48×48 · 64×64 · 256×256",
+              "fontFamily": "DM Sans",
+              "fontSize": 12,
+              "fontWeight": "500"
+            },
+            {
+              "type": "text",
+              "id": "ijidK",
+              "name": "n2",
+              "fill": "#9A9590",
+              "content": "Background: #0B0A08  ·  Accent: #C9A052 (gold)  ·  Font: Fraunces SemiBold",
+              "fontFamily": "DM Sans",
+              "fontSize": 11
+            },
+            {
+              "type": "text",
+              "id": "abxg0",
+              "name": "n3",
+              "fill": "#9A9590",
+              "content": "Design: Gold \"O\" monogram with circular ring border and accent lines",
+              "fontFamily": "DM Sans",
+              "fontSize": 11
             }
           ]
         }

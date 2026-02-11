@@ -1,0 +1,122 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero__content">
+    <lib-badge text="NOW ACCEPTING PRE-ORDERS" />
+    <h1 class="hero__headline">Your Hair, Your Origin Story</h1>
+    <p class="hero__subline">
+      Premium virgin hair extensions crafted for the woman who demands excellence.
+      Luxury you can feel, confidence you can see.
+    </p>
+    <div class="hero__cta-row">
+      <lib-button variant="primary" [showArrow]="true">SHOP THE COLLECTION</lib-button>
+      <lib-button variant="secondary">OUR STORY</lib-button>
+    </div>
+  </div>
+  <div class="hero__image"></div>
+</section>
+
+<!-- Trust Bar -->
+<section class="trust-bar">
+  @for (item of trustItems; track item.text) {
+    <lib-trust-bar-item [text]="item.text" [iconSvg]="item.icon" />
+  }
+</section>
+
+<!-- Brand Story -->
+<section class="brand-story" id="story">
+  <lib-section-header label="OUR STORY" heading="Where Luxury Meets Community" />
+  <lib-divider variant="accent" />
+  <p class="brand-story__body">
+    Origin Hair Collective was born from a simple belief: every woman deserves hair that
+    makes her feel extraordinary. Based in the heart of Mississauga, we source only the
+    finest virgin hair extensions — ethically sourced, meticulously crafted, and designed
+    to last.
+  </p>
+  <p class="brand-story__emphasis">This isn't just hair. It's your origin story.</p>
+</section>
+
+<!-- Products Section -->
+<section class="products" id="collection">
+  <lib-section-header label="THE COLLECTION" heading="Premium Hair, Curated For You" />
+  <div class="products__grid">
+    <lib-product-card
+      imageUrl="https://images.unsplash.com/photo-1672622934288-08b77766e7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
+      tag="BESTSELLER"
+      title="Virgin Hair Bundles"
+      description="Brazilian, Peruvian & Malaysian textures. Straight, body wave, deep wave & more. 12&quot; to 30&quot; lengths."
+      price="From $85 CAD"
+    />
+    <lib-product-card
+      imageUrl="https://images.unsplash.com/photo-1768219778067-40d9edc03c5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
+      tag="ESSENTIAL"
+      title="Lace Closures"
+      description="HD lace closures for a seamless, natural look. 4x4 and 5x5 options in every texture."
+      price="From $65 CAD"
+      tagColor="rose"
+    />
+    <lib-product-card
+      imageUrl="https://images.unsplash.com/photo-1560564066-a3a5cfc81584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
+      tag="PREMIUM"
+      title="Lace Frontals"
+      description="13x4 and 13x6 HD lace frontals for full hairline coverage. Pre-plucked with bleached knots."
+      price="From $95 CAD"
+    />
+  </div>
+</section>
+
+<!-- Why Origin Section -->
+<section class="benefits" id="care">
+  <lib-section-header label="WHY ORIGIN" heading="The Origin Difference" />
+  <div class="benefits__grid">
+    <lib-benefit-card
+      [iconSvg]="sparklesIcon"
+      title="Ethically Sourced"
+      description="100% virgin human hair from trusted suppliers. No synthetics, no shortcuts. Every bundle meets our luxury standard."
+    />
+    <lib-benefit-card
+      [iconSvg]="heartIcon"
+      title="Built For Longevity"
+      description="Our hair lasts 12+ months with proper care. Minimal shedding, no tangling, and colour-safe. Invest once, slay all year."
+    />
+    <lib-benefit-card
+      [iconSvg]="usersIcon"
+      title="Community First"
+      description="More than a brand — we're a collective. Join a community of women who celebrate each other and uplift one another."
+    />
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+  <span class="section-label">WHAT THEY SAY</span>
+  <lib-testimonial-card
+    quote="I've tried every hair brand out there. Origin is different — the quality is unmatched, the texture is beautiful, and it literally lasts forever. I'm never going back."
+    author="Jasmine T., Toronto"
+  />
+</section>
+
+<!-- Community Section -->
+<section class="community">
+  <div class="community__header">
+    <lib-section-header label="JOIN THE COLLECTIVE" heading="Follow the Journey" />
+    <span class="community__handle">&#64;OriginHairCollective</span>
+  </div>
+  <div class="community__photos">
+    @for (photo of communityPhotos; track photo.alt) {
+      <div class="community__photo" [style.background-image]="'url(' + photo.url + ')'"></div>
+    }
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <h2 class="final-cta__heading">Ready to Write Your Origin Story?</h2>
+  <p class="final-cta__sub">
+    Join hundreds of women across the GTA who trust Origin Hair Collective for their
+    premium hair needs. Experience the difference that quality makes.
+  </p>
+  <lib-button variant="primary" size="large" [showArrow]="true">SHOP THE COLLECTION</lib-button>
+  <p class="final-cta__trust">
+    Free shipping on orders over $150 · 30-day quality guarantee · Canadian Black-owned business
+  </p>
+</section>
