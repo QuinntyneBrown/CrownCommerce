@@ -9,6 +9,7 @@ import {
   DividerComponent,
 } from 'components';
 import type { FooterLink, SocialLink } from 'components';
+import { ChatWidgetComponent } from '../chat-widget/chat-widget';
 
 @Component({
   selector: 'app-main-layout',
@@ -20,6 +21,7 @@ import type { FooterLink, SocialLink } from 'components';
     SocialIconsComponent,
     LogoComponent,
     DividerComponent,
+    ChatWidgetComponent,
   ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',
