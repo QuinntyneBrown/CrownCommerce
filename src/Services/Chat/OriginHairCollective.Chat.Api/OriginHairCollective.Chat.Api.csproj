@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="MassTransit.RabbitMQ" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OriginHairCollective.Chat.Application\OriginHairCollective.Chat.Application.csproj" />
+    <ProjectReference Include="..\OriginHairCollective.Chat.Infrastructure\OriginHairCollective.Chat.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Aspire\OriginHairCollective.ServiceDefaults\OriginHairCollective.ServiceDefaults.csproj" />
+  </ItemGroup>
+</Project>

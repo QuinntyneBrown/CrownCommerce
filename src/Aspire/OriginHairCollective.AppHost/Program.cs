@@ -22,6 +22,9 @@ var notificationApi = builder.AddProject<Projects.OriginHairCollective_Notificat
 
 var identityApi = builder.AddProject<Projects.OriginHairCollective_Identity_Api>("identity-api");
 
+var chatApi = builder.AddProject<Projects.OriginHairCollective_Chat_Api>("chat-api")
+    .WithReference(messaging);
+
 var apiGateway = builder.AddProject<Projects.OriginHairCollective_ApiGateway>("api-gateway")
     .WithReference(catalogApi)
     .WithReference(inquiryApi)
@@ -29,7 +32,8 @@ var apiGateway = builder.AddProject<Projects.OriginHairCollective_ApiGateway>("a
     .WithReference(paymentApi)
     .WithReference(contentApi)
     .WithReference(notificationApi)
-    .WithReference(identityApi);
+    .WithReference(identityApi)
+    .WithReference(chatApi);
 
 builder.AddNpmApp("angular", "../../Web/origin-hair-collective-web", "start")
     .WithReference(apiGateway)

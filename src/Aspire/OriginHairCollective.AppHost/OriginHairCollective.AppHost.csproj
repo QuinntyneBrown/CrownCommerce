@@ -1,4 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -19,6 +20,7 @@
     <ProjectReference Include="..\..\Services\Content\OriginHairCollective.Content.Api\OriginHairCollective.Content.Api.csproj" />
     <ProjectReference Include="..\..\Services\Notification\OriginHairCollective.Notification.Api\OriginHairCollective.Notification.Api.csproj" />
     <ProjectReference Include="..\..\Services\Identity\OriginHairCollective.Identity.Api\OriginHairCollective.Identity.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Chat\OriginHairCollective.Chat.Api\OriginHairCollective.Chat.Api.csproj" />
     <ProjectReference Include="..\..\Gateway\OriginHairCollective.ApiGateway\OriginHairCollective.ApiGateway.csproj" />
   </ItemGroup>
 

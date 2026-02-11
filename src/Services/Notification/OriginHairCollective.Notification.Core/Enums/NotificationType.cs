@@ -8,5 +8,6 @@ public enum NotificationType
     ShippingUpdate,
     RefundConfirmation,
     InquiryAcknowledgment,
-    WholesaleFollowUp
+    WholesaleFollowUp,
+    ChatConversationStarted
 }
