@@ -1056,7 +1056,7 @@ src/Services/Newsletter/
 │   │   ├── SmtpEmailSender.cs
 │   │   └── EmailContentProcessor.cs
 │   ├── Mapping/
-│   │   └── NewsletterMappingExtensions.cs
+│   │   └── NewsletterMapping.cs
 │   └── Services/
 │       ├── INewsletterSubscriptionService.cs
 │       ├── NewsletterSubscriptionService.cs

@@ -72,7 +72,8 @@
           "fill": "$sidebar-text-muted",
           "content": "Products",
           "fontFamily": "DM Sans",
-          "fontSize": 14
+          "fontSize": 14,
+          "fontWeight": "normal"
         }
       ]
     },
@@ -8040,7 +8041,7 @@
                               "content": "Hero Title"
                             },
                             "VrQ27": {
-                              "content": "e.g. Premium Hair Extensions"
+                              "content": "e.g. Premium Hair"
                             }
                           }
                         },

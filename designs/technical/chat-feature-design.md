@@ -56,7 +56,7 @@ src/Services/Chat/
       SendMessageDto.cs
       ConversationSummaryDto.cs
     Mapping/
-      ChatMappingExtensions.cs
+      ChatMapping.cs
     Services/
       IChatService.cs
       ChatService.cs
