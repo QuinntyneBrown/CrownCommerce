@@ -146,10 +146,10 @@ Check each box if the red flag is **absent** (i.e., no red flag found). If any b
 
 | Score Range | Rating | Action |
 |---|---|---|
-| **110-135** | Excellent | Strong candidate — proceed with a trial order |
-| **85-109** | Good | Viable option — negotiate on weak areas |
-| **60-84** | Fair | Proceed with caution — significant gaps to address before ordering |
-| **Below 60** | Poor | Not recommended — look for better alternatives |
+| **108-135** | Excellent | Strong candidate — proceed with a trial order |
+| **85-107** | Good | Viable option — negotiate on weak areas |
+| **62-84** | Fair | Proceed with caution — significant gaps to address before ordering |
+| **Below 62** | Poor | Not recommended — look for better alternatives |
 
 ---
 
