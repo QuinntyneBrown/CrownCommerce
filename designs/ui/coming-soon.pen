@@ -1,0 +1,1311 @@
+{
+  "version": "2.7",
+  "children": [
+    {
+      "type": "frame",
+      "id": "tUsAg",
+      "x": 322,
+      "y": 11672,
+      "name": "Coming Soon - Mobile (390px)",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#0B0A08",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "2OKJ2",
+          "x": 0,
+          "y": 0,
+          "name": "BG Image",
+          "width": 390,
+          "height": 844,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/Hero Image.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "BqoMU",
+          "x": 0,
+          "y": 0,
+          "name": "Overlay",
+          "width": 390,
+          "height": 844,
+          "fill": [
+            "#0B0A08B0",
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 0,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#0B0A0800",
+                  "position": 0
+                },
+                {
+                  "color": "#0B0A08D0",
+                  "position": 0.5
+                },
+                {
+                  "color": "#0B0A08F0",
+                  "position": 0.8
+                },
+                {
+                  "color": "#0B0A08",
+                  "position": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rPgie",
+          "x": 0,
+          "y": 0,
+          "name": "Content",
+          "width": 390,
+          "height": 844,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "opacity": 0.08,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 0.8
+            },
+            "colors": [
+              {
+                "color": "#C9A052",
+                "position": 0
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ],
+            "center": {
+              "y": 0.35
+            }
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "PhSFF",
+              "name": "Header",
+              "width": "fill_container",
+              "height": 64,
+              "padding": [
+                0,
+                24
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Ngdq0",
+                  "name": "Logo Block",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JjAGZ",
+                      "name": "mName",
+                      "fill": "$accent-gold",
+                      "content": "ORIGIN",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 22,
+                      "fontWeight": "600",
+                      "letterSpacing": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "JC00v",
+                      "name": "mSub",
+                      "fill": "$text-secondary",
+                      "content": "HAIR COLLECTIVE",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 8,
+                      "fontWeight": "500",
+                      "letterSpacing": 3
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "P9kJU",
+              "name": "Hero Content",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                0,
+                32
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "0HBaq",
+                  "name": "Accent Line Top",
+                  "fill": "$accent-gold",
+                  "width": 32,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "fJc0I",
+                  "name": "Headline",
+                  "fill": "$text-primary",
+                  "content": "COMING SOON",
+                  "lineHeight": 1.1,
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 42,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "rectangle",
+                  "id": "mw0cx",
+                  "name": "Accent Line Bottom",
+                  "fill": "$accent-gold",
+                  "width": 32,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "ggr5v",
+                  "name": "Tagline",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Premium virgin hair crafted for the woman who demands excellence. Luxury you can feel, confidence you can see.",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "4bKKy",
+                  "name": "Email Signup",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "y9Afy",
+                      "name": "Email Input",
+                      "width": "fill_container",
+                      "height": 52,
+                      "cornerRadius": 100,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#C9A05230"
+                      },
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        20
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "dl3MG",
+                          "name": "emailIcon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "mail",
+                          "iconFontFamily": "lucide",
+                          "fill": "$text-tertiary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "SzUHG",
+                          "name": "emailPlaceholder",
+                          "fill": "$text-tertiary",
+                          "content": "Enter your email address",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9dSor",
+                      "name": "Notify Button",
+                      "width": "fill_container",
+                      "height": 52,
+                      "fill": "$accent-gold",
+                      "cornerRadius": 100,
+                      "gap": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "axa43",
+                          "name": "notifyText",
+                          "fill": "#0B0A08",
+                          "content": "GET NOTIFIED",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.2
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "xHhyR",
+                          "name": "notifyArrow",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "arrow-right",
+                          "iconFontFamily": "lucide",
+                          "fill": "#0B0A08"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "9FJoD",
+                  "name": "Date Badge",
+                  "fill": "#C9A05215",
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "padding": [
+                    10,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "soIFY",
+                      "name": "dateText",
+                      "fill": "$accent-gold",
+                      "content": "SPRING 2026",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "MGNCx",
+              "name": "Footer",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                24,
+                24,
+                32,
+                24
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "fwEUY",
+                  "name": "Social Links",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "Hg9id",
+                      "name": "igIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "instagram",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-secondary"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "3sPJN",
+                      "name": "ttIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "music",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-secondary"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "fEH2N",
+                      "name": "mailIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "mail",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "URGg9",
+                  "name": "handleText",
+                  "fill": "$text-tertiary",
+                  "content": "@OriginHairCollective",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "i7vMQ",
+                  "name": "copyright",
+                  "fill": "$text-muted",
+                  "content": "© 2026 Origin Hair Collective. All rights reserved.",
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "3YMAl",
+      "x": 822,
+      "y": 11672,
+      "name": "Coming Soon - Desktop (1440px)",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#0B0A08",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "e1Liw",
+          "x": 0,
+          "y": 0,
+          "name": "BG Image",
+          "width": 1440,
+          "height": 900,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/Hero Image.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "7MpYa",
+          "x": 0,
+          "y": 0,
+          "name": "Overlay",
+          "width": 1440,
+          "height": 900,
+          "fill": [
+            "#0B0A08B0",
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 0,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#0B0A0800",
+                  "position": 0
+                },
+                {
+                  "color": "#0B0A08D0",
+                  "position": 0.5
+                },
+                {
+                  "color": "#0B0A08F0",
+                  "position": 0.8
+                },
+                {
+                  "color": "#0B0A08",
+                  "position": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QDKWQ",
+          "x": 0,
+          "y": 0,
+          "name": "Content",
+          "width": 1440,
+          "height": 900,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "opacity": 0.06,
+            "rotation": 0,
+            "size": {
+              "width": 0.6,
+              "height": 0.7
+            },
+            "colors": [
+              {
+                "color": "#C9A052",
+                "position": 0
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ],
+            "center": {
+              "y": 0.4
+            }
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ztjhz",
+              "name": "Header",
+              "width": "fill_container",
+              "height": 80,
+              "padding": [
+                0,
+                80
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "7imrb",
+                  "name": "Logo Block",
+                  "layout": "vertical",
+                  "gap": 3,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "EZrPs",
+                      "name": "dName",
+                      "fill": "$accent-gold",
+                      "content": "ORIGIN",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 24,
+                      "fontWeight": "600",
+                      "letterSpacing": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "wnvza",
+                      "name": "dSub",
+                      "fill": "$text-secondary",
+                      "content": "HAIR COLLECTIVE",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 9,
+                      "fontWeight": "500",
+                      "letterSpacing": 4
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "1YUAU",
+              "name": "Hero Content",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                0,
+                80
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "gpwtc",
+                  "name": "Accent Line Top",
+                  "fill": "$accent-gold",
+                  "width": 48,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "EHXbg",
+                  "name": "Headline",
+                  "fill": "$text-primary",
+                  "content": "COMING SOON",
+                  "lineHeight": 1.1,
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 72,
+                  "fontWeight": "500",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "rectangle",
+                  "id": "QYngF",
+                  "name": "Accent Line Bottom",
+                  "fill": "$accent-gold",
+                  "width": 48,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "AQOji",
+                  "name": "Tagline",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 520,
+                  "content": "Premium virgin hair crafted for the woman who demands excellence.\nLuxury you can feel, confidence you can see.",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "GMhxh",
+                  "name": "Email Signup",
+                  "width": 520,
+                  "height": 56,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "IhmO7",
+                      "name": "Email Input",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "cornerRadius": 100,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#C9A05230"
+                      },
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        24
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "YGyAf",
+                          "name": "dEmailIcon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "mail",
+                          "iconFontFamily": "lucide",
+                          "fill": "$text-tertiary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "JVa5N",
+                          "name": "dEmailPlaceholder",
+                          "fill": "$text-tertiary",
+                          "content": "Enter your email address",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jhINN",
+                      "name": "Notify Button",
+                      "width": 200,
+                      "height": "fill_container",
+                      "fill": "$accent-gold",
+                      "cornerRadius": 100,
+                      "gap": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "oKQ6k",
+                          "name": "dNotifyText",
+                          "fill": "#0B0A08",
+                          "content": "GET NOTIFIED",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.2
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "CZSTy",
+                          "name": "dNotifyArrow",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "arrow-right",
+                          "iconFontFamily": "lucide",
+                          "fill": "#0B0A08"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QtLYv",
+                  "name": "Date Badge",
+                  "fill": "#C9A05215",
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "padding": [
+                    10,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jWejM",
+                      "name": "dDateText",
+                      "fill": "$accent-gold",
+                      "content": "SPRING 2026",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "5zXcB",
+              "name": "Footer",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                24,
+                80,
+                40,
+                80
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vU9VJ",
+                  "name": "Social Links",
+                  "gap": 24,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "ciEFV",
+                      "name": "dIgIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "instagram",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-secondary"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "vsX5O",
+                      "name": "dTtIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "music",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-secondary"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "Ll2i2",
+                      "name": "dMailIcon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "mail",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "7Jv4T",
+                  "name": "dHandle",
+                  "fill": "$text-tertiary",
+                  "content": "@OriginHairCollective",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "wxzIB",
+                  "name": "dCopyright",
+                  "fill": "$text-muted",
+                  "content": "© 2026 Origin Hair Collective. All rights reserved.",
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "KQsJW",
+      "x": 322,
+      "y": 12640,
+      "name": "Coming Soon - Tablet (768px)",
+      "clip": true,
+      "width": 768,
+      "height": 1024,
+      "fill": "#0B0A08",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "5i1V8",
+          "x": 0,
+          "y": 0,
+          "name": "BG Image",
+          "width": 768,
+          "height": 1024,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/Hero Image.png",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "Z5GrQ",
+          "x": 0,
+          "y": 0,
+          "name": "Overlay",
+          "width": 768,
+          "height": 1024,
+          "fill": [
+            "#0B0A08B0",
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 0,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#0B0A0800",
+                  "position": 0
+                },
+                {
+                  "color": "#0B0A08D0",
+                  "position": 0.5
+                },
+                {
+                  "color": "#0B0A08F0",
+                  "position": 0.8
+                },
+                {
+                  "color": "#0B0A08",
+                  "position": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ava2r",
+          "x": 0,
+          "y": 0,
+          "name": "Content",
+          "width": 768,
+          "height": 1024,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "opacity": 0.07,
+            "rotation": 0,
+            "size": {
+              "width": 0.8,
+              "height": 0.7
+            },
+            "colors": [
+              {
+                "color": "#C9A052",
+                "position": 0
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ],
+            "center": {
+              "y": 0.38
+            }
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "9V1fU",
+              "name": "Header",
+              "width": "fill_container",
+              "height": 72,
+              "padding": [
+                0,
+                48
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NniQZ",
+                  "name": "Logo Block",
+                  "layout": "vertical",
+                  "gap": 3,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "0DLws",
+                      "name": "tName",
+                      "fill": "$accent-gold",
+                      "content": "ORIGIN",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 22,
+                      "fontWeight": "600",
+                      "letterSpacing": 5
+                    },
+                    {
+                      "type": "text",
+                      "id": "JhMGZ",
+                      "name": "tSub",
+                      "fill": "$text-secondary",
+                      "content": "HAIR COLLECTIVE",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 9,
+                      "fontWeight": "500",
+                      "letterSpacing": 3
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TKwIM",
+              "name": "Hero Content",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 28,
+              "padding": [
+                0,
+                60
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "L7JJL",
+                  "name": "Accent Line Top",
+                  "fill": "$accent-gold",
+                  "width": 40,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "jzqUa",
+                  "name": "Headline",
+                  "fill": "$text-primary",
+                  "content": "COMING SOON",
+                  "lineHeight": 1.1,
+                  "textAlign": "center",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 56,
+                  "fontWeight": "500",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "rectangle",
+                  "id": "I8FQj",
+                  "name": "Accent Line Bottom",
+                  "fill": "$accent-gold",
+                  "width": 40,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "Rc1mm",
+                  "name": "Tagline",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 460,
+                  "content": "Premium virgin hair crafted for the woman who demands excellence.\nLuxury you can feel, confidence you can see.",
+                  "lineHeight": 1.6,
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "ZAsXF",
+                  "name": "Email Signup",
+                  "width": 460,
+                  "height": 52,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "AN717",
+                      "name": "Email Input",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "cornerRadius": 100,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#C9A05230"
+                      },
+                      "gap": 10,
+                      "padding": [
+                        0,
+                        20
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "9CuYp",
+                          "name": "tEmailIcon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "mail",
+                          "iconFontFamily": "lucide",
+                          "fill": "$text-tertiary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "aHeLN",
+                          "name": "tEmailPlaceholder",
+                          "fill": "$text-tertiary",
+                          "content": "Enter your email address",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tdBeu",
+                      "name": "Notify Button",
+                      "width": 180,
+                      "height": "fill_container",
+                      "fill": "$accent-gold",
+                      "cornerRadius": 100,
+                      "gap": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "8GoP0",
+                          "name": "tNotifyText",
+                          "fill": "#0B0A08",
+                          "content": "GET NOTIFIED",
+                          "fontFamily": "DM Sans",
+                          "fontSize": 13,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.2
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "pEum3",
+                          "name": "tNotifyArrow",
+                          "width": 16,
+                          "height": 16,
+                          "iconFontName": "arrow-right",
+                          "iconFontFamily": "lucide",
+                          "fill": "#0B0A08"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OgYCn",
+                  "name": "Date Badge",
+                  "fill": "#C9A05215",
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "padding": [
+                    10,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "3yH3m",
+                      "name": "tDateText",
+                      "fill": "$accent-gold",
+                      "content": "SPRING 2026",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HWulS",
+              "name": "Footer",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                24,
+                48,
+                36,
+                48
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "i8M6r",
+                  "name": "Social Links",
+                  "gap": 20,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "vOv3d",
+                      "name": "tIg",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "instagram",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-secondary"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "JVJTe",
+                      "name": "tTt",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "music",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-secondary"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "XHqEJ",
+                      "name": "tMail",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "mail",
+                      "iconFontFamily": "lucide",
+                      "fill": "$text-secondary"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "auWE1",
+                  "name": "tHandle",
+                  "fill": "$text-tertiary",
+                  "content": "@OriginHairCollective",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "pom0W",
+                  "name": "tCopy",
+                  "fill": "$text-muted",
+                  "content": "© 2026 Origin Hair Collective. All rights reserved.",
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "accent-gold": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9A962"
+        },
+        {
+          "value": "#C9A052"
+        }
+      ]
+    },
+    "accent-gold-deep": {
+      "type": "color",
+      "value": "#8B7845"
+    },
+    "bg-elevated": {
+      "type": "color",
+      "value": "#2A2A2C"
+    },
+    "bg-primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#1A1A1C"
+        },
+        {
+          "value": "#0B0A08"
+        }
+      ]
+    },
+    "bg-surface": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#242426"
+        },
+        {
+          "value": "#161412"
+        }
+      ]
+    },
+    "border-divider": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#2A2A2C"
+        },
+        {
+          "value": "#1E1C18"
+        }
+      ]
+    },
+    "border-primary": {
+      "type": "color",
+      "value": "#3A3A3C"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F5F5F0"
+        },
+        {
+          "value": "#FAF7F0"
+        }
+      ]
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#6E6E70"
+        },
+        {
+          "value": "#9A9590"
+        }
+      ]
+    },
+    "text-tertiary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#4A4A4C"
+        },
+        {
+          "value": "#6B6860"
+        }
+      ]
+    },
+    "text-muted": {
+      "type": "color",
+      "value": "#4A4840"
+    }
+  }
+}
