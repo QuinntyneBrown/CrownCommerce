@@ -1,0 +1,29 @@
+:root {
+  --color-bg: #0B0A08;
+  --color-gold: #C9A052;
+  --color-gold-15: rgba(201, 160, 82, 0.08);
+  --color-gold-border: rgba(201, 160, 82, 0.19);
+  --color-text-primary: #FAF7F0;
+  --color-text-secondary: #9A9590;
+  --color-text-tertiary: #6B6860;
+  --color-text-muted: #4A4840;
+  --font-heading: 'Fraunces', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

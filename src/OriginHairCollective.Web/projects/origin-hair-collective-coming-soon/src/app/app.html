@@ -1,0 +1,31 @@
+<div class="page">
+  <div class="page__bg"></div>
+  <div class="page__overlay"></div>
+  <div class="page__content">
+
+    <header class="header">
+      <div class="logo-block">
+        <lib-logo size="small" />
+        <span class="logo-subtitle">HAIR COLLECTIVE</span>
+      </div>
+    </header>
+
+    <main class="hero">
+      <lib-divider variant="accent" />
+      <h1 class="hero__headline">COMING SOON</h1>
+      <lib-divider variant="accent" />
+      <p class="hero__tagline">Premium virgin hair crafted for the modern woman. Be the first to experience luxury redefined.</p>
+      <div class="hero__signup">
+        <lib-email-signup (submitted)="onEmailSubmit($event)" />
+      </div>
+      <lib-badge text="SPRING 2026" [showDot]="false" />
+    </main>
+
+    <footer class="footer">
+      <lib-social-icons [links]="socialLinks" />
+      <span class="footer__handle">&#64;OriginHairCollective</span>
+      <small class="footer__copyright">&copy; 2026 Origin Hair Collective. All rights reserved.</small>
+    </footer>
+
+  </div>
+</div>

@@ -1,0 +1,222 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+// ── Page shell ──────────────────────────────────────────
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.page__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/hero.png') center / cover no-repeat;
+}
+
+.page__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    rgba(11, 10, 8, 0.72),
+    linear-gradient(
+      180deg,
+      rgba(11, 10, 8, 0.90) 0%,
+      rgba(11, 10, 8, 0.40) 35%,
+      rgba(11, 10, 8, 0.40) 65%,
+      rgba(11, 10, 8, 0.95) 100%
+    );
+}
+
+.page__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// ── Header ──────────────────────────────────────────────
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  padding: 0 24px;
+}
+
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.logo-subtitle {
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+// ── Hero ────────────────────────────────────────────────
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 0 32px;
+  text-align: center;
+}
+
+.hero__headline {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+.hero__tagline {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 100%;
+}
+
+.hero__signup {
+  width: 100%;
+}
+
+// Component overrides
+lib-divider {
+  ::ng-deep hr {
+    width: 32px;
+  }
+}
+
+lib-badge {
+  ::ng-deep .badge {
+    padding: 10px 24px;
+    border: 1px solid var(--color-gold-border);
+  }
+}
+
+// ── Footer ──────────────────────────────────────────────
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 24px 32px;
+}
+
+.footer__handle {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+}
+
+.footer__copyright {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+// ── Tablet (768px+) ─────────────────────────────────────
+@media (min-width: 768px) {
+  .header {
+    height: 72px;
+    padding: 0 40px;
+  }
+
+  .logo-block {
+    gap: 3px;
+  }
+
+  .logo-subtitle {
+    font-size: 9px;
+    letter-spacing: 3.5px;
+  }
+
+  .hero {
+    gap: 28px;
+    padding: 0 60px;
+  }
+
+  .hero__headline {
+    font-size: 56px;
+    letter-spacing: 3px;
+  }
+
+  .hero__tagline {
+    font-size: 15px;
+    max-width: 460px;
+  }
+
+  .hero__signup {
+    max-width: 460px;
+  }
+
+  lib-divider {
+    ::ng-deep hr {
+      width: 40px;
+    }
+  }
+
+  .footer {
+    padding: 28px 40px 36px;
+  }
+}
+
+// ── Desktop (1200px+) ───────────────────────────────────
+@media (min-width: 1200px) {
+  .header {
+    height: 80px;
+    padding: 0 60px;
+  }
+
+  .logo-subtitle {
+    letter-spacing: 4px;
+  }
+
+  .hero {
+    gap: 32px;
+    padding: 0 80px;
+  }
+
+  .hero__headline {
+    font-size: 72px;
+    letter-spacing: 4px;
+  }
+
+  .hero__tagline {
+    font-size: 16px;
+    max-width: 520px;
+  }
+
+  .hero__signup {
+    max-width: 520px;
+  }
+
+  lib-divider {
+    ::ng-deep hr {
+      width: 48px;
+    }
+  }
+
+  .footer {
+    padding: 32px 60px 40px;
+  }
+}
