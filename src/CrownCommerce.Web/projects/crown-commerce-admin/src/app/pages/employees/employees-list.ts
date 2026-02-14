@@ -52,6 +52,7 @@ export class EmployeesListPage implements OnInit {
   loadEmployees() {
     this.schedulingService.getEmployees().subscribe({
       next: (data) => this.employees.set(data),
+      error: (err) => console.error('Failed to load employees', err),
     });
   }
 

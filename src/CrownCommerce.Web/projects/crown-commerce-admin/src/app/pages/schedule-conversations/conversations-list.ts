@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import {
+  AuthService,
   SchedulingService,
   type Employee,
   type ScheduleConversationSummary,
@@ -30,6 +31,7 @@ import {
 })
 export class ConversationsListPage implements OnInit {
   private readonly schedulingService = inject(SchedulingService);
+  private readonly authService = inject(AuthService);
 
   readonly employees = signal<Employee[]>([]);
   readonly conversations = signal<ScheduleConversationSummary[]>([]);
@@ -41,6 +43,13 @@ export class ConversationsListPage implements OnInit {
   newSubject = '';
   newParticipantIds: string[] = [];
   newInitialMessage = '';
+
+  readonly currentEmployeeId = computed(() => {
+    const userId = this.authService.user()?.userId;
+    if (!userId) return null;
+    const emp = this.employees().find(e => e.userId === userId);
+    return emp?.id ?? null;
+  });
 
   readonly employeeLookup = computed(() => {
     const map = new Map<string, Employee>();
@@ -85,8 +94,7 @@ export class ConversationsListPage implements OnInit {
     const content = this.newMessageContent();
     if (!conv || !content.trim()) return;
 
-    // Use first employee as sender for demo
-    const senderId = this.employees()[0]?.id;
+    const senderId = this.currentEmployeeId();
     if (!senderId) return;
 
     this.schedulingService.sendMessage(conv.id, { senderEmployeeId: senderId, content }).subscribe({
@@ -112,7 +120,7 @@ export class ConversationsListPage implements OnInit {
   createConversation() {
     if (!this.newSubject || this.newParticipantIds.length === 0) return;
 
-    const creatorId = this.employees()[0]?.id;
+    const creatorId = this.currentEmployeeId();
     if (!creatorId) return;
 
     this.schedulingService.createConversation({

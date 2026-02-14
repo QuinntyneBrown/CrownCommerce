@@ -140,9 +140,16 @@ public sealed class SchedulingService(
 
         await meetingRepo.AddAsync(meeting, ct);
 
-        // Publish event for email notification
-        var attendees = await employeeRepo.GetByIdsAsync(dto.AttendeeEmployeeIds, ct);
-        var organizer = await employeeRepo.GetByIdAsync(dto.OrganizerId, ct);
+        // Fetch all involved employees once for both event publishing and DTO mapping
+        var allIds = dto.AttendeeEmployeeIds.Append(dto.OrganizerId).Distinct();
+        var allEmployees = await employeeRepo.GetByIdsAsync(allIds, ct);
+        var lookup = allEmployees.ToDictionary(e => e.Id);
+
+        lookup.TryGetValue(dto.OrganizerId, out var organizer);
+        var attendeeEmails = allEmployees
+            .Where(e => dto.AttendeeEmployeeIds.Contains(e.Id))
+            .Select(e => e.Email)
+            .ToList();
 
         await publishEndpoint.Publish(new MeetingBookedEvent(
             meeting.Id,
@@ -151,13 +158,9 @@ public sealed class SchedulingService(
             meeting.EndTimeUtc,
             meeting.Location,
             organizer?.Email ?? "",
-            $"{organizer?.FirstName} {organizer?.LastName}",
-            attendees.Select(a => a.Email).ToList(),
+            organizer is not null ? $"{organizer.FirstName} {organizer.LastName}" : "",
+            attendeeEmails,
             DateTime.UtcNow), ct);
-
-        var allIds = dto.AttendeeEmployeeIds.Append(dto.OrganizerId).Distinct();
-        var allEmployees = await employeeRepo.GetByIdsAsync(allIds, ct);
-        var lookup = allEmployees.ToDictionary(e => e.Id);
 
         return meeting.ToDto(lookup);
     }

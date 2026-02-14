@@ -48,6 +48,10 @@ export type {
 
 // Models — Scheduling
 export type {
+  EmployeeStatus,
+  MeetingStatus,
+  AttendeeResponse,
+  ConversationStatus,
   Employee,
   CreateEmployeeRequest,
   UpdateEmployeeRequest,

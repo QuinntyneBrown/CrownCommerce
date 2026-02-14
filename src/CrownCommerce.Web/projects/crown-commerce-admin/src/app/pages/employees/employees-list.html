@@ -47,7 +47,7 @@
         <th mat-header-cell *matHeaderCellDef>Employee</th>
         <td mat-cell *matCellDef="let row">
           <div class="employee-cell">
-            <div class="employee-avatar">{{ row.firstName[0] }}{{ row.lastName[0] }}</div>
+            <div class="employee-avatar">{{ row.firstName?.[0] }}{{ row.lastName?.[0] }}</div>
             <div class="employee-info">
               <span class="employee-name">{{ row.firstName }} {{ row.lastName }}</span>
               <span class="employee-email">{{ row.email }}</span>

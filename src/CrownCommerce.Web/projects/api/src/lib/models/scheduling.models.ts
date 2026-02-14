@@ -1,3 +1,8 @@
+export type EmployeeStatus = 'Active' | 'Inactive' | 'OnLeave';
+export type MeetingStatus = 'Scheduled' | 'InProgress' | 'Completed' | 'Cancelled';
+export type AttendeeResponse = 'Pending' | 'Accepted' | 'Declined' | 'Tentative';
+export type ConversationStatus = 'Active' | 'Archived' | 'Closed';
+
 export interface Employee {
   id: string;
   userId: string;
@@ -8,7 +13,7 @@ export interface Employee {
   jobTitle: string;
   department: string | null;
   timeZone: string;
-  status: string;
+  status: EmployeeStatus;
   createdAt: string;
 }
 
@@ -28,7 +33,7 @@ export interface UpdateEmployeeRequest {
   jobTitle?: string;
   department?: string;
   timeZone?: string;
-  status?: string;
+  status?: EmployeeStatus;
 }
 
 export interface Meeting {
@@ -38,7 +43,7 @@ export interface Meeting {
   startTimeUtc: string;
   endTimeUtc: string;
   location: string | null;
-  status: string;
+  status: MeetingStatus;
   organizerId: string;
   createdAt: string;
   attendees: MeetingAttendee[];
@@ -49,7 +54,7 @@ export interface MeetingAttendee {
   employeeId: string;
   employeeName: string;
   employeeEmail: string;
-  response: string;
+  response: AttendeeResponse;
   respondedAt: string | null;
 }
 
@@ -69,7 +74,7 @@ export interface UpdateMeetingRequest {
   startTimeUtc?: string;
   endTimeUtc?: string;
   location?: string;
-  status?: string;
+  status?: MeetingStatus;
 }
 
 export interface CalendarEvent {
@@ -78,7 +83,7 @@ export interface CalendarEvent {
   startTimeUtc: string;
   endTimeUtc: string;
   location: string | null;
-  status: string;
+  status: MeetingStatus;
   attendeeCount: number;
   organizerName: string;
 }
@@ -87,7 +92,7 @@ export interface ScheduleConversation {
   id: string;
   subject: string;
   meetingId: string | null;
-  status: string;
+  status: ConversationStatus;
   createdByEmployeeId: string;
   createdAt: string;
   lastMessageAt: string | null;
@@ -99,7 +104,7 @@ export interface ConversationSummary {
   id: string;
   subject: string;
   meetingId: string | null;
-  status: string;
+  status: ConversationStatus;
   createdByEmployeeId: string;
   createdAt: string;
   lastMessageAt: string | null;

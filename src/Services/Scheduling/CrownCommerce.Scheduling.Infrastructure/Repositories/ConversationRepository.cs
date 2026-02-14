@@ -63,6 +63,8 @@ public sealed class ConversationRepository(SchedulingDbContext context) : IConve
 
     public async Task AddMessageAsync(ConversationMessage message, CancellationToken ct = default)
     {
+        await using var transaction = await context.Database.BeginTransactionAsync(ct);
+
         context.ConversationMessages.Add(message);
 
         var conversation = await context.Conversations.FindAsync([message.ConversationId], ct);
@@ -72,5 +74,6 @@ public sealed class ConversationRepository(SchedulingDbContext context) : IConve
         }
 
         await context.SaveChangesAsync(ct);
+        await transaction.CommitAsync(ct);
     }
 }

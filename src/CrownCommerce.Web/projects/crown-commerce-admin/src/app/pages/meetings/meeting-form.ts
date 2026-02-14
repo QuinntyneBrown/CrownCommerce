@@ -102,10 +102,15 @@ export class MeetingFormPage implements OnInit {
               a.download = 'meeting.ics';
               a.click();
               window.URL.revokeObjectURL(url);
+              this.router.navigate(['/schedule']);
+            },
+            error: () => {
+              this.router.navigate(['/schedule']);
             },
           });
+        } else {
+          this.router.navigate(['/schedule']);
         }
-        this.router.navigate(['/schedule']);
       },
       error: () => {
         this.error.set('Failed to book meeting. Please try again.');
