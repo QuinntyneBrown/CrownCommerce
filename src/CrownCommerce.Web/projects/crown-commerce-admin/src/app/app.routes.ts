@@ -54,6 +54,34 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'employees',
+        loadComponent: () =>
+          import('./pages/employees/employees-list').then(
+            (m) => m.EmployeesListPage
+          ),
+      },
+      {
+        path: 'schedule',
+        loadComponent: () =>
+          import('./pages/schedule/schedule-calendar').then(
+            (m) => m.ScheduleCalendarPage
+          ),
+      },
+      {
+        path: 'meetings/new',
+        loadComponent: () =>
+          import('./pages/meetings/meeting-form').then(
+            (m) => m.MeetingFormPage
+          ),
+      },
+      {
+        path: 'conversations',
+        loadComponent: () =>
+          import('./pages/schedule-conversations/conversations-list').then(
+            (m) => m.ConversationsListPage
+          ),
+      },
+      {
         path: 'hero-content',
         loadComponent: () =>
           import('./pages/hero-content/hero-content').then(

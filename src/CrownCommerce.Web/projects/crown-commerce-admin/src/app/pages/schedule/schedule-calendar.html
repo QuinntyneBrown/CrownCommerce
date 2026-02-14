@@ -1,0 +1,121 @@
+<!-- Toolbar -->
+<div class="toolbar">
+  <h1 class="toolbar-title">Schedule</h1>
+  <div class="toolbar-actions">
+    <button mat-icon-button><mat-icon>search</mat-icon></button>
+    <button mat-icon-button><mat-icon>notifications</mat-icon></button>
+  </div>
+</div>
+
+<!-- Content Area -->
+<div class="content-area">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Employee Schedule</h2>
+      <p class="page-subtitle">View and manage team calendars across time zones</p>
+    </div>
+    <div class="header-actions">
+      <a mat-flat-button class="primary-btn" routerLink="/meetings/new">
+        <mat-icon>add</mat-icon>
+        Book Meeting
+      </a>
+    </div>
+  </div>
+
+  <div class="calendar-layout">
+    <!-- Calendar -->
+    <div class="calendar-main">
+      <!-- Calendar Controls -->
+      <div class="calendar-controls">
+        <div class="calendar-nav">
+          <button mat-icon-button (click)="previousMonth()"><mat-icon>chevron_left</mat-icon></button>
+          <h3 class="month-label">{{ monthLabel() }}</h3>
+          <button mat-icon-button (click)="nextMonth()"><mat-icon>chevron_right</mat-icon></button>
+          <button mat-stroked-button class="today-btn" (click)="goToToday()">Today</button>
+        </div>
+        <mat-form-field appearance="outline" class="employee-filter">
+          <mat-select [value]="selectedEmployeeId()" (selectionChange)="onEmployeeFilter($event.value)" placeholder="All Employees">
+            <mat-option value="">All Employees</mat-option>
+            @for (emp of employees(); track emp.id) {
+              <mat-option [value]="emp.id">{{ emp.firstName }} {{ emp.lastName }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- Calendar Grid -->
+      <div class="calendar-grid">
+        <!-- Day Headers -->
+        @for (day of weekDays; track day) {
+          <div class="calendar-header-cell">{{ day }}</div>
+        }
+
+        <!-- Day Cells -->
+        @for (day of calendarDays(); track day.date.toISOString()) {
+          <div class="calendar-cell" [class.other-month]="!day.isCurrentMonth" [class.today]="day.isToday">
+            <span class="day-number" [class.today-number]="day.isToday">{{ day.date.getDate() }}</span>
+            @for (event of day.events.slice(0, 2); track event.id) {
+              <div class="calendar-event" [style.border-left-color]="getEventColor(event.status)" (click)="selectEvent(event)">
+                <span class="event-time">{{ formatTime(event.startTimeUtc) }}</span>
+                <span class="event-title">{{ event.title }}</span>
+              </div>
+            }
+            @if (day.events.length > 2) {
+              <span class="more-events">+{{ day.events.length - 2 }} more</span>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Sidebar: Upcoming Events -->
+    <div class="calendar-sidebar">
+      <h3 class="sidebar-title">Upcoming Meetings</h3>
+      @for (event of upcomingEvents(); track event.id) {
+        <div class="upcoming-event" (click)="selectEvent(event)">
+          <div class="event-indicator" [style.background]="getEventColor(event.status)"></div>
+          <div class="upcoming-info">
+            <span class="upcoming-title">{{ event.title }}</span>
+            <span class="upcoming-time">{{ event.startTimeUtc | date:'MMM d, h:mm a' }}</span>
+            <span class="upcoming-meta">{{ event.attendeeCount }} attendees &middot; {{ event.organizerName }}</span>
+          </div>
+        </div>
+      }
+      @if (upcomingEvents().length === 0) {
+        <div class="sidebar-empty">
+          <mat-icon>event_available</mat-icon>
+          <span>No upcoming meetings</span>
+        </div>
+      }
+
+      <!-- Selected Event Detail -->
+      @if (selectedEvent()) {
+        <div class="event-detail">
+          <h4 class="detail-title">{{ selectedEvent()!.title }}</h4>
+          <div class="detail-row">
+            <mat-icon>schedule</mat-icon>
+            <span>{{ selectedEvent()!.startTimeUtc | date:'MMM d, y, h:mm a' }} - {{ formatTime(selectedEvent()!.endTimeUtc) }}</span>
+          </div>
+          @if (selectedEvent()!.location) {
+            <div class="detail-row">
+              <mat-icon>location_on</mat-icon>
+              <span>{{ selectedEvent()!.location }}</span>
+            </div>
+          }
+          <div class="detail-row">
+            <mat-icon>people</mat-icon>
+            <span>{{ selectedEvent()!.attendeeCount }} attendees</span>
+          </div>
+          <div class="detail-row">
+            <mat-icon>person</mat-icon>
+            <span>Organized by {{ selectedEvent()!.organizerName }}</span>
+          </div>
+          <span class="chip" [class.chip--success]="selectedEvent()!.status === 'Scheduled'" [class.chip--warning]="selectedEvent()!.status === 'InProgress'">
+            {{ selectedEvent()!.status }}
+          </span>
+        </div>
+      }
+    </div>
+  </div>
+</div>
