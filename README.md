@@ -12,7 +12,7 @@
 
 | Brand | Description | Status |
 |-------|-------------|--------|
-| **Origin Hair Collective** | Premium hair | Active |
+| **Origin Hair Collective** | Premium hair | Coming Soon |
 | **Mane Haus** | Luxury hair | Coming Soon |
 
 ## Tech Stack
