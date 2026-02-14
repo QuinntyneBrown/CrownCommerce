@@ -1,0 +1,37 @@
+﻿using CrownCommerce.Notification.Core.Entities;
+using CrownCommerce.Notification.Core.Enums;
+using CrownCommerce.Notification.Core.Interfaces;
+using CrownCommerce.Shared.Contracts;
+using MassTransit;
+using Microsoft.Extensions.Logging;
+
+namespace CrownCommerce.Notification.Application.Consumers;
+
+public sealed class OrderStatusChangedNotificationConsumer(
+    INotificationLogRepository repository,
+    ILogger<OrderStatusChangedNotificationConsumer> logger) : IConsumer<OrderStatusChangedEvent>
+{
+    public async Task Consume(ConsumeContext<OrderStatusChangedEvent> context)
+    {
+        var evt = context.Message;
+
+        if (evt.NewStatus != "Shipped") return;
+
+        logger.LogInformation("Sending shipping update to {Email} for Order {OrderId}", evt.CustomerEmail, evt.OrderId);
+
+        var log = new NotificationLog
+        {
+            Id = Guid.NewGuid(),
+            Recipient = evt.CustomerEmail,
+            Subject = $"Your Order Has Shipped â€” Tracking: {evt.TrackingNumber ?? "N/A"}",
+            Type = NotificationType.ShippingUpdate,
+            Channel = NotificationChannel.Email,
+            ReferenceId = evt.OrderId,
+            IsSent = true,
+            CreatedAt = DateTime.UtcNow,
+            SentAt = DateTime.UtcNow
+        };
+
+        await repository.AddAsync(log);
+    }
+}

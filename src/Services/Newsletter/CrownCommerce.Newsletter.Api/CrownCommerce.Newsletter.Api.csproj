@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="MassTransit.RabbitMQ" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CrownCommerce.Newsletter.Application\CrownCommerce.Newsletter.Application.csproj" />
+    <ProjectReference Include="..\CrownCommerce.Newsletter.Infrastructure\CrownCommerce.Newsletter.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Aspire\CrownCommerce.ServiceDefaults\CrownCommerce.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+</Project>

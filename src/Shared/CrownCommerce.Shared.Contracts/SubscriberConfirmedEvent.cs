@@ -1,0 +1,6 @@
+﻿namespace CrownCommerce.Shared.Contracts;
+
+public sealed record SubscriberConfirmedEvent(
+    Guid SubscriberId,
+    string Email,
+    DateTime OccurredAt);

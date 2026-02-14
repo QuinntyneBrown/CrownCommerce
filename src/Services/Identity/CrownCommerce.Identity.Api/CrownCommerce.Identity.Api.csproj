@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CrownCommerce.Identity.Application\CrownCommerce.Identity.Application.csproj" />
+    <ProjectReference Include="..\CrownCommerce.Identity.Infrastructure\CrownCommerce.Identity.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Aspire\CrownCommerce.ServiceDefaults\CrownCommerce.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+</Project>

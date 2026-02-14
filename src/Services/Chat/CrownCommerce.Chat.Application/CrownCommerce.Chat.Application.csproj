@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MassTransit" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CrownCommerce.Chat.Core\CrownCommerce.Chat.Core.csproj" />
+    <ProjectReference Include="..\..\..\Shared\CrownCommerce.Shared.Contracts\CrownCommerce.Shared.Contracts.csproj" />
+  </ItemGroup>
+</Project>

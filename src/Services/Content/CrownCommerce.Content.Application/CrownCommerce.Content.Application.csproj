@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CrownCommerce.Content.Core\CrownCommerce.Content.Core.csproj" />
+  </ItemGroup>
+
+</Project>

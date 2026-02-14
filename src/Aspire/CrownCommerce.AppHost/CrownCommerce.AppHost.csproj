@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsAspireHost>true</IsAspireHost>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" />
+    <PackageReference Include="Aspire.Hosting.NodeJs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Services\Catalog\CrownCommerce.Catalog.Api\CrownCommerce.Catalog.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Inquiry\CrownCommerce.Inquiry.Api\CrownCommerce.Inquiry.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Order\CrownCommerce.Order.Api\CrownCommerce.Order.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Payment\CrownCommerce.Payment.Api\CrownCommerce.Payment.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Content\CrownCommerce.Content.Api\CrownCommerce.Content.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Notification\CrownCommerce.Notification.Api\CrownCommerce.Notification.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Identity\CrownCommerce.Identity.Api\CrownCommerce.Identity.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Chat\CrownCommerce.Chat.Api\CrownCommerce.Chat.Api.csproj" />
+    <ProjectReference Include="..\..\Services\Newsletter\CrownCommerce.Newsletter.Api\CrownCommerce.Newsletter.Api.csproj" />
+    <ProjectReference Include="..\..\Gateway\CrownCommerce.ApiGateway\CrownCommerce.ApiGateway.csproj" />
+  </ItemGroup>
+
+</Project>
