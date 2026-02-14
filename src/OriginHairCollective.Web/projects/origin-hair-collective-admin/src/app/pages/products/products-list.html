@@ -43,7 +43,7 @@
 
   <!-- Products Table -->
   <div class="table-card">
-    <table mat-table [dataSource]="products" class="table-full-width">
+    <table mat-table [dataSource]="products()" class="table-full-width">
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Product Name</th>
         <td mat-cell *matCellDef="let row" class="cell-bold">{{ row.name }}</td>
@@ -60,15 +60,15 @@
       </ng-container>
       <ng-container matColumnDef="length">
         <th mat-header-cell *matHeaderCellDef>Length</th>
-        <td mat-cell *matCellDef="let row">{{ row.length }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.lengthInches }}"</td>
       </ng-container>
       <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef>Price</th>
-        <td mat-cell *matCellDef="let row" class="cell-bold">{{ row.price }}</td>
+        <td mat-cell *matCellDef="let row" class="cell-bold">{{ row.price | currency }}</td>
       </ng-container>
       <ng-container matColumnDef="origin">
         <th mat-header-cell *matHeaderCellDef>Origin</th>
-        <td mat-cell *matCellDef="let row">{{ row.origin }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.originCountry }}</td>
       </ng-container>
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
@@ -85,7 +85,7 @@
 
     <!-- Paginator -->
     <div class="paginator-row">
-      <span class="paginator-text">Showing 1-5 of 47 products</span>
+      <span class="paginator-text">Showing {{ products().length }} products</span>
       <div class="paginator-buttons">
         <button mat-stroked-button disabled>Previous</button>
         <a mat-flat-button color="primary" class="primary-btn">Next</a>

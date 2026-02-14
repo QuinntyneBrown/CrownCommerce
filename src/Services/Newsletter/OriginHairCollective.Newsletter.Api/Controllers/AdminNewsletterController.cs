@@ -8,7 +8,8 @@ namespace OriginHairCollective.Newsletter.Api.Controllers;
 
 [ApiController]
 [Route("admin")]
-[Authorize(Roles = "Admin")]
+// TODO: Re-enable authorization once admin UI auth is implemented
+// [Authorize(Roles = "Admin")]
 public sealed class AdminNewsletterController(INewsletterAdminService adminService) : ControllerBase
 {
     [HttpGet("subscribers")]

@@ -1,0 +1,130 @@
+@use '../shared-page';
+
+.primary-btn {
+  --mdc-filled-button-container-color: var(--primary);
+  --mdc-filled-button-label-text-color: var(--on-primary);
+  border-radius: var(--radius-full) !important;
+}
+
+.search-field {
+  width: 300px;
+
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+}
+
+.filter-btn {
+  border-radius: var(--radius-full) !important;
+  --mdc-outlined-button-outline-color: var(--outline-variant);
+  --mdc-outlined-button-label-text-color: var(--primary);
+
+  mat-icon {
+    color: var(--primary);
+  }
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+// Stats row
+.stats-row {
+  display: flex;
+  gap: 16px;
+}
+
+.stat-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--outline);
+}
+
+.stat-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+}
+
+// Brand toggle
+.brand-toggle {
+  border-radius: var(--radius-full) !important;
+
+  .mat-button-toggle {
+    border-radius: var(--radius-full) !important;
+  }
+}
+
+// Brand chip
+.chip--mane-haus {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.chip--error {
+  background: var(--error-light, #fde8e8);
+  color: var(--error);
+}
+
+.cell-bold {
+  font-weight: 500 !important;
+}
+
+.cell-muted {
+  color: var(--on-surface-variant) !important;
+}
+
+// Empty state
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+  gap: 8px;
+}
+
+.empty-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: var(--on-surface-variant);
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.empty-subtext {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  margin: 0;
+}

@@ -31,10 +31,10 @@
 
   <!-- Testimonials Table -->
   <div class="table-card">
-    <table mat-table [dataSource]="testimonials" class="table-full-width">
+    <table mat-table [dataSource]="testimonials()" class="table-full-width">
       <ng-container matColumnDef="customer">
         <th mat-header-cell *matHeaderCellDef>Customer</th>
-        <td mat-cell *matCellDef="let row" class="cell-bold">{{ row.customer }}</td>
+        <td mat-cell *matCellDef="let row" class="cell-bold">{{ row.customerName }}</td>
       </ng-container>
       <ng-container matColumnDef="rating">
         <th mat-header-cell *matHeaderCellDef>Rating</th>
@@ -42,19 +42,11 @@
       </ng-container>
       <ng-container matColumnDef="review">
         <th mat-header-cell *matHeaderCellDef>Review</th>
-        <td mat-cell *matCellDef="let row">{{ row.review }}</td>
-      </ng-container>
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let row">
-          <span class="chip" [class.chip--success]="row.status === 'Published'" [class.chip--default]="row.status === 'Pending'">
-            {{ row.status }}
-          </span>
-        </td>
+        <td mat-cell *matCellDef="let row">{{ row.content }}</td>
       </ng-container>
       <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef>Date</th>
-        <td mat-cell *matCellDef="let row" class="cell-muted">{{ row.date }}</td>
+        <td mat-cell *matCellDef="let row" class="cell-muted">{{ row.createdAt | date:'mediumDate' }}</td>
       </ng-container>
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
@@ -71,7 +63,7 @@
 
     <!-- Paginator -->
     <div class="paginator-row">
-      <span class="paginator-text">Showing 1-3 of 12 testimonials</span>
+      <span class="paginator-text">Showing {{ testimonials().length }} testimonials</span>
       <div class="paginator-buttons">
         <button mat-stroked-button disabled>Previous</button>
         <button mat-flat-button color="primary" class="primary-btn">Next</button>

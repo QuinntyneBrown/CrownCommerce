@@ -47,6 +47,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'subscribers',
+        loadComponent: () =>
+          import('./pages/subscribers/subscribers-list').then(
+            (m) => m.SubscribersListPage
+          ),
+      },
+      {
         path: 'hero-content',
         loadComponent: () =>
           import('./pages/hero-content/hero-content').then(

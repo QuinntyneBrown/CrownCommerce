@@ -1,21 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
-interface Testimonial {
-  customer: string;
-  rating: string;
-  review: string;
-  status: 'Published' | 'Pending';
-  date: string;
-}
+import { ContentService, type Testimonial } from 'api';
 
 @Component({
   selector: 'app-testimonials-list',
   imports: [
+    DatePipe,
     MatTableModule,
     MatIconModule,
     MatButtonModule,
@@ -25,12 +20,14 @@ interface Testimonial {
   templateUrl: './testimonials-list.html',
   styleUrl: './testimonials-list.scss',
 })
-export class TestimonialsListPage {
-  displayedColumns = ['customer', 'rating', 'review', 'status', 'date', 'actions'];
+export class TestimonialsListPage implements OnInit {
+  private readonly contentService = inject(ContentService);
+  readonly testimonials = signal<Testimonial[]>([]);
+  displayedColumns = ['customer', 'rating', 'review', 'date', 'actions'];
 
-  testimonials: Testimonial[] = [
-    { customer: 'Keisha Brown', rating: '5.0', review: "Best quality hair I've ever purchased!", status: 'Published', date: 'Feb 5' },
-    { customer: 'Tamara Davis', rating: '4.5', review: 'Love the natural look and feel!', status: 'Published', date: 'Feb 3' },
-    { customer: 'Nicole James', rating: '5.0', review: 'Amazing customer service and fast shipping', status: 'Pending', date: 'Jan 28' },
-  ];
+  ngOnInit() {
+    this.contentService.getTestimonials().subscribe({
+      next: (data) => this.testimonials.set(data),
+    });
+  }
 }
