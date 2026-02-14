@@ -33,6 +33,10 @@ export class AdminLayout {
     { icon: 'mail', label: 'Inquiries', route: '/inquiries' },
     { icon: 'star', label: 'Testimonials', route: '/testimonials' },
     { icon: 'group', label: 'Subscribers', route: '/subscribers' },
+    { icon: 'people', label: 'Employees', route: '/employees' },
+    { icon: 'calendar_month', label: 'Schedule', route: '/schedule' },
+    { icon: 'event', label: 'Book Meeting', route: '/meetings/new' },
+    { icon: 'forum', label: 'Conversations', route: '/conversations' },
     { icon: 'view_carousel', label: 'Hero Content', route: '/hero-content' },
     { icon: 'verified', label: 'Trust Bar', route: '/trust-bar' },
   ];

@@ -1,0 +1,138 @@
+<!-- Toolbar -->
+<div class="toolbar">
+  <h1 class="toolbar-title">Meetings</h1>
+  <div class="toolbar-actions">
+    <button mat-icon-button><mat-icon>notifications</mat-icon></button>
+  </div>
+</div>
+
+<!-- Content Area -->
+<div class="content-area">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Book Meeting</h2>
+      <p class="page-subtitle">Schedule a meeting with employees across time zones</p>
+    </div>
+  </div>
+
+  @if (error()) {
+    <div class="error-banner">
+      <mat-icon>error</mat-icon>
+      {{ error() }}
+    </div>
+  }
+
+  <div class="form-layout">
+    <!-- Meeting Details -->
+    <div class="form-card">
+      <h3 class="form-section-title">Meeting Details</h3>
+
+      <mat-form-field appearance="outline" class="form-field-full">
+        <mat-label>Meeting Title</mat-label>
+        <input matInput [(ngModel)]="title" placeholder="e.g., Weekly Sync, Supply Chain Review">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field-full">
+        <mat-label>Description (optional)</mat-label>
+        <textarea matInput [(ngModel)]="description" rows="3" placeholder="Meeting agenda or notes"></textarea>
+      </mat-form-field>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="meetingDate">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field-sm">
+          <mat-label>Start Time</mat-label>
+          <input matInput type="time" [(ngModel)]="startTime">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field-sm">
+          <mat-label>End Time</mat-label>
+          <input matInput type="time" [(ngModel)]="endTime">
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="form-field-full">
+        <mat-label>Location (optional)</mat-label>
+        <input matInput [(ngModel)]="location" placeholder="e.g., Conference Room A, Google Meet link">
+      </mat-form-field>
+    </div>
+
+    <!-- Attendees -->
+    <div class="form-card">
+      <h3 class="form-section-title">Organizer & Attendees</h3>
+
+      <mat-form-field appearance="outline" class="form-field-full">
+        <mat-label>Organizer</mat-label>
+        <mat-select [(ngModel)]="organizerId">
+          @for (emp of employees(); track emp.id) {
+            <mat-option [value]="emp.id">
+              {{ emp.firstName }} {{ emp.lastName }} ({{ getTimeZoneLabel(emp.timeZone) }})
+            </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field-full">
+        <mat-label>Attendees</mat-label>
+        <mat-select [(ngModel)]="selectedAttendeeIds" multiple>
+          @for (emp of employees(); track emp.id) {
+            <mat-option [value]="emp.id">
+              <div class="attendee-option">
+                <span>{{ emp.firstName }} {{ emp.lastName }}</span>
+                <span class="attendee-tz">{{ getTimeZoneLabel(emp.timeZone) }}</span>
+              </div>
+            </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Selected Attendees Preview -->
+      @if (selectedAttendeeIds.length > 0) {
+        <div class="attendees-preview">
+          <span class="preview-label">{{ selectedAttendeeIds.length }} attendee(s) selected</span>
+          <div class="attendee-chips">
+            @for (emp of employees(); track emp.id) {
+              @if (selectedAttendeeIds.includes(emp.id)) {
+                <div class="attendee-chip">
+                  <span class="chip-avatar">{{ emp.firstName[0] }}{{ emp.lastName[0] }}</span>
+                  <span class="chip-name">{{ emp.firstName }} {{ emp.lastName }}</span>
+                  <span class="chip-tz">{{ getTimeZoneLabel(emp.timeZone) }}</span>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Options -->
+    <div class="form-card">
+      <h3 class="form-section-title">Options</h3>
+      <mat-checkbox [(ngModel)]="sendEmail" color="primary">
+        Send email notification to all attendees
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="exportCalendar" color="primary">
+        Download .ics file (for Google Calendar, Outlook, Apple Calendar)
+      </mat-checkbox>
+    </div>
+
+    <!-- Actions -->
+    <div class="form-actions">
+      <button mat-stroked-button class="cancel-btn" routerLink="/schedule">Cancel</button>
+      <button mat-flat-button class="primary-btn" (click)="onSubmit()" [disabled]="saving()">
+        @if (saving()) {
+          Booking...
+        } @else {
+          <mat-icon>event</mat-icon>
+          Book Meeting
+        }
+      </button>
+    </div>
+  </div>
+</div>

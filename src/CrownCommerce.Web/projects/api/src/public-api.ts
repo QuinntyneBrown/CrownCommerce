@@ -46,6 +46,24 @@ export type {
   CampaignRecipient,
 } from './lib/models/newsletter.models';
 
+// Models — Scheduling
+export type {
+  Employee,
+  CreateEmployeeRequest,
+  UpdateEmployeeRequest,
+  Meeting,
+  MeetingAttendee,
+  CreateMeetingRequest,
+  UpdateMeetingRequest,
+  CalendarEvent,
+  ScheduleConversation,
+  ConversationSummary as ScheduleConversationSummary,
+  ConversationMessage as ScheduleConversationMessage,
+  ConversationParticipant,
+  CreateConversationRequest as CreateScheduleConversationRequest,
+  SendMessageRequest as ScheduleSendMessageRequest,
+} from './lib/models/scheduling.models';
+
 // Services
 export { AuthService } from './lib/services/auth.service';
 export { CatalogService } from './lib/services/catalog.service';
@@ -56,3 +74,4 @@ export { InquiryService } from './lib/services/inquiry.service';
 export { NotificationService } from './lib/services/notification.service';
 export { ChatService } from './lib/services/chat.service';
 export { NewsletterService } from './lib/services/newsletter.service';
+export { SchedulingService } from './lib/services/scheduling.service';

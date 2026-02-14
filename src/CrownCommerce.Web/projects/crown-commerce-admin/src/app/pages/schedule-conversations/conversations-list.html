@@ -1,0 +1,126 @@
+<!-- Toolbar -->
+<div class="toolbar">
+  <h1 class="toolbar-title">Conversations</h1>
+  <div class="toolbar-actions">
+    <button mat-icon-button><mat-icon>notifications</mat-icon></button>
+  </div>
+</div>
+
+<!-- Content Area -->
+<div class="content-area">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Team Conversations</h2>
+      <p class="page-subtitle">Track and manage scheduling discussions</p>
+    </div>
+    <button mat-flat-button class="primary-btn" (click)="openNewConversation()">
+      <mat-icon>add</mat-icon>
+      New Conversation
+    </button>
+  </div>
+
+  <div class="conversations-layout">
+    <!-- Conversation List -->
+    <div class="conv-list">
+      @for (conv of conversations(); track conv.id) {
+        <div class="conv-item" [class.conv-item--active]="activeConversation()?.id === conv.id" (click)="selectConversation(conv.id)">
+          <mat-icon class="conv-status-icon">{{ getStatusIcon(conv.status) }}</mat-icon>
+          <div class="conv-item-info">
+            <span class="conv-subject">{{ conv.subject }}</span>
+            <span class="conv-meta">
+              {{ conv.participantCount }} participants &middot; {{ conv.messageCount }} messages
+            </span>
+            @if (conv.lastMessageAt) {
+              <span class="conv-time">{{ conv.lastMessageAt | date:'MMM d, h:mm a' }}</span>
+            }
+          </div>
+        </div>
+      }
+
+      @if (conversations().length === 0) {
+        <div class="list-empty">
+          <mat-icon>forum</mat-icon>
+          <span>No conversations yet</span>
+        </div>
+      }
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-area">
+      @if (showNewConversation()) {
+        <!-- New Conversation Form -->
+        <div class="new-conv-form">
+          <h3 class="form-title">Start New Conversation</h3>
+          <mat-form-field appearance="outline" class="form-field-full">
+            <mat-label>Subject</mat-label>
+            <input matInput [(ngModel)]="newSubject" placeholder="e.g., Scheduling next supply chain review">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field-full">
+            <mat-label>Participants</mat-label>
+            <mat-select [(ngModel)]="newParticipantIds" multiple>
+              @for (emp of employees(); track emp.id) {
+                <mat-option [value]="emp.id">{{ emp.firstName }} {{ emp.lastName }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field-full">
+            <mat-label>Initial Message (optional)</mat-label>
+            <textarea matInput [(ngModel)]="newInitialMessage" rows="3"></textarea>
+          </mat-form-field>
+          <div class="form-actions">
+            <button mat-stroked-button (click)="showNewConversation.set(false)">Cancel</button>
+            <button mat-flat-button class="primary-btn" (click)="createConversation()">Create</button>
+          </div>
+        </div>
+      } @else if (activeConversation()) {
+        <!-- Active Conversation -->
+        <div class="chat-header">
+          <h3 class="chat-subject">{{ activeConversation()!.subject }}</h3>
+          <span class="chat-meta">
+            {{ activeConversation()!.participants.length }} participants &middot;
+            {{ activeConversation()!.status }}
+          </span>
+        </div>
+
+        <div class="messages-area">
+          @for (msg of activeConversation()!.messages; track msg.id) {
+            <div class="message">
+              <div class="message-avatar">{{ getSenderInitials(msg.senderEmployeeId) }}</div>
+              <div class="message-content">
+                <div class="message-header">
+                  <span class="sender-name">{{ getSenderName(msg.senderEmployeeId) }}</span>
+                  <span class="message-time">{{ msg.sentAt | date:'MMM d, h:mm a' }}</span>
+                </div>
+                <p class="message-text">{{ msg.content }}</p>
+              </div>
+            </div>
+          }
+
+          @if (activeConversation()!.messages.length === 0) {
+            <div class="messages-empty">
+              <mat-icon>chat</mat-icon>
+              <span>No messages yet. Start the conversation!</span>
+            </div>
+          }
+        </div>
+
+        <!-- Message Input -->
+        <div class="message-input">
+          <mat-form-field appearance="outline" class="message-field">
+            <input matInput [ngModel]="newMessageContent()" (ngModelChange)="newMessageContent.set($event)" placeholder="Type a message..." (keyup.enter)="sendMessage()">
+          </mat-form-field>
+          <button mat-flat-button class="send-btn" (click)="sendMessage()">
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      } @else {
+        <!-- No Conversation Selected -->
+        <div class="chat-empty">
+          <mat-icon>forum</mat-icon>
+          <span>Select a conversation or start a new one</span>
+        </div>
+      }
+    </div>
+  </div>
+</div>
