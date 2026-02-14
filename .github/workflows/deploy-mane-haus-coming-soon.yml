@@ -4,15 +4,15 @@ on:
   push:
     branches: [main]
     paths:
-      - 'src/OriginHairCollective.Web/projects/main-haus-coming-soon/**'
-      - 'src/OriginHairCollective.Web/projects/components/**'
-      - 'src/OriginHairCollective.Web/projects/api/**'
+      - 'src/CrownCommerce.Web/projects/mane-haus-coming-soon/**'
+      - 'src/CrownCommerce.Web/projects/components/**'
+      - 'src/CrownCommerce.Web/projects/api/**'
       - '.github/workflows/deploy-mane-haus-coming-soon.yml'
   workflow_dispatch:
 
 env:
-  APP_LOCATION: 'src/OriginHairCollective.Web'
-  OUTPUT_LOCATION: 'dist/main-haus-coming-soon/browser'
+  APP_LOCATION: 'src/CrownCommerce.Web'
+  OUTPUT_LOCATION: 'dist/mane-haus-coming-soon/browser'
 
 jobs:
   build-and-deploy:
@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          cache-dependency-path: src/OriginHairCollective.Web/package-lock.json
+          cache-dependency-path: src/CrownCommerce.Web/package-lock.json
 
       - name: Install dependencies
         working-directory: ${{ env.APP_LOCATION }}
@@ -42,7 +42,7 @@ jobs:
 
       - name: Build Coming Soon app
         working-directory: ${{ env.APP_LOCATION }}
-        run: npx ng build main-haus-coming-soon --configuration production
+        run: npx ng build mane-haus-coming-soon --configuration production
         env:
           API_BASE_URL: ${{ vars.API_BASE_URL }}
 

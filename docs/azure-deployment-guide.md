@@ -1,4 +1,4 @@
-# Azure Deployment Guide
+﻿# Azure Deployment Guide
 
 This guide covers deploying the Origin Hair Collective coming-soon sites to Azure Static Web Apps and connecting custom domains purchased on Namecheap.
 
@@ -54,7 +54,7 @@ az staticwebapp create \
   --location eastus2 \
   --source https://github.com/<your-org>/OriginHairCollective \
   --branch main \
-  --app-location "src/OriginHairCollective.Web" \
+  --app-location "src/CrownCommerce.Web" \
   --output-location "dist/origin-hair-collective-coming-soon/browser" \
   --login-with-github
 ```
@@ -68,8 +68,8 @@ az staticwebapp create \
   --location eastus2 \
   --source https://github.com/<your-org>/OriginHairCollective \
   --branch main \
-  --app-location "src/OriginHairCollective.Web" \
-  --output-location "dist/main-haus-coming-soon/browser" \
+  --app-location "src/CrownCommerce.Web" \
+  --output-location "dist/mane-haus-coming-soon/browser" \
   --login-with-github
 ```
 
@@ -276,8 +276,8 @@ When building for production (`ng build --configuration production`), Angular au
 | File | Update |
 |------|--------|
 | `projects/origin-hair-collective-coming-soon/src/environments/environment.production.ts` | Set `apiBaseUrl` to actual production API URL |
-| `projects/main-haus-coming-soon/src/environments/environment.production.ts` | Set `apiBaseUrl` to actual production API URL |
-| `projects/origin-hair-collective-admin/src/environments/environment.production.ts` | Set `apiBaseUrl` to actual production API URL |
+| `projects/mane-haus-coming-soon/src/environments/environment.production.ts` | Set `apiBaseUrl` to actual production API URL |
+| `projects/crown-commerce-admin/src/environments/environment.production.ts` | Set `apiBaseUrl` to actual production API URL |
 
 ---
 
@@ -294,7 +294,7 @@ The backend microservices are not yet deployed. When ready, the recommended appr
 winget install microsoft.azd
 
 # Initialize Aspire deployment
-cd src/Aspire/OriginHairCollective.AppHost
+cd src/Aspire/CrownCommerce.AppHost
 azd init
 
 # Provision Azure resources and deploy
@@ -347,7 +347,7 @@ builder.Services.AddCors(options =>
 ### GitHub Actions Deployment Fails
 
 1. Check that secrets are correctly set in GitHub Settings
-2. Verify the build succeeds locally: `cd src/OriginHairCollective.Web && npx ng build api && npx ng build components && npx ng build origin-hair-collective-coming-soon`
+2. Verify the build succeeds locally: `cd src/CrownCommerce.Web && npx ng build api && npx ng build components && npx ng build origin-hair-collective-coming-soon`
 3. Check Actions logs for specific error messages
 
 ### Custom Domain Not Working

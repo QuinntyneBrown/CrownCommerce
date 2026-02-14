@@ -1,12 +1,19 @@
 <p align="center">
-  <img src="designs/ui/images/GitHub%20README%20Banner%20(1280x320).png" alt="Origin Hair Collective" />
+  <img src="designs/ui/images/GitHub%20README%20Banner%20(1280x320).png" alt="CrownCommerce" />
 </p>
 
 <p align="center">
-  Premium hair extensions e-commerce platform built with a microservices architecture.
+  Multi-brand premium hair extensions e-commerce platform built with a microservices architecture.
 </p>
 
 ---
+
+## Brands
+
+| Brand | Description | Status |
+|-------|-------------|--------|
+| **Origin Hair Collective** | Premium hair extensions | Active |
+| **Mane Haus** | Luxury hair extensions & styling | Coming Soon |
 
 ## Tech Stack
 
@@ -55,10 +62,10 @@ The platform is composed of nine domain-driven microservices behind a YARP rever
 ```
 src/
   Aspire/
-    OriginHairCollective.AppHost              # Aspire orchestrator
-    OriginHairCollective.ServiceDefaults      # Shared service configuration
+    CrownCommerce.AppHost                     # Aspire orchestrator
+    CrownCommerce.ServiceDefaults             # Shared service configuration
   Gateway/
-    OriginHairCollective.ApiGateway           # YARP reverse proxy
+    CrownCommerce.ApiGateway                  # YARP reverse proxy
   Services/
     Catalog/       (.Core, .Infrastructure, .Application, .Api)
     Chat/          (.Core, .Infrastructure, .Application, .Api)
@@ -70,14 +77,16 @@ src/
     Order/         (.Core, .Infrastructure, .Application, .Api)
     Payment/       (.Core, .Infrastructure, .Application, .Api)
   Shared/
-    OriginHairCollective.Shared.Contracts     # Cross-service message contracts
-  OriginHairCollective.Web/
+    CrownCommerce.Shared.Contracts            # Cross-service message contracts
+  CrownCommerce.Web/
     projects/
       api/                                    # Shared HTTP client library
       components/                             # Shared UI component library
-      origin-hair-collective/                 # Customer-facing marketing site
-      origin-hair-collective-admin/           # Admin dashboard
-      origin-hair-collective-coming-soon/     # Pre-launch landing page
+      crown-commerce-admin/                   # Admin dashboard (all brands)
+      origin-hair-collective/                 # Origin Hair Collective marketing site
+      origin-hair-collective-coming-soon/     # Origin Hair Collective pre-launch
+      mane-haus/                              # Mane Haus marketing site
+      mane-haus-coming-soon/                  # Mane Haus pre-launch
 designs/
   ui/                                         # UI designs (.pen files)
   technical/                                  # Technical design documents
@@ -102,7 +111,9 @@ Each service follows a consistent layered architecture: **Core** (domain entitie
 
 ## Frontend
 
-The Angular workspace contains five projects:
+The Angular workspace contains seven projects across platform and brand-specific apps:
+
+### Platform (shared across all brands)
 
 **API Library** (`projects/api`) — Shared HTTP client service abstractions consumed by all apps.
 
@@ -110,11 +121,19 @@ The Angular workspace contains five projects:
 
 `Badge` `BenefitCard` `Button` `ChatMessage` `ChatTypingIndicator` `ChatWidget` `CloseButton` `CountdownTimer` `Divider` `EmailSignup` `FooterLinkColumn` `Logo` `ProductCard` `SectionHeader` `SocialIcons` `TestimonialCard` `TrustBarItem`
 
+**Admin Dashboard** (`projects/crown-commerce-admin`) — Back-office application for managing products, origins, inquiries, subscribers, content, and testimonials across all brands.
+
+### Brand: Origin Hair Collective
+
 **Marketing Site** (`projects/origin-hair-collective`) — Customer-facing storefront with product showcases, brand story, testimonials, and an AI-powered chat widget.
 
-**Admin Dashboard** (`projects/origin-hair-collective-admin`) — Back-office application for managing products, origins, inquiries, subscribers, content, and testimonials.
-
 **Coming Soon** (`projects/origin-hair-collective-coming-soon`) — Pre-launch landing page with countdown timer and email signup.
+
+### Brand: Mane Haus
+
+**Marketing Site** (`projects/mane-haus`) — Customer-facing storefront.
+
+**Coming Soon** (`projects/mane-haus-coming-soon`) — Pre-launch landing page with countdown timer and email signup.
 
 ## Prerequisites
 
@@ -129,10 +148,10 @@ The Angular workspace contains five projects:
 dotnet workload install aspire
 
 # Build the solution
-dotnet build OriginHairCollective.sln
+dotnet build CrownCommerce.sln
 
 # Build and serve the Angular app
-cd src/OriginHairCollective.Web
+cd src/CrownCommerce.Web
 npm install
 npx ng build components
 npx ng serve origin-hair-collective
@@ -142,7 +161,7 @@ npx ng serve origin-hair-collective
 
 ```bash
 # Unit tests (Vitest)
-cd src/OriginHairCollective.Web
+cd src/CrownCommerce.Web
 npm test
 
 # E2E tests — Marketing site (Playwright)

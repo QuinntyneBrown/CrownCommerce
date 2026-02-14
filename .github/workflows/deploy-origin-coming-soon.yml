@@ -4,14 +4,14 @@ on:
   push:
     branches: [main]
     paths:
-      - 'src/OriginHairCollective.Web/projects/origin-hair-collective-coming-soon/**'
-      - 'src/OriginHairCollective.Web/projects/components/**'
-      - 'src/OriginHairCollective.Web/projects/api/**'
+      - 'src/CrownCommerce.Web/projects/origin-hair-collective-coming-soon/**'
+      - 'src/CrownCommerce.Web/projects/components/**'
+      - 'src/CrownCommerce.Web/projects/api/**'
       - '.github/workflows/deploy-origin-coming-soon.yml'
   workflow_dispatch:
 
 env:
-  APP_LOCATION: 'src/OriginHairCollective.Web'
+  APP_LOCATION: 'src/CrownCommerce.Web'
   OUTPUT_LOCATION: 'dist/origin-hair-collective-coming-soon/browser'
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          cache-dependency-path: src/OriginHairCollective.Web/package-lock.json
+          cache-dependency-path: src/CrownCommerce.Web/package-lock.json
 
       - name: Install dependencies
         working-directory: ${{ env.APP_LOCATION }}
