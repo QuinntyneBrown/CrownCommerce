@@ -21,7 +21,7 @@ test.describe('Footer', () => {
   test('should display the tagline', async () => {
     await expect(homePage.footer.tagline).toBeVisible();
     const text = await homePage.footer.tagline.textContent();
-    expect(text).toContain('Premium hair extensions for the woman who demands excellence');
+    expect(text).toContain('Premium hair for the woman who demands excellence');
     expect(text).toContain('Mississauga');
   });
 

@@ -61,7 +61,7 @@
 - Rising alopecia and hair thinning awareness
 - Growing demand for natural-look, customizable products
 - Expansion of e-commerce and direct-to-consumer brands
-- Textured/curly hair extensions are the fastest-growing category (38% of new 2023-2024 launches)
+- Textured/curly hair are the fastest-growing category (38% of new 2023-2024 launches)
 
 ---
 
@@ -210,7 +210,7 @@
 |---------|-------------|---------------|
 | 6703.00.00 | Human hair, dressed/thinned/bleached (raw material) | **Free (0%)** |
 | 6704.20.00 | Wigs, false beards of human hair | **15.5%** |
-| 6704.11/19 | Synthetic hair extensions | **15.5%** |
+| 6704.11/19 | Synthetic hair | **15.5%** |
 
 ## Tariff by Country of Origin
 
@@ -555,7 +555,7 @@ Every consultant engagement should include a written agreement covering:
 
 | Platform | Commission | Notes |
 |----------|-----------|-------|
-| Instagram Shop | 0% (links to your site) | ESSENTIAL for hair extensions |
+| Instagram Shop | 0% (links to your site) | ESSENTIAL for hair |
 | TikTok Shop | 5% + processing | Massive growth channel for beauty |
 | Facebook Marketplace | 0% | Good for local GTA sales |
 | Pinterest Shopping | 0% | Excellent for hair inspiration |
@@ -618,7 +618,7 @@ Every consultant engagement should include a written agreement covering:
 |----------|------------------------|-----------------|
 | Instagram/Facebook Ads | $500-$1,500 | 50K-150K impressions, 500-2K clicks |
 | TikTok Ads | $300-$800 | Higher reach, lower CPC |
-| Google Ads (Search) | $500-$1,000 | Capture "buy hair extensions Canada" |
+| Google Ads (Search) | $500-$1,000 | Capture "buy hair Canada" |
 | Pinterest Ads | $200-$500 | High-intent website traffic |
 | **Total** | **$1,500-$3,800/month** | |
 
@@ -626,11 +626,11 @@ Every consultant engagement should include a written agreement covering:
 
 ## SEO Keywords to Target
 
-**Commercial (product pages):** hair extensions canada, buy hair extensions online canada, virgin hair extensions toronto, hair extensions mississauga, human hair bundles canada
+**Commercial (product pages):** hair canada, buy hair online canada, virgin hair toronto, hair mississauga, human hair bundles canada
 
-**Informational (blog posts):** how to choose hair extensions, tape in vs clip in extensions, how to care for human hair extensions, hair extensions for black women canada
+**Informational (blog posts):** how to choose hair, tape in vs clip in extensions, how to care for human hair, hair for black women canada
 
-**Local:** hair extensions near me, hair extensions mississauga, hair bundles mississauga, hair vendor mississauga
+**Local:** hair near me, hair mississauga, hair bundles mississauga, hair vendor mississauga
 
 ---
 

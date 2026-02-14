@@ -157,7 +157,7 @@ Check each box if the red flag is **absent** (i.e., no red flag found). If any b
 
 | Platform | URL | Notes |
 |---|---|---|
-| **Alibaba** | alibaba.com | Largest B2B marketplace. Use "Trade Assurance" filter. Search: "bulk human hair extensions", "raw virgin hair wholesale". |
+| **Alibaba** | alibaba.com | Largest B2B marketplace. Use "Trade Assurance" filter. Search: "bulk human hair", "raw virgin hair wholesale". |
 | **Made-in-China** | made-in-china.com | Strong for factory-direct Chinese suppliers. Look for "Audited Supplier" badge. |
 | **1688.com** | 1688.com | Chinese domestic wholesale (prices in CNY). Requires translation. Often 30-50% cheaper than Alibaba for the same factories. Use a sourcing agent if needed. |
 | **DHgate** | dhgate.com | Smaller orders, buyer protection. Good for testing new products before committing to bulk. |
@@ -172,15 +172,15 @@ Check each box if the red flag is **absent** (i.e., no red flag found). If any b
 ## SEARCH TERMS TO USE
 
 When searching platforms, try these queries:
-- "bulk human hair extensions wholesale"
+- "bulk human hair wholesale"
 - "raw virgin hair bundles factory"
-- "remy hair extensions manufacturer"
+- "remy hair manufacturer"
 - "Cambodian virgin hair wholesale"
 - "Indian temple hair exporter"
 - "body wave bundles wholesale"
-- "private label hair extensions"
+- "private label hair"
 - "custom hair packaging"
-- "hair extensions [country] factory direct"
+- "hair [country] factory direct"
 
 ---
 

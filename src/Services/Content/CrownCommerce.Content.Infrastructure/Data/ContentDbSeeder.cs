@@ -17,13 +17,13 @@ public static class ContentDbSeeder
             new()
             {
                 Id = Guid.NewGuid(), Slug = "our-story", Title = "Our Story",
-                Body = "Origin Hair Collective was founded with a mission to bring ethically sourced, premium quality hair extensions to conscious consumers. We partner directly with communities across Southeast Asia and South Asia to ensure fair-trade practices and full traceability from source to salon.",
+                Body = "Origin Hair Collective was founded with a mission to bring ethically sourced, premium quality hair to conscious consumers. We partner directly with communities across Southeast Asia and South Asia to ensure fair-trade practices and full traceability from source to salon.",
                 SortOrder = 1, IsPublished = true, CreatedAt = DateTime.UtcNow
             },
             new()
             {
                 Id = Guid.NewGuid(), Slug = "hair-care-guide", Title = "Hair Care Guide",
-                Body = "Proper care extends the life of your hair extensions. Always use sulfate-free shampoo, detangle gently from ends to roots, and store on a silk or satin surface. Deep condition weekly and avoid excessive heat styling to maintain the natural luster and softness.",
+                Body = "Proper care extends the life of your hair. Always use sulfate-free shampoo, detangle gently from ends to roots, and store on a silk or satin surface. Deep condition weekly and avoid excessive heat styling to maintain the natural luster and softness.",
                 SortOrder = 2, IsPublished = true, CreatedAt = DateTime.UtcNow
             },
             new()
@@ -50,7 +50,7 @@ public static class ContentDbSeeder
 
         var faqs = new List<FaqItem>
         {
-            new() { Id = Guid.NewGuid(), Question = "How long do hair extensions last?", Answer = "With proper care, our virgin hair extensions can last 12-18 months or longer.", Category = "General", SortOrder = 1, IsPublished = true },
+            new() { Id = Guid.NewGuid(), Question = "How long do hair last?", Answer = "With proper care, our virgin hair can last 12-18 months or longer.", Category = "General", SortOrder = 1, IsPublished = true },
             new() { Id = Guid.NewGuid(), Question = "Can I color or bleach the hair?", Answer = "Yes! Our virgin hair has not been chemically processed, so it can be colored, bleached, and styled just like your natural hair.", Category = "General", SortOrder = 2, IsPublished = true },
             new() { Id = Guid.NewGuid(), Question = "What is the difference between bundles, closures, and frontals?", Answer = "Bundles are wefts of hair sewn together. Closures cover a small area (4x4 or 5x5) at the top. Frontals span ear to ear (13x4 or 13x6) for a complete natural hairline.", Category = "Products", SortOrder = 3, IsPublished = true },
             new() { Id = Guid.NewGuid(), Question = "How do I determine the right length?", Answer = "Measure from the crown of your head down to where you want the hair to fall. Our lengths are measured when the hair is straight.", Category = "Products", SortOrder = 4, IsPublished = true },

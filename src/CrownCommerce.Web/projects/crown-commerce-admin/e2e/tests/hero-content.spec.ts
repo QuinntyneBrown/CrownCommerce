@@ -46,7 +46,7 @@ test.describe('Hero Content', () => {
     });
 
     test('should display Hero Title placeholder', async () => {
-      await expect(heroPage.heroTitleField).toHaveAttribute('placeholder', 'e.g. Premium Hair Extensions');
+      await expect(heroPage.heroTitleField).toHaveAttribute('placeholder', 'e.g. Premium Hair');
     });
 
     test('should display Hero Subtitle field', async () => {

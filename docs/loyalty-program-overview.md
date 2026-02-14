@@ -31,7 +31,7 @@
 
 Crown Rewards is a points-based loyalty program designed to increase customer retention, raise average order value, and build brand community for Origin Hair Collective. The program rewards customers for purchases, referrals, engagement, and brand advocacy with redeemable points and tier-based benefits.
 
-The hair extensions market is driven by repeat purchases — premium virgin and Remy hair lasts 1–5 years, but customers regularly buy new textures, lengths, and styles. A loyalty program converts one-time buyers into long-term brand advocates in a market where trust and product quality drive purchasing decisions.
+The hair market is driven by repeat purchases — premium virgin and Remy hair lasts 1–5 years, but customers regularly buy new textures, lengths, and styles. A loyalty program converts one-time buyers into long-term brand advocates in a market where trust and product quality drive purchasing decisions.
 
 **Key Design Principles:**
 

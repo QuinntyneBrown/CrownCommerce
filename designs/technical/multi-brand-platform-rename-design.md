@@ -10,8 +10,8 @@ This document designs a rename that separates _platform infrastructure_ (shared,
 
 | Brand | Type | Status |
 |-------|------|--------|
-| Origin Hair Collective | Luxury hair extensions | Active (marketing site, coming-soon, admin) |
-| Mane Haus | Luxury hair extensions & styling | Coming soon |
+| Origin Hair Collective | Luxury hair | Active (marketing site, coming-soon, admin) |
+| Mane Haus | Luxury hair & styling | Coming soon |
 
 ---
 

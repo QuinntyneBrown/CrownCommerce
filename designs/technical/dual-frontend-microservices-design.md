@@ -4,7 +4,7 @@
 
 This document describes the architectural changes required to evolve the Origin Hair Collective backend microservices into a **multi-brand platform** that serves two distinct consumer-facing frontends:
 
-1. **Origin Hair Collective** — The existing premium virgin hair extensions brand targeting the modern, luxury-conscious woman.
+1. **Origin Hair Collective** — The existing premium virgin hair brand targeting the modern, luxury-conscious woman.
 2. **Mane Haus** — A new sister brand with its own visual identity, marketing voice, and customer-facing experience.
 
 Both brands share a single backend microservices infrastructure, reducing operational cost and development effort while maintaining distinct brand identities at the frontend layer. Each brand operates its own marketing site, coming soon page, and (future) e-commerce storefront. A single admin dashboard manages both brands.

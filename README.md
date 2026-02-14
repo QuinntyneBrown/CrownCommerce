@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  Multi-brand premium hair extensions e-commerce platform built with a microservices architecture.
+  Multi-brand premium hair e-commerce platform built with a microservices architecture.
 </p>
 
 ---
@@ -12,8 +12,8 @@
 
 | Brand | Description | Status |
 |-------|-------------|--------|
-| **Origin Hair Collective** | Premium hair extensions | Active |
-| **Mane Haus** | Luxury hair extensions & styling | Coming Soon |
+| **Origin Hair Collective** | Premium hair | Active |
+| **Mane Haus** | Luxury hair & styling | Coming Soon |
 
 ## Tech Stack
 

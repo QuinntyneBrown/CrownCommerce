@@ -30,7 +30,7 @@ test.describe('Hero Section', () => {
 
   test('should display the subline text', async () => {
     const subline = await homePage.hero.getSublineText();
-    expect(subline).toContain('Premium virgin hair extensions');
+    expect(subline).toContain('Premium virgin hair');
     expect(subline).toContain('Luxury you can feel, confidence you can see');
   });
 

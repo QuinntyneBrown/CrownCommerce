@@ -134,7 +134,7 @@ export const mockTrustBarItems: TrustBarItemInfo[] = [
 ];
 
 export const mockHeroContent: HeroContentInfo = {
-  title: 'Premium Hair Extensions',
+  title: 'Premium Hair',
   subtitle: 'Ethically sourced, premium quality',
   ctaText: 'Shop Now',
   ctaLink: '/products',
