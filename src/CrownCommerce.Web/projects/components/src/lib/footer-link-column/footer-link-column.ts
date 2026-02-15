@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 export interface FooterLink {
   label: string;
   href: string;
+  queryParams?: Record<string, string>;
 }
 
 @Component({
@@ -13,7 +14,7 @@ export interface FooterLink {
     <nav class="footer-links">
       <h4 class="footer-links__title">{{ title() }}</h4>
       @for (link of links(); track link.label) {
-        <a class="footer-links__link" [routerLink]="link.href">{{ link.label }}</a>
+        <a class="footer-links__link" [routerLink]="link.href" [queryParams]="link.queryParams ?? {}">{{ link.label }}</a>
       }
     </nav>
   `,

@@ -52,10 +52,10 @@ export class MainLayout {
   ];
 
   readonly shopLinks: FooterLink[] = [
-    { label: 'Bundles', href: '/shop?category=bundles' },
-    { label: 'Closures', href: '/shop?category=closures' },
-    { label: 'Frontals', href: '/shop?category=frontals' },
-    { label: 'Bundle Deals', href: '/shop?category=deals' },
+    { label: 'Bundles', href: '/shop', queryParams: { category: 'bundles' } },
+    { label: 'Closures', href: '/shop', queryParams: { category: 'closures' } },
+    { label: 'Frontals', href: '/shop', queryParams: { category: 'frontals' } },
+    { label: 'Bundle Deals', href: '/shop', queryParams: { category: 'deals' } },
   ];
 
   readonly companyLinks: FooterLink[] = [
