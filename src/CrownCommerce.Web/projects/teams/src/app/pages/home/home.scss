@@ -5,6 +5,82 @@
   gap: 4px;
 }
 
+// Search overlay
+.search-overlay {
+  margin-bottom: 16px;
+}
+
+.search-bar-global {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.search-input-global {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.search-results {
+  margin-top: 8px;
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.search-section-label {
+  padding: 8px 16px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-primary);
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    color: var(--text-secondary);
+  }
+}
+
+.search-result-time {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.search-empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
 // Time zones
 .timezone-row {
   display: flex;
@@ -220,6 +296,66 @@
   font-size: 11px;
   color: var(--text-tertiary);
   white-space: nowrap;
+}
+
+// Load more
+.load-more-bar {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 4px;
+}
+
+.load-more-btn {
+  border: 1px solid var(--border);
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.12s ease;
+
+  &:hover:not(:disabled) {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
+// Notifications menu
+.notif-header {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+}
+
+.notif-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.notif-title {
+  font-size: 13px;
+}
+
+.notif-time {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.notif-empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
 }
 
 // Empty state

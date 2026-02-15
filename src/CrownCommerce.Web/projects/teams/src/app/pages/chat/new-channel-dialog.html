@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>New Channel</h2>
+
+<mat-dialog-content>
+  <form class="channel-form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Channel Name</mat-label>
+      <input matInput [ngModel]="channelName()" (ngModelChange)="channelName.set($event)" name="channelName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select [ngModel]="channelType()" (ngModelChange)="channelType.set($event)" name="channelType">
+        <mat-option value="Public">Public</mat-option>
+        <mat-option value="Private">Private</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Icon</mat-label>
+      <mat-select [ngModel]="channelIcon()" (ngModelChange)="channelIcon.set($event)" name="channelIcon">
+        @for (icon of icons; track icon) {
+          <mat-option [value]="icon">
+            <mat-icon>{{ icon }}</mat-icon>
+            {{ icon }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Members</mat-label>
+      <mat-select [ngModel]="selectedMembers()" (ngModelChange)="selectedMembers.set($event)" name="members" multiple>
+        @for (emp of employees(); track emp.id) {
+          <mat-option [value]="emp.id">{{ emp.firstName }} {{ emp.lastName }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-flat-button color="primary"
+          (click)="onSubmit()"
+          [disabled]="isSubmitting() || !channelName().trim()">
+    @if (isSubmitting()) {
+      Creating...
+    } @else {
+      Create Channel
+    }
+  </button>
+</mat-dialog-actions>

@@ -4,7 +4,7 @@
     <h1 class="page-title">Meetings</h1>
     <p class="page-subtitle">{{ currentMonthYear() }}</p>
   </div>
-  <button mat-flat-button color="primary" class="new-meeting-btn">
+  <button mat-flat-button color="primary" class="new-meeting-btn" (click)="openNewMeetingDialog()">
     <mat-icon>add</mat-icon>
     New Meeting
   </button>
@@ -43,6 +43,12 @@
                 @if (meeting.isVirtual) {
                   <mat-icon class="meta-icon">videocam</mat-icon>
                   <span>Virtual Meeting</span>
+                  @if (meeting.joinUrl) {
+                    <button mat-stroked-button class="join-call-btn" (click)="joinMeeting(meeting)">
+                      <mat-icon>video_call</mat-icon>
+                      Join
+                    </button>
+                  }
                 } @else {
                   <mat-icon class="meta-icon">location_on</mat-icon>
                   <span>{{ meeting.location }}</span>
@@ -59,11 +65,58 @@
                 }
               </div>
             </div>
-            <button mat-icon-button class="join-btn">
-              <mat-icon>videocam</mat-icon>
+            <div class="rsvp-actions">
+              @if (meeting.rsvpStatus === 'Pending') {
+                <button mat-stroked-button class="rsvp-btn rsvp-btn--accept" (click)="respondToMeeting(meeting, 'Accepted')">
+                  <mat-icon>check</mat-icon>
+                  Accept
+                </button>
+                <button mat-stroked-button class="rsvp-btn rsvp-btn--decline" (click)="respondToMeeting(meeting, 'Declined')">
+                  <mat-icon>close</mat-icon>
+                  Decline
+                </button>
+              } @else if (meeting.rsvpStatus === 'Accepted') {
+                <span class="rsvp-badge rsvp-badge--accepted">
+                  <mat-icon>check_circle</mat-icon>
+                  Accepted
+                </span>
+              } @else if (meeting.rsvpStatus === 'Declined') {
+                <span class="rsvp-badge rsvp-badge--declined">
+                  <mat-icon>cancel</mat-icon>
+                  Declined
+                </span>
+              }
+            </div>
+            <button mat-icon-button class="join-btn" [matMenuTriggerFor]="meetingMenu">
+              <mat-icon>more_vert</mat-icon>
             </button>
+            <mat-menu #meetingMenu="matMenu">
+              <button mat-menu-item (click)="editMeeting(meeting)">
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item (click)="exportMeetingToICal(meeting)">
+                <mat-icon>download</mat-icon>
+                <span>Export iCal</span>
+              </button>
+              <button mat-menu-item (click)="cancelMeeting(meeting)">
+                <mat-icon>cancel</mat-icon>
+                <span>Cancel Meeting</span>
+              </button>
+            </mat-menu>
           </div>
         </mat-card>
+      }
+      @if (hasMoreMeetings()) {
+        <div class="load-more-bar">
+          <button class="load-more-btn" (click)="loadMoreMeetings()" [disabled]="isLoadingMore()">
+            @if (isLoadingMore()) {
+              Loading...
+            } @else {
+              Show more meetings
+            }
+          </button>
+        </div>
       }
       @if (filteredMeetings().length === 0) {
         <div class="empty-state">

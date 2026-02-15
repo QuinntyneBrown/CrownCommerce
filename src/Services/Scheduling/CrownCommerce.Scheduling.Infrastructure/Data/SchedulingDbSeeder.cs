@@ -6,6 +6,13 @@ namespace CrownCommerce.Scheduling.Infrastructure.Data;
 
 public static class SchedulingDbSeeder
 {
+    // Deterministic UserIds shared with Identity service seeder
+    public static readonly Guid QuinnUserId = new("a1b2c3d4-e5f6-7890-abcd-ef1234567890");
+    public static readonly Guid AmaraUserId = new("b2c3d4e5-f6a7-8901-bcde-f12345678901");
+    public static readonly Guid WanjikuUserId = new("c3d4e5f6-a7b8-9012-cdef-123456789012");
+    public static readonly Guid SophiaUserId = new("d4e5f6a7-b8c9-0123-defa-234567890123");
+    public static readonly Guid JamesUserId = new("e5f6a7b8-c9d0-1234-efab-345678901234");
+
     public static async Task SeedAsync(SchedulingDbContext context)
     {
         await context.Database.EnsureCreatedAsync();
@@ -18,7 +25,7 @@ public static class SchedulingDbSeeder
             new Employee
             {
                 Id = Guid.NewGuid(),
-                UserId = Guid.NewGuid(),
+                UserId = QuinnUserId,
                 Email = "quinn@crowncommerce.com",
                 FirstName = "Quinn",
                 LastName = "Morgan",
@@ -34,7 +41,7 @@ public static class SchedulingDbSeeder
             new Employee
             {
                 Id = Guid.NewGuid(),
-                UserId = Guid.NewGuid(),
+                UserId = AmaraUserId,
                 Email = "amara@crowncommerce.com",
                 FirstName = "Amara",
                 LastName = "Okafor",
@@ -50,7 +57,7 @@ public static class SchedulingDbSeeder
             new Employee
             {
                 Id = Guid.NewGuid(),
-                UserId = Guid.NewGuid(),
+                UserId = WanjikuUserId,
                 Email = "wanjiku@crowncommerce.com",
                 FirstName = "Wanjiku",
                 LastName = "Kamau",
@@ -66,7 +73,7 @@ public static class SchedulingDbSeeder
             new Employee
             {
                 Id = Guid.NewGuid(),
-                UserId = Guid.NewGuid(),
+                UserId = SophiaUserId,
                 Email = "sophia@crowncommerce.com",
                 FirstName = "Sophia",
                 LastName = "Chen",
@@ -82,7 +89,7 @@ public static class SchedulingDbSeeder
             new Employee
             {
                 Id = Guid.NewGuid(),
-                UserId = Guid.NewGuid(),
+                UserId = JamesUserId,
                 Email = "james@crowncommerce.com",
                 FirstName = "James",
                 LastName = "Mwangi",

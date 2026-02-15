@@ -187,9 +187,111 @@
   }
 }
 
+// RSVP
+.rsvp-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.rsvp-btn {
+  font-size: 12px;
+  line-height: 1;
+  min-width: unset;
+  padding: 4px 12px;
+  border-radius: var(--radius-md) !important;
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+  }
+
+  &--accept {
+    --mdc-outlined-button-label-text-color: #22C55E;
+    border-color: #22C55E !important;
+  }
+
+  &--decline {
+    --mdc-outlined-button-label-text-color: #EF4444;
+    border-color: #EF4444 !important;
+  }
+}
+
+.rsvp-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  flex-shrink: 0;
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
+
+  &--accepted {
+    color: #22C55E;
+  }
+
+  &--declined {
+    color: #EF4444;
+  }
+}
+
 .join-btn {
   --mdc-icon-button-icon-color: var(--primary);
   flex-shrink: 0;
+}
+
+.join-call-btn {
+  margin-left: 8px;
+  font-size: 12px;
+  line-height: 1;
+  min-width: unset;
+  padding: 4px 12px;
+  border-radius: var(--radius-md) !important;
+  --mdc-outlined-button-label-text-color: var(--primary);
+  border-color: var(--primary) !important;
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+  }
+}
+
+// Load more
+.load-more-bar {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.load-more-btn {
+  border: 1px solid var(--border);
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 8px 24px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.12s ease;
+
+  &:hover:not(:disabled) {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
 }
 
 // Empty state

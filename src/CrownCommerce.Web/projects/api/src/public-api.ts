@@ -65,10 +65,17 @@ export type {
   Channel,
   ChannelMessage,
   SendChannelMessageRequest,
+  UpdateChannelMessageRequest,
   CreateChannelRequest,
   MarkAsReadRequest,
   ActivityFeedItem,
   UpdatePresenceRequest,
+  AddReactionRequest,
+  ReactionSummary,
+  FileAttachment,
+  CallRoom,
+  CallToken,
+  JoinCallRequest,
 } from './lib/models/scheduling.models';
 
 // Services
@@ -82,3 +89,4 @@ export { NotificationService } from './lib/services/notification.service';
 export { ChatService } from './lib/services/chat.service';
 export { NewsletterService } from './lib/services/newsletter.service';
 export { SchedulingService } from './lib/services/scheduling.service';
+export { TeamHubService, type HubMessage, type HubPresenceUpdate, type HubTypingUpdate } from './lib/services/team-hub.service';

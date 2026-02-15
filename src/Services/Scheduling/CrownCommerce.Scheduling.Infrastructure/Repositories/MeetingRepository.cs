@@ -15,17 +15,18 @@ public sealed class MeetingRepository(SchedulingDbContext context) : IMeetingRep
             .FirstOrDefaultAsync(m => m.Id == id, ct);
     }
 
-    public async Task<IReadOnlyList<Meeting>> GetByDateRangeAsync(DateTime startUtc, DateTime endUtc, CancellationToken ct = default)
+    public async Task<IReadOnlyList<Meeting>> GetByDateRangeAsync(DateTime startUtc, DateTime endUtc, int skip = 0, int take = 50, CancellationToken ct = default)
     {
         return await context.Meetings
             .AsNoTracking()
             .Include(m => m.Attendees)
             .Where(m => m.StartTimeUtc >= startUtc && m.StartTimeUtc <= endUtc)
             .OrderBy(m => m.StartTimeUtc)
+            .Skip(skip).Take(take)
             .ToListAsync(ct);
     }
 
-    public async Task<IReadOnlyList<Meeting>> GetByEmployeeAsync(Guid employeeId, DateTime startUtc, DateTime endUtc, CancellationToken ct = default)
+    public async Task<IReadOnlyList<Meeting>> GetByEmployeeAsync(Guid employeeId, DateTime startUtc, DateTime endUtc, int skip = 0, int take = 50, CancellationToken ct = default)
     {
         return await context.Meetings
             .AsNoTracking()
@@ -33,6 +34,7 @@ public sealed class MeetingRepository(SchedulingDbContext context) : IMeetingRep
             .Where(m => m.StartTimeUtc >= startUtc && m.StartTimeUtc <= endUtc
                 && (m.OrganizerId == employeeId || m.Attendees.Any(a => a.EmployeeId == employeeId)))
             .OrderBy(m => m.StartTimeUtc)
+            .Skip(skip).Take(take)
             .ToListAsync(ct);
     }
 

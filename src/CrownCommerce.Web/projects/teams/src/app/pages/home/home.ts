@@ -3,8 +3,9 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import { SchedulingService } from 'api';
-import { map, switchMap } from 'rxjs';
+import { map } from 'rxjs';
 import { TIME_ZONES, type Meeting, type ActivityItem, type TimeZoneCard } from '../../data/mock-data';
 
 const MEETING_COLORS = ['#C9A052', '#B8816B', '#2E7D32', '#E65100', '#1565C0', '#8B6914'];
@@ -12,7 +13,7 @@ const ACTIVITY_COLORS: Record<string, string> = { message: '#C9A052', meeting: '
 
 @Component({
   selector: 'app-home',
-  imports: [MatCardModule, MatIconModule, MatButtonModule],
+  imports: [MatCardModule, MatIconModule, MatButtonModule, MatMenuModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -61,13 +62,50 @@ export class HomePage {
 
   readonly upcomingMeetings = computed(() => this.apiMeetings());
 
-  private readonly apiActivities = toSignal(
-    this.schedulingService.getEmployees().pipe(
-      switchMap((employees) => {
-        const currentId = employees[0]?.id ?? '';
-        return this.schedulingService.getActivityFeed(currentId, 6);
-      }),
-      map((items) =>
+  readonly activities = signal<ActivityItem[]>([]);
+  readonly hasMoreActivities = signal(false);
+  readonly isLoadingMoreActivities = signal(false);
+  private readonly activityPageSize = 6;
+  private loadedActivityCount = 0;
+  private currentEmployeeId = '';
+
+  readonly searchQuery = signal('');
+  readonly isSearchOpen = signal(false);
+
+  readonly searchResults = computed(() => {
+    const query = this.searchQuery().toLowerCase().trim();
+    if (!query) return { meetings: [] as Meeting[], activities: [] as ActivityItem[] };
+    return {
+      meetings: (this.apiMeetings() ?? []).filter((m) => m.title.toLowerCase().includes(query)),
+      activities: this.activities().filter(
+        (a) => a.title.toLowerCase().includes(query) || a.description.toLowerCase().includes(query)
+      ),
+    };
+  });
+
+  constructor() {
+    this.schedulingService.getCurrentEmployee().subscribe((emp) => {
+      this.currentEmployeeId = emp.id;
+      this.loadActivities();
+    });
+  }
+
+  toggleSearch(): void {
+    this.isSearchOpen.update((v) => !v);
+    if (!this.isSearchOpen()) {
+      this.searchQuery.set('');
+    }
+  }
+
+  onSearchInput(event: Event): void {
+    this.searchQuery.set((event.target as HTMLInputElement).value);
+  }
+
+  private loadActivities(): void {
+    this.schedulingService.getActivityFeed(this.currentEmployeeId, this.activityPageSize).subscribe((items) => {
+      this.loadedActivityCount = items.length;
+      this.hasMoreActivities.set(items.length >= this.activityPageSize);
+      this.activities.set(
         items.map((item, i) => ({
           id: i + 1,
           type: item.type as ActivityItem['type'],
@@ -77,12 +115,32 @@ export class HomePage {
           time: this.formatRelativeTime(item.occurredAt),
           color: ACTIVITY_COLORS[item.type] ?? '#6366F1',
         }))
-      )
-    ),
-    { initialValue: [] as ActivityItem[] }
-  );
+      );
+    });
+  }
 
-  readonly activities = computed(() => this.apiActivities());
+  loadMoreActivities(): void {
+    if (this.isLoadingMoreActivities() || !this.currentEmployeeId) return;
+    this.isLoadingMoreActivities.set(true);
+    this.schedulingService.getActivityFeed(this.currentEmployeeId, this.activityPageSize, this.loadedActivityCount).subscribe({
+      next: (items) => {
+        const mapped = items.map((item, i) => ({
+          id: this.loadedActivityCount + i + 1,
+          type: item.type as ActivityItem['type'],
+          icon: item.icon,
+          title: item.title,
+          description: item.description,
+          time: this.formatRelativeTime(item.occurredAt),
+          color: ACTIVITY_COLORS[item.type] ?? '#6366F1',
+        }));
+        this.loadedActivityCount += items.length;
+        this.hasMoreActivities.set(items.length >= this.activityPageSize);
+        this.activities.update((prev) => [...prev, ...mapped]);
+        this.isLoadingMoreActivities.set(false);
+      },
+      error: () => this.isLoadingMoreActivities.set(false),
+    });
+  }
 
   getCurrentTime(offset: string): string {
     const utcOffset = parseInt(offset.replace('UTC', ''), 10) || 0;

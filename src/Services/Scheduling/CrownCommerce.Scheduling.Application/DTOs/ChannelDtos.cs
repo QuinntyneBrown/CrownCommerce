@@ -16,11 +16,14 @@ public sealed record ChannelMessageDto(
     string SenderName,
     string SenderInitials,
     string Content,
-    DateTime SentAt);
+    DateTime SentAt,
+    IReadOnlyList<ReactionSummaryDto> Reactions,
+    IReadOnlyList<FileAttachmentDto> Attachments);
 
 public sealed record SendChannelMessageDto(
     Guid SenderEmployeeId,
-    string Content);
+    string Content,
+    IReadOnlyList<Guid>? AttachmentIds = null);
 
 public sealed record CreateChannelDto(
     string Name,
@@ -28,6 +31,9 @@ public sealed record CreateChannelDto(
     string ChannelType,
     Guid CreatedByEmployeeId,
     IReadOnlyList<Guid> ParticipantEmployeeIds);
+
+public sealed record UpdateChannelMessageDto(
+    string Content);
 
 public sealed record MarkAsReadDto(
     Guid EmployeeId);
@@ -42,3 +48,19 @@ public sealed record ActivityFeedItemDto(
 
 public sealed record UpdatePresenceDto(
     string Presence);
+
+public sealed record AddReactionDto(
+    Guid EmployeeId,
+    string Emoji);
+
+public sealed record ReactionDto(
+    Guid Id,
+    Guid MessageId,
+    Guid EmployeeId,
+    string Emoji,
+    DateTime CreatedAt);
+
+public sealed record ReactionSummaryDto(
+    string Emoji,
+    int Count,
+    bool HasReacted);

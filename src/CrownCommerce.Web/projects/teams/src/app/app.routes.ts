@@ -1,10 +1,17 @@
 import { Routes } from '@angular/router';
 import { TeamsLayout } from './layout/teams-layout';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
+    path: 'login',
+    loadComponent: () =>
+      import('./pages/login/login').then((m) => m.LoginPage),
+  },
+  {
     path: '',
     component: TeamsLayout,
+    canActivate: [authGuard],
     children: [
       {
         path: 'home',

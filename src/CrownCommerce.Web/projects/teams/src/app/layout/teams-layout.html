@@ -24,13 +24,13 @@
       </div>
 
       <div class="sidebar-bottom">
-        <div class="user-avatar">QM</div>
+        <div class="user-avatar">{{ userInitials() }}</div>
         <div class="user-info">
-          <span class="user-name">Quinn M.</span>
-          <span class="user-role">Team Lead</span>
+          <span class="user-name">{{ userName() }}</span>
+          <span class="user-role">{{ userRole() }}</span>
         </div>
-        <button mat-icon-button class="settings-btn">
-          <mat-icon>settings</mat-icon>
+        <button mat-icon-button class="settings-btn" (click)="logout()" title="Sign out">
+          <mat-icon>logout</mat-icon>
         </button>
       </div>
     </aside>
@@ -62,7 +62,7 @@
       </nav>
 
       <div class="topnav-right">
-        <div class="user-avatar user-avatar--sm">QM</div>
+        <div class="user-avatar user-avatar--sm">{{ userInitials() }}</div>
       </div>
     </header>
 

@@ -73,6 +73,35 @@
   }
 }
 
+.search-clear {
+  --mdc-icon-button-state-layer-size: 24px;
+  --mdc-icon-button-icon-size: 16px;
+  width: 24px;
+  height: 24px;
+}
+
+.search-results-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--surface-card);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--text-secondary);
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    color: var(--primary);
+  }
+
+  span {
+    flex: 1;
+  }
+}
+
 .channel-section {
   display: flex;
   flex-direction: column;
@@ -254,11 +283,90 @@
   color: var(--text-primary);
   margin: 0;
   line-height: 1.5;
+
+  ::ng-deep .mention {
+    color: var(--primary);
+    font-weight: 500;
+    background: var(--primary-light);
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
 }
 
 .message-time {
   font-size: 10px;
   color: var(--text-tertiary);
+}
+
+.mention-dropdown {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.mention-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-primary);
+  text-align: left;
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+}
+
+.mention-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 20px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.typing-dots {
+  display: inline-flex;
+  gap: 3px;
+
+  span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+    animation: typing-bounce 1.4s infinite ease-in-out both;
+
+    &:nth-child(1) { animation-delay: 0s; }
+    &:nth-child(2) { animation-delay: 0.16s; }
+    &:nth-child(3) { animation-delay: 0.32s; }
+  }
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
 }
 
 .input-bar {
@@ -292,4 +400,279 @@
 
 .send-btn {
   --mdc-icon-button-icon-color: var(--primary);
+}
+
+.msg-menu-btn {
+  --mdc-icon-button-state-layer-size: 28px;
+  --mdc-icon-button-icon-size: 16px;
+  width: 28px;
+  height: 28px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  align-self: center;
+}
+
+.message:hover .msg-menu-btn {
+  opacity: 1;
+}
+
+.edit-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edit-input {
+  width: 100%;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  background: var(--surface);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.edit-save {
+  --mdc-icon-button-state-layer-size: 28px;
+  --mdc-icon-button-icon-size: 16px;
+  --mdc-icon-button-icon-color: var(--success);
+  width: 28px;
+  height: 28px;
+}
+
+.msg-actions-col {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  align-self: center;
+}
+
+.message:hover .msg-actions-col {
+  opacity: 1;
+}
+
+.reactions-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.reaction-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+
+  &--active {
+    border-color: var(--primary);
+    background: var(--primary-light);
+  }
+}
+
+.emoji-picker {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+}
+
+.emoji-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  font-size: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+}
+
+.load-more-bar {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 8px;
+}
+
+.load-more-btn {
+  border: 1px solid var(--border);
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.12s ease;
+
+  &:hover:not(:disabled) {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
+.edit-cancel {
+  --mdc-icon-button-state-layer-size: 28px;
+  --mdc-icon-button-icon-size: 16px;
+  --mdc-icon-button-icon-color: var(--error);
+  width: 28px;
+  height: 28px;
+}
+
+// Attachments in messages
+.attachments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.attachment-image-link {
+  display: block;
+  max-width: 240px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.attachment-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.attachment-file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.12s ease;
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+}
+
+.attachment-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+}
+
+.attachment-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.attachment-name {
+  font-size: 13px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.attachment-size {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.attachment-download {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--text-tertiary);
+}
+
+// Pending attachments bar
+.pending-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.pending-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  max-width: 200px;
+}
+
+.pending-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.pending-file-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--primary);
+}
+
+.pending-name {
+  font-size: 12px;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.pending-remove {
+  --mdc-icon-button-state-layer-size: 22px;
+  --mdc-icon-button-icon-size: 14px;
+  width: 22px;
+  height: 22px;
 }

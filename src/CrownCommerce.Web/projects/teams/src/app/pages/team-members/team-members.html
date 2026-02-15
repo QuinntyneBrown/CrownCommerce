@@ -44,10 +44,10 @@
           <span class="member-role">{{ member.role }}</span>
           <span class="member-dept">{{ member.department }}</span>
           <div class="member-actions">
-            <button mat-icon-button class="action-btn">
+            <button mat-icon-button class="action-btn" (click)="startChat(member)">
               <mat-icon>chat</mat-icon>
             </button>
-            <button mat-icon-button class="action-btn">
+            <button mat-icon-button class="action-btn" (click)="startVideoCall(member)">
               <mat-icon>videocam</mat-icon>
             </button>
           </div>
@@ -55,6 +55,18 @@
       </mat-card>
     }
   </div>
+
+  @if (hasMore()) {
+    <div class="load-more-bar">
+      <button class="load-more-btn" (click)="loadMore()" [disabled]="isLoadingMore()">
+        @if (isLoadingMore()) {
+          Loading...
+        } @else {
+          Show more members
+        }
+      </button>
+    </div>
+  }
 
   @if (filteredMembers().length === 0) {
     <div class="empty-state">

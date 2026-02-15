@@ -1,11 +1,17 @@
+using System.Text;
+using CrownCommerce.Scheduling.Api.Hubs;
 using CrownCommerce.Scheduling.Application.Consumers;
 using CrownCommerce.Scheduling.Application.Services;
 using CrownCommerce.Scheduling.Core.Interfaces;
 using CrownCommerce.Scheduling.Infrastructure.Data;
 using CrownCommerce.Scheduling.Infrastructure.Repositories;
+using CrownCommerce.Scheduling.Infrastructure.Calling;
+using CrownCommerce.Scheduling.Infrastructure.Storage;
 using CrownCommerce.ServiceDefaults;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +29,20 @@ builder.Services.AddDbContext<SchedulingDbContext>(options =>
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IMeetingRepository, MeetingRepository>();
 builder.Services.AddScoped<IConversationRepository, ConversationRepository>();
+builder.Services.AddScoped<IFileAttachmentRepository, FileAttachmentRepository>();
+
+// File storage (local for dev)
+var uploadPath = Path.Combine(builder.Environment.ContentRootPath, "uploads");
+builder.Services.AddSingleton<IFileStorageService>(new LocalFileStorageService(uploadPath, "/api/scheduling"));
+
+// Calling (Daily.co)
+var dailyApiKey = builder.Configuration["DailyCo:ApiKey"] ?? "";
+var dailyBaseUrl = builder.Configuration["DailyCo:BaseUrl"] ?? "https://api.daily.co/v1";
+builder.Services.AddHttpClient<ICallingService, DailyCoCallingService>(client =>
+{
+    client.BaseAddress = new Uri(dailyBaseUrl.TrimEnd('/') + "/");
+    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {dailyApiKey}");
+});
 
 // Services
 builder.Services.AddScoped<ISchedulingService, SchedulingService>();
@@ -45,6 +65,27 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
+// Auth
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = "CrownCommerce.Identity",
+            ValidateAudience = true,
+            ValidAudience = "CrownCommerce",
+            ValidateLifetime = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? "DefaultDevKeyThatShouldBeReplaced123!"))
+        };
+    });
+
+builder.Services.AddAuthorization();
+
+// SignalR
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 
 // Ensure DB created and seeded
@@ -61,6 +102,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllers();
+app.MapHub<TeamHub>("/hubs/team");
 
 app.Run();

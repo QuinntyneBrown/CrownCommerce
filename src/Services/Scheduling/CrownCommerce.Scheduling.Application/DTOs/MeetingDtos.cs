@@ -7,6 +7,7 @@ public sealed record MeetingDto(
     DateTime StartTimeUtc,
     DateTime EndTimeUtc,
     string? Location,
+    string? JoinUrl,
     string Status,
     Guid OrganizerId,
     DateTime CreatedAt,
@@ -26,6 +27,7 @@ public sealed record CreateMeetingDto(
     DateTime StartTimeUtc,
     DateTime EndTimeUtc,
     string? Location,
+    bool IsVirtual,
     Guid OrganizerId,
     IReadOnlyList<Guid> AttendeeEmployeeIds);
 
@@ -46,6 +48,7 @@ public sealed record CalendarEventDto(
     DateTime StartTimeUtc,
     DateTime EndTimeUtc,
     string? Location,
+    string? JoinUrl,
     string Status,
     int AttendeeCount,
     string OrganizerName);

@@ -1,5 +1,6 @@
 using CrownCommerce.Scheduling.Application.DTOs;
 using CrownCommerce.Scheduling.Core.Entities;
+using CrownCommerce.Scheduling.Core.Interfaces;
 
 namespace CrownCommerce.Scheduling.Application.Mappings;
 
@@ -13,7 +14,7 @@ public static class SchedulingMappingExtensions
 
     public static MeetingDto ToDto(this Meeting meeting, IReadOnlyDictionary<Guid, Employee>? employeeLookup = null) =>
         new(meeting.Id, meeting.Title, meeting.Description, meeting.StartTimeUtc, meeting.EndTimeUtc,
-            meeting.Location, meeting.Status.ToString(), meeting.OrganizerId, meeting.CreatedAt,
+            meeting.Location, meeting.JoinUrl, meeting.Status.ToString(), meeting.OrganizerId, meeting.CreatedAt,
             meeting.Attendees.Select(a => a.ToDto(employeeLookup)).ToList());
 
     public static MeetingAttendeeDto ToDto(this MeetingAttendee attendee, IReadOnlyDictionary<Guid, Employee>? employeeLookup = null)
@@ -36,7 +37,7 @@ public static class SchedulingMappingExtensions
 
     public static CalendarEventDto ToCalendarEvent(this Meeting meeting, string organizerName) =>
         new(meeting.Id, meeting.Title, meeting.StartTimeUtc, meeting.EndTimeUtc,
-            meeting.Location, meeting.Status.ToString(), meeting.Attendees.Count, organizerName);
+            meeting.Location, meeting.JoinUrl, meeting.Status.ToString(), meeting.Attendees.Count, organizerName);
 
     public static ConversationDto ToDto(this ScheduleConversation conversation) =>
         new(conversation.Id, conversation.Subject, conversation.MeetingId, conversation.Status.ToString(),
@@ -69,13 +70,22 @@ public static class SchedulingMappingExtensions
             conversation.Participants.Count);
     }
 
-    public static ChannelMessageDto ToChannelMessageDto(this ConversationMessage message, Employee? sender) =>
+    public static ChannelMessageDto ToChannelMessageDto(this ConversationMessage message, Employee? sender, Guid? currentEmployeeId = null, IFileStorageService? fileStorage = null) =>
         new(message.Id,
             message.SenderEmployeeId,
             sender is not null ? $"{sender.FirstName} {sender.LastName}" : "Unknown",
             sender is not null ? GetInitials(sender.FirstName, sender.LastName) : "??",
             message.Content,
-            message.SentAt);
+            message.SentAt,
+            message.Reactions
+                .GroupBy(r => r.Emoji)
+                .Select(g => new ReactionSummaryDto(g.Key, g.Count(), currentEmployeeId.HasValue && g.Any(r => r.EmployeeId == currentEmployeeId.Value)))
+                .ToList(),
+            message.Attachments
+                .Select(a => new FileAttachmentDto(a.Id, a.FileName, a.ContentType, a.SizeBytes,
+                    fileStorage?.GetPublicUrl(a.StoragePath) ?? a.StoragePath,
+                    a.UploadedByEmployeeId, a.MessageId, a.UploadedAt))
+                .ToList());
 
     public static string GetInitials(string firstName, string lastName)
     {

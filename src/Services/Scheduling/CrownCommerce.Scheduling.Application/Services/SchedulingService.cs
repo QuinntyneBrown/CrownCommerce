@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using CrownCommerce.Scheduling.Application.DTOs;
 using CrownCommerce.Scheduling.Application.Mappings;
 using CrownCommerce.Scheduling.Core.Entities;
@@ -12,20 +13,29 @@ public sealed class SchedulingService(
     IEmployeeRepository employeeRepo,
     IMeetingRepository meetingRepo,
     IConversationRepository conversationRepo,
+    IFileAttachmentRepository fileAttachmentRepo,
+    IFileStorageService fileStorage,
+    ICallingService callingService,
     IPublishEndpoint publishEndpoint) : ISchedulingService
 {
     // ─── Employees ──────────────────────────────────────────────────────
 
-    public async Task<IReadOnlyList<EmployeeDto>> GetEmployeesAsync(string? status = null, CancellationToken ct = default)
+    public async Task<IReadOnlyList<EmployeeDto>> GetEmployeesAsync(string? status = null, string? search = null, int skip = 0, int take = 100, CancellationToken ct = default)
     {
         EmployeeStatus? statusFilter = status is not null && Enum.TryParse<EmployeeStatus>(status, true, out var s) ? s : null;
-        var employees = await employeeRepo.GetAllAsync(statusFilter, ct);
+        var employees = await employeeRepo.GetAllAsync(statusFilter, search, skip, take, ct);
         return employees.Select(e => e.ToDto()).ToList();
     }
 
     public async Task<EmployeeDto?> GetEmployeeAsync(Guid id, CancellationToken ct = default)
     {
         var employee = await employeeRepo.GetByIdAsync(id, ct);
+        return employee?.ToDto();
+    }
+
+    public async Task<EmployeeDto?> GetEmployeeByUserIdAsync(Guid userId, CancellationToken ct = default)
+    {
+        var employee = await employeeRepo.GetByUserIdAsync(userId, ct);
         return employee?.ToDto();
     }
 
@@ -82,11 +92,11 @@ public sealed class SchedulingService(
     }
 
     public async Task<IReadOnlyList<CalendarEventDto>> GetCalendarEventsAsync(
-        DateTime startUtc, DateTime endUtc, Guid? employeeId = null, CancellationToken ct = default)
+        DateTime startUtc, DateTime endUtc, Guid? employeeId = null, int skip = 0, int take = 50, CancellationToken ct = default)
     {
         var meetings = employeeId.HasValue
-            ? await meetingRepo.GetByEmployeeAsync(employeeId.Value, startUtc, endUtc, ct)
-            : await meetingRepo.GetByDateRangeAsync(startUtc, endUtc, ct);
+            ? await meetingRepo.GetByEmployeeAsync(employeeId.Value, startUtc, endUtc, skip, take, ct)
+            : await meetingRepo.GetByDateRangeAsync(startUtc, endUtc, skip, take, ct);
 
         var organizerIds = meetings.Select(m => m.OrganizerId).Distinct();
         var organizers = await employeeRepo.GetByIdsAsync(organizerIds, ct);
@@ -114,14 +124,25 @@ public sealed class SchedulingService(
 
     public async Task<MeetingDto> CreateMeetingAsync(CreateMeetingDto dto, CancellationToken ct = default)
     {
+        var meetingId = Guid.NewGuid();
+
+        string? joinUrl = null;
+        if (dto.IsVirtual)
+        {
+            var roomName = $"meeting-{meetingId:N}".Substring(0, 24);
+            var room = await callingService.CreateRoomAsync(roomName, ct);
+            joinUrl = room.Url;
+        }
+
         var meeting = new Meeting
         {
-            Id = Guid.NewGuid(),
+            Id = meetingId,
             Title = dto.Title,
             Description = dto.Description,
             StartTimeUtc = dto.StartTimeUtc,
             EndTimeUtc = dto.EndTimeUtc,
-            Location = dto.Location,
+            Location = dto.IsVirtual ? null : dto.Location,
+            JoinUrl = joinUrl,
             Status = MeetingStatus.Scheduled,
             OrganizerId = dto.OrganizerId,
             CreatedAt = DateTime.UtcNow,
@@ -348,17 +369,42 @@ public sealed class SchedulingService(
         return result;
     }
 
-    public async Task<IReadOnlyList<ChannelMessageDto>> GetChannelMessagesAsync(Guid channelId, CancellationToken ct = default)
+    public async Task<IReadOnlyList<ChannelMessageDto>> GetChannelMessagesAsync(Guid channelId, int skip = 0, int take = 50, CancellationToken ct = default)
     {
         var conversation = await conversationRepo.GetByIdAsync(channelId, ct);
         if (conversation is null) return [];
 
-        var senderIds = conversation.Messages.Select(m => m.SenderEmployeeId).Distinct();
+        var paged = conversation.Messages
+            .OrderByDescending(m => m.SentAt)
+            .Skip(skip)
+            .Take(take)
+            .OrderBy(m => m.SentAt)
+            .ToList();
+
+        var senderIds = paged.Select(m => m.SenderEmployeeId).Distinct();
         var employees = await employeeRepo.GetByIdsAsync(senderIds, ct);
         var lookup = employees.ToDictionary(e => e.Id);
 
-        return conversation.Messages
+        return paged
+            .Select(m => m.ToChannelMessageDto(lookup.GetValueOrDefault(m.SenderEmployeeId), fileStorage: fileStorage))
+            .ToList();
+    }
+
+    public async Task<IReadOnlyList<ChannelMessageDto>> SearchChannelMessagesAsync(Guid channelId, string query, CancellationToken ct = default)
+    {
+        var conversation = await conversationRepo.GetByIdAsync(channelId, ct);
+        if (conversation is null) return [];
+
+        var filtered = conversation.Messages
+            .Where(m => m.Content.Contains(query, StringComparison.OrdinalIgnoreCase))
             .OrderBy(m => m.SentAt)
+            .ToList();
+
+        var senderIds = filtered.Select(m => m.SenderEmployeeId).Distinct();
+        var employees = await employeeRepo.GetByIdsAsync(senderIds, ct);
+        var lookup = employees.ToDictionary(e => e.Id);
+
+        return filtered
             .Select(m => m.ToChannelMessageDto(lookup.GetValueOrDefault(m.SenderEmployeeId)))
             .ToList();
     }
@@ -376,8 +422,69 @@ public sealed class SchedulingService(
 
         await conversationRepo.AddMessageAsync(message, ct);
 
+        // Parse @mentions and create notification entries
+        var mentionNames = ParseMentions(dto.Content);
+        if (mentionNames.Count > 0)
+        {
+            var mentionedEmployees = await employeeRepo.GetByFullNamesAsync(mentionNames, ct);
+            var notifications = mentionedEmployees
+                .Where(e => e.Id != dto.SenderEmployeeId) // Don't notify self
+                .Select(e => new MentionNotification
+                {
+                    Id = Guid.NewGuid(),
+                    MessageId = message.Id,
+                    MentionedEmployeeId = e.Id,
+                    SenderEmployeeId = dto.SenderEmployeeId,
+                    ConversationId = channelId,
+                    IsRead = false,
+                    CreatedAt = DateTime.UtcNow,
+                })
+                .ToList();
+
+            if (notifications.Count > 0)
+            {
+                await conversationRepo.AddMentionNotificationsAsync(notifications, ct);
+            }
+        }
+
+        // Link any uploaded file attachments to this message
+        if (dto.AttachmentIds is { Count: > 0 })
+        {
+            foreach (var attachmentId in dto.AttachmentIds)
+            {
+                var attachment = await fileAttachmentRepo.GetByIdAsync(attachmentId, ct);
+                if (attachment is not null)
+                {
+                    attachment.MessageId = message.Id;
+                    await fileAttachmentRepo.UpdateAsync(attachment, ct);
+                    message.Attachments.Add(attachment);
+                }
+            }
+        }
+
         var sender = await employeeRepo.GetByIdAsync(dto.SenderEmployeeId, ct);
+        return message.ToChannelMessageDto(sender, fileStorage: fileStorage);
+    }
+
+    public async Task<ChannelMessageDto?> UpdateChannelMessageAsync(Guid channelId, Guid messageId, UpdateChannelMessageDto dto, CancellationToken ct = default)
+    {
+        var message = await conversationRepo.GetMessageAsync(messageId, ct);
+        if (message is null || message.ConversationId != channelId) return null;
+
+        message.Content = dto.Content;
+        await conversationRepo.UpdateMessageAsync(message, ct);
+
+        var sender = await employeeRepo.GetByIdAsync(message.SenderEmployeeId, ct);
         return message.ToChannelMessageDto(sender);
+    }
+
+    public async Task DeleteChannelMessageAsync(Guid channelId, Guid messageId, CancellationToken ct = default)
+    {
+        var message = await conversationRepo.GetMessageAsync(messageId, ct);
+        if (message is not null && message.ConversationId == channelId)
+        {
+            await conversationRepo.DeleteMessageAsync(messageId, ct);
+        }
     }
 
     public async Task MarkChannelAsReadAsync(Guid channelId, MarkAsReadDto dto, CancellationToken ct = default)
@@ -425,14 +532,49 @@ public sealed class SchedulingService(
         return conversation.ToChannelDto();
     }
 
+    // ─── Reactions ───────────────────────────────────────────────────
+
+    public async Task<ReactionDto> AddReactionAsync(Guid messageId, AddReactionDto dto, CancellationToken ct = default)
+    {
+        var existing = await conversationRepo.GetReactionAsync(messageId, dto.EmployeeId, dto.Emoji, ct);
+        if (existing is not null)
+        {
+            return new ReactionDto(existing.Id, existing.MessageId, existing.EmployeeId, existing.Emoji, existing.CreatedAt);
+        }
+
+        var reaction = new MessageReaction
+        {
+            Id = Guid.NewGuid(),
+            MessageId = messageId,
+            EmployeeId = dto.EmployeeId,
+            Emoji = dto.Emoji,
+            CreatedAt = DateTime.UtcNow,
+        };
+
+        await conversationRepo.AddReactionAsync(reaction, ct);
+        return new ReactionDto(reaction.Id, reaction.MessageId, reaction.EmployeeId, reaction.Emoji, reaction.CreatedAt);
+    }
+
+    public async Task RemoveReactionAsync(Guid messageId, Guid employeeId, string emoji, CancellationToken ct = default)
+    {
+        var reaction = await conversationRepo.GetReactionAsync(messageId, employeeId, emoji, ct);
+        if (reaction is not null)
+        {
+            await conversationRepo.RemoveReactionAsync(reaction.Id, ct);
+        }
+    }
+
     // ─── Activity Feed ───────────────────────────────────────────────
 
-    public async Task<IReadOnlyList<ActivityFeedItemDto>> GetActivityFeedAsync(Guid employeeId, int count = 10, CancellationToken ct = default)
+    public async Task<IReadOnlyList<ActivityFeedItemDto>> GetActivityFeedAsync(Guid employeeId, int count = 10, int skip = 0, CancellationToken ct = default)
     {
         var items = new List<ActivityFeedItemDto>();
 
+        // Fetch extra to account for skip
+        var fetchCount = skip + count;
+
         // Recent messages across all channels
-        var recentMessages = await conversationRepo.GetRecentMessagesAsync(count, ct);
+        var recentMessages = await conversationRepo.GetRecentMessagesAsync(fetchCount, ct);
         foreach (var msg in recentMessages)
         {
             var sender = await employeeRepo.GetByIdAsync(msg.SenderEmployeeId, ct);
@@ -447,7 +589,7 @@ public sealed class SchedulingService(
         }
 
         // Upcoming meetings
-        var meetings = await meetingRepo.GetUpcomingAsync(count, ct);
+        var meetings = await meetingRepo.GetUpcomingAsync(fetchCount, ct);
         foreach (var meeting in meetings)
         {
             items.Add(new ActivityFeedItemDto(
@@ -461,8 +603,64 @@ public sealed class SchedulingService(
 
         return items
             .OrderByDescending(i => i.OccurredAt)
+            .Skip(skip)
             .Take(count)
             .ToList();
+    }
+
+    // ─── Files ─────────────────────────────────────────────────────────
+
+    public async Task<FileAttachmentDto> UploadFileAsync(Stream stream, string fileName, string contentType, long sizeBytes, Guid employeeId, CancellationToken ct = default)
+    {
+        var storagePath = await fileStorage.SaveAsync(stream, fileName, contentType, ct);
+
+        var attachment = new FileAttachment
+        {
+            Id = Guid.NewGuid(),
+            FileName = fileName,
+            StoragePath = storagePath,
+            ContentType = contentType,
+            SizeBytes = sizeBytes,
+            UploadedByEmployeeId = employeeId,
+            UploadedAt = DateTime.UtcNow,
+        };
+
+        await fileAttachmentRepo.AddAsync(attachment, ct);
+
+        return new FileAttachmentDto(
+            attachment.Id,
+            attachment.FileName,
+            attachment.ContentType,
+            attachment.SizeBytes,
+            fileStorage.GetPublicUrl(attachment.StoragePath),
+            attachment.UploadedByEmployeeId,
+            attachment.MessageId,
+            attachment.UploadedAt);
+    }
+
+    public async Task<FileAttachmentDto?> GetFileAsync(Guid id, CancellationToken ct = default)
+    {
+        var attachment = await fileAttachmentRepo.GetByIdAsync(id, ct);
+        if (attachment is null) return null;
+
+        return new FileAttachmentDto(
+            attachment.Id,
+            attachment.FileName,
+            attachment.ContentType,
+            attachment.SizeBytes,
+            fileStorage.GetPublicUrl(attachment.StoragePath),
+            attachment.UploadedByEmployeeId,
+            attachment.MessageId,
+            attachment.UploadedAt);
+    }
+
+    public async Task DeleteFileAsync(Guid id, CancellationToken ct = default)
+    {
+        var attachment = await fileAttachmentRepo.GetByIdAsync(id, ct)
+            ?? throw new InvalidOperationException($"File {id} not found");
+
+        await fileStorage.DeleteAsync(attachment.StoragePath, ct);
+        await fileAttachmentRepo.DeleteAsync(attachment, ct);
     }
 
     // ─── Helpers ────────────────────────────────────────────────────────
@@ -502,4 +700,10 @@ public sealed class SchedulingService(
 
     private static string EscapeICalText(string text) =>
         text.Replace("\\", "\\\\").Replace(";", "\\;").Replace(",", "\\,").Replace("\n", "\\n");
+
+    private static IReadOnlyList<string> ParseMentions(string content)
+    {
+        var matches = Regex.Matches(content, @"@([A-Z][a-z]+ [A-Z][a-z]+)");
+        return matches.Select(m => m.Groups[1].Value).Distinct().ToList();
+    }
 }

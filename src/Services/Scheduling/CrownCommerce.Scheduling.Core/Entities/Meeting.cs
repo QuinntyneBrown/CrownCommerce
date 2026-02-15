@@ -13,6 +13,7 @@ public sealed class Meeting
     public MeetingStatus Status { get; set; }
     public Guid OrganizerId { get; set; }
     public DateTime CreatedAt { get; set; }
+    public string? JoinUrl { get; set; }
     public DateTime? UpdatedAt { get; set; }
     public ICollection<MeetingAttendee> Attendees { get; set; } = [];
 }

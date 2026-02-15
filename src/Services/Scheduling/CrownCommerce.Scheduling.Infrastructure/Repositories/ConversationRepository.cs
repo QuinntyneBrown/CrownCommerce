@@ -12,6 +12,9 @@ public sealed class ConversationRepository(SchedulingDbContext context) : IConve
     {
         return await context.Conversations
             .Include(c => c.Messages.OrderBy(m => m.SentAt))
+                .ThenInclude(m => m.Reactions)
+            .Include(c => c.Messages)
+                .ThenInclude(m => m.Attachments)
             .Include(c => c.Participants)
             .FirstOrDefaultAsync(c => c.Id == id, ct);
     }
@@ -74,6 +77,27 @@ public sealed class ConversationRepository(SchedulingDbContext context) : IConve
         await context.SaveChangesAsync(ct);
     }
 
+    public async Task<ConversationMessage?> GetMessageAsync(Guid messageId, CancellationToken ct = default)
+    {
+        return await context.ConversationMessages.FindAsync([messageId], ct);
+    }
+
+    public async Task UpdateMessageAsync(ConversationMessage message, CancellationToken ct = default)
+    {
+        context.ConversationMessages.Update(message);
+        await context.SaveChangesAsync(ct);
+    }
+
+    public async Task DeleteMessageAsync(Guid messageId, CancellationToken ct = default)
+    {
+        var message = await context.ConversationMessages.FindAsync([messageId], ct);
+        if (message is not null)
+        {
+            context.ConversationMessages.Remove(message);
+            await context.SaveChangesAsync(ct);
+        }
+    }
+
     public async Task<IReadOnlyList<ScheduleConversation>> GetChannelsByTypeAsync(ChannelType? channelType = null, CancellationToken ct = default)
     {
         var query = context.Conversations
@@ -133,5 +157,41 @@ public sealed class ConversationRepository(SchedulingDbContext context) : IConve
             .OrderByDescending(m => m.SentAt)
             .Take(count)
             .ToListAsync(ct);
+    }
+
+    public async Task AddReactionAsync(MessageReaction reaction, CancellationToken ct = default)
+    {
+        context.MessageReactions.Add(reaction);
+        await context.SaveChangesAsync(ct);
+    }
+
+    public async Task<MessageReaction?> GetReactionAsync(Guid messageId, Guid employeeId, string emoji, CancellationToken ct = default)
+    {
+        return await context.MessageReactions
+            .FirstOrDefaultAsync(r => r.MessageId == messageId && r.EmployeeId == employeeId && r.Emoji == emoji, ct);
+    }
+
+    public async Task RemoveReactionAsync(Guid reactionId, CancellationToken ct = default)
+    {
+        var reaction = await context.MessageReactions.FindAsync([reactionId], ct);
+        if (reaction is not null)
+        {
+            context.MessageReactions.Remove(reaction);
+            await context.SaveChangesAsync(ct);
+        }
+    }
+
+    public async Task<IReadOnlyList<MessageReaction>> GetReactionsAsync(Guid messageId, CancellationToken ct = default)
+    {
+        return await context.MessageReactions
+            .AsNoTracking()
+            .Where(r => r.MessageId == messageId)
+            .ToListAsync(ct);
+    }
+
+    public async Task AddMentionNotificationsAsync(IEnumerable<MentionNotification> notifications, CancellationToken ct = default)
+    {
+        context.MentionNotifications.AddRange(notifications);
+        await context.SaveChangesAsync(ct);
     }
 }

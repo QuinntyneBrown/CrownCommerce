@@ -1,17 +1,31 @@
+using System.Security.Claims;
 using CrownCommerce.Scheduling.Application.DTOs;
 using CrownCommerce.Scheduling.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrownCommerce.Scheduling.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("employees")]
 public sealed class EmployeesController(ISchedulingService schedulingService) : ControllerBase
 {
-    [HttpGet]
-    public async Task<IActionResult> GetEmployees([FromQuery] string? status, CancellationToken ct)
+    [HttpGet("me")]
+    public async Task<IActionResult> GetCurrentEmployee(CancellationToken ct)
     {
-        var employees = await schedulingService.GetEmployeesAsync(status, ct);
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userIdClaim is null || !Guid.TryParse(userIdClaim, out var userId))
+            return Unauthorized();
+
+        var employee = await schedulingService.GetEmployeeByUserIdAsync(userId, ct);
+        return employee is not null ? Ok(employee) : NotFound();
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetEmployees([FromQuery] string? status, [FromQuery] string? search, [FromQuery] int skip = 0, [FromQuery] int take = 100, CancellationToken ct = default)
+    {
+        var employees = await schedulingService.GetEmployeesAsync(status, search, skip, take, ct);
         return Ok(employees);
     }
 

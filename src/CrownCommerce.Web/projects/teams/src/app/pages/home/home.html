@@ -5,10 +5,65 @@
     <p class="page-subtitle">{{ todayFormatted() }}</p>
   </div>
   <div class="header-actions">
-    <button mat-icon-button><mat-icon>notifications</mat-icon></button>
-    <button mat-icon-button><mat-icon>search</mat-icon></button>
+    <button mat-icon-button [matMenuTriggerFor]="notifMenu"><mat-icon>notifications</mat-icon></button>
+    <mat-menu #notifMenu="matMenu" class="notif-menu">
+      <div class="notif-header" (click)="$event.stopPropagation()">Notifications</div>
+      @for (activity of activities(); track activity.id) {
+        <button mat-menu-item class="notif-item">
+          <mat-icon [style.color]="activity.color">{{ activity.icon }}</mat-icon>
+          <span class="notif-text">
+            <span class="notif-title">{{ activity.title }}</span>
+            <span class="notif-time">{{ activity.time }}</span>
+          </span>
+        </button>
+      }
+      @if (activities().length === 0) {
+        <div class="notif-empty" (click)="$event.stopPropagation()">No notifications</div>
+      }
+    </mat-menu>
+    <button mat-icon-button (click)="toggleSearch()"><mat-icon>search</mat-icon></button>
   </div>
 </div>
+
+@if (isSearchOpen()) {
+  <div class="search-overlay">
+    <div class="search-bar-global">
+      <mat-icon>search</mat-icon>
+      <input class="search-input-global"
+             placeholder="Search meetings, activity..."
+             (input)="onSearchInput($event)"
+             autofocus />
+      <button mat-icon-button (click)="toggleSearch()"><mat-icon>close</mat-icon></button>
+    </div>
+    @if (searchQuery().trim()) {
+      <div class="search-results">
+        @if (searchResults().meetings.length > 0) {
+          <h4 class="search-section-label">Meetings</h4>
+          @for (m of searchResults().meetings; track m.id) {
+            <div class="search-result-item">
+              <mat-icon>calendar_month</mat-icon>
+              <span>{{ m.title }}</span>
+              <span class="search-result-time">{{ m.startTime }}</span>
+            </div>
+          }
+        }
+        @if (searchResults().activities.length > 0) {
+          <h4 class="search-section-label">Activity</h4>
+          @for (a of searchResults().activities; track a.id) {
+            <div class="search-result-item">
+              <mat-icon>{{ a.icon }}</mat-icon>
+              <span>{{ a.title }}</span>
+              <span class="search-result-time">{{ a.time }}</span>
+            </div>
+          }
+        }
+        @if (searchResults().meetings.length === 0 && searchResults().activities.length === 0) {
+          <div class="search-empty">No results found</div>
+        }
+      </div>
+    }
+  </div>
+}
 
 <div class="content-area">
   <!-- Time Zone Cards -->
@@ -88,6 +143,17 @@
           </div>
         }
       </div>
+      @if (hasMoreActivities()) {
+        <div class="load-more-bar">
+          <button class="load-more-btn" (click)="loadMoreActivities()" [disabled]="isLoadingMoreActivities()">
+            @if (isLoadingMoreActivities()) {
+              Loading...
+            } @else {
+              Show more activity
+            }
+          </button>
+        </div>
+      }
     </section>
   </div>
 </div>

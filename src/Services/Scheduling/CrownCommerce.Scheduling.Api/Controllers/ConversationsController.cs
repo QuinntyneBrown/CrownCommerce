@@ -1,10 +1,12 @@
 using CrownCommerce.Scheduling.Application.DTOs;
 using CrownCommerce.Scheduling.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrownCommerce.Scheduling.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("conversations")]
 public sealed class ConversationsController(ISchedulingService schedulingService) : ControllerBase
 {

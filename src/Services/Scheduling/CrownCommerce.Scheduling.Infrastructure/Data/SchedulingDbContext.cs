@@ -12,6 +12,9 @@ public sealed class SchedulingDbContext(DbContextOptions<SchedulingDbContext> op
     public DbSet<ConversationMessage> ConversationMessages => Set<ConversationMessage>();
     public DbSet<ConversationParticipant> ConversationParticipants => Set<ConversationParticipant>();
     public DbSet<ChannelReadReceipt> ChannelReadReceipts => Set<ChannelReadReceipt>();
+    public DbSet<MessageReaction> MessageReactions => Set<MessageReaction>();
+    public DbSet<FileAttachment> FileAttachments => Set<FileAttachment>();
+    public DbSet<MentionNotification> MentionNotifications => Set<MentionNotification>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -80,6 +83,37 @@ public sealed class SchedulingDbContext(DbContextOptions<SchedulingDbContext> op
             e.HasIndex(x => new { x.ConversationId, x.EmployeeId }).IsUnique();
             e.HasOne(x => x.Conversation).WithMany(c => c.ReadReceipts).HasForeignKey(x => x.ConversationId).OnDelete(DeleteBehavior.Cascade);
             e.HasOne(x => x.Employee).WithMany().HasForeignKey(x => x.EmployeeId).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<MessageReaction>(e =>
+        {
+            e.HasKey(x => x.Id);
+            e.Property(x => x.Emoji).HasMaxLength(10).IsRequired();
+            e.HasIndex(x => new { x.MessageId, x.EmployeeId, x.Emoji }).IsUnique();
+            e.HasOne(x => x.Message).WithMany(m => m.Reactions).HasForeignKey(x => x.MessageId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne(x => x.Employee).WithMany().HasForeignKey(x => x.EmployeeId).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<FileAttachment>(e =>
+        {
+            e.HasKey(x => x.Id);
+            e.Property(x => x.FileName).HasMaxLength(500).IsRequired();
+            e.Property(x => x.StoragePath).HasMaxLength(1000).IsRequired();
+            e.Property(x => x.ContentType).HasMaxLength(200).IsRequired();
+            e.HasIndex(x => x.MessageId);
+            e.HasIndex(x => x.UploadedByEmployeeId);
+            e.HasOne(x => x.UploadedBy).WithMany().HasForeignKey(x => x.UploadedByEmployeeId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne(x => x.Message).WithMany(m => m.Attachments).HasForeignKey(x => x.MessageId).OnDelete(DeleteBehavior.SetNull);
+        });
+
+        modelBuilder.Entity<MentionNotification>(e =>
+        {
+            e.HasKey(x => x.Id);
+            e.HasIndex(x => x.MentionedEmployeeId);
+            e.HasIndex(x => x.MessageId);
+            e.HasOne(x => x.Message).WithMany().HasForeignKey(x => x.MessageId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne(x => x.MentionedEmployee).WithMany().HasForeignKey(x => x.MentionedEmployeeId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne(x => x.SenderEmployee).WithMany().HasForeignKey(x => x.SenderEmployeeId).OnDelete(DeleteBehavior.NoAction);
         });
     }
 }

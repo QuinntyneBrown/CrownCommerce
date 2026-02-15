@@ -40,6 +40,7 @@ export interface Meeting {
   startTimeUtc: string;
   endTimeUtc: string;
   location: string | null;
+  joinUrl: string | null;
   status: string;
   organizerId: string;
   createdAt: string;
@@ -61,6 +62,7 @@ export interface CreateMeetingRequest {
   startTimeUtc: string;
   endTimeUtc: string;
   location?: string;
+  isVirtual?: boolean;
   organizerId: string;
   attendeeEmployeeIds: string[];
 }
@@ -80,6 +82,7 @@ export interface CalendarEvent {
   startTimeUtc: string;
   endTimeUtc: string;
   location: string | null;
+  joinUrl: string | null;
   status: string;
   attendeeCount: number;
   organizerName: string;
@@ -152,10 +155,17 @@ export interface ChannelMessage {
   senderInitials: string;
   content: string;
   sentAt: string;
+  reactions: ReactionSummary[];
+  attachments: FileAttachment[];
 }
 
 export interface SendChannelMessageRequest {
   senderEmployeeId: string;
+  content: string;
+  attachmentIds?: string[];
+}
+
+export interface UpdateChannelMessageRequest {
   content: string;
 }
 
@@ -182,4 +192,44 @@ export interface ActivityFeedItem {
 
 export interface UpdatePresenceRequest {
   presence: string;
+}
+
+export interface AddReactionRequest {
+  employeeId: string;
+  emoji: string;
+}
+
+export interface ReactionSummary {
+  emoji: string;
+  count: number;
+  hasReacted: boolean;
+}
+
+export interface CallRoom {
+  name: string;
+  url: string;
+  createdAt: string;
+  expiresAt: string | null;
+}
+
+export interface CallToken {
+  token: string;
+  roomUrl: string;
+}
+
+export interface JoinCallRequest {
+  roomName: string;
+  userName: string;
+  isOwner?: boolean;
+}
+
+export interface FileAttachment {
+  id: string;
+  fileName: string;
+  contentType: string;
+  sizeBytes: number;
+  url: string;
+  uploadedByEmployeeId: string;
+  messageId: string | null;
+  uploadedAt: string;
 }

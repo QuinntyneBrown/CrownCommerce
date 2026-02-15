@@ -5,15 +5,16 @@ namespace CrownCommerce.Scheduling.Application.Services;
 public interface ISchedulingService
 {
     // Employees
-    Task<IReadOnlyList<EmployeeDto>> GetEmployeesAsync(string? status = null, CancellationToken ct = default);
+    Task<IReadOnlyList<EmployeeDto>> GetEmployeesAsync(string? status = null, string? search = null, int skip = 0, int take = 100, CancellationToken ct = default);
     Task<EmployeeDto?> GetEmployeeAsync(Guid id, CancellationToken ct = default);
+    Task<EmployeeDto?> GetEmployeeByUserIdAsync(Guid userId, CancellationToken ct = default);
     Task<EmployeeDto> CreateEmployeeAsync(CreateEmployeeDto dto, CancellationToken ct = default);
     Task<EmployeeDto> UpdateEmployeeAsync(Guid id, UpdateEmployeeDto dto, CancellationToken ct = default);
     Task<EmployeeDto> UpdatePresenceAsync(Guid employeeId, UpdatePresenceDto dto, CancellationToken ct = default);
 
     // Meetings
     Task<MeetingDto?> GetMeetingAsync(Guid id, CancellationToken ct = default);
-    Task<IReadOnlyList<CalendarEventDto>> GetCalendarEventsAsync(DateTime startUtc, DateTime endUtc, Guid? employeeId = null, CancellationToken ct = default);
+    Task<IReadOnlyList<CalendarEventDto>> GetCalendarEventsAsync(DateTime startUtc, DateTime endUtc, Guid? employeeId = null, int skip = 0, int take = 50, CancellationToken ct = default);
     Task<IReadOnlyList<MeetingDto>> GetUpcomingMeetingsAsync(int count = 10, CancellationToken ct = default);
     Task<MeetingDto> CreateMeetingAsync(CreateMeetingDto dto, CancellationToken ct = default);
     Task<MeetingDto> UpdateMeetingAsync(Guid id, UpdateMeetingDto dto, CancellationToken ct = default);
@@ -29,11 +30,23 @@ public interface ISchedulingService
 
     // Channels
     Task<IReadOnlyList<ChannelDto>> GetChannelsAsync(Guid employeeId, CancellationToken ct = default);
-    Task<IReadOnlyList<ChannelMessageDto>> GetChannelMessagesAsync(Guid channelId, CancellationToken ct = default);
+    Task<IReadOnlyList<ChannelMessageDto>> GetChannelMessagesAsync(Guid channelId, int skip = 0, int take = 50, CancellationToken ct = default);
+    Task<IReadOnlyList<ChannelMessageDto>> SearchChannelMessagesAsync(Guid channelId, string query, CancellationToken ct = default);
     Task<ChannelMessageDto> SendChannelMessageAsync(Guid channelId, SendChannelMessageDto dto, CancellationToken ct = default);
+    Task<ChannelMessageDto?> UpdateChannelMessageAsync(Guid channelId, Guid messageId, UpdateChannelMessageDto dto, CancellationToken ct = default);
+    Task DeleteChannelMessageAsync(Guid channelId, Guid messageId, CancellationToken ct = default);
     Task MarkChannelAsReadAsync(Guid channelId, MarkAsReadDto dto, CancellationToken ct = default);
     Task<ChannelDto> CreateChannelAsync(CreateChannelDto dto, CancellationToken ct = default);
 
+    // Reactions
+    Task<ReactionDto> AddReactionAsync(Guid messageId, AddReactionDto dto, CancellationToken ct = default);
+    Task RemoveReactionAsync(Guid messageId, Guid employeeId, string emoji, CancellationToken ct = default);
+
     // Activity Feed
-    Task<IReadOnlyList<ActivityFeedItemDto>> GetActivityFeedAsync(Guid employeeId, int count = 10, CancellationToken ct = default);
+    Task<IReadOnlyList<ActivityFeedItemDto>> GetActivityFeedAsync(Guid employeeId, int count = 10, int skip = 0, CancellationToken ct = default);
+
+    // Files
+    Task<FileAttachmentDto> UploadFileAsync(Stream stream, string fileName, string contentType, long sizeBytes, Guid employeeId, CancellationToken ct = default);
+    Task<FileAttachmentDto?> GetFileAsync(Guid id, CancellationToken ct = default);
+    Task DeleteFileAsync(Guid id, CancellationToken ct = default);
 }

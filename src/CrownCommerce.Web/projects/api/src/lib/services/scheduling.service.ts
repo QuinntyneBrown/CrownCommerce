@@ -18,10 +18,15 @@ import type {
   Channel,
   ChannelMessage,
   SendChannelMessageRequest,
+  UpdateChannelMessageRequest,
   CreateChannelRequest,
   MarkAsReadRequest,
   ActivityFeedItem,
   UpdatePresenceRequest,
+  FileAttachment,
+  CallRoom,
+  CallToken,
+  JoinCallRequest,
 } from '../models/scheduling.models';
 
 @Injectable({ providedIn: 'root' })
@@ -30,14 +35,19 @@ export class SchedulingService {
   private readonly baseUrl = `${inject(API_CONFIG).baseUrl}/api/scheduling`;
 
   // Employees
-  getEmployees(status?: string): Observable<Employee[]> {
-    let params = new HttpParams();
+  getEmployees(status?: string, search?: string, skip = 0, take = 100): Observable<Employee[]> {
+    let params = new HttpParams().set('skip', skip).set('take', take);
     if (status) params = params.set('status', status);
+    if (search) params = params.set('search', search);
     return this.http.get<Employee[]>(`${this.baseUrl}/employees`, { params });
   }
 
   getEmployee(id: string): Observable<Employee> {
     return this.http.get<Employee>(`${this.baseUrl}/employees/${id}`);
+  }
+
+  getCurrentEmployee(): Observable<Employee> {
+    return this.http.get<Employee>(`${this.baseUrl}/employees/me`);
   }
 
   createEmployee(request: CreateEmployeeRequest): Observable<Employee> {
@@ -53,10 +63,12 @@ export class SchedulingService {
     return this.http.get<Meeting>(`${this.baseUrl}/meetings/${id}`);
   }
 
-  getCalendarEvents(startUtc: string, endUtc: string, employeeId?: string): Observable<CalendarEvent[]> {
+  getCalendarEvents(startUtc: string, endUtc: string, employeeId?: string, skip = 0, take = 50): Observable<CalendarEvent[]> {
     let params = new HttpParams()
       .set('startUtc', startUtc)
-      .set('endUtc', endUtc);
+      .set('endUtc', endUtc)
+      .set('skip', skip)
+      .set('take', take);
     if (employeeId) params = params.set('employeeId', employeeId);
     return this.http.get<CalendarEvent[]>(`${this.baseUrl}/meetings/calendar`, { params });
   }
@@ -117,16 +129,39 @@ export class SchedulingService {
     return this.http.get<Channel[]>(`${this.baseUrl}/channels`, { params });
   }
 
-  getChannelMessages(channelId: string): Observable<ChannelMessage[]> {
-    return this.http.get<ChannelMessage[]>(`${this.baseUrl}/channels/${channelId}/messages`);
+  getChannelMessages(channelId: string, skip = 0, take = 50): Observable<ChannelMessage[]> {
+    const params = new HttpParams().set('skip', skip).set('take', take);
+    return this.http.get<ChannelMessage[]>(`${this.baseUrl}/channels/${channelId}/messages`, { params });
+  }
+
+  searchChannelMessages(channelId: string, query: string): Observable<ChannelMessage[]> {
+    const params = new HttpParams().set('query', query);
+    return this.http.get<ChannelMessage[]>(`${this.baseUrl}/channels/${channelId}/messages/search`, { params });
   }
 
   sendChannelMessage(channelId: string, request: SendChannelMessageRequest): Observable<ChannelMessage> {
     return this.http.post<ChannelMessage>(`${this.baseUrl}/channels/${channelId}/messages`, request);
   }
 
+  updateChannelMessage(channelId: string, messageId: string, request: UpdateChannelMessageRequest): Observable<ChannelMessage> {
+    return this.http.put<ChannelMessage>(`${this.baseUrl}/channels/${channelId}/messages/${messageId}`, request);
+  }
+
+  deleteChannelMessage(channelId: string, messageId: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/channels/${channelId}/messages/${messageId}`);
+  }
+
   markChannelAsRead(channelId: string, request: MarkAsReadRequest): Observable<void> {
     return this.http.post<void>(`${this.baseUrl}/channels/${channelId}/read`, request);
+  }
+
+  addReaction(channelId: string, messageId: string, request: { employeeId: string; emoji: string }): Observable<unknown> {
+    return this.http.post(`${this.baseUrl}/channels/${channelId}/messages/${messageId}/reactions`, request);
+  }
+
+  removeReaction(channelId: string, messageId: string, employeeId: string, emoji: string): Observable<void> {
+    const params = new HttpParams().set('employeeId', employeeId).set('emoji', emoji);
+    return this.http.delete<void>(`${this.baseUrl}/channels/${channelId}/messages/${messageId}/reactions`, { params });
   }
 
   createChannel(request: CreateChannelRequest): Observable<Channel> {
@@ -134,9 +169,34 @@ export class SchedulingService {
   }
 
   // Activity Feed
-  getActivityFeed(employeeId: string, count = 10): Observable<ActivityFeedItem[]> {
-    const params = new HttpParams().set('employeeId', employeeId).set('count', count);
+  getActivityFeed(employeeId: string, count = 10, skip = 0): Observable<ActivityFeedItem[]> {
+    const params = new HttpParams().set('employeeId', employeeId).set('count', count).set('skip', skip);
     return this.http.get<ActivityFeedItem[]>(`${this.baseUrl}/activity`, { params });
+  }
+
+  // Files
+  uploadFile(file: File, employeeId: string): Observable<FileAttachment> {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('employeeId', employeeId);
+    return this.http.post<FileAttachment>(`${this.baseUrl}/files`, formData);
+  }
+
+  deleteFile(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/files/${id}`);
+  }
+
+  // Calls
+  createCallRoom(name: string): Observable<CallRoom> {
+    return this.http.post<CallRoom>(`${this.baseUrl}/calls/rooms`, { name });
+  }
+
+  getCallRoom(name: string): Observable<CallRoom> {
+    return this.http.get<CallRoom>(`${this.baseUrl}/calls/rooms/${name}`);
+  }
+
+  joinCall(request: JoinCallRequest): Observable<CallToken> {
+    return this.http.post<CallToken>(`${this.baseUrl}/calls/join`, request);
   }
 
   // Presence

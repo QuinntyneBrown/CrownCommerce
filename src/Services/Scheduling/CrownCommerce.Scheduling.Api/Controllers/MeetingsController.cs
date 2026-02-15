@@ -1,10 +1,12 @@
 using CrownCommerce.Scheduling.Application.DTOs;
 using CrownCommerce.Scheduling.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrownCommerce.Scheduling.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("meetings")]
 public sealed class MeetingsController(ISchedulingService schedulingService) : ControllerBase
 {
@@ -20,9 +22,11 @@ public sealed class MeetingsController(ISchedulingService schedulingService) : C
         [FromQuery] DateTime startUtc,
         [FromQuery] DateTime endUtc,
         [FromQuery] Guid? employeeId,
-        CancellationToken ct)
+        [FromQuery] int skip = 0,
+        [FromQuery] int take = 50,
+        CancellationToken ct = default)
     {
-        var events = await schedulingService.GetCalendarEventsAsync(startUtc, endUtc, employeeId, ct);
+        var events = await schedulingService.GetCalendarEventsAsync(startUtc, endUtc, employeeId, skip, take, ct);
         return Ok(events);
     }
 

@@ -165,6 +165,35 @@
   }
 }
 
+// Load more
+.load-more-bar {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.load-more-btn {
+  border: 1px solid var(--border);
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 8px 24px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.12s ease;
+
+  &:hover:not(:disabled) {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
 // Empty state
 .empty-state {
   display: flex;

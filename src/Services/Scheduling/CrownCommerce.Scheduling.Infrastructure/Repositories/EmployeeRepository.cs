@@ -20,14 +20,28 @@ public sealed class EmployeeRepository(SchedulingDbContext context) : IEmployeeR
             .FirstOrDefaultAsync(e => e.UserId == userId, ct);
     }
 
-    public async Task<IReadOnlyList<Employee>> GetAllAsync(EmployeeStatus? status = null, CancellationToken ct = default)
+    public async Task<IReadOnlyList<Employee>> GetAllAsync(EmployeeStatus? status = null, string? search = null, int skip = 0, int take = 100, CancellationToken ct = default)
     {
         var query = context.Employees.AsNoTracking();
 
         if (status.HasValue)
             query = query.Where(e => e.Status == status.Value);
 
-        return await query.OrderBy(e => e.LastName).ThenBy(e => e.FirstName).ToListAsync(ct);
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            var s = search.ToLowerInvariant();
+            query = query.Where(e =>
+                e.FirstName.ToLower().Contains(s) ||
+                e.LastName.ToLower().Contains(s) ||
+                e.Email.ToLower().Contains(s) ||
+                (e.JobTitle != null && e.JobTitle.ToLower().Contains(s)) ||
+                (e.Department != null && e.Department.ToLower().Contains(s)));
+        }
+
+        return await query
+            .OrderBy(e => e.LastName).ThenBy(e => e.FirstName)
+            .Skip(skip).Take(take)
+            .ToListAsync(ct);
     }
 
     public async Task<IReadOnlyList<Employee>> GetByIdsAsync(IEnumerable<Guid> ids, CancellationToken ct = default)
@@ -37,6 +51,18 @@ public sealed class EmployeeRepository(SchedulingDbContext context) : IEmployeeR
             .AsNoTracking()
             .Where(e => idList.Contains(e.Id))
             .ToListAsync(ct);
+    }
+
+    public async Task<IReadOnlyList<Employee>> GetByFullNamesAsync(IEnumerable<string> fullNames, CancellationToken ct = default)
+    {
+        var nameList = fullNames.Select(n => n.ToLowerInvariant()).ToList();
+        var employees = await context.Employees
+            .AsNoTracking()
+            .ToListAsync(ct);
+
+        return employees
+            .Where(e => nameList.Contains($"{e.FirstName} {e.LastName}".ToLowerInvariant()))
+            .ToList();
     }
 
     public async Task AddAsync(Employee employee, CancellationToken ct = default)
