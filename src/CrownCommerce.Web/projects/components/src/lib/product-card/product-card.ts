@@ -1,11 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'lib-product-card',
   imports: [NgClass],
   template: `
-    <article class="product-card">
+    <article class="product-card" (click)="cardClicked.emit()" style="cursor: pointer">
       <div class="product-card__image">
         @if (imageUrl()) {
           <img [src]="imageUrl()" [alt]="title()" />
@@ -131,4 +131,5 @@ export class ProductCardComponent {
   description = input.required<string>();
   price = input.required<string>();
   tagColor = input<'gold' | 'rose'>('gold');
+  cardClicked = output<void>();
 }

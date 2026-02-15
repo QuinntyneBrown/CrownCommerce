@@ -1,4 +1,4 @@
-﻿using CrownCommerce.Content.Application.Dtos;
+using CrownCommerce.Content.Application.Dtos;
 using CrownCommerce.Content.Application.Mapping;
 using CrownCommerce.Content.Core.Entities;
 using CrownCommerce.Content.Core.Interfaces;
@@ -57,6 +57,32 @@ public sealed class ContentService(
 
         await testimonialRepository.AddAsync(testimonial, ct);
         return testimonial.ToDto();
+    }
+
+    public async Task<TestimonialDto> UpdateTestimonialAsync(Guid id, UpdateTestimonialDto dto, CancellationToken ct = default)
+    {
+        var existing = await testimonialRepository.GetByIdAsync(id, ct)
+            ?? throw new InvalidOperationException($"Testimonial {id} not found");
+
+        var testimonial = new Testimonial
+        {
+            Id = id,
+            CustomerName = dto.CustomerName,
+            CustomerLocation = dto.CustomerLocation,
+            Content = dto.Content,
+            Rating = dto.Rating,
+            ImageUrl = dto.ImageUrl,
+            IsApproved = existing.IsApproved,
+            CreatedAt = existing.CreatedAt,
+        };
+
+        var updated = await testimonialRepository.UpdateAsync(testimonial, ct);
+        return updated.ToDto();
+    }
+
+    public async Task DeleteTestimonialAsync(Guid id, CancellationToken ct = default)
+    {
+        await testimonialRepository.DeleteAsync(id, ct);
     }
 
     public async Task<IReadOnlyList<GalleryImageDto>> GetGalleryAsync(CancellationToken ct = default)

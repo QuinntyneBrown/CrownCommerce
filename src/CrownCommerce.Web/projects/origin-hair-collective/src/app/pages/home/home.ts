@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   ButtonComponent,
   BadgeComponent,
@@ -8,7 +9,10 @@ import {
   BenefitCardComponent,
   TestimonialCardComponent,
   DividerComponent,
+  EmailSignupComponent,
 } from 'components';
+import { CatalogService, ContentService, NewsletterService } from 'api';
+import type { HairProduct, Testimonial, GalleryImage } from 'api';
 
 @Component({
   selector: 'app-home',
@@ -21,12 +25,28 @@ import {
     BenefitCardComponent,
     TestimonialCardComponent,
     DividerComponent,
+    EmailSignupComponent,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class HomePage {
-  // SVG icons for lucide icons used in the design
+export class HomePage implements OnInit {
+  private readonly catalogService = inject(CatalogService);
+  private readonly contentService = inject(ContentService);
+  private readonly newsletterService = inject(NewsletterService);
+  private readonly router = inject(Router);
+
+  readonly products = signal<HairProduct[]>([]);
+  readonly productsLoading = signal(true);
+  readonly productsError = signal<string | null>(null);
+
+  readonly testimonials = signal<Testimonial[]>([]);
+  readonly communityPhotos = signal<GalleryImage[]>([]);
+
+  readonly newsletterLoading = signal(false);
+  readonly newsletterSuccess = signal(false);
+  readonly newsletterError = signal<string | null>(null);
+
   readonly sparklesIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>`;
 
   readonly heartIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`;
@@ -52,12 +72,67 @@ export class HomePage {
     },
   ];
 
-  readonly communityPhotos = [
-    { url: 'https://images.unsplash.com/photo-1612041712051-ed5c64a4646f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80', alt: 'Hair style 1' },
-    { url: 'https://images.unsplash.com/photo-1583743599150-3b6048ecf084?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80', alt: 'Hair style 2' },
-    { url: 'https://images.unsplash.com/photo-1760135119333-bc76583e498a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80', alt: 'Hair style 3' },
-    { url: 'https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80', alt: 'Hair style 4' },
-    { url: 'https://images.unsplash.com/photo-1560564066-a3a5cfc81584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80', alt: 'Hair style 5' },
-    { url: 'https://images.unsplash.com/photo-1709971393539-d95f2c0eae43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80', alt: 'Hair style 6' },
-  ];
+  ngOnInit(): void {
+    this.loadProducts();
+    this.loadTestimonials();
+    this.loadGallery();
+  }
+
+  navigateToShop(): void {
+    this.router.navigate(['/shop']);
+  }
+
+  navigateToProduct(product: HairProduct): void {
+    this.router.navigate(['/product', product.id]);
+  }
+
+  formatPrice(product: HairProduct): string {
+    return `From $${product.price} CAD`;
+  }
+
+  getProductTag(product: HairProduct): string {
+    return product.type.toUpperCase();
+  }
+
+  onNewsletterSubmit(email: string): void {
+    this.newsletterLoading.set(true);
+    this.newsletterError.set(null);
+    this.newsletterService.subscribe({ email, tags: ['origin-hair-collective'] }).subscribe({
+      next: () => {
+        this.newsletterLoading.set(false);
+        this.newsletterSuccess.set(true);
+      },
+      error: () => {
+        this.newsletterLoading.set(false);
+        this.newsletterError.set('Failed to subscribe. Please try again.');
+      },
+    });
+  }
+
+  private loadProducts(): void {
+    this.catalogService.getProducts().subscribe({
+      next: (products) => {
+        this.products.set(products.slice(0, 3));
+        this.productsLoading.set(false);
+      },
+      error: () => {
+        this.productsError.set('Failed to load products.');
+        this.productsLoading.set(false);
+      },
+    });
+  }
+
+  private loadTestimonials(): void {
+    this.contentService.getTestimonials().subscribe({
+      next: (testimonials) => this.testimonials.set(testimonials),
+      error: () => {},
+    });
+  }
+
+  private loadGallery(): void {
+    this.contentService.getGallery().subscribe({
+      next: (images) => this.communityPhotos.set(images),
+      error: () => {},
+    });
+  }
 }

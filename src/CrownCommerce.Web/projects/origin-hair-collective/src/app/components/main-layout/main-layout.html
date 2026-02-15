@@ -5,7 +5,7 @@
     @for (link of navLinks; track link.label) {
       <a [href]="link.href" class="header__link">{{ link.label }}</a>
     }
-    <lib-button variant="primary" size="small">SHOP NOW</lib-button>
+    <lib-button variant="primary" size="small" (click)="navigateToShop()">SHOP NOW</lib-button>
   </nav>
   <button
     class="header__menu"
@@ -34,7 +34,7 @@
         @for (link of navLinks; track link.label) {
           <a [href]="link.href" class="mobile-nav__link" (click)="toggleMobileMenu()">{{ link.label }}</a>
         }
-        <lib-button variant="primary">SHOP NOW</lib-button>
+        <lib-button variant="primary" (click)="navigateToShop()">SHOP NOW</lib-button>
       </div>
     </nav>
   </div>
@@ -46,7 +46,7 @@
 </main>
 
 <!-- Chat Widget -->
-<lib-chat-widget />
+<lib-chat-widget (messageSent)="onChatMessage($event)" />
 
 <!-- Footer -->
 <footer class="footer">

@@ -1,4 +1,5 @@
-﻿using CrownCommerce.Catalog.Application.Services;
+using CrownCommerce.Catalog.Application.Dtos;
+using CrownCommerce.Catalog.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrownCommerce.Catalog.Api.Controllers;
@@ -19,5 +20,26 @@ public sealed class HairOriginsController(ICatalogService catalogService) : Cont
     {
         var origin = await catalogService.GetOriginByIdAsync(id, ct);
         return origin is null ? NotFound() : Ok(origin);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] CreateOriginDto dto, CancellationToken ct)
+    {
+        var origin = await catalogService.CreateOriginAsync(dto, ct);
+        return CreatedAtAction(nameof(GetById), new { id = origin.Id }, origin);
+    }
+
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(Guid id, [FromBody] UpdateOriginDto dto, CancellationToken ct)
+    {
+        var origin = await catalogService.UpdateOriginAsync(id, dto, ct);
+        return Ok(origin);
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(Guid id, CancellationToken ct)
+    {
+        await catalogService.DeleteOriginAsync(id, ct);
+        return NoContent();
     }
 }

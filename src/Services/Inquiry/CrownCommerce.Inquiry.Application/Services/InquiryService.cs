@@ -1,4 +1,4 @@
-﻿using CrownCommerce.Inquiry.Application.Dtos;
+using CrownCommerce.Inquiry.Application.Dtos;
 using CrownCommerce.Inquiry.Core.Interfaces;
 using CrownCommerce.Shared.Contracts;
 using MassTransit;
@@ -40,6 +40,11 @@ public sealed class InquiryService(IInquiryRepository repository, IPublishEndpoi
     {
         var inquiries = await repository.GetAllAsync(ct);
         return inquiries.Select(ToDto).ToList();
+    }
+
+    public async Task DeleteAsync(Guid id, CancellationToken ct = default)
+    {
+        await repository.DeleteAsync(id, ct);
     }
 
     private static InquiryDto ToDto(Core.Entities.Inquiry inquiry) =>

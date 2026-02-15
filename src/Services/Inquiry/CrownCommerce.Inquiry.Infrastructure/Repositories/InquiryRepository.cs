@@ -1,4 +1,4 @@
-﻿using CrownCommerce.Inquiry.Core.Interfaces;
+using CrownCommerce.Inquiry.Core.Interfaces;
 using CrownCommerce.Inquiry.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,5 +19,15 @@ public sealed class InquiryRepository(InquiryDbContext context) : IInquiryReposi
         context.Inquiries.Add(inquiry);
         await context.SaveChangesAsync(ct);
         return inquiry;
+    }
+
+    public async Task DeleteAsync(Guid id, CancellationToken ct = default)
+    {
+        var inquiry = await context.Inquiries.FindAsync([id], ct);
+        if (inquiry is not null)
+        {
+            context.Inquiries.Remove(inquiry);
+            await context.SaveChangesAsync(ct);
+        }
     }
 }

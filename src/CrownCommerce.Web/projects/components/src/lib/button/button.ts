@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -14,6 +14,7 @@ import { NgClass } from '@angular/common';
         'btn--large': size() === 'large'
       }"
       [type]="type()"
+      (click)="clicked.emit()"
     >
       <ng-content />
       @if (showArrow()) {
@@ -88,4 +89,5 @@ export class ButtonComponent {
   size = input<'small' | 'medium' | 'large'>('medium');
   showArrow = input(false);
   type = input<'button' | 'submit'>('button');
+  clicked = output<void>();
 }

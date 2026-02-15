@@ -1,4 +1,4 @@
-﻿using CrownCommerce.Content.Application.Dtos;
+using CrownCommerce.Content.Application.Dtos;
 
 namespace CrownCommerce.Content.Application.Services;
 
@@ -10,6 +10,8 @@ public interface IContentService
     Task<IReadOnlyList<FaqItemDto>> GetFaqsByCategoryAsync(string category, CancellationToken ct = default);
     Task<IReadOnlyList<TestimonialDto>> GetTestimonialsAsync(CancellationToken ct = default);
     Task<TestimonialDto> SubmitTestimonialAsync(CreateTestimonialDto dto, CancellationToken ct = default);
+    Task<TestimonialDto> UpdateTestimonialAsync(Guid id, UpdateTestimonialDto dto, CancellationToken ct = default);
+    Task DeleteTestimonialAsync(Guid id, CancellationToken ct = default);
     Task<IReadOnlyList<GalleryImageDto>> GetGalleryAsync(CancellationToken ct = default);
     Task<IReadOnlyList<GalleryImageDto>> GetGalleryByCategoryAsync(string category, CancellationToken ct = default);
 }

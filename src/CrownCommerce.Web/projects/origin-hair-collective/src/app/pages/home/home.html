@@ -8,7 +8,7 @@
       Luxury you can feel, confidence you can see.
     </p>
     <div class="hero__cta-row">
-      <lib-button variant="primary" [showArrow]="true">SHOP THE COLLECTION</lib-button>
+      <lib-button variant="primary" [showArrow]="true" (click)="navigateToShop()">SHOP THE COLLECTION</lib-button>
       <lib-button variant="secondary">OUR STORY</lib-button>
     </div>
   </div>
@@ -39,28 +39,22 @@
 <section class="products" id="collection">
   <lib-section-header label="THE COLLECTION" heading="Premium Hair, Curated For You" />
   <div class="products__grid">
-    <lib-product-card
-      imageUrl="https://images.unsplash.com/photo-1672622934288-08b77766e7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
-      tag="BESTSELLER"
-      title="Virgin Hair Bundles"
-      description="Brazilian, Peruvian & Malaysian textures. Straight, body wave, deep wave & more. 12&quot; to 30&quot; lengths."
-      price="From $85 CAD"
-    />
-    <lib-product-card
-      imageUrl="https://images.unsplash.com/photo-1768219778067-40d9edc03c5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
-      tag="ESSENTIAL"
-      title="Lace Closures"
-      description="HD lace closures for a seamless, natural look. 4x4 and 5x5 options in every texture."
-      price="From $65 CAD"
-      tagColor="rose"
-    />
-    <lib-product-card
-      imageUrl="https://images.unsplash.com/photo-1560564066-a3a5cfc81584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80"
-      tag="PREMIUM"
-      title="Lace Frontals"
-      description="13x4 and 13x6 HD lace frontals for full hairline coverage. Pre-plucked with bleached knots."
-      price="From $95 CAD"
-    />
+    @if (productsLoading()) {
+      <p class="products__loading">Loading products...</p>
+    } @else if (productsError()) {
+      <p class="products__error">{{ productsError() }}</p>
+    } @else {
+      @for (product of products(); track product.id) {
+        <lib-product-card
+          [imageUrl]="product.imageUrl ?? ''"
+          [tag]="getProductTag(product)"
+          [title]="product.name"
+          [description]="product.description"
+          [price]="formatPrice(product)"
+          (click)="navigateToProduct(product)"
+        />
+      }
+    }
   </div>
 </section>
 
@@ -89,10 +83,18 @@
 <!-- Testimonials Section -->
 <section class="testimonials">
   <span class="section-label">WHAT THEY SAY</span>
-  <lib-testimonial-card
-    quote="I've tried every hair brand out there. Origin is different — the quality is unmatched, the texture is beautiful, and it literally lasts forever. I'm never going back."
-    author="Jasmine T., Toronto"
-  />
+  @for (testimonial of testimonials(); track testimonial.id) {
+    <lib-testimonial-card
+      [quote]="testimonial.content"
+      [author]="testimonial.customerName + (testimonial.customerLocation ? ', ' + testimonial.customerLocation : '')"
+    />
+  }
+  @if (testimonials().length === 0) {
+    <lib-testimonial-card
+      quote="I've tried every hair brand out there. Origin is different — the quality is unmatched, the texture is beautiful, and it literally lasts forever. I'm never going back."
+      author="Jasmine T., Toronto"
+    />
+  }
 </section>
 
 <!-- Community Section -->
@@ -102,10 +104,28 @@
     <span class="community__handle">&#64;OriginHairCollective</span>
   </div>
   <div class="community__photos">
-    @for (photo of communityPhotos; track photo.alt) {
-      <div class="community__photo" [style.background-image]="'url(' + photo.url + ')'"></div>
+    @for (photo of communityPhotos(); track photo.id) {
+      <div class="community__photo" [style.background-image]="'url(' + photo.imageUrl + ')'"></div>
     }
   </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter">
+  <h2 class="newsletter__heading">Stay In The Loop</h2>
+  <p class="newsletter__sub">Get early access to new collections, exclusive deals, and hair care tips.</p>
+  @if (newsletterSuccess()) {
+    <p class="newsletter__success">Thank you for subscribing!</p>
+  } @else {
+    <lib-email-signup
+      placeholder="Enter your email address"
+      buttonText="SUBSCRIBE"
+      (submitted)="onNewsletterSubmit($event)"
+    />
+    @if (newsletterError()) {
+      <p class="newsletter__error">{{ newsletterError() }}</p>
+    }
+  }
 </section>
 
 <!-- Final CTA -->
@@ -115,7 +135,7 @@
     Join hundreds of women across the GTA who trust Origin Hair Collective for their
     premium hair needs. Experience the difference that quality makes.
   </p>
-  <lib-button variant="primary" size="large" [showArrow]="true">SHOP THE COLLECTION</lib-button>
+  <lib-button variant="primary" size="large" [showArrow]="true" (click)="navigateToShop()">SHOP THE COLLECTION</lib-button>
   <p class="final-cta__trust">
     Free shipping on orders over $150 · 30-day quality guarantee · Canadian Black-owned business
   </p>

@@ -17,7 +17,6 @@ export class ContentService {
     return this.http.post<Testimonial>(`${this.baseUrl}/testimonials`, request);
   }
 
-  // TODO: Verify backend PUT endpoint exists at /api/content/testimonials/{id}
   updateTestimonial(id: string, request: UpdateTestimonialRequest): Observable<Testimonial> {
     return this.http.put<Testimonial>(`${this.baseUrl}/testimonials/${id}`, request);
   }
@@ -46,7 +45,6 @@ export class ContentService {
     return this.http.get<ContentPage>(`${this.baseUrl}/pages/${slug}`);
   }
 
-  // TODO: Verify backend DELETE endpoint exists at /api/content/testimonials/{id}
   deleteTestimonial(id: string): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/testimonials/${id}`);
   }

@@ -1,4 +1,4 @@
-﻿using CrownCommerce.Inquiry.Application.Dtos;
+using CrownCommerce.Inquiry.Application.Dtos;
 using CrownCommerce.Inquiry.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,5 +20,12 @@ public sealed class InquiriesController(IInquiryService inquiryService) : Contro
     {
         var inquiries = await inquiryService.GetAllAsync(ct);
         return Ok(inquiries);
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(Guid id, CancellationToken ct)
+    {
+        await inquiryService.DeleteAsync(id, ct);
+        return NoContent();
     }
 }
