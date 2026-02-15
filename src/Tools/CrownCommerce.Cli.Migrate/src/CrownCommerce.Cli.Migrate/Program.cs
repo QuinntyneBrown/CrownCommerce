@@ -1,5 +1,6 @@
 using System.CommandLine;
 using CrownCommerce.Cli.Migrate.Commands;
+using CrownCommerce.Cli.Migrate.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 

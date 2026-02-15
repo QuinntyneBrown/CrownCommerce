@@ -1,5 +1,6 @@
 using System.CommandLine;
 using CrownCommerce.Cli.Schedule.Commands;
+using CrownCommerce.Cli.Schedule.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 

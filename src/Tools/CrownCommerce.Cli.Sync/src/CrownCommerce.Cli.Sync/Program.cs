@@ -1,5 +1,6 @@
 using System.CommandLine;
 using CrownCommerce.Cli.Sync.Commands;
+using CrownCommerce.Cli.Sync.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
