@@ -6,23 +6,20 @@ export class ComingSoonPage {
 
   // Hero
   readonly headline: Locator;
-  readonly subline: Locator;
+  readonly tagline: Locator;
   readonly badge: Locator;
 
-  // Email signup (newsletter section)
+  // Email signup
   readonly emailForm: Locator;
   readonly emailInput: Locator;
   readonly submitButton: Locator;
-  readonly newsletterSuccess: Locator;
 
   // Footer
   readonly socialLinks: Locator;
   readonly instagramLink: Locator;
   readonly emailLink: Locator;
-  readonly footerCopy: Locator;
-
-  // Community
-  readonly communityHandle: Locator;
+  readonly footerHandle: Locator;
+  readonly footerCopyright: Locator;
 
   constructor(private page: Page) {
     // Header – scope logo to the <header> so it resolves to a single element
@@ -30,23 +27,20 @@ export class ComingSoonPage {
 
     // Hero section
     this.headline = page.locator('.hero__headline');
-    this.subline = page.locator('.hero__subline');
+    this.tagline = page.locator('.hero__tagline');
     this.badge = page.locator('.hero lib-badge');
 
-    // Newsletter email signup
+    // Email signup (inside lib-email-signup component)
     this.emailForm = page.locator('lib-email-signup form');
     this.emailInput = page.locator('lib-email-signup input[type="email"]');
     this.submitButton = page.locator('lib-email-signup button[type="submit"]');
-    this.newsletterSuccess = page.locator('.newsletter__success');
 
-    // Footer – scope social icons to <footer> to avoid ambiguity
+    // Footer
     this.socialLinks = page.locator('footer lib-social-icons .social-icons__link');
     this.instagramLink = page.locator('footer lib-social-icons a[aria-label="instagram"]');
     this.emailLink = page.locator('footer lib-social-icons a[aria-label="email"]');
-    this.footerCopy = page.locator('.footer__copy');
-
-    // Community section handle
-    this.communityHandle = page.locator('.community__handle');
+    this.footerHandle = page.locator('.footer__handle');
+    this.footerCopyright = page.locator('.footer__copyright');
   }
 
   async goto(): Promise<void> {

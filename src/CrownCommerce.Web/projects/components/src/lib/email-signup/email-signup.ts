@@ -46,6 +46,10 @@ import { Component, input, output } from '@angular/core';
     </form>
   `,
   styles: `
+    :host {
+      display: block;
+    }
+
     .email-signup {
       display: flex;
       gap: 12px;

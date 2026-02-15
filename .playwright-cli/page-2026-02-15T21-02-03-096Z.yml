@@ -1,0 +1,28 @@
+- generic [ref=e6]:
+  - banner [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]: ORIGIN
+      - generic [ref=e10]: HAIR COLLECTIVE
+  - main [ref=e11]:
+    - separator [ref=e13]
+    - heading "COMING SOON" [level=1] [ref=e14]
+    - separator [ref=e16]
+    - paragraph [ref=e17]: Premium virgin hair crafted for the modern woman. Be the first to experience luxury redefined.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - img [ref=e22]
+        - textbox "Enter your email address" [ref=e25]
+      - button "GET NOTIFIED" [ref=e26] [cursor=pointer]:
+        - text: GET NOTIFIED
+        - img [ref=e27]
+    - generic [ref=e31]: SPRING 2026
+  - contentinfo [ref=e32]:
+    - generic [ref=e34]:
+      - link "instagram" [ref=e35] [cursor=pointer]:
+        - /url: https://instagram.com/originhaircollective
+        - img [ref=e36]
+      - link "email" [ref=e39] [cursor=pointer]:
+        - /url: mailto:hello@originhaircollective.com
+        - img [ref=e40]
+    - generic [ref=e43]: "@OriginHairCollective"
+    - generic [ref=e44]: © 2026 Origin Hair Collective. All rights reserved.
