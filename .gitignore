@@ -487,3 +487,6 @@ $RECYCLE.BIN/
 *.db
 *.db-shm
 *.db-wal
+
+# Un-ignore the Cli.Db tool project (matched by *.db above)
+!src/Tools/CrownCommerce.Cli.Db/
