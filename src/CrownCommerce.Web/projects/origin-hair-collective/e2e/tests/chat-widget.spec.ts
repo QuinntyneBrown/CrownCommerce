@@ -45,7 +45,7 @@ test.describe('Chat Widget', () => {
     });
 
     test('should display the assistant title', async () => {
-      await expect(homePage.chatWidget.headerTitle).toHaveText('Origin Hair Assistant');
+      await expect(homePage.chatWidget.headerTitle).toHaveText('Origin Hair Collective');
     });
 
     test('should display the header subtitle', async () => {

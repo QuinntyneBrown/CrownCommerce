@@ -21,22 +21,22 @@ test.describe('Header', () => {
 
   test('should have correct href for Collection link', async () => {
     const href = await homePage.header.getNavLinkHref('Collection');
-    expect(href).toBe('#collection');
+    expect(href).toBe('/shop');
   });
 
   test('should have correct href for Our Story link', async () => {
     const href = await homePage.header.getNavLinkHref('Our Story');
-    expect(href).toBe('#story');
+    expect(href).toBe('/about');
   });
 
   test('should have correct href for Hair Care link', async () => {
     const href = await homePage.header.getNavLinkHref('Hair Care');
-    expect(href).toBe('#care');
+    expect(href).toBe('/hair-care-guide');
   });
 
   test('should have correct href for Wholesale link', async () => {
     const href = await homePage.header.getNavLinkHref('Wholesale');
-    expect(href).toBe('#wholesale');
+    expect(href).toBe('/wholesale');
   });
 
   test('should display Shop Now button', async () => {

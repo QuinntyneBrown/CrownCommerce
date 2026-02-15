@@ -27,6 +27,7 @@ test.describe('Home Page - Full Page', () => {
       'benefits',
       'testimonials',
       'community',
+      'newsletter',
       'final-cta',
     ]);
   });
@@ -42,41 +43,23 @@ test.describe('Home Page - Full Page', () => {
     expect(title).toBeTruthy();
   });
 
-  test('should navigate to #collection when Collection link is clicked', async ({ page }) => {
+  test('should navigate to /shop when Collection link is clicked', async ({ page }) => {
     await homePage.header.clickNavLink('Collection');
-    await expect(page).toHaveURL(/#collection/);
+    await expect(page).toHaveURL(/\/shop/);
   });
 
-  test('should navigate to #story when Our Story link is clicked', async ({ page }) => {
+  test('should navigate to /about when Our Story link is clicked', async ({ page }) => {
     await homePage.header.clickNavLink('Our Story');
-    await expect(page).toHaveURL(/#story/);
+    await expect(page).toHaveURL(/\/about/);
   });
 
-  test('should navigate to #care when Hair Care link is clicked', async ({ page }) => {
+  test('should navigate to /hair-care-guide when Hair Care link is clicked', async ({ page }) => {
     await homePage.header.clickNavLink('Hair Care');
-    await expect(page).toHaveURL(/#care/);
+    await expect(page).toHaveURL(/\/hair-care-guide/);
   });
 
-  test('should navigate to #wholesale when Wholesale link is clicked', async ({ page }) => {
+  test('should navigate to /wholesale when Wholesale link is clicked', async ({ page }) => {
     await homePage.header.clickNavLink('Wholesale');
-    await expect(page).toHaveURL(/#wholesale/);
-  });
-
-  test('should scroll to products section when Collection link is clicked', async ({ page }) => {
-    await homePage.header.clickNavLink('Collection');
-    await page.waitForTimeout(500);
-    await expect(homePage.products.root).toBeInViewport();
-  });
-
-  test('should scroll to brand story section when Our Story link is clicked', async ({ page }) => {
-    await homePage.header.clickNavLink('Our Story');
-    await page.waitForTimeout(500);
-    await expect(homePage.brandStory.root).toBeInViewport();
-  });
-
-  test('should scroll to benefits section when Hair Care link is clicked', async ({ page }) => {
-    await homePage.header.clickNavLink('Hair Care');
-    await page.waitForTimeout(500);
-    await expect(homePage.benefits.root).toBeInViewport();
+    await expect(page).toHaveURL(/\/wholesale/);
   });
 });

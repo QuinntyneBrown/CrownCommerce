@@ -54,16 +54,16 @@ test.describe('Mobile Navigation', () => {
     await homePage.header.openMobileMenu();
 
     const collectionHref = await homePage.mobileNav.getNavLinkHref('Collection');
-    expect(collectionHref).toBe('#collection');
+    expect(collectionHref).toBe('/shop');
 
     const storyHref = await homePage.mobileNav.getNavLinkHref('Our Story');
-    expect(storyHref).toBe('#story');
+    expect(storyHref).toBe('/about');
 
     const careHref = await homePage.mobileNav.getNavLinkHref('Hair Care');
-    expect(careHref).toBe('#care');
+    expect(careHref).toBe('/hair-care-guide');
 
     const wholesaleHref = await homePage.mobileNav.getNavLinkHref('Wholesale');
-    expect(wholesaleHref).toBe('#wholesale');
+    expect(wholesaleHref).toBe('/wholesale');
   });
 
   test('should close mobile menu when close button is clicked', async () => {

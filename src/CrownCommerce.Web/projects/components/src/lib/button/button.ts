@@ -91,5 +91,6 @@ export class ButtonComponent {
   showArrow = input(false);
   disabled = input(false);
   type = input<'button' | 'submit'>('button');
+  disabled = input(false);
   clicked = output<void>();
 }
