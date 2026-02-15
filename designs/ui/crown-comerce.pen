@@ -3,15 +3,2045 @@
   "children": [
     {
       "type": "frame",
-      "id": "bi8Au",
+      "id": "5pQex",
       "x": 0,
       "y": 0,
-      "name": "Frame",
+      "name": "Crown Commerce — Mobile",
       "clip": true,
-      "width": 800,
-      "height": 600,
-      "fill": "#FFFFFF",
-      "layout": "none"
+      "width": 375,
+      "fill": "$bg-page",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "vWLLo",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 64,
+          "padding": [
+            0,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "42Kad",
+              "name": "logoGroup",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "TtlEG",
+                  "name": "logoMark",
+                  "width": 32,
+                  "height": 32,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$gold"
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "p1h0D",
+                      "name": "logoLetter",
+                      "fill": "$gold",
+                      "content": "C",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "iAybs",
+                  "name": "logoText",
+                  "fill": "$text-primary",
+                  "content": "CROWN COMMERCE",
+                  "fontFamily": "$font-body",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "icon_font",
+              "id": "JLIwj",
+              "name": "menuIcon",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "menu",
+              "iconFontFamily": "lucide",
+              "fill": "$text-primary"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "J6qzP",
+          "name": "Hero",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            80,
+            24,
+            64,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "nLw3n",
+              "name": "divTop",
+              "width": 40,
+              "height": 1,
+              "fill": "$gold"
+            },
+            {
+              "type": "text",
+              "id": "SocQU",
+              "name": "headline",
+              "fill": "#FAF8F5",
+              "textGrowth": "fixed-width",
+              "width": 327,
+              "content": "Premium Hair,\nElevated.",
+              "lineHeight": 1.1,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 40
+            },
+            {
+              "type": "frame",
+              "id": "CcZzJ",
+              "name": "divBot",
+              "width": 40,
+              "height": 1,
+              "fill": "$gold"
+            },
+            {
+              "type": "text",
+              "id": "NdmhK",
+              "name": "tagline",
+              "fill": "#888888",
+              "textGrowth": "fixed-width",
+              "width": 300,
+              "content": "The parent company behind luxury hair brands crafted for the modern woman. We build, scale, and elevate premium hair commerce.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "Manrope",
+              "fontSize": 14
+            },
+            {
+              "type": "frame",
+              "id": "gbkKO",
+              "name": "ctaRow",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "cU6fY",
+                  "name": "ctaPrimary",
+                  "width": 240,
+                  "fill": "$gold",
+                  "gap": 8,
+                  "padding": [
+                    16,
+                    32
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DpVsn",
+                      "name": "ctaPrimaryText",
+                      "fill": "#0A0A0A",
+                      "content": "EXPLORE OUR BRANDS",
+                      "fontFamily": "Manrope",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LsdoB",
+                  "name": "ctaSecondary",
+                  "width": 240,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "padding": [
+                    16,
+                    32
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YtkaH",
+                      "name": "ctaSecText",
+                      "fill": "#FAF8F5",
+                      "content": "PARTNER WITH US",
+                      "fontFamily": "Manrope",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "fSfHl",
+          "name": "Brands",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            64,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ZDj67",
+              "name": "brandsLabel",
+              "fill": "#C9A962",
+              "content": "OUR BRANDS",
+              "fontFamily": "Manrope",
+              "fontSize": 11,
+              "fontWeight": "600",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "UpPBQ",
+              "name": "brandsHeadline",
+              "fill": "#FAF8F5",
+              "textGrowth": "fixed-width",
+              "width": 300,
+              "content": "A Portfolio of\nLuxury",
+              "lineHeight": 1.15,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 32
+            },
+            {
+              "type": "text",
+              "id": "2BRNi",
+              "name": "brandsDesc",
+              "fill": "#888888",
+              "textGrowth": "fixed-width",
+              "width": 300,
+              "content": "Each brand in the Crown Commerce family is built with intention — premium quality, distinct identity, unforgettable experience.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "Manrope",
+              "fontSize": 13
+            },
+            {
+              "type": "frame",
+              "id": "LGYLi",
+              "name": "cardsCol",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kUXiP",
+                  "name": "OHC Card",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Iy6U6",
+                      "name": "OHC Image",
+                      "width": "fill_container",
+                      "height": 200,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1771194616958.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dvcOe",
+                      "name": "card1Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "0mRx4",
+                          "name": "card1Title",
+                          "fill": "#FAF8F5",
+                          "content": "Origin Hair Collective",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 20
+                        },
+                        {
+                          "type": "text",
+                          "id": "0uZL2",
+                          "name": "card1Desc",
+                          "fill": "#888888",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Premium virgin hair crafted for the modern woman. Luxury bundles, closures, and frontals.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Manrope",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "text",
+                          "id": "9U6j1",
+                          "name": "card1Link",
+                          "fill": "#C9A962",
+                          "content": "Visit Brand →",
+                          "fontFamily": "Manrope",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TmjEQ",
+                  "name": "Mane Haus Card",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GkSOP",
+                      "name": "MH Image",
+                      "width": "fill_container",
+                      "height": 200,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1771195000653.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FU0s2",
+                      "name": "card2Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YcRjP",
+                          "name": "card2Title",
+                          "fill": "#FAF8F5",
+                          "content": "Mane Haus",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 20
+                        },
+                        {
+                          "type": "text",
+                          "id": "YZD8B",
+                          "name": "card2Desc",
+                          "fill": "#888888",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Ultra-luxe hair for the woman who sets the standard. Red-carpet wigs, custom units, and celebrity-grade styling — because you don't follow trends, you are the trend.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Manrope",
+                          "fontSize": 13
+                        },
+                        {
+                          "type": "text",
+                          "id": "MOmzb",
+                          "name": "card2Link",
+                          "fill": "#C9A962",
+                          "content": "Visit Brand →",
+                          "fontFamily": "Manrope",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LfUzL",
+          "name": "Features",
+          "width": "fill_container",
+          "fill": "#0A0A0A",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            64,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "JokmB",
+              "name": "featLabel",
+              "fill": "#C9A962",
+              "content": "WHY CROWN COMMERCE",
+              "fontFamily": "Manrope",
+              "fontSize": 11,
+              "fontWeight": "600",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "n09p3",
+              "name": "featHeadline",
+              "fill": "#FAF8F5",
+              "content": "Built Different",
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 32
+            },
+            {
+              "type": "frame",
+              "id": "2hlJY",
+              "name": "featCards",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "1FY4X",
+                  "name": "f1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "CMPhc",
+                      "name": "f1Icon",
+                      "width": 24,
+                      "height": 24,
+                      "iconFontName": "gem",
+                      "iconFontFamily": "lucide",
+                      "fill": "#C9A962"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Okvzr",
+                      "name": "f1Title",
+                      "fill": "#FAF8F5",
+                      "content": "Premium Sourcing",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 18
+                    },
+                    {
+                      "type": "text",
+                      "id": "HElEN",
+                      "name": "f1Desc",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "We source only the finest virgin hair directly from ethical suppliers. Every bundle meets our uncompromising quality standard.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Manrope",
+                      "fontSize": 13
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "g1ZEY",
+                  "name": "f2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "tYseU",
+                      "name": "f2Icon",
+                      "width": 24,
+                      "height": 24,
+                      "iconFontName": "sparkles",
+                      "iconFontFamily": "lucide",
+                      "fill": "#C9A962"
+                    },
+                    {
+                      "type": "text",
+                      "id": "iHN0f",
+                      "name": "f2Title",
+                      "fill": "#FAF8F5",
+                      "content": "Brand Building",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 18
+                    },
+                    {
+                      "type": "text",
+                      "id": "w6Uv3",
+                      "name": "f2Desc",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Each brand is designed from the ground up with a distinct identity, audience, and story — not a white-label copy.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Manrope",
+                      "fontSize": 13
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "upfZv",
+                  "name": "f3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "moi1y",
+                      "name": "f3Icon",
+                      "width": 24,
+                      "height": 24,
+                      "iconFontName": "truck",
+                      "iconFontFamily": "lucide",
+                      "fill": "#C9A962"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jj4Wg",
+                      "name": "f3Title",
+                      "fill": "#FAF8F5",
+                      "content": "End-to-End Commerce",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 18
+                    },
+                    {
+                      "type": "text",
+                      "id": "SjPk9",
+                      "name": "f3Desc",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "From sourcing to storefront, fulfillment to customer care — we own the entire value chain.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Manrope",
+                      "fontSize": 13
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "oz8aG",
+          "name": "Stats",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            64,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "fah07",
+              "name": "statsRow",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "CEVeH",
+                  "name": "s1",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bJbO9",
+                      "name": "s1Val",
+                      "fill": "#C9A962",
+                      "content": "10K+",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 40
+                    },
+                    {
+                      "type": "text",
+                      "id": "FZnH6",
+                      "name": "s1Label",
+                      "fill": "#888888",
+                      "content": "Happy Customers",
+                      "fontFamily": "Manrope",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "UJcG9",
+                  "name": "s2",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nH599",
+                      "name": "s2Val",
+                      "fill": "#C9A962",
+                      "content": "2",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 40
+                    },
+                    {
+                      "type": "text",
+                      "id": "sIHKI",
+                      "name": "s2Label",
+                      "fill": "#888888",
+                      "content": "Premium Brands",
+                      "fontFamily": "Manrope",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fmb4y",
+                  "name": "s3",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PJN7j",
+                      "name": "s3Val",
+                      "fill": "#C9A962",
+                      "content": "50+",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 40
+                    },
+                    {
+                      "type": "text",
+                      "id": "IQi7K",
+                      "name": "s3Label",
+                      "fill": "#888888",
+                      "content": "Products",
+                      "fontFamily": "Manrope",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dQ19e",
+          "name": "Final CTA",
+          "width": "fill_container",
+          "fill": "#0A0A0A",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            80,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "TtyZ2",
+              "name": "ctaDivTop",
+              "width": 40,
+              "height": 1,
+              "fill": "#C9A962"
+            },
+            {
+              "type": "text",
+              "id": "6GVSG",
+              "name": "ctaHeadline",
+              "fill": "#FAF8F5",
+              "textGrowth": "fixed-width",
+              "width": 300,
+              "content": "Ready to Build\nSomething Beautiful?",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 28
+            },
+            {
+              "type": "text",
+              "id": "CUr5C",
+              "name": "ctaDesc",
+              "fill": "#888888",
+              "textGrowth": "fixed-width",
+              "width": 300,
+              "content": "Whether you're looking to partner, invest, or simply want to wear the best — we'd love to hear from you.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "Manrope",
+              "fontSize": 13
+            },
+            {
+              "type": "frame",
+              "id": "sakFV",
+              "name": "ctaBtn",
+              "fill": "#C9A962",
+              "gap": 8,
+              "padding": [
+                16,
+                40
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "CE6uH",
+                  "name": "ctaBtnIcon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "arrow-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#0A0A0A"
+                },
+                {
+                  "type": "text",
+                  "id": "JuTRr",
+                  "name": "ctaBtnText",
+                  "fill": "#0A0A0A",
+                  "content": "GET IN TOUCH",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "g9gVo",
+          "name": "Footer",
+          "width": "fill_container",
+          "stroke": {
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#1F1F1F"
+          },
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            48,
+            24,
+            32,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "4CHqi",
+              "name": "footerLogo",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "O1oW5",
+                  "name": "footerLogoMark",
+                  "width": 36,
+                  "height": 36,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#C9A962"
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uVzZh",
+                      "name": "footerLogoLetter",
+                      "fill": "#C9A962",
+                      "content": "C",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 18,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "u4kYb",
+                  "name": "footerBrand",
+                  "fill": "#FAF8F5",
+                  "content": "CROWN COMMERCE",
+                  "fontFamily": "Manrope",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "KtK3G",
+                  "name": "footerTagline",
+                  "fill": "#666666",
+                  "content": "Premium hair, elevated.",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QrKj0",
+              "name": "footerLinks",
+              "gap": 24,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5oyr2",
+                  "name": "fl1",
+                  "fill": "#888888",
+                  "content": "Brands",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "lSJbq",
+                  "name": "fl2",
+                  "fill": "#888888",
+                  "content": "About",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "r1dEe",
+                  "name": "fl3",
+                  "fill": "#888888",
+                  "content": "Careers",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "MTTlS",
+                  "name": "fl4",
+                  "fill": "#888888",
+                  "content": "Contact",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GK5sP",
+              "name": "footerSocial",
+              "gap": 16,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "mFIS9",
+                  "name": "fs1",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "instagram",
+                  "iconFontFamily": "lucide",
+                  "fill": "#666666"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "RW6Sn",
+                  "name": "fs2",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "twitter",
+                  "iconFontFamily": "lucide",
+                  "fill": "#666666"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "GE40O",
+                  "name": "fs3",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "mail",
+                  "iconFontFamily": "lucide",
+                  "fill": "#666666"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "8Jjx5",
+              "name": "footerCopy",
+              "fill": "#666666",
+              "content": "© 2026 Crown Commerce. All rights reserved.",
+              "fontFamily": "Manrope",
+              "fontSize": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "uecxY",
+      "x": 475,
+      "y": 0,
+      "name": "Crown Commerce — Desktop",
+      "clip": true,
+      "width": 1440,
+      "fill": "$bg-page",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "QPkyT",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 80,
+          "padding": [
+            0,
+            60
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "dPaFf",
+              "name": "dLogoGroup",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lwmZI",
+                  "name": "dLogoMark",
+                  "width": 36,
+                  "height": 36,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#C9A962"
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KfC1t",
+                      "name": "dLogoLetter",
+                      "fill": "#C9A962",
+                      "content": "C",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 18,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ldfqQ",
+                  "name": "dLogoText",
+                  "fill": "#FAF8F5",
+                  "content": "CROWN COMMERCE",
+                  "fontFamily": "Manrope",
+                  "fontSize": 13,
+                  "fontWeight": "600",
+                  "letterSpacing": 2.5
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HS77M",
+              "name": "dNav",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "9g7oh",
+                  "name": "dn1",
+                  "fill": "#888888",
+                  "content": "Brands",
+                  "fontFamily": "Manrope",
+                  "fontSize": 13
+                },
+                {
+                  "type": "text",
+                  "id": "3CJM9",
+                  "name": "dn2",
+                  "fill": "#888888",
+                  "content": "About",
+                  "fontFamily": "Manrope",
+                  "fontSize": 13
+                },
+                {
+                  "type": "text",
+                  "id": "pEHC4",
+                  "name": "dn3",
+                  "fill": "#888888",
+                  "content": "Careers",
+                  "fontFamily": "Manrope",
+                  "fontSize": 13
+                },
+                {
+                  "type": "text",
+                  "id": "9wvxS",
+                  "name": "dn4",
+                  "fill": "#888888",
+                  "content": "Contact",
+                  "fontFamily": "Manrope",
+                  "fontSize": 13
+                },
+                {
+                  "type": "frame",
+                  "id": "ymhW0",
+                  "name": "dNavCta",
+                  "fill": "#C9A962",
+                  "padding": [
+                    10,
+                    24
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LhSDe",
+                      "name": "dNavCtaText",
+                      "fill": "#0A0A0A",
+                      "content": "GET IN TOUCH",
+                      "fontFamily": "Manrope",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "i1nKN",
+          "name": "Hero",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            120,
+            60,
+            100,
+            60
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "MgTM5",
+              "name": "dDivTop",
+              "width": 48,
+              "height": 1,
+              "fill": "#C9A962"
+            },
+            {
+              "type": "text",
+              "id": "TdxDa",
+              "name": "dHeadline",
+              "fill": "#FAF8F5",
+              "textGrowth": "fixed-width",
+              "width": 800,
+              "content": "Premium Hair, Elevated.",
+              "lineHeight": 1.05,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 72
+            },
+            {
+              "type": "frame",
+              "id": "Pogct",
+              "name": "dDivBot",
+              "width": 48,
+              "height": 1,
+              "fill": "#C9A962"
+            },
+            {
+              "type": "text",
+              "id": "foJlZ",
+              "name": "dTagline",
+              "fill": "#888888",
+              "textGrowth": "fixed-width",
+              "width": 560,
+              "content": "The parent company behind luxury hair brands crafted for the modern woman.\nWe build, scale, and elevate premium hair commerce.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "Manrope",
+              "fontSize": 16
+            },
+            {
+              "type": "frame",
+              "id": "8zYNw",
+              "name": "dCtaRow",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "l1QhL",
+                  "name": "dCtaPrimary",
+                  "fill": "#C9A962",
+                  "gap": 10,
+                  "padding": [
+                    18,
+                    40
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oKi06",
+                      "name": "dCtaPText",
+                      "fill": "#0A0A0A",
+                      "content": "EXPLORE OUR BRANDS",
+                      "fontFamily": "Manrope",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.5
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "Nbe0u",
+                      "name": "dCtaPIcon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "arrow-right",
+                      "iconFontFamily": "lucide",
+                      "fill": "#0A0A0A"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ou9ad",
+                  "name": "dCtaSecondary",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "padding": [
+                    18,
+                    40
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "L6y9h",
+                      "name": "dCtaSText",
+                      "fill": "#FAF8F5",
+                      "content": "PARTNER WITH US",
+                      "fontFamily": "Manrope",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "UMrCg",
+          "name": "Brands",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            100,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "8Ru8J",
+              "name": "dBrandsLabel",
+              "fill": "#C9A962",
+              "content": "OUR BRANDS",
+              "fontFamily": "Manrope",
+              "fontSize": 11,
+              "fontWeight": "600",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "GxLFt",
+              "name": "dBrandsHeadline",
+              "fill": "#FAF8F5",
+              "content": "A Portfolio of Luxury",
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 42
+            },
+            {
+              "type": "text",
+              "id": "km0yt",
+              "name": "dBrandsDesc",
+              "fill": "#888888",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "Each brand in the Crown Commerce family is built with intention — premium quality, distinct identity, unforgettable experience.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "Manrope",
+              "fontSize": 15
+            },
+            {
+              "type": "frame",
+              "id": "QbvtO",
+              "name": "dCardsRow",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UuDgR",
+                  "name": "OHC Card",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "B37Nl",
+                      "name": "OHC Image",
+                      "width": "fill_container",
+                      "height": 280,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1771194753006.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kccS7",
+                      "name": "dc1Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mXNj2",
+                          "name": "dc1Title",
+                          "fill": "#FAF8F5",
+                          "content": "Origin Hair Collective",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 22
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZrXdR",
+                          "name": "dc1Desc",
+                          "fill": "#888888",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Premium virgin hair crafted for the modern woman. Luxury bundles, closures, and frontals.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Manrope",
+                          "fontSize": 14
+                        },
+                        {
+                          "type": "text",
+                          "id": "Ns86Q",
+                          "name": "dc1Link",
+                          "fill": "#C9A962",
+                          "content": "Visit Brand →",
+                          "fontFamily": "Manrope",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qjgjl",
+                  "name": "Mane Haus Card",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "nC4DR",
+                      "name": "MH Image",
+                      "width": "fill_container",
+                      "height": 280,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1771195006706.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XGwwi",
+                      "name": "dc2Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 28,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "sdHrd",
+                          "name": "dc2Title",
+                          "fill": "#FAF8F5",
+                          "content": "Mane Haus",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 22
+                        },
+                        {
+                          "type": "text",
+                          "id": "WBzP1",
+                          "name": "dc2Desc",
+                          "fill": "#888888",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Ultra-luxe hair for the woman who sets the standard. Red-carpet wigs, custom units, and celebrity-grade styling — because you don't follow trends, you are the trend.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Manrope",
+                          "fontSize": 14
+                        },
+                        {
+                          "type": "text",
+                          "id": "03pf6",
+                          "name": "dc2Link",
+                          "fill": "#C9A962",
+                          "content": "Visit Brand →",
+                          "fontFamily": "Manrope",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tqqsy",
+          "name": "Features",
+          "width": "fill_container",
+          "fill": "#0A0A0A",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": [
+            100,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ZChmO",
+              "name": "dFeatLabel",
+              "fill": "#C9A962",
+              "content": "WHY CROWN COMMERCE",
+              "fontFamily": "Manrope",
+              "fontSize": 11,
+              "fontWeight": "600",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "lNAp0",
+              "name": "dFeatHeadline",
+              "fill": "#FAF8F5",
+              "content": "Built Different",
+              "fontFamily": "Playfair Display",
+              "fontSize": 42
+            },
+            {
+              "type": "frame",
+              "id": "D1Azm",
+              "name": "dFeatRow",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WiaOr",
+                  "name": "df1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "B9IYI",
+                      "name": "df1Icon",
+                      "width": 28,
+                      "height": 28,
+                      "iconFontName": "gem",
+                      "iconFontFamily": "lucide",
+                      "fill": "#C9A962"
+                    },
+                    {
+                      "type": "text",
+                      "id": "6gO75",
+                      "name": "df1Title",
+                      "fill": "#FAF8F5",
+                      "content": "Premium Sourcing",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 20
+                    },
+                    {
+                      "type": "text",
+                      "id": "cbZ0B",
+                      "name": "df1Desc",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "We source only the finest virgin hair directly from ethical suppliers. Every bundle meets our uncompromising quality standard.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Manrope",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bGwNt",
+                  "name": "df2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "IIv7c",
+                      "name": "df2Icon",
+                      "width": 28,
+                      "height": 28,
+                      "iconFontName": "sparkles",
+                      "iconFontFamily": "lucide",
+                      "fill": "#C9A962"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pScNw",
+                      "name": "df2Title",
+                      "fill": "#FAF8F5",
+                      "content": "Brand Building",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 20
+                    },
+                    {
+                      "type": "text",
+                      "id": "7LBOw",
+                      "name": "df2Desc",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Each brand is designed from the ground up with a distinct identity, audience, and story — not a white-label copy.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Manrope",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "4PK43",
+                  "name": "df3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#1F1F1F"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "pYcQE",
+                      "name": "df3Icon",
+                      "width": 28,
+                      "height": 28,
+                      "iconFontName": "truck",
+                      "iconFontFamily": "lucide",
+                      "fill": "#C9A962"
+                    },
+                    {
+                      "type": "text",
+                      "id": "seMrx",
+                      "name": "df3Title",
+                      "fill": "#FAF8F5",
+                      "content": "End-to-End Commerce",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 20
+                    },
+                    {
+                      "type": "text",
+                      "id": "GShMk",
+                      "name": "df3Desc",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "From sourcing to storefront, fulfillment to customer care — we own the entire value chain.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Manrope",
+                      "fontSize": 14
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OVoj6",
+          "name": "Stats",
+          "width": "fill_container",
+          "padding": [
+            80,
+            120
+          ],
+          "justifyContent": "space_around",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "lOu13",
+              "name": "ds1",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xPF5Z",
+                  "name": "ds1Val",
+                  "fill": "#C9A962",
+                  "content": "10K+",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 48
+                },
+                {
+                  "type": "text",
+                  "id": "3gtHu",
+                  "name": "ds1Label",
+                  "fill": "#888888",
+                  "content": "Happy Customers",
+                  "fontFamily": "Manrope",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cC1O5",
+              "name": "ds2",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "I81hc",
+                  "name": "ds2Val",
+                  "fill": "#C9A962",
+                  "content": "2",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 48
+                },
+                {
+                  "type": "text",
+                  "id": "phgoz",
+                  "name": "ds2Label",
+                  "fill": "#888888",
+                  "content": "Premium Brands",
+                  "fontFamily": "Manrope",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Sirlq",
+              "name": "ds3",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "TQSPm",
+                  "name": "ds3Val",
+                  "fill": "#C9A962",
+                  "content": "50+",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 48
+                },
+                {
+                  "type": "text",
+                  "id": "JqatK",
+                  "name": "ds3Label",
+                  "fill": "#888888",
+                  "content": "Products",
+                  "fontFamily": "Manrope",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ovbDE",
+              "name": "ds4",
+              "layout": "vertical",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cBhB1",
+                  "name": "ds4Val",
+                  "fill": "#C9A962",
+                  "content": "100%",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 48
+                },
+                {
+                  "type": "text",
+                  "id": "oqWa0",
+                  "name": "ds4Label",
+                  "fill": "#888888",
+                  "content": "Virgin Hair",
+                  "fontFamily": "Manrope",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "niPru",
+          "name": "Final CTA",
+          "width": "fill_container",
+          "fill": "#0A0A0A",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            120,
+            60
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "T3rw5",
+              "name": "dCtaDivTop",
+              "width": 48,
+              "height": 1,
+              "fill": "#C9A962"
+            },
+            {
+              "type": "text",
+              "id": "HZfpz",
+              "name": "dCtaHeadline",
+              "fill": "#FAF8F5",
+              "textGrowth": "fixed-width",
+              "width": 600,
+              "content": "Ready to Build Something Beautiful?",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 42
+            },
+            {
+              "type": "text",
+              "id": "NE1MX",
+              "name": "dCtaDesc",
+              "fill": "#888888",
+              "textGrowth": "fixed-width",
+              "width": 480,
+              "content": "Whether you're looking to partner, invest, or simply want to wear the best — we'd love to hear from you.",
+              "lineHeight": 1.7,
+              "textAlign": "center",
+              "fontFamily": "Manrope",
+              "fontSize": 15
+            },
+            {
+              "type": "frame",
+              "id": "czh37",
+              "name": "dCtaBtn",
+              "fill": "#C9A962",
+              "gap": 10,
+              "padding": [
+                18,
+                48
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "iFALQ",
+                  "name": "dCtaBtnText",
+                  "fill": "#0A0A0A",
+                  "content": "GET IN TOUCH",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "icon_font",
+                  "id": "cPIMD",
+                  "name": "dCtaBtnIcon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "arrow-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#0A0A0A"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VNRVI",
+          "name": "Footer",
+          "width": "fill_container",
+          "stroke": {
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#1F1F1F"
+          },
+          "padding": [
+            48,
+            120
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "KbXjb",
+              "name": "dFooterLeft",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "9DzdP",
+                  "name": "dFooterMark",
+                  "width": 32,
+                  "height": 32,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#C9A962"
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "T7Wh8",
+                      "name": "dFooterLetter",
+                      "fill": "#C9A962",
+                      "content": "C",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ZVSD3",
+                  "name": "dFooterBrand",
+                  "fill": "#FAF8F5",
+                  "content": "CROWN COMMERCE",
+                  "fontFamily": "Manrope",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jRLHZ",
+              "name": "dFooterRight",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "pJfXf",
+                  "name": "dfn1",
+                  "fill": "#888888",
+                  "content": "Brands",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "Z7Q92",
+                  "name": "dfn2",
+                  "fill": "#888888",
+                  "content": "About",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "eYkiA",
+                  "name": "dfn3",
+                  "fill": "#888888",
+                  "content": "Careers",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "ZZLc5",
+                  "name": "dfn4",
+                  "fill": "#888888",
+                  "content": "Contact",
+                  "fontFamily": "Manrope",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "uMg15",
+                  "name": "dFooterSocial",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "Ymj5n",
+                      "name": "dfs1",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "instagram",
+                      "iconFontFamily": "lucide",
+                      "fill": "#666666"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "9Uvm4",
+                      "name": "dfs2",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "twitter",
+                      "iconFontFamily": "lucide",
+                      "fill": "#666666"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "mYvpd",
+                      "name": "dfs3",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "mail",
+                      "iconFontFamily": "lucide",
+                      "fill": "#666666"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "JPIoE",
+                  "name": "dFooterCopy",
+                  "fill": "#666666",
+                  "content": "© 2026 Crown Commerce",
+                  "fontFamily": "Manrope",
+                  "fontSize": 11
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "variables": {
+    "bg-border": {
+      "type": "color",
+      "value": "#1F1F1F"
+    },
+    "bg-page": {
+      "type": "color",
+      "value": "#0F0F0F"
+    },
+    "bg-surface": {
+      "type": "color",
+      "value": "#0A0A0A"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Manrope"
+    },
+    "font-heading": {
+      "type": "string",
+      "value": "Playfair Display"
+    },
+    "gold": {
+      "type": "color",
+      "value": "#C9A962"
+    },
+    "gold-tint-10": {
+      "type": "color",
+      "value": "#C9A96219"
+    },
+    "text-on-gold": {
+      "type": "color",
+      "value": "#0A0A0A"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#FAF8F5"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#888888"
+    },
+    "text-tertiary": {
+      "type": "color",
+      "value": "#666666"
+    }
+  }
 }

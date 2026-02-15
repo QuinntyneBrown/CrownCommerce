@@ -1,0 +1,48 @@
+name: Deploy OHC Coming Soon
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/CrownCommerce.Web/projects/origin-hair-collective-coming-soon/**'
+      - 'src/CrownCommerce.Web/projects/components/**'
+      - 'src/CrownCommerce.Web/projects/api/**'
+      - 'src/CrownCommerce.Web/projects/features/**'
+      - 'src/CrownCommerce.Web/Dockerfile.coming-soon'
+      - 'src/Aspire/CrownCommerce.ComingSoon.AppHost/**'
+      - '.github/workflows/deploy-ohc-coming-soon.yml'
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AZURE_ENV_NAME: ohc-coming-soon
+  AZURE_LOCATION: eastus2
+  AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  APPHOST_PATH: src/Aspire/CrownCommerce.ComingSoon.AppHost
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy to Azure Container Apps
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install azd
+        uses: Azure/setup-azd@v2
+
+      - name: Log in to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Log in to azd (federated)
+        run: azd auth login --client-id ${{ secrets.AZURE_CLIENT_ID }} --federated-credential-provider github --tenant-id ${{ secrets.AZURE_TENANT_ID }}
+
+      - name: Deploy to Azure Container Apps
+        working-directory: ${{ env.APPHOST_PATH }}
+        run: azd deploy --environment ${{ env.AZURE_ENV_NAME }} --no-prompt

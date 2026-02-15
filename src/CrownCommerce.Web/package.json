@@ -11,6 +11,7 @@
     "build:libs": "ng build components && ng build api && ng build features",
     "build:ohc": "npm run build:libs && ng build origin-hair-collective",
     "build:ohc-coming-soon": "npm run build:libs && ng build origin-hair-collective-coming-soon",
+    "build:teams": "npm run build:libs && ng build teams",
     "build:mh": "npm run build:libs && ng build mane-haus",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
