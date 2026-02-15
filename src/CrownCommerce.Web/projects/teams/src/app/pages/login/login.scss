@@ -1,63 +1,224 @@
 :host {
+  display: block;
+  height: 100vh;
+}
+
+// ─── Page Layout ─────────────────────────────────────
+.login-page {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+// ─── Left Brand Panel ────────────────────────────────
+.brand-panel {
+  position: relative;
+  width: 660px;
+  min-width: 660px;
+  height: 100%;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 64px;
+  overflow: hidden;
+}
+
+.brand-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.logo-mark {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: var(--bg-primary, #1a1a2e);
-}
 
-.login-container {
-  width: 100%;
-  max-width: 420px;
-  padding: 16px;
-}
-
-.login-card {
-  background: var(--bg-secondary, #232340);
-  border-radius: 12px;
-  padding: 32px;
-
-  mat-card-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 24px;
-  }
-
-  .login-logo {
-    font-size: 48px;
-    width: 48px;
-    height: 48px;
-    color: var(--accent-primary, #c9a052);
-    margin-bottom: 12px;
-  }
-
-  mat-card-title {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--text-primary);
-  }
-
-  mat-card-subtitle {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-top: 4px;
+  mat-icon {
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+    color: var(--sidebar-bg);
   }
 }
 
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--sidebar-text);
+}
+
+.brand-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: auto;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--sidebar-text);
+  margin: 0;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--sidebar-text-muted);
+  margin: 0;
+  max-width: 460px;
+}
+
+.accent-line {
+  width: 64px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+// ─── Testimonial ─────────────────────────────────────
+.brand-testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quote-mark {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.quote-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--sidebar-text);
+  margin: 0;
+}
+
+.quote-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.author-name {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sidebar-text);
+}
+
+.author-role {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--sidebar-text-muted);
+}
+
+// ─── Decorative Circles ──────────────────────────────
+.deco-circles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+}
+
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+
+  &--lg {
+    width: 400px;
+    height: 400px;
+    right: -40px;
+    top: -80px;
+  }
+
+  &--sm {
+    width: 250px;
+    height: 250px;
+    right: -20px;
+    top: 200px;
+  }
+}
+
+// ─── Right Form Panel ────────────────────────────────
+.form-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  padding: 64px 80px;
+  overflow-y: auto;
+}
+
+.form-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+// ─── Form Header ─────────────────────────────────────
+.form-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-title {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.form-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+// ─── Error Banner ────────────────────────────────────
 .error-banner {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 12px;
-  background: rgba(244, 67, 54, 0.1);
-  border: 1px solid rgba(244, 67, 54, 0.3);
-  border-radius: 8px;
-  color: #f44336;
+  background: rgba(176, 0, 32, 0.08);
+  border: 1px solid rgba(176, 0, 32, 0.2);
+  border-radius: var(--radius-sm);
+  color: var(--error);
+  font-family: var(--font-body);
   font-size: 14px;
-  margin-bottom: 16px;
 
   mat-icon {
     font-size: 20px;
@@ -66,20 +227,170 @@
   }
 }
 
+// ─── Form Fields ─────────────────────────────────────
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 32px;
+}
 
-  mat-form-field {
-    width: 100%;
+.fields-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.field-input {
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s ease;
+
+  &::placeholder {
+    color: var(--border-strong);
+  }
+
+  &:focus {
+    border-color: var(--primary);
   }
 }
 
-.login-button {
-  margin-top: 8px;
-  height: 48px;
-  font-size: 16px;
+// ─── Options Row ─────────────────────────────────────
+.options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.remember-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease;
+
+  &--checked {
+    border-color: var(--primary);
+  }
+}
+
+.check-icon {
+  font-size: 14px !important;
+  width: 14px !important;
+  height: 14px !important;
+  color: var(--primary);
+}
+
+.remember-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.forgot-link {
+  font-family: var(--font-body);
+  font-size: 13px;
   font-weight: 500;
-  border-radius: 8px;
+  color: var(--primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ─── Sign In Button ──────────────────────────────────
+.sign-in-btn {
+  width: 100%;
+  height: 40px;
+  background: var(--primary);
+  color: var(--on-primary);
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background: var(--primary-dark);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// ─── Sign Up Row ─────────────────────────────────────
+.signup-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.signup-text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.signup-link {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ─── Responsive ──────────────────────────────────────
+@media (max-width: 1023px) {
+  .brand-panel {
+    display: none;
+  }
+
+  .form-panel {
+    padding: 32px 24px;
+  }
 }

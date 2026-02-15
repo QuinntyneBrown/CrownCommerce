@@ -1,12 +1,50 @@
-<div class="login-container">
-  <mat-card class="login-card">
-    <mat-card-header>
-      <mat-icon class="login-logo">groups</mat-icon>
-      <mat-card-title>CrownCommerce Teams</mat-card-title>
-      <mat-card-subtitle>Sign in to your account</mat-card-subtitle>
-    </mat-card-header>
+<div class="login-page">
+  <!-- Left Brand Panel -->
+  <aside class="brand-panel">
+    <div class="brand-top">
+      <div class="brand-logo">
+        <div class="logo-mark">
+          <mat-icon>groups</mat-icon>
+        </div>
+        <span class="logo-text">Teams</span>
+      </div>
 
-    <mat-card-content>
+      <div class="brand-hero">
+        <h1 class="hero-title">Your team, connected and empowered.</h1>
+        <p class="hero-subtitle">
+          Organize roles, manage permissions, and keep every member
+          aligned &mdash; all from one centralized workspace.
+        </p>
+        <div class="accent-line"></div>
+      </div>
+    </div>
+
+    <div class="brand-testimonial">
+      <span class="quote-mark">&ldquo;</span>
+      <p class="quote-text">
+        Teams made onboarding our 200+ staff seamless. Role management
+        that used to take days now takes minutes.
+      </p>
+      <div class="quote-author">
+        <span class="author-name">Sarah Mitchell</span>
+        <span class="author-role">Head of People Ops, Meridian Corp</span>
+      </div>
+    </div>
+
+    <div class="deco-circles">
+      <div class="deco-circle deco-circle--lg"></div>
+      <div class="deco-circle deco-circle--sm"></div>
+    </div>
+  </aside>
+
+  <!-- Right Form Panel -->
+  <main class="form-panel">
+    <div class="form-container">
+      <div class="form-header">
+        <h2 class="form-title">Sign in to Teams</h2>
+        <p class="form-subtitle">Access your team management dashboard</p>
+      </div>
+
       @if (errorMessage()) {
         <div class="error-banner">
           <mat-icon>error_outline</mat-icon>
@@ -15,40 +53,56 @@
       }
 
       <form (ngSubmit)="onSubmit()" class="login-form">
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            type="email"
-            [ngModel]="email()"
-            (ngModelChange)="email.set($event)"
-            name="email"
-            required
-            autocomplete="email"
-          />
-          <mat-icon matPrefix>mail</mat-icon>
-        </mat-form-field>
+        <div class="fields-group">
+          <div class="field">
+            <label class="field-label">Email address</label>
+            <input
+              class="field-input"
+              type="email"
+              placeholder="you@company.com"
+              [ngModel]="email()"
+              (ngModelChange)="email.set($event)"
+              name="email"
+              required
+              autocomplete="email"
+            />
+          </div>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input
-            matInput
-            type="password"
-            [ngModel]="password()"
-            (ngModelChange)="password.set($event)"
-            name="password"
-            required
-            autocomplete="current-password"
-          />
-          <mat-icon matPrefix>lock</mat-icon>
-        </mat-form-field>
+          <div class="field">
+            <label class="field-label">Password</label>
+            <input
+              class="field-input"
+              type="password"
+              placeholder="••••••••••••"
+              [ngModel]="password()"
+              (ngModelChange)="password.set($event)"
+              name="password"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+        </div>
+
+        <div class="options-row">
+          <button
+            type="button"
+            class="remember-toggle"
+            (click)="toggleRememberMe()"
+          >
+            <span class="checkbox" [class.checkbox--checked]="rememberMe()">
+              @if (rememberMe()) {
+                <mat-icon class="check-icon">check</mat-icon>
+              }
+            </span>
+            <span class="remember-label">Remember me</span>
+          </button>
+          <a class="forgot-link" href="javascript:void(0)">Forgot password?</a>
+        </div>
 
         <button
-          mat-flat-button
-          color="primary"
           type="submit"
+          class="sign-in-btn"
           [disabled]="isLoading() || !email() || !password()"
-          class="login-button"
         >
           @if (isLoading()) {
             Signing in...
@@ -57,6 +111,11 @@
           }
         </button>
       </form>
-    </mat-card-content>
-  </mat-card>
+
+      <div class="signup-row">
+        <span class="signup-text">Don't have an account?</span>
+        <a class="signup-link" href="javascript:void(0)">Sign up</a>
+      </div>
+    </div>
+  </main>
 </div>
