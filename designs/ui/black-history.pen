@@ -3,15 +3,738 @@
   "children": [
     {
       "type": "frame",
-      "id": "bi8Au",
+      "id": "e0gwP",
       "x": 0,
       "y": 0,
-      "name": "Frame",
+      "name": "Black History - IG Story (9:16)",
       "clip": true,
-      "width": 800,
-      "height": 600,
-      "fill": "#FFFFFF",
-      "layout": "none"
+      "width": 390,
+      "height": 693,
+      "fill": "#0B0A08",
+      "layout": "none",
+      "children": [
+        {
+          "type": "ellipse",
+          "id": "cZK1A",
+          "x": -55,
+          "y": 80,
+          "name": "Gold Glow",
+          "opacity": 0.07,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#C9A052",
+                "position": 0
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ]
+          },
+          "width": 500,
+          "height": 400
+        },
+        {
+          "type": "ellipse",
+          "id": "XSbL2",
+          "x": -5,
+          "y": 380,
+          "name": "Gold Glow Bottom",
+          "opacity": 0.05,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#C9A052",
+                "position": 0
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ]
+          },
+          "width": 400,
+          "height": 300
+        },
+        {
+          "type": "frame",
+          "id": "Kupch",
+          "x": 0,
+          "y": 0,
+          "name": "Content",
+          "width": 390,
+          "height": 693,
+          "layout": "vertical",
+          "padding": [
+            36,
+            28,
+            32,
+            28
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "AopVE",
+              "name": "Top Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "IJNFE",
+                  "name": "BHM Badge",
+                  "fill": "#C9A05215",
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "padding": [
+                    8,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "1yvgL",
+                      "name": "Badge Text",
+                      "fill": "#C9A052",
+                      "content": "BLACK HISTORY MONTH",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 3
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nVv0S",
+                  "name": "Logo Block",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "AzKaN",
+                      "name": "Logo Name",
+                      "fill": "#C9A052",
+                      "content": "ORIGIN",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 22,
+                      "fontWeight": "600",
+                      "letterSpacing": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "s2hGp",
+                      "name": "Logo Sub",
+                      "fill": "#9A9590",
+                      "content": "HAIR COLLECTIVE",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 9,
+                      "fontWeight": "500",
+                      "letterSpacing": 4
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "NeygQ",
+                  "name": "Accent Line",
+                  "fill": "#C9A052",
+                  "width": 32,
+                  "height": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "D2Mp6",
+              "name": "Center Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 18,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "nbCAz",
+                  "name": "Portrait Frame",
+                  "width": 200,
+                  "height": 200,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "./images/generated-1771166165835.png",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "iCgsL",
+                  "name": "Name Block",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jYSh7",
+                      "name": "Name",
+                      "fill": "#FAF7F0",
+                      "content": "Madam C.J. Walker",
+                      "textAlign": "center",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 32,
+                      "fontWeight": "500",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "rVsXz",
+                      "name": "Dates",
+                      "fill": "#C9A052",
+                      "content": "1867 — 1919",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 2.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "zg5DC",
+                      "name": "Title",
+                      "fill": "#9A9590",
+                      "content": "Pioneer of the Black Hair Care Industry",
+                      "textAlign": "center",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600",
+                      "letterSpacing": 1.5
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "AgSRT",
+              "name": "Bottom Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "7BjR6",
+                  "name": "Bottom Divider",
+                  "fill": "#C9A052",
+                  "width": 32,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "BQ4FR",
+                  "name": "Quote Mark",
+                  "fill": "#C9A05225",
+                  "content": "“",
+                  "lineHeight": 0.4,
+                  "fontFamily": "Fraunces",
+                  "fontSize": 42,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "sGITa",
+                  "name": "Legacy Text",
+                  "fill": "#FAF7F0",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Her vision built an empire.\nHer legacy built a movement.",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "frame",
+                  "id": "Qc3XO",
+                  "name": "Brand Connection",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "UIFrV",
+                      "name": "Connect Text",
+                      "fill": "#6B6860",
+                      "content": "Continuing the tradition of excellence",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XlRjp",
+                  "name": "Social Row",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WguY8",
+                      "name": "Handle",
+                      "fill": "#6B6860",
+                      "content": "@OriginHairCollective",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FqePQ",
+                      "name": "Website",
+                      "fill": "#4A4840",
+                      "content": "originhaircollective.com",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "n65dZ",
+          "x": 0,
+          "y": 0,
+          "name": "Top Gold Edge",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#C9A05200",
+                "position": 0
+              },
+              {
+                "color": "#C9A052",
+                "position": 0.5
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ]
+          },
+          "width": 390,
+          "height": 2
+        },
+        {
+          "type": "rectangle",
+          "id": "zcYYE",
+          "x": 0,
+          "y": 691,
+          "name": "Bottom Gold Edge",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#C9A05200",
+                "position": 0
+              },
+              {
+                "color": "#C9A052",
+                "position": 0.5
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ]
+          },
+          "width": 390,
+          "height": 2
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "l9DEO",
+      "x": 490,
+      "y": 0,
+      "name": "Black History - WhatsApp Status",
+      "clip": true,
+      "width": 390,
+      "height": 693,
+      "fill": "#0B0A08",
+      "layout": "none",
+      "children": [
+        {
+          "type": "ellipse",
+          "id": "J8Wuk",
+          "x": -30,
+          "y": 150,
+          "name": "Gold Glow",
+          "opacity": 0.09,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#C9A052",
+                "position": 0
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ]
+          },
+          "width": 450,
+          "height": 350
+        },
+        {
+          "type": "frame",
+          "id": "XoNkz",
+          "x": 0,
+          "y": 0,
+          "name": "Content",
+          "width": 390,
+          "height": 693,
+          "layout": "vertical",
+          "padding": [
+            40,
+            32,
+            36,
+            32
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "hlKjl",
+              "name": "Top",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "s75Ee",
+                  "name": "Badge",
+                  "fill": "#C9A05215",
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#C9A05230"
+                  },
+                  "padding": [
+                    10,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "j2uL3",
+                      "name": "waBadgeTxt",
+                      "fill": "#C9A052",
+                      "content": "BLACK HISTORY MONTH",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "700",
+                      "letterSpacing": 3
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "1N1h4",
+                  "name": "waAccent1",
+                  "fill": "#C9A052",
+                  "width": 40,
+                  "height": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "e1Vde",
+              "name": "Center",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "531d6",
+                  "name": "Portrait",
+                  "width": 160,
+                  "height": 160,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "./images/generated-1771166867659.png",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 2,
+                    "fill": "#C9A05240"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "3tXXT",
+                  "name": "Name Block",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ocIVx",
+                      "name": "waName",
+                      "fill": "#FAF7F0",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Madam C.J.\nWalker",
+                      "lineHeight": 1.1,
+                      "textAlign": "center",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 40,
+                      "fontWeight": "500",
+                      "letterSpacing": -0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "3sT29",
+                      "name": "waDates",
+                      "fill": "#C9A052",
+                      "content": "1867 — 1919",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 14,
+                      "fontWeight": "600",
+                      "letterSpacing": 3
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "yNX0i",
+                  "name": "waAccent2",
+                  "fill": "#C9A05240",
+                  "width": 40,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "p7j3a",
+                  "name": "waFact",
+                  "fill": "#FAF7F0",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "America's first female\nself-made millionaire.",
+                  "lineHeight": 1.35,
+                  "textAlign": "center",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 22,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "wCIqz",
+              "name": "Bottom",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "COeJK",
+                  "name": "waAccent3",
+                  "fill": "#C9A052",
+                  "width": 32,
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "IiGCj",
+                  "name": "Logo Block",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Yuj30",
+                      "name": "waLogoName",
+                      "fill": "#C9A052",
+                      "content": "ORIGIN",
+                      "fontFamily": "Fraunces",
+                      "fontSize": 18,
+                      "fontWeight": "600",
+                      "letterSpacing": 5
+                    },
+                    {
+                      "type": "text",
+                      "id": "Py69e",
+                      "name": "waLogoSub",
+                      "fill": "#9A9590",
+                      "content": "HAIR COLLECTIVE",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 8,
+                      "fontWeight": "500",
+                      "letterSpacing": 3
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "jgDQh",
+                  "name": "waHandle",
+                  "fill": "#6B6860",
+                  "content": "@OriginHairCollective",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "evz6t",
+          "x": 0,
+          "y": 0,
+          "name": "Top Gold Edge",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#C9A05200",
+                "position": 0
+              },
+              {
+                "color": "#C9A052",
+                "position": 0.5
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ]
+          },
+          "width": 390,
+          "height": 2
+        },
+        {
+          "type": "rectangle",
+          "id": "1h1EK",
+          "x": 0,
+          "y": 691,
+          "name": "Bottom Gold Edge",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#C9A05200",
+                "position": 0
+              },
+              {
+                "color": "#C9A052",
+                "position": 0.5
+              },
+              {
+                "color": "#C9A05200",
+                "position": 1
+              }
+            ]
+          },
+          "width": 390,
+          "height": 2
+        }
+      ]
     }
   ]
 }
