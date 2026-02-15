@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import { ButtonComponent, SectionHeaderComponent } from 'components';
+import { SectionHeaderComponent } from 'components';
 import { OrderService } from 'api';
 import type { Order } from 'api';
 import { LoadingSpinnerComponent } from '../../components/loading-spinner/loading-spinner';
@@ -10,7 +10,7 @@ import { ErrorStateComponent } from '../../components/error-state/error-state';
 
 @Component({
   selector: 'app-order-detail',
-  imports: [DatePipe, RouterLink, ButtonComponent, SectionHeaderComponent, LoadingSpinnerComponent, ErrorStateComponent],
+  imports: [DatePipe, RouterLink, SectionHeaderComponent, LoadingSpinnerComponent, ErrorStateComponent],
   templateUrl: './order-detail.html',
   styleUrl: './order-detail.scss',
 })

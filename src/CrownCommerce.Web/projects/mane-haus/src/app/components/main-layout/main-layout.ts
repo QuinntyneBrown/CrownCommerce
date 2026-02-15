@@ -3,7 +3,6 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 import {
   ButtonComponent,
   CloseButtonComponent,
-  FooterLinkColumnComponent,
   SocialIconsComponent,
   LogoComponent,
   DividerComponent,
@@ -20,7 +19,6 @@ import { CartService } from '../../services/cart.service';
     RouterLinkActive,
     ButtonComponent,
     CloseButtonComponent,
-    FooterLinkColumnComponent,
     SocialIconsComponent,
     LogoComponent,
     DividerComponent,

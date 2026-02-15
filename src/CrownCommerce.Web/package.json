@@ -29,7 +29,15 @@
     "e2e:teams": "npx playwright test --config=playwright.teams.config.ts",
     "e2e:teams:headed": "npx playwright test --config=playwright.teams.config.ts --headed",
     "e2e:teams:ui": "npx playwright test --config=playwright.teams.config.ts --ui",
-    "e2e:teams:chromium": "npx playwright test --config=playwright.teams.config.ts --project=chromium"
+    "e2e:teams:chromium": "npx playwright test --config=playwright.teams.config.ts --project=chromium",
+    "e2e:mane-haus": "npx playwright test --config=playwright.mane-haus.config.ts",
+    "e2e:mane-haus:headed": "npx playwright test --config=playwright.mane-haus.config.ts --headed",
+    "e2e:mane-haus:ui": "npx playwright test --config=playwright.mane-haus.config.ts --ui",
+    "e2e:mane-haus:chromium": "npx playwright test --config=playwright.mane-haus.config.ts --project=chromium",
+    "e2e:mane-haus-coming-soon": "npx playwright test --config=playwright.mane-haus-coming-soon.config.ts",
+    "e2e:mane-haus-coming-soon:headed": "npx playwright test --config=playwright.mane-haus-coming-soon.config.ts --headed",
+    "e2e:mane-haus-coming-soon:ui": "npx playwright test --config=playwright.mane-haus-coming-soon.config.ts --ui",
+    "e2e:mane-haus-coming-soon:chromium": "npx playwright test --config=playwright.mane-haus-coming-soon.config.ts --project=chromium"
   },
   "prettier": {
     "printWidth": 100,

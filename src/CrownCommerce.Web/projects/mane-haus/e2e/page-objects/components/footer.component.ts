@@ -6,7 +6,7 @@ export class FooterComponent {
   readonly tagline: Locator;
   readonly socialIcons: Locator;
   readonly socialLinks: Locator;
-  readonly linkColumns: Locator;
+  readonly footerLinks: Locator;
   readonly copyright: Locator;
   readonly location: Locator;
   readonly divider: Locator;
@@ -17,18 +17,16 @@ export class FooterComponent {
     this.tagline = this.root.locator('.footer__tagline');
     this.socialIcons = this.root.locator('lib-social-icons');
     this.socialLinks = this.root.locator('lib-social-icons a.social-icons__link');
-    this.linkColumns = this.root.locator('lib-footer-link-column');
+    this.footerLinks = this.root.locator('nav.footer-links');
     this.copyright = this.root.locator('.footer__copy');
     this.location = this.root.locator('.footer__location');
     this.divider = this.root.locator('lib-divider');
   }
 
-  async getColumnByTitle(title: string): Promise<Locator> {
-    return this.linkColumns.filter({ hasText: title });
-  }
-
   async getColumnLinks(title: string): Promise<string[]> {
-    const column = this.linkColumns.filter({ has: this.page.locator(`h4:has-text("${title}")`) });
+    const column = this.footerLinks.filter({
+      has: this.page.locator(`h4:has-text("${title}")`),
+    });
     return column.locator('a.footer-links__link').allTextContents();
   }
 
