@@ -25,6 +25,15 @@
         <input class="contact__input" id="phone" type="tel" [(ngModel)]="phone" name="phone" />
       </div>
       <div class="contact__field">
+        <label class="contact__label" for="product">Product Interest (optional)</label>
+        <select class="contact__select" id="product" [(ngModel)]="productId" name="productId">
+          <option value="">-- Select a product --</option>
+          @for (product of products(); track product.id) {
+            <option [value]="product.id">{{ product.name }}</option>
+          }
+        </select>
+      </div>
+      <div class="contact__field">
         <label class="contact__label" for="message">Message *</label>
         <textarea class="contact__textarea" id="message" [(ngModel)]="message" name="message" required rows="5"></textarea>
       </div>

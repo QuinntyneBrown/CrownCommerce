@@ -1,7 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent, SectionHeaderComponent } from 'components';
-import { InquiryService } from 'api';
+import { CatalogService, InquiryService } from 'api';
+import type { HairProduct } from 'api';
 
 @Component({
   selector: 'app-contact',
@@ -9,17 +10,28 @@ import { InquiryService } from 'api';
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class ContactPage {
+export class ContactPage implements OnInit {
   private readonly inquiryService = inject(InquiryService);
+  private readonly catalogService = inject(CatalogService);
 
   name = '';
   email = '';
   phone = '';
   message = '';
+  productId = '';
+
+  readonly products = signal<HairProduct[]>([]);
 
   readonly submitting = signal(false);
   readonly submitted = signal(false);
   readonly error = signal<string | null>(null);
+
+  ngOnInit(): void {
+    this.catalogService.getProducts().subscribe({
+      next: (products) => this.products.set(products),
+      error: () => {},
+    });
+  }
 
   submit(): void {
     if (!this.name || !this.email || !this.message) {
@@ -35,6 +47,7 @@ export class ContactPage {
       email: this.email,
       phone: this.phone || undefined,
       message: this.message,
+      productId: this.productId || undefined,
     }).subscribe({
       next: () => {
         this.submitting.set(false);

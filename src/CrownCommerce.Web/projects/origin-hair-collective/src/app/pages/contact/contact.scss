@@ -23,11 +23,12 @@
   &__form { display: flex; flex-direction: column; gap: 20px; width: 100%; }
   &__field { display: flex; flex-direction: column; gap: 6px; }
   &__label { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
-  &__input, &__textarea {
+  &__input, &__textarea, &__select {
     background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 8px;
     padding: 14px 16px; font-family: var(--font-body); font-size: 15px; color: var(--color-text-primary); outline: none;
     &:focus { border-color: var(--color-gold); }
   }
+  &__select { cursor: pointer; }
   &__textarea { resize: vertical; }
 }
 

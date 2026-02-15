@@ -27,6 +27,7 @@ export class ShopPage implements OnInit {
 
   readonly categories = ['Bundle', 'Closure', 'Frontal', 'Wig'];
   readonly textures = ['Straight', 'Wavy', 'Curly', 'Kinky'];
+  readonly origins = ['Cambodia', 'Indonesia', 'India', 'Vietnam', 'Myanmar'];
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -44,6 +45,11 @@ export class ShopPage implements OnInit {
 
   filterByTexture(texture: string | null): void {
     this.activeTexture.set(texture);
+    this.applyFilters();
+  }
+
+  filterByOrigin(origin: string | null): void {
+    this.activeOrigin.set(origin);
     this.applyFilters();
   }
 

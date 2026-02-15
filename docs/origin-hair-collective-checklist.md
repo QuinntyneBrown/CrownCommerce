@@ -145,7 +145,7 @@
 - [x] Inject `CatalogService` and fetch products on init
 - [x] Implement category filtering (Bundles, Closures, Frontals, Wigs)
 - [x] Implement texture filtering (Straight, Wavy, Curly, Kinky)
-- [x] Implement origin filtering (Cambodia, Indonesia, India, Vietnam, Myanmar)
+- [ ] Implement origin filtering (Cambodia, Indonesia, India, Vietnam, Myanmar) <!-- REVIEW: filtering logic exists in shop.ts (activeOrigin signal + applyFilters) but no UI buttons in shop.html to trigger it -->
 - [x] Implement price sorting
 - [x] Add route: `{ path: 'shop', loadComponent: () => import('./pages/shop/shop') }`
 - [x] Support query parameter filtering: `/shop?category=bundles`
@@ -211,7 +211,7 @@
 - [x] Create `pages/contact/contact.html` template with contact form
 - [x] Create `pages/contact/contact.scss` styles
 - [x] Inject `InquiryService` and implement form submission via `createInquiry(request)`
-- [x] Include fields: name, email, phone (optional), message, product interest (optional)
+- [ ] Include fields: name, email, phone (optional), message, product interest (optional) <!-- REVIEW: contact form is missing the product interest (optional) field; the CreateInquiryRequest model supports productId but the form doesn't include it -->
 - [x] Add form validation (required fields, email format)
 - [x] Show success/error states after submission
 - [x] Add route: `{ path: 'contact', loadComponent: () => import('./pages/contact/contact') }`
@@ -277,10 +277,10 @@
 
 ### 4.10 Fix Dead Navigation Links
 
-- [x] Update Shop footer link "Bundles" href from `#` to `/shop?category=bundles`
-- [x] Update Shop footer link "Closures" href from `#` to `/shop?category=closures`
-- [x] Update Shop footer link "Frontals" href from `#` to `/shop?category=frontals`
-- [x] Update Shop footer link "Bundle Deals" href from `#` to `/shop?category=deals`
+- [ ] Update Shop footer link "Bundles" href from `#` to `/shop?category=bundles` <!-- REVIEW: footer-link-column.ts uses [routerLink]="link.href" but routerLink does not parse query strings from the path; '/shop?category=bundles' will be treated as a literal route segment, not '/shop' + queryParams. Need to either split href into path+queryParams in the component, or use [href] for links with query strings -->
+- [ ] Update Shop footer link "Closures" href from `#` to `/shop?category=closures` <!-- REVIEW: same routerLink + query string issue -->
+- [ ] Update Shop footer link "Frontals" href from `#` to `/shop?category=frontals` <!-- REVIEW: same routerLink + query string issue -->
+- [ ] Update Shop footer link "Bundle Deals" href from `#` to `/shop?category=deals` <!-- REVIEW: same routerLink + query string issue -->
 - [x] Update Company footer link "Contact" href from `#` to `/contact`
 - [x] Update Company footer link "Ambassador Program" href from `#` to `/ambassador`
 - [x] Update Support footer link "Hair Care Guide" href from `#` to `/hair-care-guide`

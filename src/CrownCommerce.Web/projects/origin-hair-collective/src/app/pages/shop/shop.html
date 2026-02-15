@@ -17,6 +17,13 @@
       }
     </div>
     <div class="shop__filter-group">
+      <span class="shop__filter-label">Origin:</span>
+      <button class="shop__filter-btn" [class.active]="!activeOrigin()" (click)="filterByOrigin(null)">All</button>
+      @for (origin of origins; track origin) {
+        <button class="shop__filter-btn" [class.active]="activeOrigin() === origin" (click)="filterByOrigin(origin)">{{ origin }}</button>
+      }
+    </div>
+    <div class="shop__filter-group">
       <span class="shop__filter-label">Sort:</span>
       <select class="shop__sort" (change)="sortProducts($any($event.target).value)">
         <option value="name">Name</option>
