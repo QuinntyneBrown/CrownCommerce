@@ -119,6 +119,7 @@ import { Component, input, output } from '@angular/core';
       }
 
       .email-signup__input {
+        flex: none;
         height: 52px;
         padding: 0 20px;
       }
