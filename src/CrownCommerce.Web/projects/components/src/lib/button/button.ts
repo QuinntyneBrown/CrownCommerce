@@ -14,6 +14,7 @@ import { NgClass } from '@angular/common';
         'btn--large': size() === 'large'
       }"
       [type]="type()"
+      [disabled]="disabled()"
       (click)="clicked.emit()"
     >
       <ng-content />
@@ -89,5 +90,6 @@ export class ButtonComponent {
   size = input<'small' | 'medium' | 'large'>('medium');
   showArrow = input(false);
   type = input<'button' | 'submit'>('button');
+  disabled = input(false);
   clicked = output<void>();
 }

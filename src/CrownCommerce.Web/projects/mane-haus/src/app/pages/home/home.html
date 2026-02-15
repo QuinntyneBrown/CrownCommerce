@@ -48,6 +48,7 @@
         <a [routerLink]="['/product', product.id]" class="products__link">
           <lib-product-card
             [imageUrl]="product.imageUrl ?? ''"
+            [tag]="product.texture"
             [title]="product.name"
             [description]="product.description"
             [price]="formatPrice(product.price)"

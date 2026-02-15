@@ -91,8 +91,8 @@ export class SubscribersListPage implements OnInit {
   loadSubscribers() {
     const brand = this.selectedBrand();
     const tag = brand === 'all' ? undefined : brand;
-    const skip = this.pageIndex() * this.pageSize;
-    this.newsletterService.getSubscribers({ pageSize: this.pageSize, skip, tag }).subscribe({
+    const page = this.pageIndex() + 1;
+    this.newsletterService.getSubscribers({ pageSize: this.pageSize, page, tag }).subscribe({
       next: (result) => {
         this.subscribers.set(result.items);
         this.totalCount.set(result.totalCount);
