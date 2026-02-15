@@ -2,43 +2,48 @@ import { type Page } from '@playwright/test';
 import { HeaderComponent } from '../components/header.component';
 import { FooterComponent } from '../components/footer.component';
 import { MobileNavComponent } from '../components/mobile-nav.component';
-import { HeroSection } from '../sections/hero.section';
-import { TrustBarSection } from '../sections/trust-bar.section';
-import { BrandStorySection } from '../sections/brand-story.section';
-import { ProductsSection } from '../sections/products.section';
-import { BenefitsSection } from '../sections/benefits.section';
-import { TestimonialsSection } from '../sections/testimonials.section';
-import { CommunitySection } from '../sections/community.section';
-import { FinalCtaSection } from '../sections/final-cta.section';
-import { ChatWidgetComponent } from '../components/chat-widget.component';
+import {
+  HeroSectionPOM,
+  TrustBarSectionPOM,
+  BrandStorySectionPOM,
+  ProductsSectionPOM,
+  BenefitsSectionPOM,
+  TestimonialsSectionPOM,
+  CommunitySectionPOM,
+  FinalCtaSectionPOM,
+  ChatContainerPOM,
+} from '../../../../../e2e-shared/page-objects';
 
 export class HomePage {
+  // App-specific
   readonly header: HeaderComponent;
   readonly footer: FooterComponent;
   readonly mobileNav: MobileNavComponent;
-  readonly hero: HeroSection;
-  readonly trustBar: TrustBarSection;
-  readonly brandStory: BrandStorySection;
-  readonly products: ProductsSection;
-  readonly benefits: BenefitsSection;
-  readonly testimonials: TestimonialsSection;
-  readonly community: CommunitySection;
-  readonly finalCta: FinalCtaSection;
-  readonly chatWidget: ChatWidgetComponent;
+
+  // Shared features
+  readonly hero: HeroSectionPOM;
+  readonly trustBar: TrustBarSectionPOM;
+  readonly brandStory: BrandStorySectionPOM;
+  readonly products: ProductsSectionPOM;
+  readonly benefits: BenefitsSectionPOM;
+  readonly testimonials: TestimonialsSectionPOM;
+  readonly community: CommunitySectionPOM;
+  readonly finalCta: FinalCtaSectionPOM;
+  readonly chatWidget: ChatContainerPOM;
 
   constructor(private page: Page) {
     this.header = new HeaderComponent(page);
     this.footer = new FooterComponent(page);
     this.mobileNav = new MobileNavComponent(page);
-    this.hero = new HeroSection(page);
-    this.trustBar = new TrustBarSection(page);
-    this.brandStory = new BrandStorySection(page);
-    this.products = new ProductsSection(page);
-    this.benefits = new BenefitsSection(page);
-    this.testimonials = new TestimonialsSection(page);
-    this.community = new CommunitySection(page);
-    this.finalCta = new FinalCtaSection(page);
-    this.chatWidget = new ChatWidgetComponent(page);
+    this.hero = new HeroSectionPOM(page);
+    this.trustBar = new TrustBarSectionPOM(page);
+    this.brandStory = new BrandStorySectionPOM(page);
+    this.products = new ProductsSectionPOM(page);
+    this.benefits = new BenefitsSectionPOM(page);
+    this.testimonials = new TestimonialsSectionPOM(page);
+    this.community = new CommunitySectionPOM(page);
+    this.finalCta = new FinalCtaSectionPOM(page);
+    this.chatWidget = new ChatContainerPOM(page);
   }
 
   async goto(): Promise<void> {

@@ -39,7 +39,12 @@
     "e2e:mane-haus-coming-soon": "npx playwright test --config=playwright.mane-haus-coming-soon.config.ts",
     "e2e:mane-haus-coming-soon:headed": "npx playwright test --config=playwright.mane-haus-coming-soon.config.ts --headed",
     "e2e:mane-haus-coming-soon:ui": "npx playwright test --config=playwright.mane-haus-coming-soon.config.ts --ui",
-    "e2e:mane-haus-coming-soon:chromium": "npx playwright test --config=playwright.mane-haus-coming-soon.config.ts --project=chromium"
+    "e2e:mane-haus-coming-soon:chromium": "npx playwright test --config=playwright.mane-haus-coming-soon.config.ts --project=chromium",
+    "e2e:features": "npx playwright test --config=playwright.features.config.ts",
+    "e2e:features:headed": "npx playwright test --config=playwright.features.config.ts --headed",
+    "e2e:features:ui": "npx playwright test --config=playwright.features.config.ts --ui",
+    "e2e:features:chromium": "npx playwright test --config=playwright.features.config.ts --project=chromium",
+    "e2e:features:mh": "BASE_URL=http://localhost:4201 npx playwright test --config=playwright.features.config.ts --project=chromium"
   },
   "prettier": {
     "printWidth": 100,

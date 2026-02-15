@@ -1,12 +1,9 @@
 import { Page, Route } from '@playwright/test';
+import { setupFeatureApiMocks } from '../../../../e2e-shared/fixtures';
 import {
   mockAuthResponse,
   mockUserProfile,
-  mockProducts,
-  mockTestimonials,
-  mockGalleryImages,
   mockOrders,
-  mockNewsletterResponse,
 } from './mock-data';
 
 /**
@@ -25,86 +22,38 @@ function json(route: Route, body: unknown, status = 200): Promise<void> {
 
 /**
  * Sets up all API route mocks for the Mane Haus application.
+ * Extends shared feature mocks with Mane Haus auth + order routes.
  */
 export async function setupApiMocks(page: Page): Promise<void> {
-  await page.route('**/api/**', (route) => {
+  // Mane Haus-specific routes must be registered first (more specific patterns)
+  await page.route('**/api/identity/**', (route) => {
     const url = route.request().url();
     const method = route.request().method();
 
-    // ── Auth ──
-    if (url.includes('/api/identity/auth/login') && method === 'POST') {
+    if (url.includes('/api/identity/auth/login') && method === 'POST')
       return json(route, mockAuthResponse);
-    }
-    if (url.includes('/api/identity/auth/register') && method === 'POST') {
+    if (url.includes('/api/identity/auth/register') && method === 'POST')
       return json(route, mockAuthResponse, 201);
-    }
-
-    // ── User Profile ──
-    if (url.match(/\/api\/identity\/users\/[^/]+$/) && method === 'GET') {
+    if (url.match(/\/api\/identity\/users\/[^/]+$/) && method === 'GET')
       return json(route, mockUserProfile);
-    }
     if (url.match(/\/api\/identity\/users\/[^/]+$/) && method === 'PUT') {
       const body = route.request().postDataJSON();
       return json(route, { ...mockUserProfile, ...body });
     }
-
-    // ── Catalog / Products ──
-    if (url.includes('/api/catalog/products') && method === 'GET') {
-      return json(route, mockProducts);
-    }
-    if (url.match(/\/api\/catalog\/products\/[^/]+$/) && method === 'GET') {
-      return json(route, mockProducts[0]);
-    }
-
-    // ── Content ──
-    if (url.includes('/api/content/testimonials')) {
-      return json(route, mockTestimonials);
-    }
-    if (url.includes('/api/content/gallery')) {
-      return json(route, mockGalleryImages);
-    }
-    if (url.match(/\/api\/content\/pages\/[^/]+$/)) {
-      return json(route, {
-        slug: 'our-story',
-        title: 'Our Story',
-        sections: [{ type: 'text', content: 'Mane Haus was founded in Toronto.' }],
-      });
-    }
-
-    // ── Orders ──
-    if (url.match(/\/api\/orders\/[^/]+$/) && method === 'GET') {
-      return json(route, mockOrders[0]);
-    }
-    if (url.includes('/api/orders') && method === 'GET') {
-      return json(route, mockOrders);
-    }
-
-    // ── Newsletter ──
-    if (url.includes('/api/newsletter/subscribe') && method === 'POST') {
-      return json(route, mockNewsletterResponse, 201);
-    }
-    if (url.includes('/api/newsletter/confirm')) {
-      return json(route, {});
-    }
-    if (url.includes('/api/newsletter/unsubscribe')) {
-      return json(route, {});
-    }
-
-    // ── Cart ──
-    if (url.includes('/api/cart')) {
-      if (method === 'POST') return json(route, { id: 'cart-001', items: [], total: 0 }, 201);
-      return json(route, { id: 'cart-001', items: [], total: 0 });
-    }
-
-    // ── Chat ──
-    if (url.includes('/api/chat')) {
-      return json(route, {
-        id: 'conv-001',
-        messages: [{ role: 'assistant', content: 'Hi! How can I help you today?' }],
-      });
-    }
-
-    // ── Catch-all ──
-    return json(route, {});
+    return route.continue();
   });
+
+  await page.route('**/api/orders/**', (route) => {
+    const url = route.request().url();
+    const method = route.request().method();
+
+    if (url.match(/\/api\/orders\/[^/]+$/) && method === 'GET')
+      return json(route, mockOrders[0]);
+    if (url.includes('/api/orders') && method === 'GET')
+      return json(route, mockOrders);
+    return route.continue();
+  });
+
+  // Shared feature mocks (catalog, content, newsletter, chat, etc.)
+  await setupFeatureApiMocks(page);
 }

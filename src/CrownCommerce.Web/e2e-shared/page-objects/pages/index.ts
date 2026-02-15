@@ -1,0 +1,10 @@
+export { ShopPagePOM } from './shop.page';
+export { ProductDetailPagePOM } from './product-detail.page';
+export { CartPagePOM } from './cart.page';
+export { CheckoutPagePOM, type CheckoutFormData } from './checkout.page';
+export { FaqPagePOM } from './faq.page';
+export { ContactPagePOM } from './contact.page';
+export { WholesalePagePOM } from './wholesale.page';
+export { AmbassadorPagePOM } from './ambassador.page';
+export { ContentPagePOM } from './content.page';
+export { NotFoundPagePOM } from './not-found.page';
