@@ -1,8 +1,8 @@
-# Original Hair Collective — Mission Statement
+# Origin Hair Collective — Mission Statement
 
 ## Our Mission
 
-Original Hair Collective exists to bring premium, ethically sourced hair to the community through trusted partnerships and unwavering commitment to excellence. Rooted in Christian faith and founded in Toronto, we are dedicated to serving the people around us with integrity, quality, and purpose.
+Origin Hair Collective exists to bring premium, ethically sourced hair to the community through trusted partnerships and unwavering commitment to excellence. Founded in Toronto, we are dedicated to serving the people around us with integrity, quality, and purpose.
 
 ## What We Do
 
@@ -27,7 +27,7 @@ Our partners meeting their goals and being successful is an absolute priority. W
 
 ## Our Foundation
 
-The owner of Original Hair Collective is Christian, and that faith is the foundation for all direction the company takes. Every decision — how we treat people, how we conduct business, how we grow — is guided by these values. Honesty, service, and doing right by others are not aspirations; they are requirements.
+Every decision — how we treat people, how we conduct business, how we grow — is guided by our values. Honesty, service, and doing right by others are not aspirations; they are requirements.
 
 ## Who We Are
 
