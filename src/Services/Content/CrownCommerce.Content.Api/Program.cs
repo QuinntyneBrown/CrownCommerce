@@ -20,6 +20,10 @@ builder.Services.AddScoped<IContentPageRepository, ContentPageRepository>();
 builder.Services.AddScoped<IFaqRepository, FaqRepository>();
 builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
 builder.Services.AddScoped<IGalleryRepository, GalleryRepository>();
+builder.Services.AddScoped<IWholesaleTierRepository, WholesaleTierRepository>();
+builder.Services.AddScoped<IShippingZoneRepository, ShippingZoneRepository>();
+builder.Services.AddScoped<IHairCareSectionRepository, HairCareSectionRepository>();
+builder.Services.AddScoped<IAmbassadorBenefitRepository, AmbassadorBenefitRepository>();
 builder.Services.AddScoped<IContentService, ContentService>();
 
 var app = builder.Build();

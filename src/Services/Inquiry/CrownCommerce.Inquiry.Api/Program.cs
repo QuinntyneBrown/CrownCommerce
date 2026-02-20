@@ -19,6 +19,9 @@ builder.Services.AddDbContext<InquiryDbContext>(options =>
         ?? "Server=(localdb)\\MSSQLLocalDB;Database=CrownCommerce_Inquiry;Trusted_Connection=True;TrustServerCertificate=True;"));
 
 builder.Services.AddScoped<IInquiryRepository, InquiryRepository>();
+builder.Services.AddScoped<IWholesaleInquiryRepository, WholesaleInquiryRepository>();
+builder.Services.AddScoped<IContactInquiryRepository, ContactInquiryRepository>();
+builder.Services.AddScoped<IAmbassadorApplicationRepository, AmbassadorApplicationRepository>();
 builder.Services.AddScoped<IInquiryService, InquiryService>();
 
 builder.Services.AddMassTransit(x =>

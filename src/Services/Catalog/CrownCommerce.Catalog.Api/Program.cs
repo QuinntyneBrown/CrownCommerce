@@ -18,6 +18,8 @@ builder.Services.AddDbContext<CatalogDbContext>(options =>
 
 builder.Services.AddScoped<ICatalogRepository, CatalogRepository>();
 builder.Services.AddScoped<IHairOriginRepository, HairOriginRepository>();
+builder.Services.AddScoped<IProductReviewRepository, ProductReviewRepository>();
+builder.Services.AddScoped<IBundleDealRepository, BundleDealRepository>();
 builder.Services.AddScoped<ICatalogService, CatalogService>();
 
 var app = builder.Build();

@@ -1,4 +1,5 @@
-﻿using CrownCommerce.Content.Core.Entities;
+﻿using System.Text.Json;
+using CrownCommerce.Content.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CrownCommerce.Content.Infrastructure.Data;
@@ -82,6 +83,48 @@ public static class ContentDbSeeder
         };
 
         context.GalleryImages.AddRange(galleryImages);
+
+        // Seed wholesale tiers
+        var wholesaleTiers = new List<WholesaleTier>
+        {
+            new() { Id = Guid.NewGuid(), Name = "Starter", MinQuantity = 5, MaxQuantity = 19, DiscountPercentage = 10, Description = "Perfect for new salon owners getting started. Order 5-19 units and save 10% on every order.", SortOrder = 0 },
+            new() { Id = Guid.NewGuid(), Name = "Professional", MinQuantity = 20, MaxQuantity = 49, DiscountPercentage = 15, Description = "For established salons with consistent demand. Order 20-49 units and enjoy 15% off.", SortOrder = 1 },
+            new() { Id = Guid.NewGuid(), Name = "Elite", MinQuantity = 50, MaxQuantity = 99, DiscountPercentage = 20, Description = "High-volume partner pricing for boutiques and distributors. 50-99 units at 20% off.", SortOrder = 2 },
+            new() { Id = Guid.NewGuid(), Name = "Enterprise", MinQuantity = 100, MaxQuantity = null, DiscountPercentage = 25, Description = "Custom enterprise pricing for large-scale operations. 100+ units with 25% discount and dedicated account manager.", SortOrder = 3 }
+        };
+        context.WholesaleTiers.AddRange(wholesaleTiers);
+
+        // Seed shipping zones
+        var shippingZones = new List<ShippingZone>
+        {
+            new() { Id = Guid.NewGuid(), Name = "Domestic Standard", Region = "United States (Continental)", StandardRate = 0, StandardDeliveryDays = "5-7 business days", ExpressRate = 15.00m, ExpressDeliveryDays = "2-3 business days", FreeShippingThreshold = 150.00m, SortOrder = 0 },
+            new() { Id = Guid.NewGuid(), Name = "Alaska & Hawaii", Region = "United States (Non-Continental)", StandardRate = 12.00m, StandardDeliveryDays = "7-10 business days", ExpressRate = 25.00m, ExpressDeliveryDays = "3-5 business days", FreeShippingThreshold = 200.00m, SortOrder = 1 },
+            new() { Id = Guid.NewGuid(), Name = "Canada", Region = "Canada", StandardRate = 18.00m, StandardDeliveryDays = "7-14 business days", ExpressRate = 35.00m, ExpressDeliveryDays = "3-5 business days", FreeShippingThreshold = 250.00m, SortOrder = 2 },
+            new() { Id = Guid.NewGuid(), Name = "International", Region = "Europe, Australia, Caribbean", StandardRate = 25.00m, StandardDeliveryDays = "10-21 business days", ExpressRate = 50.00m, ExpressDeliveryDays = "5-10 business days", FreeShippingThreshold = 350.00m, SortOrder = 3 }
+        };
+        context.ShippingZones.AddRange(shippingZones);
+
+        // Seed hair care sections
+        var hairCareSections = new List<HairCareSection>
+        {
+            new() { Id = Guid.NewGuid(), Title = "Washing & Conditioning", Description = "Proper washing technique extends the life of your virgin hair significantly. Use gentle products and avoid harsh chemicals.", IconName = "droplet", TipsJson = JsonSerializer.Serialize(new[] { "Use sulfate-free shampoo and conditioner", "Wash in a downward motion to prevent tangling", "Deep condition weekly with a protein treatment", "Rinse with cool water to seal cuticles", "Never sleep with wet hair extensions" }), SortOrder = 0 },
+            new() { Id = Guid.NewGuid(), Title = "Styling & Heat Protection", Description = "While our hair can withstand heat styling, proper protection ensures longevity and maintains the natural texture.", IconName = "flame", TipsJson = JsonSerializer.Serialize(new[] { "Always apply heat protectant before styling", "Keep heat tools below 350°F for regular use", "Allow hair to air dry when possible", "Use a wide-tooth comb to detangle gently", "Style from ends to roots to prevent breakage" }), SortOrder = 1 },
+            new() { Id = Guid.NewGuid(), Title = "Nighttime Care", Description = "How you care for your hair at night makes a huge difference in how long it lasts and how it looks each morning.", IconName = "moon", TipsJson = JsonSerializer.Serialize(new[] { "Wrap hair in a silk or satin scarf", "Use a satin pillowcase if not wrapping", "Braid or twist hair loosely before bed", "Never go to bed with tangled hair", "Apply a light leave-in conditioner before wrapping" }), SortOrder = 2 },
+            new() { Id = Guid.NewGuid(), Title = "Color & Chemical Treatments", Description = "Our virgin hair accepts color beautifully. Follow these guidelines for the best results when coloring or treating.", IconName = "palette", TipsJson = JsonSerializer.Serialize(new[] { "Always do a strand test before full application", "Use professional-grade coloring products", "Avoid bleaching more than two shades lighter", "Wait at least 48 hours between chemical treatments", "Deep condition after every color treatment" }), SortOrder = 3 }
+        };
+        context.HairCareSections.AddRange(hairCareSections);
+
+        // Seed ambassador benefits
+        var ambassadorBenefits = new List<AmbassadorBenefit>
+        {
+            new() { Id = Guid.NewGuid(), Title = "Exclusive Discounts", Description = "Enjoy 25% off all products for personal use and access to ambassador-only flash sales throughout the year.", IconName = "tag", SortOrder = 0 },
+            new() { Id = Guid.NewGuid(), Title = "Commission Earnings", Description = "Earn 15% commission on every sale made through your unique referral code. Paid monthly via direct deposit.", IconName = "dollar-sign", SortOrder = 1 },
+            new() { Id = Guid.NewGuid(), Title = "Early Access", Description = "Be the first to try new collections and products before they launch to the public. Share exclusive previews with your audience.", IconName = "clock", SortOrder = 2 },
+            new() { Id = Guid.NewGuid(), Title = "Free Products", Description = "Receive complimentary products each quarter to create content, review, and share with your community.", IconName = "gift", SortOrder = 3 },
+            new() { Id = Guid.NewGuid(), Title = "Community & Support", Description = "Join our private ambassador community for networking, tips, and direct access to the Origin Hair team.", IconName = "users", SortOrder = 4 }
+        };
+        context.AmbassadorBenefits.AddRange(ambassadorBenefits);
+
         await context.SaveChangesAsync();
     }
 }

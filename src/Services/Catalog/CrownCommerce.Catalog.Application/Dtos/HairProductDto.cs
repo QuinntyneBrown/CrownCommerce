@@ -7,7 +7,14 @@ public sealed record HairProductDto(
     string OriginCountry,
     string Texture,
     string Type,
+    string Category,
     int LengthInches,
     decimal Price,
     string Description,
-    string? ImageUrl);
+    string? ImageUrl,
+    string[] ImageUrls,
+    decimal Rating,
+    int ReviewCount,
+    int[] AvailableLengths,
+    string[] Features,
+    bool InStock);

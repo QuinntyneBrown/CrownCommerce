@@ -14,4 +14,8 @@ public interface IContentService
     Task DeleteTestimonialAsync(Guid id, CancellationToken ct = default);
     Task<IReadOnlyList<GalleryImageDto>> GetGalleryAsync(CancellationToken ct = default);
     Task<IReadOnlyList<GalleryImageDto>> GetGalleryByCategoryAsync(string category, CancellationToken ct = default);
+    Task<IReadOnlyList<WholesaleTierDto>> GetWholesaleTiersAsync(CancellationToken ct = default);
+    Task<IReadOnlyList<ShippingZoneDto>> GetShippingZonesAsync(CancellationToken ct = default);
+    Task<IReadOnlyList<HairCareSectionDto>> GetHairCareSectionsAsync(CancellationToken ct = default);
+    Task<IReadOnlyList<AmbassadorBenefitDto>> GetAmbassadorBenefitsAsync(CancellationToken ct = default);
 }

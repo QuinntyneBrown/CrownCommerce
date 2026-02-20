@@ -9,7 +9,11 @@ public sealed class ContentService(
     IContentPageRepository pageRepository,
     IFaqRepository faqRepository,
     ITestimonialRepository testimonialRepository,
-    IGalleryRepository galleryRepository) : IContentService
+    IGalleryRepository galleryRepository,
+    IWholesaleTierRepository wholesaleTierRepository,
+    IShippingZoneRepository shippingZoneRepository,
+    IHairCareSectionRepository hairCareSectionRepository,
+    IAmbassadorBenefitRepository ambassadorBenefitRepository) : IContentService
 {
     public async Task<IReadOnlyList<ContentPageDto>> GetAllPagesAsync(CancellationToken ct = default)
     {
@@ -95,5 +99,29 @@ public sealed class ContentService(
     {
         var images = await galleryRepository.GetByCategoryAsync(category, ct);
         return images.Select(i => i.ToDto()).ToList();
+    }
+
+    public async Task<IReadOnlyList<WholesaleTierDto>> GetWholesaleTiersAsync(CancellationToken ct = default)
+    {
+        var tiers = await wholesaleTierRepository.GetAllAsync(ct);
+        return tiers.Select(t => t.ToDto()).ToList();
+    }
+
+    public async Task<IReadOnlyList<ShippingZoneDto>> GetShippingZonesAsync(CancellationToken ct = default)
+    {
+        var zones = await shippingZoneRepository.GetAllAsync(ct);
+        return zones.Select(z => z.ToDto()).ToList();
+    }
+
+    public async Task<IReadOnlyList<HairCareSectionDto>> GetHairCareSectionsAsync(CancellationToken ct = default)
+    {
+        var sections = await hairCareSectionRepository.GetAllAsync(ct);
+        return sections.Select(s => s.ToDto()).ToList();
+    }
+
+    public async Task<IReadOnlyList<AmbassadorBenefitDto>> GetAmbassadorBenefitsAsync(CancellationToken ct = default)
+    {
+        var benefits = await ambassadorBenefitRepository.GetAllAsync(ct);
+        return benefits.Select(b => b.ToDto()).ToList();
     }
 }

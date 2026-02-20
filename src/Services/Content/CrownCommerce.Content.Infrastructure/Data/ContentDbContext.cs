@@ -9,6 +9,10 @@ public sealed class ContentDbContext(DbContextOptions<ContentDbContext> options)
     public DbSet<FaqItem> Faqs => Set<FaqItem>();
     public DbSet<Testimonial> Testimonials => Set<Testimonial>();
     public DbSet<GalleryImage> GalleryImages => Set<GalleryImage>();
+    public DbSet<WholesaleTier> WholesaleTiers => Set<WholesaleTier>();
+    public DbSet<ShippingZone> ShippingZones => Set<ShippingZone>();
+    public DbSet<HairCareSection> HairCareSections => Set<HairCareSection>();
+    public DbSet<AmbassadorBenefit> AmbassadorBenefits => Set<AmbassadorBenefit>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -45,6 +49,43 @@ public sealed class ContentDbContext(DbContextOptions<ContentDbContext> options)
             e.Property(g => g.Description).HasMaxLength(500);
             e.Property(g => g.ImageUrl).HasMaxLength(500).IsRequired();
             e.Property(g => g.Category).HasMaxLength(100).IsRequired();
+        });
+
+        modelBuilder.Entity<WholesaleTier>(e =>
+        {
+            e.HasKey(t => t.Id);
+            e.Property(t => t.Name).HasMaxLength(100).IsRequired();
+            e.Property(t => t.Description).HasMaxLength(500).IsRequired();
+            e.Property(t => t.DiscountPercentage).HasColumnType("decimal(5,2)");
+        });
+
+        modelBuilder.Entity<ShippingZone>(e =>
+        {
+            e.HasKey(z => z.Id);
+            e.Property(z => z.Name).HasMaxLength(100).IsRequired();
+            e.Property(z => z.Region).HasMaxLength(200).IsRequired();
+            e.Property(z => z.StandardDeliveryDays).HasMaxLength(50).IsRequired();
+            e.Property(z => z.ExpressDeliveryDays).HasMaxLength(50).IsRequired();
+            e.Property(z => z.StandardRate).HasColumnType("decimal(10,2)");
+            e.Property(z => z.ExpressRate).HasColumnType("decimal(10,2)");
+            e.Property(z => z.FreeShippingThreshold).HasColumnType("decimal(10,2)");
+        });
+
+        modelBuilder.Entity<HairCareSection>(e =>
+        {
+            e.HasKey(s => s.Id);
+            e.Property(s => s.Title).HasMaxLength(200).IsRequired();
+            e.Property(s => s.Description).HasMaxLength(1000).IsRequired();
+            e.Property(s => s.IconName).HasMaxLength(100).IsRequired();
+            e.Property(s => s.TipsJson).HasMaxLength(2000);
+        });
+
+        modelBuilder.Entity<AmbassadorBenefit>(e =>
+        {
+            e.HasKey(b => b.Id);
+            e.Property(b => b.Title).HasMaxLength(200).IsRequired();
+            e.Property(b => b.Description).HasMaxLength(500).IsRequired();
+            e.Property(b => b.IconName).HasMaxLength(100).IsRequired();
         });
     }
 }

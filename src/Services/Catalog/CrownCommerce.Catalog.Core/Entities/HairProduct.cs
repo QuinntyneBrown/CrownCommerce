@@ -13,5 +13,13 @@ public sealed class HairProduct
     public decimal Price { get; set; }
     public required string Description { get; set; }
     public string? ImageUrl { get; set; }
+    public decimal Rating { get; set; }
+    public int ReviewCount { get; set; }
+    public bool InStock { get; set; } = true;
+    public string AvailableLengthsJson { get; set; } = "[]";
+    public string FeaturesJson { get; set; } = "[]";
+    public DateTime CreatedAt { get; set; }
     public HairOrigin? Origin { get; set; }
+    public ICollection<ProductImage> Images { get; set; } = [];
+    public ICollection<ProductReview> Reviews { get; set; } = [];
 }
