@@ -31,3 +31,4 @@ export { FormSelectComponent } from './lib/form-select/form-select';
 export { ContactInfoCardComponent } from './lib/contact-info-card/contact-info-card';
 export { ShippingRateCardComponent } from './lib/shipping-rate-card/shipping-rate-card';
 export { PolicyCardComponent } from './lib/policy-card/policy-card';
+export { AccordionItemComponent } from './lib/accordion-item/accordion-item';
