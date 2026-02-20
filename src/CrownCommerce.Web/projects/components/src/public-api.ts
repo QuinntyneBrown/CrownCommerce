@@ -28,3 +28,4 @@ export { PricingTierCardComponent } from './lib/pricing-tier-card/pricing-tier-c
 export { FormInputComponent } from './lib/form-input/form-input';
 export { FormTextareaComponent } from './lib/form-textarea/form-textarea';
 export { FormSelectComponent } from './lib/form-select/form-select';
+export { ContactInfoCardComponent } from './lib/contact-info-card/contact-info-card';
