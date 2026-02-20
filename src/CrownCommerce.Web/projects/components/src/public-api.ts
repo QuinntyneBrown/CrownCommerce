@@ -32,3 +32,4 @@ export { ContactInfoCardComponent } from './lib/contact-info-card/contact-info-c
 export { ShippingRateCardComponent } from './lib/shipping-rate-card/shipping-rate-card';
 export { PolicyCardComponent } from './lib/policy-card/policy-card';
 export { AccordionItemComponent } from './lib/accordion-item/accordion-item';
+export { FilterChipComponent } from './lib/filter-chip/filter-chip';
