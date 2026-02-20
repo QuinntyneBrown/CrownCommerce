@@ -12,20 +12,29 @@ import { NgClass } from '@angular/common';
         }
       </div>
       <div class="product-card__content">
-        <span
-          class="product-card__tag"
-          [ngClass]="{ 'product-card__tag--alt': tagColor() === 'rose' }"
-        >
-          {{ tag() }}
-        </span>
+        @if (tag()) {
+          <span
+            class="product-card__tag"
+            [ngClass]="{ 'product-card__tag--alt': tagColor() === 'rose' }"
+          >
+            {{ tag() }}
+          </span>
+        }
         <h3 class="product-card__title">{{ title() }}</h3>
-        <p class="product-card__description">{{ description() }}</p>
-        <span
-          class="product-card__price"
-          [ngClass]="{ 'product-card__price--alt': tagColor() === 'rose' }"
-        >
-          {{ price() }}
-        </span>
+        @if (description()) {
+          <p class="product-card__description">{{ description() }}</p>
+        }
+        <div class="product-card__price-row">
+          <span
+            class="product-card__price"
+            [ngClass]="{ 'product-card__price--alt': tagColor() === 'rose' }"
+          >
+            {{ price() }}
+          </span>
+          @if (showShopButton()) {
+            <span class="product-card__shop-btn">Shop</span>
+          }
+        </div>
       </div>
     </article>
   `,
@@ -88,6 +97,12 @@ import { NgClass } from '@angular/common';
       margin: 0;
     }
 
+    .product-card__price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     .product-card__price {
       font-family: var(--font-body);
       font-size: 15px;
@@ -96,6 +111,22 @@ import { NgClass } from '@angular/common';
 
       &--alt {
         color: var(--color-rose);
+      }
+    }
+
+    .product-card__shop-btn {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-bg-primary);
+      background: var(--color-gold);
+      padding: 10px 24px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.9;
       }
     }
 
@@ -126,10 +157,11 @@ import { NgClass } from '@angular/common';
 })
 export class ProductCardComponent {
   imageUrl = input<string>('');
-  tag = input.required<string>();
+  tag = input<string>('');
   title = input.required<string>();
-  description = input.required<string>();
+  description = input<string>('');
   price = input.required<string>();
   tagColor = input<'gold' | 'rose'>('gold');
+  showShopButton = input<boolean>(false);
   cardClicked = output<void>();
 }
