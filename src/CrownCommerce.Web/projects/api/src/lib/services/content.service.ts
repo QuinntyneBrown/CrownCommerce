@@ -2,7 +2,19 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { API_CONFIG } from '../api.config';
-import type { ContentPage, CreateTestimonialRequest, FaqItem, GalleryImage, Testimonial, UpdateTestimonialRequest } from '../models/content.models';
+import type {
+  BrandStory,
+  ContentPage,
+  CreateTestimonialRequest,
+  FaqItem,
+  GalleryImage,
+  HairCareGuide,
+  ReturnsPolicy,
+  ShippingPolicy,
+  Testimonial,
+  UpdateTestimonialRequest,
+  WholesaleTier,
+} from '../models/content.models';
 
 @Injectable({ providedIn: 'root' })
 export class ContentService {
@@ -47,5 +59,25 @@ export class ContentService {
 
   deleteTestimonial(id: string): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/testimonials/${id}`);
+  }
+
+  getBrandStory(): Observable<BrandStory> {
+    return this.http.get<BrandStory>(`${this.baseUrl}/brand-story`);
+  }
+
+  getHairCareGuide(): Observable<HairCareGuide> {
+    return this.http.get<HairCareGuide>(`${this.baseUrl}/hair-care-guide`);
+  }
+
+  getShippingPolicy(): Observable<ShippingPolicy> {
+    return this.http.get<ShippingPolicy>(`${this.baseUrl}/shipping-policy`);
+  }
+
+  getReturnsPolicy(): Observable<ReturnsPolicy> {
+    return this.http.get<ReturnsPolicy>(`${this.baseUrl}/returns-policy`);
+  }
+
+  getWholesalePricing(): Observable<WholesaleTier[]> {
+    return this.http.get<WholesaleTier[]>(`${this.baseUrl}/wholesale-pricing`);
   }
 }

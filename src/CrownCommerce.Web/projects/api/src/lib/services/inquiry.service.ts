@@ -2,7 +2,14 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { API_CONFIG } from '../api.config';
-import type { CreateInquiryRequest, Inquiry } from '../models/inquiry.models';
+import type {
+  ContactInquiry,
+  CreateContactRequest,
+  CreateInquiryRequest,
+  CreateWholesaleInquiryRequest,
+  Inquiry,
+  WholesaleInquiry,
+} from '../models/inquiry.models';
 
 @Injectable({ providedIn: 'root' })
 export class InquiryService {
@@ -19,5 +26,21 @@ export class InquiryService {
 
   deleteInquiry(id: string): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/inquiries/${id}`);
+  }
+
+  createWholesaleInquiry(request: CreateWholesaleInquiryRequest): Observable<WholesaleInquiry> {
+    return this.http.post<WholesaleInquiry>(`${this.baseUrl}/wholesale`, request);
+  }
+
+  getWholesaleInquiries(): Observable<WholesaleInquiry[]> {
+    return this.http.get<WholesaleInquiry[]>(`${this.baseUrl}/wholesale`);
+  }
+
+  createContactInquiry(request: CreateContactRequest): Observable<ContactInquiry> {
+    return this.http.post<ContactInquiry>(`${this.baseUrl}/contact`, request);
+  }
+
+  getContactInquiries(): Observable<ContactInquiry[]> {
+    return this.http.get<ContactInquiry[]>(`${this.baseUrl}/contact`);
   }
 }

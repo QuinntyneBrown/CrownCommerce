@@ -12,7 +12,23 @@ export { authGuard } from './lib/guards/auth.guard';
 export type { PagedResult } from './lib/models/common.models';
 
 // Models — Catalog
-export type { HairProduct, HairOrigin, CreateProductRequest, UpdateProductRequest, CreateOriginRequest, UpdateOriginRequest } from './lib/models/catalog.models';
+export type {
+  ProductCategory,
+  HairProduct,
+  HairOrigin,
+  ProductImage,
+  ProductFilterParams,
+  ProductDetail,
+  BreadcrumbItem,
+  ProductReview,
+  CreateProductReviewRequest,
+  BundleDealItem,
+  BundleDeal,
+  CreateProductRequest,
+  UpdateProductRequest,
+  CreateOriginRequest,
+  UpdateOriginRequest,
+} from './lib/models/catalog.models';
 
 // Models — Identity
 export type { LoginRequest, RegisterRequest, AuthResponse, UserProfile, UpdateProfileRequest } from './lib/models/identity.models';
@@ -24,10 +40,39 @@ export type { CartItem, AddToCartRequest, CreateOrderRequest, OrderItem, Order, 
 export type { CreatePaymentRequest, Payment, ConfirmPaymentRequest, CreateRefundRequest, Refund } from './lib/models/payment.models';
 
 // Models — Content
-export type { Testimonial, CreateTestimonialRequest, UpdateTestimonialRequest, GalleryImage, FaqItem, ContentPage } from './lib/models/content.models';
+export type {
+  Testimonial,
+  CreateTestimonialRequest,
+  UpdateTestimonialRequest,
+  GalleryImage,
+  FaqItem,
+  ContentPage,
+  BrandStory,
+  BrandFounder,
+  BrandMission,
+  BrandValue,
+  BrandTimelineEvent,
+  HairCareGuide,
+  HairCareSection,
+  HairCareTip,
+  ShippingPolicy,
+  ShippingZone,
+  PolicyStep,
+  ReturnsPolicy,
+  ReturnCondition,
+  WholesaleTier,
+} from './lib/models/content.models';
 
 // Models — Inquiry
-export type { CreateInquiryRequest, Inquiry } from './lib/models/inquiry.models';
+export type {
+  CreateInquiryRequest,
+  Inquiry,
+  CreateWholesaleInquiryRequest,
+  WholesaleInquiry,
+  ContactSubject,
+  CreateContactRequest,
+  ContactInquiry,
+} from './lib/models/inquiry.models';
 
 // Models — Notification
 export type { NotificationLog } from './lib/models/notification.models';
@@ -80,6 +125,16 @@ export type {
   JoinCallRequest,
 } from './lib/models/scheduling.models';
 
+// Models — Ambassador
+export type {
+  AmbassadorPerk,
+  AmbassadorStep,
+  AmbassadorProgram,
+  CreateAmbassadorApplicationRequest,
+  AmbassadorApplicationStatus,
+  AmbassadorApplication,
+} from './lib/models/ambassador.models';
+
 // Services
 export { AuthService } from './lib/services/auth.service';
 export { CatalogService } from './lib/services/catalog.service';
@@ -92,3 +147,4 @@ export { ChatService } from './lib/services/chat.service';
 export { NewsletterService } from './lib/services/newsletter.service';
 export { SchedulingService } from './lib/services/scheduling.service';
 export { TeamHubService, type HubMessage, type HubPresenceUpdate, type HubTypingUpdate } from './lib/services/team-hub.service';
+export { AmbassadorService } from './lib/services/ambassador.service';
