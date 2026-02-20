@@ -22,3 +22,5 @@ export { CountdownTimerComponent, type CountdownValues } from './lib/countdown-t
 export { LoadingSpinnerComponent } from './lib/loading-spinner/loading-spinner';
 export { ErrorStateComponent } from './lib/error-state/error-state';
 export { TimelineCardComponent } from './lib/timeline-card/timeline-card';
+export { StepCardComponent } from './lib/step-card/step-card';
+export { ChecklistItemComponent } from './lib/checklist-item/checklist-item';
