@@ -29,3 +29,4 @@ export { FormInputComponent } from './lib/form-input/form-input';
 export { FormTextareaComponent } from './lib/form-textarea/form-textarea';
 export { FormSelectComponent } from './lib/form-select/form-select';
 export { ContactInfoCardComponent } from './lib/contact-info-card/contact-info-card';
+export { ShippingRateCardComponent } from './lib/shipping-rate-card/shipping-rate-card';
