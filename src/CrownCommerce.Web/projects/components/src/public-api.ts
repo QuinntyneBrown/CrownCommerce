@@ -33,3 +33,4 @@ export { ShippingRateCardComponent } from './lib/shipping-rate-card/shipping-rat
 export { PolicyCardComponent } from './lib/policy-card/policy-card';
 export { AccordionItemComponent } from './lib/accordion-item/accordion-item';
 export { FilterChipComponent } from './lib/filter-chip/filter-chip';
+export { BundleDealCardComponent } from './lib/bundle-deal-card/bundle-deal-card';
