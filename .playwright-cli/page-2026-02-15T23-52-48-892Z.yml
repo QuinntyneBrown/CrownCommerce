@@ -1,0 +1,1075 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - region [ref=e4]:
+        - button "Skip to main content" [ref=e5] [cursor=pointer]
+        - button "Skip to navigation" [ref=e6] [cursor=pointer]
+        - generic [ref=e8]:
+          - generic [ref=e9]:
+            - text: 
+            - button "NBA " [ref=e11] [cursor=pointer]
+          - text:  
+          - button "Feb 15 " [ref=e14] [cursor=pointer]
+          - generic:  <
+          - link "Full Scoreboard »" [ref=e16] [cursor=pointer]:
+            - /url: https://www.espn.com/nba/scoreboard
+          - generic:  >
+          - list [ref=e18]:
+            - listitem [ref=e19]:
+              - generic [ref=e20]:
+                - link "6:45 NBC /Peacock WORLD 27 STRIPES 20" [ref=e22] [cursor=pointer]:
+                  - /url: /nba/game?gameId=401838142
+                  - generic [ref=e23]:
+                    - generic [ref=e24]: 6:45
+                    - generic [ref=e26]:
+                      - generic [ref=e27]: NBC
+                      - generic [ref=e28]: /Peacock
+                  - list [ref=e30]:
+                    - listitem [ref=e31]:
+                      - generic [ref=e33]:
+                        - generic [ref=e34]: WORLD
+                        - generic [ref=e35]: "27"
+                    - listitem [ref=e36]:
+                      - generic [ref=e38]:
+                        - generic [ref=e39]: STRIPES
+                        - generic [ref=e40]: "20"
+                - link "Final/OT WORLD 35 STARS 37" [ref=e42] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838140/world-team-stars
+                  - generic [ref=e44]: Final/OT
+                  - list [ref=e46]:
+                    - listitem [ref=e47]:
+                      - generic [ref=e49]:
+                        - generic [ref=e50]: WORLD
+                        - generic [ref=e51]: "35"
+                    - listitem [ref=e52]:
+                      - generic [ref=e54]:
+                        - generic [ref=e55]: STARS
+                        - generic [ref=e56]: "37"
+                - link "Final STARS 40 STRIPES 42" [ref=e58] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838141/team-stars-team-stripes
+                  - generic [ref=e60]: Final
+                  - list [ref=e62]:
+                    - listitem [ref=e63]:
+                      - generic [ref=e65]:
+                        - generic [ref=e66]: STARS
+                        - generic [ref=e67]: "40"
+                    - listitem [ref=e68]:
+                      - generic [ref=e70]:
+                        - generic [ref=e71]: STRIPES
+                        - generic [ref=e72]: "42"
+                - link "7:10 PM ET NBC /Peacock TBD TBD" [ref=e74] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838143
+                  - generic [ref=e75]:
+                    - generic [ref=e76]: 7:10 PM ET
+                    - generic [ref=e78]:
+                      - generic [ref=e79]: NBC
+                      - generic [ref=e80]: /Peacock
+                  - list [ref=e82]:
+                    - listitem [ref=e83]:
+                      - generic [ref=e85]: TBD
+                    - listitem [ref=e86]:
+                      - generic [ref=e88]: TBD
+      - banner [ref=e89]:
+        - generic:
+          - heading "ESPN" [level=2] [ref=e90]:
+            - link "ESPN" [ref=e91] [cursor=pointer]:
+              - /url: /
+          - list [ref=e92]:
+            - text: 
+            - listitem [ref=e93]:
+              - button "Open Search" [ref=e94] [cursor=pointer]: 
+              - generic:
+                - generic:
+                  - textbox "Search" [ref=e95]:
+                    - /placeholder: Search Sports, Teams or Players...
+                  - button "Submit" [ref=e96] [cursor=pointer]
+            - listitem [ref=e97]
+            - listitem
+        - navigation [ref=e98]:
+          - list [ref=e99]:
+            - listitem [ref=e100]:
+              - link "NFL" [ref=e101] [cursor=pointer]:
+                - /url: /nfl/
+                - generic [ref=e102]: NFL
+              - text: 
+            - listitem [ref=e103]:
+              - link "NBA" [ref=e104] [cursor=pointer]:
+                - /url: /nba/
+                - generic [ref=e105]: NBA
+              - text: 
+            - listitem [ref=e106]:
+              - link "NCAAM" [ref=e107] [cursor=pointer]:
+                - /url: /mens-college-basketball/
+                - generic [ref=e108]: NCAAM
+              - text: 
+            - listitem [ref=e109]:
+              - link "NCAAW" [ref=e110] [cursor=pointer]:
+                - /url: /womens-college-basketball/
+                - generic [ref=e111]: NCAAW
+            - listitem [ref=e112]:
+              - link "Olympics" [ref=e113] [cursor=pointer]:
+                - /url: /olympics/
+                - generic [ref=e114]: Olympics
+              - text: 
+            - listitem [ref=e115]:
+              - link "NHL" [ref=e116] [cursor=pointer]:
+                - /url: /nhl/
+                - generic [ref=e117]: NHL
+            - listitem [ref=e118]:
+              - link "Soccer" [ref=e119] [cursor=pointer]:
+                - /url: /soccer/
+                - generic [ref=e120]: Soccer
+              - text: 
+            - listitem [ref=e121]:
+              - link "More Sports" [ref=e122] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e123]: More Sports
+              - text: 
+            - listitem:
+              - link:
+                - /url: "#"
+            - listitem [ref=e124]:
+              - link " Where to Watch" [ref=e125] [cursor=pointer]:
+                - /url: http://www.espn.com/where-to-watch/
+                - generic [ref=e126]:  Where to Watch
+            - listitem [ref=e127]:
+              - link "Fantasy" [ref=e128] [cursor=pointer]:
+                - /url: /fantasy/
+                - img [ref=e130]
+                - generic [ref=e131]: Fantasy
+            - listitem [ref=e132]:
+              - link "Watch" [ref=e133] [cursor=pointer]:
+                - /url: http://www.espn.com/watch/
+                - img [ref=e135]
+                - generic [ref=e136]: Watch
+        - navigation [ref=e137]:
+          - list [ref=e139]:
+            - listitem [ref=e140]:
+              - link "NBA NBA" [ref=e142] [cursor=pointer]:
+                - /url: /nba/
+                - img "NBA" [ref=e144]
+                - generic [ref=e145]: NBA
+            - listitem [ref=e146]:
+              - link "Home" [ref=e147] [cursor=pointer]:
+                - /url: /nba/
+            - listitem [ref=e148]:
+              - link "Scores" [ref=e149] [cursor=pointer]:
+                - /url: /nba/scoreboard
+            - listitem [ref=e150]:
+              - link "Schedule" [ref=e151] [cursor=pointer]:
+                - /url: /nba/schedule
+            - listitem [ref=e152]:
+              - link "Standings" [ref=e153] [cursor=pointer]:
+                - /url: /nba/standings
+            - listitem [ref=e154]:
+              - link "Stats " [ref=e155] [cursor=pointer]:
+                - /url: /nba/stats
+            - listitem [ref=e156]:
+              - link "Teams " [ref=e157] [cursor=pointer]:
+                - /url: /nba/teams
+            - listitem [ref=e158]:
+              - link "Trade Machine" [ref=e159] [cursor=pointer]:
+                - /url: https://www.espn.com/nba/tradeMachine
+            - listitem [ref=e160]:
+              - link "Players" [ref=e161] [cursor=pointer]:
+                - /url: https://www.espn.com/nba/players
+            - listitem [ref=e162]:
+              - link "Odds" [ref=e163] [cursor=pointer]:
+                - /url: /nba/odds
+            - listitem [ref=e164]:
+              - link "Where To Watch" [ref=e165] [cursor=pointer]:
+                - /url: https://www.espn.com/where-to-watch/leagues/nba
+            - listitem [ref=e166]:
+              - link "More " [ref=e167] [cursor=pointer]:
+                - /url: "#"
+              - text: 
+    - generic [ref=e168]:
+      - iframe [ref=e172]:
+        - iframe [ref=f275e4]:
+          - generic [active] [ref=f310e1]:
+            - generic [ref=f310e6]:
+              - generic [ref=f310e7]:
+                - generic [ref=f310e8]:
+                  - link "In store" [ref=f310e11] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CDtP5UlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgAoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACALSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeASnNKl_ZivtZ2JAdgTDNAVAfAVsLuirQL6FQhOMjJUQTY4NJgWAcoWAgoA-BYBgBcBshcOGAEqCjk3ODA5MjUxODC6FwI4AaoYFwkAAAAAsJAIQRIKOTc4MDkyNTE4MBgBshgJEgKoThguIgEA0BgBwhkCCAE&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASACEgKRQvD_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_37rAkOIMt1NVvlHZZtr98z0ElBZQ&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/69326381/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASACEgKRQvD_BwE
+                    - generic [ref=f310e13]:
+                      - img [ref=f310e14]
+                      - generic [ref=f310e17]: In store
+                  - link "In store" [ref=f310e21] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CRnqzUlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgBoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACAPSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeAS95L9-9u2rOLLAdgTDNAVAfAVsLuirQL6FQhOMjJUQTYwOJgWAcoWAgoA-BYBgBcBshcOGAEqCjk3ODA5MjUxODC6FwI4AaoYFwkAAAAAsJAIQRIKOTc4MDkyNTE4MBgBshgJEgKoThguIgEA0BgBwhkCCAE&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASADEgLqTvD_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_0ofwmKMIRMGkk0i1fChN1of8lZwQ&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/69155202/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASADEgLqTvD_BwE
+                    - generic [ref=f310e23]:
+                      - img [ref=f310e24]
+                      - generic [ref=f310e27]: In store
+                  - link "In store" [ref=f310e31] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CPaBuUlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgCoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACATSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeAS46uq4vj1049Q2BMM0BUB8BWwu6KtAvoVCE4yMlRBNDU0mBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAACwkAhBEgo5NzgwOTI1MTgwGAGyGAkSAqhOGC4iAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAEEgKA1_D_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_0pkUeD2DYDxBXx5vphakBtdK_NJg&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/68325414/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAEEgKA1_D_BwE
+                    - generic [ref=f310e33]:
+                      - img [ref=f310e34]
+                      - generic [ref=f310e37]: In store
+                  - link "In store" [ref=f310e41] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CDw_vUlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgDoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACAXSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeAS9-Ca2o60nuwX2BMM0BUB8BWwu6KtAvoVCE4yMlRBNjUwmBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAACwkAhBEgo5NzgwOTI1MTgwGAGyGAkSAqhOGC4iAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAFEgKvXfD_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_055NsgJPPDRrP_2xq8FQItgRq5uQ&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/69265248/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAFEgKvXfD_BwE
+                    - generic [ref=f310e43]:
+                      - img [ref=f310e44]
+                      - generic [ref=f310e47]: In store
+                  - link "In store" [ref=f310e51] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=Cei79UlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgEoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACAbSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeAS_cjStu2RlYVq2BMM0BUB8BWwu6KtAvoVCE4yMlRBMzU5mBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAACwkAhBEgo5NzgwOTI1MTgwGAGyGAkSAqhOGC4iAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAGEgIaq_D_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_3yBLCHoee5myNOTpq6JMS1awP62w&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/67981613/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAGEgIaq_D_BwE
+                    - generic [ref=f310e53]:
+                      - img [ref=f310e54]
+                      - generic [ref=f310e57]: In store
+                - generic [ref=f310e59]:
+                  - link "In store" [ref=f310e62] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=Cd4WgUlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgFoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACAfSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeASr-iX75f0jfr1AdgTDNAVAfAVsLuirQL6FQhOMjJUQTU5NZgWAcoWAgoA-BYBgBcBshcOGAEqCjk3ODA5MjUxODC6FwI4AaoYFwkAAAAAsJAIQRIKOTc4MDkyNTE4MBgBshgJEgKoThguIgEA0BgBwhkCCAE&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAHEgIV_PD_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_2EqJq1ru_TLVhQ7plZBpctrImVMQ&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/69112890/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAHEgIV_PD_BwE
+                    - generic [ref=f310e64]:
+                      - img [ref=f310e65]
+                      - generic [ref=f310e68]: In store
+                  - link "In store" [ref=f310e72] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=ComKKUlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgGoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACAjSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeASwLfIyfnnlp2tAdgTDNAVAfAVsLuirQL6FQhOMjJUQTMxOZgWAcoWAgoA-BYBgBcBshcOGAEqCjk3ODA5MjUxODC6FwI4AaoYFwkAAAAAsJAIQRIKOTc4MDkyNTE4MBgBshgJEgKoThguIgEA0BgBwhkCCAE&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAIEgLhZPD_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_0Q91AD3Te1CRkJnUWlXxxUARhwAQ&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/67871417/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAIEgLhZPD_BwE
+                    - generic [ref=f310e74]:
+                      - img [ref=f310e75]
+                      - generic [ref=f310e78]: In store
+                  - link "In store" [ref=f310e82] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=Cv6JCUlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgHoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACAnSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeAS0ab0oZHCveZw2BMM0BUB8BWwu6KtAvoVCE4yMlRBNjQwmBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAACwkAhBEgo5NzgwOTI1MTgwGAGyGAkSAqhOGC4iAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAJEgJcWPD_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_315BPvIJ7UAgyWkMnMc449sAWZ3g&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/69232895/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAJEgJcWPD_BwE
+                    - generic [ref=f310e84]:
+                      - img [ref=f310e85]
+                      - generic [ref=f310e88]: In store
+                  - link "In store" [ref=f310e92] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CScAkUlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgIoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACArSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeAS58Hn17P47tRE2BMM0BUB8BWwu6KtAvoVCE4yMlRBNjEymBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAACwkAhBEgo5NzgwOTI1MTgwGAGyGAkSAqhOGC4iAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAKEgJlrPD_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_1EfaU6eoYe2_1kpCVCHIIbahbOzA&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/69155199/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASAKEgJlrPD_BwE
+                    - generic [ref=f310e94]:
+                      - img [ref=f310e95]
+                      - generic [ref=f310e98]: In store
+                  - link "In store" [ref=f310e102] [cursor=pointer]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CgoNIUlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgJoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACAvSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeASvMCfirOL8b3RAdgTDNAVAfAVsLuirQL6FQhOMjJUQTQ5N5gWAcoWAgoA-BYBgBcBshcOGAEqCjk3ODA5MjUxODC6FwI4AaoYFwkAAAAAsJAIQRIKOTc4MDkyNTE4MBgBshgJEgKoThguIgEA0BgBwhkCCAE&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASALEgLOC_D_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_07jCswa07mXTkoFYwG5z6dlchO6w&ctype=303&client=ca-pub-3746578658400510&nb=9&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/68553323/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASALEgLOC_D_BwE
+                    - generic [ref=f310e104]:
+                      - img [ref=f310e105]
+                      - generic [ref=f310e108]: In store
+              - link "Precision Honda" [ref=f310e111] [cursor=pointer]:
+                - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CDtP5UlySaY-uDsuVtOUPjfaeuQi686qWhQGakqflrRWhpvjz0B0QASCL8IofYP34koHoA6AB0OnouAHIAQmpAn4NAjo-pKg-4AIAqAMByAPLBKoExwJP0NDwu27Qby88NbQiUzN8GdtoXrigqHKitdU0qJu9KIgrSvoEfPp4SYsGlZcBDjkwvjEZKHFCmEtgKZg_q1ar7HPnMDiHvcwALfSTTOneB8GIaFo_-YZsNNg2ordjSdhxeu-1M14Q8Nmg9KPHm0OnzNEMniIHdTJuTgy2986qh67hdwwruhFT2CXAVSp4pBo6yV4zebMNcOlJscu76L0gyPw9Q0l8FJQmXtWaf87iQcMx8nRWYE04g_xA6yX-WJMEm_DklsplrE5MOLD2pfOVxyy_UONoD5G6N1yJiTryDZmt-LfwaOOcUQpHdnpSiy-bJZp6hkeAeoHyJYF1ZgR-SfCiMNM2QrWCr6H4MBLlbUSygMikpZV9-yBwt_h5Fn0NaxBy1We4wVsLCItFQY074-jBfbmb6QWVo03rd_4LLl73kaHx2vvABN60mIbEBeAEAYgF0pWJuFLABa8C-gUGCCUQARgAoAYugAeYlpfHAqgHp8yxAqgH4tixAqgHpr4bqAfMzrECqAfz0RuoB5bYG6gHqpuxAqgHjs4bqAeT2BuoB_DgG6gH7paxAqgH_p6xAqgHr76xAqgH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB-LYsQKoB-LYsQKoB-LYsQLYBwDACALSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOlit3NTJ2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM4AKA5ALA5gLAcgLAYAMAaIMBUgBkAEBqg0CQ0HIDQHiDRMIgbXVydjckgMVywqtBh0NuyeH6g0TCIeO1snY3JIDFcsKrQYdDbsnh_ANAogO____________AeASnNKl_ZivtZ2JAdgTDNAVAfAVsLuirQL6FQhOMjJUQTY4NJgWAcoWAgoA-BYBgBcBshcOGAEqCjk3ODA5MjUxODC6FwI4AaoYFwkAAAAAsJAIQRIKOTc4MDkyNTE4MBgBshgJEgKoThguIgEA0BgBwhkCCAE&ae=1&gclid=EAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASACEgKRQvD_BwE&num=1&cid=CAQSvQEA56J1eRHw5JsGFP5DOWCcMbCWZsaAu2_1JuRWQBvrcCEhS8Vy3EyuGVVARx7-Vhw7SbH4v37YrlvpYaRQvTN5WGK9pLBNP02sUMT_Y-BGx54GpDOEB_9zCScksGve1CFImRTkK4-CsShs9pSoeYktMmsNvbkKnLbYyUFa3qd6vw_BrxSUxS9f7tjd5dKTw3MoeggPisN7RsmJ882OyCTNHigS9Jz4ZvehLQHfE2BATdMpNWqmJmn7E446mMUYAQ&sig=AOD64_37rAkOIMt1NVvlHZZtr98z0ElBZQ&ctype=303&client=ca-pub-3746578658400510&nb=19&adurl=https://www.precisionhonda.ca/vehicles/2026/honda/cr-v-hybrid/mississauga/on/69326381/%3Fsale_class%3Dnew%26store%3D22HOPR%26gad_source%3D5%26gad_campaignid%3D22129298130%26gclid%3DEAIaIQobChMIj5_XydjckgMVywqtBh0NuyeHEAEYASACEgKRQvD_BwE
+                - generic [ref=f310e113]: Precision Honda
+            - img [ref=f310e117] [cursor=pointer]
+            - button [ref=f310e120] [cursor=pointer]:
+              - img [ref=f310e121]
+            - iframe
+      - generic [ref=e174]:
+        - generic [ref=e178]:
+          - generic [ref=e179]:
+            - link [ref=e180] [cursor=pointer]:
+              - /url: /nba/story/_/id/47900664/nba-all-star-weekend-2026-live-updates-results-highlights
+            - generic [ref=e182]:
+              - 'link "NBA All-Star 2026: Team Stripes vs. Team World playing in Game 2" [ref=e184] [cursor=pointer]':
+                - /url: /nba/story/_/id/47900664/nba-all-star-weekend-2026-live-updates-results-highlights
+              - generic [ref=e185]:
+                - link "Washington Wizards" [ref=e187] [cursor=pointer]:
+                  - /url: /nba/team/_/name/wsh/washington-wizards
+                - text: 15m - ESPN staff
+          - generic [ref=e188]:
+            - link [ref=e189] [cursor=pointer]:
+              - /url: /nba/story/_/id/47942171/stephen-curry-make-return-3-point-contest-2027
+            - generic [ref=e191]:
+              - link "Curry to make return to 3-point contest in 2027" [ref=e193] [cursor=pointer]:
+                - /url: /nba/story/_/id/47942171/stephen-curry-make-return-3-point-contest-2027
+              - generic [ref=e194]:
+                - link "Golden State Warriors" [ref=e196] [cursor=pointer]:
+                  - /url: /nba/team/_/name/gs/golden-state-warriors
+                - text: 47m - Vincent Goodwill
+          - article [ref=e197]:
+            - iframe [ref=e201]:
+              - iframe [ref=f276e4]:
+                - generic [active] [ref=f309e1]:
+                  - generic [ref=f309e5]:
+                    - generic [ref=f309e7]:
+                      - link "Empire Strips Back" [ref=f309e10] [cursor=pointer]:
+                        - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CpXzhUlySaf_7B8ritOUP3peXyQ6x8p2fhQGViYep9xTos_vZqUcQASCL8IofYP34koHoA6ABz-q7jAPIAQGpApZLXm1H6bM-4AIAqAMByAMKqgTEAk_QGTQr7ixCSYzXdNl9Yvn7j8MIiFf3U9iCtYfUMw5faUPMjpDA9C2-fFIh2g8LOMF_d__dX5I62P6i8RUpXH7v1mxfhZUh1BegQa9i4dApk2SmyFqAgJT2-huHNGtIf9uf7BvVjzNmQaB7ZiWzIWnDOLKn9IuNgnh3iC6gjIBQzcLCoO_s88trEV5GckNrGUUFJWS28fnXEClD0hVukgvGjYhji7WsAqSfgTNcjLQ5ML-TYqumf-MWUhURDeHJjTjkb8s6Gn1C1DfGeexid1ghCveJriIaBUVNt3EzQunW0K8IeDpvQyGpH6OAZgRD3VVGkW88kjTHlRcuImOuIrGbgaOXoRJga_5U6NF1oaNy84Kixk_gPkHRLvkMDx4XaOFM9hXQXmbv1cU6wpS_CJrt1jw948EZ5rr07sliskYlKsDfocAEqL3AmsoF4AQBiAWJrJ_kVoAHg6_bnwGoB6fMsQKoB-LYsQKoB6a-G6gHzM6xAqgH89EbqAeW2BuoB6qbsQKoB47OG6gHk9gbqAfw4BuoB-6WsQKoB_6esQKoB6--sQKoB9XJG6gH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB_vCsQLYBwHSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOljzls7J2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM7EJyV-Oszxf652ACgOYCwHICwGiDAOQAQGqDQJDQcgNAeINEwjjjM_J2NySAxVKMa0GHd7LJenqDRMIlOnPydjckgMVSjGtBh3eyyXp8A0CiA7___________8B2BMN0BUBmBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAADo5QJBEgo5NzgwOTI1MTgwGAGyGAkSAuloGAEiAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE&num=1&cid=CAQSvQEA56J1eUhTBM6DRlykLWlQ_R1yPLnl78HogQoCUMp2k3Spi8Acinbl3m3gGMhFKP24H2fFY40hfxnwrZ0ccYrMKPWRrNT6PZF-sG3Et2vDP5fE18CnyFn4cF5ta-4Idf1-0VQSSmDJlVY2QjjSzKFXeKuJUyaqCV3s1EJTuHrBqv4tXHhKT8U48xp5pIFBMAqzM97Xcn2K0HSAB5IzFyovQuBgkjHrmvVs7w4unuFMv7fQQZHG2_3zVb6FVKUYAQ&sig=AOD64_1cPhYhQWBGTWsdOLJkTDeGUtaOvQ&client=ca-pub-3746578658400510&rf=4&nb=19&adurl=https://theempirestripsback.com/toronto/%3Futm_source%3Dgoogle%26utm_medium%3Dad%26utm_campaign%3D501159_yyz%26utm_content%3D785607622212%26gad_source%3D5%26gad_campaignid%3D23295677961%26gclid%3DEAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE
+                        - img "Empire Strips Back" [ref=f309e11]
+                      - generic "Empire Strips Back" [ref=f309e12]:
+                        - link "Empire Strips Back Toronto" [ref=f309e13] [cursor=pointer]:
+                          - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CpXzhUlySaf_7B8ritOUP3peXyQ6x8p2fhQGViYep9xTos_vZqUcQASCL8IofYP34koHoA6ABz-q7jAPIAQGpApZLXm1H6bM-4AIAqAMByAMKqgTEAk_QGTQr7ixCSYzXdNl9Yvn7j8MIiFf3U9iCtYfUMw5faUPMjpDA9C2-fFIh2g8LOMF_d__dX5I62P6i8RUpXH7v1mxfhZUh1BegQa9i4dApk2SmyFqAgJT2-huHNGtIf9uf7BvVjzNmQaB7ZiWzIWnDOLKn9IuNgnh3iC6gjIBQzcLCoO_s88trEV5GckNrGUUFJWS28fnXEClD0hVukgvGjYhji7WsAqSfgTNcjLQ5ML-TYqumf-MWUhURDeHJjTjkb8s6Gn1C1DfGeexid1ghCveJriIaBUVNt3EzQunW0K8IeDpvQyGpH6OAZgRD3VVGkW88kjTHlRcuImOuIrGbgaOXoRJga_5U6NF1oaNy84Kixk_gPkHRLvkMDx4XaOFM9hXQXmbv1cU6wpS_CJrt1jw948EZ5rr07sliskYlKsDfocAEqL3AmsoF4AQBiAWJrJ_kVoAHg6_bnwGoB6fMsQKoB-LYsQKoB6a-G6gHzM6xAqgH89EbqAeW2BuoB6qbsQKoB47OG6gHk9gbqAfw4BuoB-6WsQKoB_6esQKoB6--sQKoB9XJG6gH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB_vCsQLYBwHSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOljzls7J2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM7EJyV-Oszxf652ACgOYCwHICwGiDAOQAQGqDQJDQcgNAeINEwjjjM_J2NySAxVKMa0GHd7LJenqDRMIlOnPydjckgMVSjGtBh3eyyXp8A0CiA7___________8B2BMN0BUBmBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAADo5QJBEgo5NzgwOTI1MTgwGAGyGAkSAuloGAEiAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE&num=1&cid=CAQSvQEA56J1eUhTBM6DRlykLWlQ_R1yPLnl78HogQoCUMp2k3Spi8Acinbl3m3gGMhFKP24H2fFY40hfxnwrZ0ccYrMKPWRrNT6PZF-sG3Et2vDP5fE18CnyFn4cF5ta-4Idf1-0VQSSmDJlVY2QjjSzKFXeKuJUyaqCV3s1EJTuHrBqv4tXHhKT8U48xp5pIFBMAqzM97Xcn2K0HSAB5IzFyovQuBgkjHrmvVs7w4unuFMv7fQQZHG2_3zVb6FVKUYAQ&sig=AOD64_1cPhYhQWBGTWsdOLJkTDeGUtaOvQ&client=ca-pub-3746578658400510&rf=4&nb=0&adurl=https://theempirestripsback.com/toronto/%3Futm_source%3Dgoogle%26utm_medium%3Dad%26utm_campaign%3D501159_yyz%26utm_content%3D785607622212%26gad_source%3D5%26gad_campaignid%3D23295677961%26gclid%3DEAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE
+                          - text: Empire Strips
+                          - text: Back Toronto
+                      - 'link "A parody from another galaxy that is like no other: hilarious & bold" [ref=f309e15] [cursor=pointer]':
+                        - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CpXzhUlySaf_7B8ritOUP3peXyQ6x8p2fhQGViYep9xTos_vZqUcQASCL8IofYP34koHoA6ABz-q7jAPIAQGpApZLXm1H6bM-4AIAqAMByAMKqgTEAk_QGTQr7ixCSYzXdNl9Yvn7j8MIiFf3U9iCtYfUMw5faUPMjpDA9C2-fFIh2g8LOMF_d__dX5I62P6i8RUpXH7v1mxfhZUh1BegQa9i4dApk2SmyFqAgJT2-huHNGtIf9uf7BvVjzNmQaB7ZiWzIWnDOLKn9IuNgnh3iC6gjIBQzcLCoO_s88trEV5GckNrGUUFJWS28fnXEClD0hVukgvGjYhji7WsAqSfgTNcjLQ5ML-TYqumf-MWUhURDeHJjTjkb8s6Gn1C1DfGeexid1ghCveJriIaBUVNt3EzQunW0K8IeDpvQyGpH6OAZgRD3VVGkW88kjTHlRcuImOuIrGbgaOXoRJga_5U6NF1oaNy84Kixk_gPkHRLvkMDx4XaOFM9hXQXmbv1cU6wpS_CJrt1jw948EZ5rr07sliskYlKsDfocAEqL3AmsoF4AQBiAWJrJ_kVoAHg6_bnwGoB6fMsQKoB-LYsQKoB6a-G6gHzM6xAqgH89EbqAeW2BuoB6qbsQKoB47OG6gHk9gbqAfw4BuoB-6WsQKoB_6esQKoB6--sQKoB9XJG6gH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB_vCsQLYBwHSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOljzls7J2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM7EJyV-Oszxf652ACgOYCwHICwGiDAOQAQGqDQJDQcgNAeINEwjjjM_J2NySAxVKMa0GHd7LJenqDRMIlOnPydjckgMVSjGtBh3eyyXp8A0CiA7___________8B2BMN0BUBmBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAADo5QJBEgo5NzgwOTI1MTgwGAGyGAkSAuloGAEiAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE&num=1&cid=CAQSvQEA56J1eUhTBM6DRlykLWlQ_R1yPLnl78HogQoCUMp2k3Spi8Acinbl3m3gGMhFKP24H2fFY40hfxnwrZ0ccYrMKPWRrNT6PZF-sG3Et2vDP5fE18CnyFn4cF5ta-4Idf1-0VQSSmDJlVY2QjjSzKFXeKuJUyaqCV3s1EJTuHrBqv4tXHhKT8U48xp5pIFBMAqzM97Xcn2K0HSAB5IzFyovQuBgkjHrmvVs7w4unuFMv7fQQZHG2_3zVb6FVKUYAQ&sig=AOD64_1cPhYhQWBGTWsdOLJkTDeGUtaOvQ&client=ca-pub-3746578658400510&rf=4&nb=7&adurl=https://theempirestripsback.com/toronto/%3Futm_source%3Dgoogle%26utm_medium%3Dad%26utm_campaign%3D501159_yyz%26utm_content%3D785607622212%26gad_source%3D5%26gad_campaignid%3D23295677961%26gclid%3DEAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE
+                        - text: A parody from another
+                        - text: galaxy that is like no
+                        - text: "other: hilarious & bold"
+                      - generic "Empire Strips Back" [ref=f309e16]:
+                        - link "Empire Strips Back" [ref=f309e17] [cursor=pointer]:
+                          - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CpXzhUlySaf_7B8ritOUP3peXyQ6x8p2fhQGViYep9xTos_vZqUcQASCL8IofYP34koHoA6ABz-q7jAPIAQGpApZLXm1H6bM-4AIAqAMByAMKqgTEAk_QGTQr7ixCSYzXdNl9Yvn7j8MIiFf3U9iCtYfUMw5faUPMjpDA9C2-fFIh2g8LOMF_d__dX5I62P6i8RUpXH7v1mxfhZUh1BegQa9i4dApk2SmyFqAgJT2-huHNGtIf9uf7BvVjzNmQaB7ZiWzIWnDOLKn9IuNgnh3iC6gjIBQzcLCoO_s88trEV5GckNrGUUFJWS28fnXEClD0hVukgvGjYhji7WsAqSfgTNcjLQ5ML-TYqumf-MWUhURDeHJjTjkb8s6Gn1C1DfGeexid1ghCveJriIaBUVNt3EzQunW0K8IeDpvQyGpH6OAZgRD3VVGkW88kjTHlRcuImOuIrGbgaOXoRJga_5U6NF1oaNy84Kixk_gPkHRLvkMDx4XaOFM9hXQXmbv1cU6wpS_CJrt1jw948EZ5rr07sliskYlKsDfocAEqL3AmsoF4AQBiAWJrJ_kVoAHg6_bnwGoB6fMsQKoB-LYsQKoB6a-G6gHzM6xAqgH89EbqAeW2BuoB6qbsQKoB47OG6gHk9gbqAfw4BuoB-6WsQKoB_6esQKoB6--sQKoB9XJG6gH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB_vCsQLYBwHSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOljzls7J2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM7EJyV-Oszxf652ACgOYCwHICwGiDAOQAQGqDQJDQcgNAeINEwjjjM_J2NySAxVKMa0GHd7LJenqDRMIlOnPydjckgMVSjGtBh3eyyXp8A0CiA7___________8B2BMN0BUBmBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAADo5QJBEgo5NzgwOTI1MTgwGAGyGAkSAuloGAEiAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE&num=1&cid=CAQSvQEA56J1eUhTBM6DRlykLWlQ_R1yPLnl78HogQoCUMp2k3Spi8Acinbl3m3gGMhFKP24H2fFY40hfxnwrZ0ccYrMKPWRrNT6PZF-sG3Et2vDP5fE18CnyFn4cF5ta-4Idf1-0VQSSmDJlVY2QjjSzKFXeKuJUyaqCV3s1EJTuHrBqv4tXHhKT8U48xp5pIFBMAqzM97Xcn2K0HSAB5IzFyovQuBgkjHrmvVs7w4unuFMv7fQQZHG2_3zVb6FVKUYAQ&sig=AOD64_1cPhYhQWBGTWsdOLJkTDeGUtaOvQ&client=ca-pub-3746578658400510&rf=4&nb=1&adurl=https://theempirestripsback.com/toronto/%3Futm_source%3Dgoogle%26utm_medium%3Dad%26utm_campaign%3D501159_yyz%26utm_content%3D785607622212%26gad_source%3D5%26gad_campaignid%3D23295677961%26gclid%3DEAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE
+                    - link "Book Now" [ref=f309e21] [cursor=pointer]:
+                      - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CpXzhUlySaf_7B8ritOUP3peXyQ6x8p2fhQGViYep9xTos_vZqUcQASCL8IofYP34koHoA6ABz-q7jAPIAQGpApZLXm1H6bM-4AIAqAMByAMKqgTEAk_QGTQr7ixCSYzXdNl9Yvn7j8MIiFf3U9iCtYfUMw5faUPMjpDA9C2-fFIh2g8LOMF_d__dX5I62P6i8RUpXH7v1mxfhZUh1BegQa9i4dApk2SmyFqAgJT2-huHNGtIf9uf7BvVjzNmQaB7ZiWzIWnDOLKn9IuNgnh3iC6gjIBQzcLCoO_s88trEV5GckNrGUUFJWS28fnXEClD0hVukgvGjYhji7WsAqSfgTNcjLQ5ML-TYqumf-MWUhURDeHJjTjkb8s6Gn1C1DfGeexid1ghCveJriIaBUVNt3EzQunW0K8IeDpvQyGpH6OAZgRD3VVGkW88kjTHlRcuImOuIrGbgaOXoRJga_5U6NF1oaNy84Kixk_gPkHRLvkMDx4XaOFM9hXQXmbv1cU6wpS_CJrt1jw948EZ5rr07sliskYlKsDfocAEqL3AmsoF4AQBiAWJrJ_kVoAHg6_bnwGoB6fMsQKoB-LYsQKoB6a-G6gHzM6xAqgH89EbqAeW2BuoB6qbsQKoB47OG6gHk9gbqAfw4BuoB-6WsQKoB_6esQKoB6--sQKoB9XJG6gH2baxAqgHmgaoB_-esQKoB9-fsQKoB_jCsQKoB_vCsQLYBwHSCC8IgGEQARidATIIioKAgICAgAg6DYBAgMCAgICAqIACqANIvf3BOljzls7J2NySA_IIG2FkeC1zdWJzeW4tOTgyODUxMjAyMTc2ODIyM7EJyV-Oszxf652ACgOYCwHICwGiDAOQAQGqDQJDQcgNAeINEwjjjM_J2NySAxVKMa0GHd7LJenqDRMIlOnPydjckgMVSjGtBh3eyyXp8A0CiA7___________8B2BMN0BUBmBYByhYCCgD4FgGAFwGyFw4YASoKOTc4MDkyNTE4MLoXAjgBqhgXCQAAAADo5QJBEgo5NzgwOTI1MTgwGAGyGAkSAuloGAEiAQDQGAHCGQIIAQ&ae=1&gclid=EAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE&num=1&cid=CAQSvQEA56J1eUhTBM6DRlykLWlQ_R1yPLnl78HogQoCUMp2k3Spi8Acinbl3m3gGMhFKP24H2fFY40hfxnwrZ0ccYrMKPWRrNT6PZF-sG3Et2vDP5fE18CnyFn4cF5ta-4Idf1-0VQSSmDJlVY2QjjSzKFXeKuJUyaqCV3s1EJTuHrBqv4tXHhKT8U48xp5pIFBMAqzM97Xcn2K0HSAB5IzFyovQuBgkjHrmvVs7w4unuFMv7fQQZHG2_3zVb6FVKUYAQ&sig=AOD64_1cPhYhQWBGTWsdOLJkTDeGUtaOvQ&client=ca-pub-3746578658400510&rf=4&nb=8&adurl=https://theempirestripsback.com/toronto/%3Futm_source%3Dgoogle%26utm_medium%3Dad%26utm_campaign%3D501159_yyz%26utm_content%3D785607622212%26gad_source%3D5%26gad_campaignid%3D23295677961%26gclid%3DEAIaIQobChMI_-zQydjckgMVSjGtBh3eyyXpEAEYASAAEgJZsvD_BwE
+                      - generic [ref=f309e22]: Book Now
+                      - img [ref=f309e23]
+                  - generic [ref=f309e25]:
+                    - link [ref=f309e27] [cursor=pointer]:
+                      - /url: https://adssettings.google.com/whythisad?source=display&reasons=AWUvr31lxPPrnYnZBA0Grl2YCD4kETxEX4J2cqBBhbhmID0wnIPf6YImUbYl7db9SzHY-DpHoK4IS2rYyq5ciE6025ttJjE8bxyEMqQ3uOnpVeASnKASaCm22Tsg2ydXI9D_Mh0jD3ZTzrHPWrZjV_N2uZhQrsWIrRa2zLCc94LDkzgIvi5Uvk022n90ImaIXvSqYCJQW5d7hKNInLRdKxj9RrAaj9Sr-wQ11SityvQngzC6TN0naaTc0lnMKvgsC8boobLJfccgqWKPbMw3cuG5mQDtEsFzj0081jEnMaV471ti-ONHcU-d3uTM4gah6nvg5T12uBv1vW-1fuRyrka82xWxqBE2D2I4t2SKVH3GGMcsN_tE5pHuH1lnv7GQxXCm88kVRxQAW2DKw0uBoN1cMaGOnHguJTfpLFHBHV13B9tslXMF1xgHnYLNxjncpEMrpEvPLiX0im12sVsD5JPfrkKuHZaGXbwylfiM4FqN2IVrndx1xbAPxJMUotZbi2W3G9MJ987CtU5YLC-VBDQUFoqrgCuL6Z4TL2ifp4QXRK43dmdZpmq5vxkJOOXta9AFvrj2viVggg8LcVB5ZwX7X7384z0IzNZAeYUfG0WzAqZNsPaUVfk3MkCdzSWcUIy-xxWypnMNdEQ6CesqY6qJJjD5UUUaREHUTJML6JWXe4IFIIRkUEQuNRbrpQreAaR1A9nMawgGktZ2gB_1IZsMx3-ru8qYDUv3qXA5QyatohvjT9m_RzfA7F6OmK2sHnVWnfC2N1041GjPHM-GaeamVR1F2vrvmW4In3pfMi0VoHTrzy0H2LHAZ6jViuq8gdftPCDWj53v0elgc7wUMi4eaVJfJVAw0YDOikguY75Tx1lyS-9qFYHf4ljqvhKxCvHEonelCCLYqZ28tcuaFlzHYfTyQOjsMsSeGlzNnrg2gVitKm8C1bVT2OV4x0urwJDdHGwDJ2gK_53vE7dZQduYXOnCg6dmUn6Ggx9v4Necjbw1EeH_pDqq3BqnYhUnZyr8_dOTYjtF1dTE_1GxW3Mw5SPB088tweyJOEvqZsMw8G58A8qaHAt0mTukzDLITXJp7jw42J_jAv6CnwjvbNWgwrgPR9SZffeHB01aQaUOsp9OZ6oOZLHiw6U6xmTh8qCf191rsTV1mhDR-11DRbT5jAY8xA3flIg06ULPITHUVQ0z6amJMeTZgcBNfQ5GWDnAt0zQkrEYyFnHiJU4IBY6NY1d4ubeAvXJo-hwMovN2Icnl14UC1N7aitnQV2hsc7wqkj-n_CDTKaENDpqwydtviqT7UBwoo-wBI6SrIQuS93bUyy-XRQDAooW_GMFfghP_MG4uSRM5JntDPoOeFCjfy-9iZzP3RJhK1sLEwa8DMjnX3ccG-S7yEekKrY2rd8--pOjR5T1KXST2CX10EIIly0nEC3J3q7sLID0zUov_lcQPS1EBpSA4nKjPZW725afyw60m3voQJjKm9u_tIDoag0KPwsdUoK8fFlSuzA69t08PHs87vmay9B_MG56AdJ2JOVNiwPY9H8ntiIJfBsmZ52zxoa_WmxwWczvgcDbCPumfQ9ni8UhHttv58Rfbqxv7s3cl2afIG3BL0jDOQZCf4lRARDPB0O0PeZhh3zkWifpEq9abrUFhM3qxk-YaWvRUSgfbIu6WB3joVn5glCp5jTWczE658Z54ehtMajvMucL3fBntsIDbqkfD3hWJ9qJ3l3_teieQFOP-4VXMfX5XBc284G5WG2-sPz4SzjYrIDZShk6USeLtsJ2LwGx5m_sgVSHhKTELGuDOPv8xbyPtWBhtwUF_yYNXW0-R4XkCZj2KZW0upBkURPl5jaQ5dQIWd_CPvQxK5cpZb_8czgLhCxCi1IGuzR07boXxlmGTnTd9fyhvG89gZtSigyNU9rsLxxsasbFiahHcr8pO7QHTLn9tCv6NTSIQT_84F95QsOl94_hQcrcW7-KMfa67l1JvBbP6SDwjdLxMzKFKT5M94CJXf3n0laxka91_l7_HvmFZk6hTG-srIGbDaZKmSaJ_kyVxPVLtPhKcT5dh2qCII7al4sn0iiFXvKysxQvvuum71Haq-HXy54O8fUUTnXBg090kz8EhRYuNNCn3AcYKpxKZwHz7qz7iOexc3kz4aaiHO20QxPMI2oJ94rRzUP8c1mv7lwOuY8ekxUcD4KUmVgU5EnQxRr3ha6p2JsN_AXrGjQ1mIcJ3c26GuwIcdfEJOEqSYvj0EY-6_ak5Q_JlJqyCghiEK-IZqK3yb7cs0TqMa4BwdfsM0_B0hEoIZCBhBPxrUSbBa2KdDzDFLYDBmR17S77fAEsepkHjLtJEtGm5uIyKMdw54CfY2ahEJKmGkZwF3eRsWbA8p4kAh6sILhPf_qsiroZ92RNAJNu_VMe14t1Nw1Qtej-XDiuTfyhGNtkfYakNnnSyI8efRvJEmDL_QXrmDUKMw9Elb2eJ2JH9zHWicSrD8YzEcefKU88hi-GEmQHwaPna3FOSHepVO51ru1oTS3JqrAgcgByVVqH9E4kkKSz_doTaaP1KMrdEBkEpsbqiRG9sDMBCL6OA4shuWE-3VQpge10PpbAQQE5Rcr_EQKaxAIeatoWreXjKg&opi=122715837
+                      - img [ref=f309e29]
+                    - link [ref=f309e31] [cursor=pointer]:
+                      - /url: https://adssettings.google.com/whythisad?source=display&reasons=AWUvr31lxPPrnYnZBA0Grl2YCD4kETxEX4J2cqBBhbhmID0wnIPf6YImUbYl7db9SzHY-DpHoK4IS2rYyq5ciE6025ttJjE8bxyEMqQ3uOnpVeASnKASaCm22Tsg2ydXI9D_Mh0jD3ZTzrHPWrZjV_N2uZhQrsWIrRa2zLCc94LDkzgIvi5Uvk022n90ImaIXvSqYCJQW5d7hKNInLRdKxj9RrAaj9Sr-wQ11SityvQngzC6TN0naaTc0lnMKvgsC8boobLJfccgqWKPbMw3cuG5mQDtEsFzj0081jEnMaV471ti-ONHcU-d3uTM4gah6nvg5T12uBv1vW-1fuRyrka82xWxqBE2D2I4t2SKVH3GGMcsN_tE5pHuH1lnv7GQxXCm88kVRxQAW2DKw0uBoN1cMaGOnHguJTfpLFHBHV13B9tslXMF1xgHnYLNxjncpEMrpEvPLiX0im12sVsD5JPfrkKuHZaGXbwylfiM4FqN2IVrndx1xbAPxJMUotZbi2W3G9MJ987CtU5YLC-VBDQUFoqrgCuL6Z4TL2ifp4QXRK43dmdZpmq5vxkJOOXta9AFvrj2viVggg8LcVB5ZwX7X7384z0IzNZAeYUfG0WzAqZNsPaUVfk3MkCdzSWcUIy-xxWypnMNdEQ6CesqY6qJJjD5UUUaREHUTJML6JWXe4IFIIRkUEQuNRbrpQreAaR1A9nMawgGktZ2gB_1IZsMx3-ru8qYDUv3qXA5QyatohvjT9m_RzfA7F6OmK2sHnVWnfC2N1041GjPHM-GaeamVR1F2vrvmW4In3pfMi0VoHTrzy0H2LHAZ6jViuq8gdftPCDWj53v0elgc7wUMi4eaVJfJVAw0YDOikguY75Tx1lyS-9qFYHf4ljqvhKxCvHEonelCCLYqZ28tcuaFlzHYfTyQOjsMsSeGlzNnrg2gVitKm8C1bVT2OV4x0urwJDdHGwDJ2gK_53vE7dZQduYXOnCg6dmUn6Ggx9v4Necjbw1EeH_pDqq3BqnYhUnZyr8_dOTYjtF1dTE_1GxW3Mw5SPB088tweyJOEvqZsMw8G58A8qaHAt0mTukzDLITXJp7jw42J_jAv6CnwjvbNWgwrgPR9SZffeHB01aQaUOsp9OZ6oOZLHiw6U6xmTh8qCf191rsTV1mhDR-11DRbT5jAY8xA3flIg06ULPITHUVQ0z6amJMeTZgcBNfQ5GWDnAt0zQkrEYyFnHiJU4IBY6NY1d4ubeAvXJo-hwMovN2Icnl14UC1N7aitnQV2hsc7wqkj-n_CDTKaENDpqwydtviqT7UBwoo-wBI6SrIQuS93bUyy-XRQDAooW_GMFfghP_MG4uSRM5JntDPoOeFCjfy-9iZzP3RJhK1sLEwa8DMjnX3ccG-S7yEekKrY2rd8--pOjR5T1KXST2CX10EIIly0nEC3J3q7sLID0zUov_lcQPS1EBpSA4nKjPZW725afyw60m3voQJjKm9u_tIDoag0KPwsdUoK8fFlSuzA69t08PHs87vmay9B_MG56AdJ2JOVNiwPY9H8ntiIJfBsmZ52zxoa_WmxwWczvgcDbCPumfQ9ni8UhHttv58Rfbqxv7s3cl2afIG3BL0jDOQZCf4lRARDPB0O0PeZhh3zkWifpEq9abrUFhM3qxk-YaWvRUSgfbIu6WB3joVn5glCp5jTWczE658Z54ehtMajvMucL3fBntsIDbqkfD3hWJ9qJ3l3_teieQFOP-4VXMfX5XBc284G5WG2-sPz4SzjYrIDZShk6USeLtsJ2LwGx5m_sgVSHhKTELGuDOPv8xbyPtWBhtwUF_yYNXW0-R4XkCZj2KZW0upBkURPl5jaQ5dQIWd_CPvQxK5cpZb_8czgLhCxCi1IGuzR07boXxlmGTnTd9fyhvG89gZtSigyNU9rsLxxsasbFiahHcr8pO7QHTLn9tCv6NTSIQT_84F95QsOl94_hQcrcW7-KMfa67l1JvBbP6SDwjdLxMzKFKT5M94CJXf3n0laxka91_l7_HvmFZk6hTG-srIGbDaZKmSaJ_kyVxPVLtPhKcT5dh2qCII7al4sn0iiFXvKysxQvvuum71Haq-HXy54O8fUUTnXBg090kz8EhRYuNNCn3AcYKpxKZwHz7qz7iOexc3kz4aaiHO20QxPMI2oJ94rRzUP8c1mv7lwOuY8ekxUcD4KUmVgU5EnQxRr3ha6p2JsN_AXrGjQ1mIcJ3c26GuwIcdfEJOEqSYvj0EY-6_ak5Q_JlJqyCghiEK-IZqK3yb7cs0TqMa4BwdfsM0_B0hEoIZCBhBPxrUSbBa2KdDzDFLYDBmR17S77fAEsepkHjLtJEtGm5uIyKMdw54CfY2ahEJKmGkZwF3eRsWbA8p4kAh6sILhPf_qsiroZ92RNAJNu_VMe14t1Nw1Qtej-XDiuTfyhGNtkfYakNnnSyI8efRvJEmDL_QXrmDUKMw9Elb2eJ2JH9zHWicSrD8YzEcefKU88hi-GEmQHwaPna3FOSHepVO51ru1oTS3JqrAgcgByVVqH9E4kkKSz_doTaaP1KMrdEBkEpsbqiRG9sDMBCL6OA4shuWE-3VQpge10PpbAQQE5Rcr_EQKaxAIeatoWreXjKg&opi=122715837
+                      - img [ref=f309e33]
+                  - img [ref=f309e36] [cursor=pointer]
+                  - generic [ref=f309e47]:
+                    - img [ref=f309e50]
+                    - generic [ref=f309e53]:
+                      - text: Ads by
+                      - img [ref=f309e54]
+                    - generic [ref=f309e57]:
+                      - generic [ref=f309e60] [cursor=pointer]: Send feedback
+                      - link [ref=f309e62] [cursor=pointer]:
+                        - /url: https://adssettings.google.com/whythisad?source=display&reasons=AWUvr31lxPPrnYnZBA0Grl2YCD4kETxEX4J2cqBBhbhmID0wnIPf6YImUbYl7db9SzHY-DpHoK4IS2rYyq5ciE6025ttJjE8bxyEMqQ3uOnpVeASnKASaCm22Tsg2ydXI9D_Mh0jD3ZTzrHPWrZjV_N2uZhQrsWIrRa2zLCc94LDkzgIvi5Uvk022n90ImaIXvSqYCJQW5d7hKNInLRdKxj9RrAaj9Sr-wQ11SityvQngzC6TN0naaTc0lnMKvgsC8boobLJfccgqWKPbMw3cuG5mQDtEsFzj0081jEnMaV471ti-ONHcU-d3uTM4gah6nvg5T12uBv1vW-1fuRyrka82xWxqBE2D2I4t2SKVH3GGMcsN_tE5pHuH1lnv7GQxXCm88kVRxQAW2DKw0uBoN1cMaGOnHguJTfpLFHBHV13B9tslXMF1xgHnYLNxjncpEMrpEvPLiX0im12sVsD5JPfrkKuHZaGXbwylfiM4FqN2IVrndx1xbAPxJMUotZbi2W3G9MJ987CtU5YLC-VBDQUFoqrgCuL6Z4TL2ifp4QXRK43dmdZpmq5vxkJOOXta9AFvrj2viVggg8LcVB5ZwX7X7384z0IzNZAeYUfG0WzAqZNsPaUVfk3MkCdzSWcUIy-xxWypnMNdEQ6CesqY6qJJjD5UUUaREHUTJML6JWXe4IFIIRkUEQuNRbrpQreAaR1A9nMawgGktZ2gB_1IZsMx3-ru8qYDUv3qXA5QyatohvjT9m_RzfA7F6OmK2sHnVWnfC2N1041GjPHM-GaeamVR1F2vrvmW4In3pfMi0VoHTrzy0H2LHAZ6jViuq8gdftPCDWj53v0elgc7wUMi4eaVJfJVAw0YDOikguY75Tx1lyS-9qFYHf4ljqvhKxCvHEonelCCLYqZ28tcuaFlzHYfTyQOjsMsSeGlzNnrg2gVitKm8C1bVT2OV4x0urwJDdHGwDJ2gK_53vE7dZQduYXOnCg6dmUn6Ggx9v4Necjbw1EeH_pDqq3BqnYhUnZyr8_dOTYjtF1dTE_1GxW3Mw5SPB088tweyJOEvqZsMw8G58A8qaHAt0mTukzDLITXJp7jw42J_jAv6CnwjvbNWgwrgPR9SZffeHB01aQaUOsp9OZ6oOZLHiw6U6xmTh8qCf191rsTV1mhDR-11DRbT5jAY8xA3flIg06ULPITHUVQ0z6amJMeTZgcBNfQ5GWDnAt0zQkrEYyFnHiJU4IBY6NY1d4ubeAvXJo-hwMovN2Icnl14UC1N7aitnQV2hsc7wqkj-n_CDTKaENDpqwydtviqT7UBwoo-wBI6SrIQuS93bUyy-XRQDAooW_GMFfghP_MG4uSRM5JntDPoOeFCjfy-9iZzP3RJhK1sLEwa8DMjnX3ccG-S7yEekKrY2rd8--pOjR5T1KXST2CX10EIIly0nEC3J3q7sLID0zUov_lcQPS1EBpSA4nKjPZW725afyw60m3voQJjKm9u_tIDoag0KPwsdUoK8fFlSuzA69t08PHs87vmay9B_MG56AdJ2JOVNiwPY9H8ntiIJfBsmZ52zxoa_WmxwWczvgcDbCPumfQ9ni8UhHttv58Rfbqxv7s3cl2afIG3BL0jDOQZCf4lRARDPB0O0PeZhh3zkWifpEq9abrUFhM3qxk-YaWvRUSgfbIu6WB3joVn5glCp5jTWczE658Z54ehtMajvMucL3fBntsIDbqkfD3hWJ9qJ3l3_teieQFOP-4VXMfX5XBc284G5WG2-sPz4SzjYrIDZShk6USeLtsJ2LwGx5m_sgVSHhKTELGuDOPv8xbyPtWBhtwUF_yYNXW0-R4XkCZj2KZW0upBkURPl5jaQ5dQIWd_CPvQxK5cpZb_8czgLhCxCi1IGuzR07boXxlmGTnTd9fyhvG89gZtSigyNU9rsLxxsasbFiahHcr8pO7QHTLn9tCv6NTSIQT_84F95QsOl94_hQcrcW7-KMfa67l1JvBbP6SDwjdLxMzKFKT5M94CJXf3n0laxka91_l7_HvmFZk6hTG-srIGbDaZKmSaJ_kyVxPVLtPhKcT5dh2qCII7al4sn0iiFXvKysxQvvuum71Haq-HXy54O8fUUTnXBg090kz8EhRYuNNCn3AcYKpxKZwHz7qz7iOexc3kz4aaiHO20QxPMI2oJ94rRzUP8c1mv7lwOuY8ekxUcD4KUmVgU5EnQxRr3ha6p2JsN_AXrGjQ1mIcJ3c26GuwIcdfEJOEqSYvj0EY-6_ak5Q_JlJqyCghiEK-IZqK3yb7cs0TqMa4BwdfsM0_B0hEoIZCBhBPxrUSbBa2KdDzDFLYDBmR17S77fAEsepkHjLtJEtGm5uIyKMdw54CfY2ahEJKmGkZwF3eRsWbA8p4kAh6sILhPf_qsiroZ92RNAJNu_VMe14t1Nw1Qtej-XDiuTfyhGNtkfYakNnnSyI8efRvJEmDL_QXrmDUKMw9Elb2eJ2JH9zHWicSrD8YzEcefKU88hi-GEmQHwaPna3FOSHepVO51ru1oTS3JqrAgcgByVVqH9E4kkKSz_doTaaP1KMrdEBkEpsbqiRG9sDMBCL6OA4shuWE-3VQpge10PpbAQQE5Rcr_EQKaxAIeatoWreXjKg&opi=122715837
+                        - generic [ref=f309e63]:
+                          - text: Why this ad?
+                          - img [ref=f309e64]
+                  - generic [ref=f309e67]:
+                    - generic [ref=f309e70] [cursor=pointer]: Seen this ad multiple times
+                    - generic [ref=f309e73] [cursor=pointer]: Ad covered content
+                    - generic [ref=f309e76] [cursor=pointer]: Ad was inappropriate
+                    - generic [ref=f309e79] [cursor=pointer]: Not interested in this ad
+                  - generic [ref=f309e85]: Thanks. Feedback improves Google ads
+                  - generic [ref=f309e91]:
+                    - text: Ad closed by
+                    - img [ref=f309e92]
+          - generic [ref=e202]:
+            - link [ref=e203] [cursor=pointer]:
+              - /url: /nba/story/_/id/47938515/giannis-antetokounmpo-addresses-bucks-commitment-title-drive
+            - generic [ref=e205]:
+              - 'link "Giannis: ''As of today, I''m committed'' to Bucks" [ref=e207] [cursor=pointer]':
+                - /url: /nba/story/_/id/47938515/giannis-antetokounmpo-addresses-bucks-commitment-title-drive
+              - generic [ref=e208]:
+                - link "Milwaukee Bucks" [ref=e210] [cursor=pointer]:
+                  - /url: /nba/team/_/name/mil/milwaukee-bucks
+                - text: 7h
+          - generic [ref=e211]:
+            - link [ref=e212] [cursor=pointer]:
+              - /url: /nba/story/_/id/47939125/celtics-jaylen-brown-toying-idea-ufc-boxing-nba
+            - generic [ref=e214]:
+              - link "Brown toying with idea of UFC, boxing after NBA" [ref=e216] [cursor=pointer]:
+                - /url: /nba/story/_/id/47939125/celtics-jaylen-brown-toying-idea-ufc-boxing-nba
+              - generic [ref=e217]:
+                - link "Boston Celtics" [ref=e219] [cursor=pointer]:
+                  - /url: /nba/team/_/name/bos/boston-celtics
+                - text: 6h - Brett Okamoto
+          - generic [ref=e220]:
+            - link [ref=e221] [cursor=pointer]:
+              - /url: /nba/story/_/id/47941093/lebron-james-says-unsure-play-24th-season
+            - generic [ref=e223]:
+              - 'link "LeBron: Still unsure about future past this year" [ref=e225] [cursor=pointer]':
+                - /url: /nba/story/_/id/47941093/lebron-james-says-unsure-play-24th-season
+              - generic [ref=e226]:
+                - link "Los Angeles Lakers" [ref=e228] [cursor=pointer]:
+                  - /url: /nba/team/_/name/lal/los-angeles-lakers
+                - text: 3h - Dave McMenamin
+          - generic [ref=e229]:
+            - link [ref=e230] [cursor=pointer]:
+              - /url: /nba/story/_/id/47932930/lillard-returns-win-record-tying-third-3-point-shootout
+            - generic [ref=e232]:
+              - link "Dame claims 3rd title; Johnson wins dunk contest" [ref=e234] [cursor=pointer]:
+                - /url: /nba/story/_/id/47932930/lillard-returns-win-record-tying-third-3-point-shootout
+              - generic [ref=e235]:
+                - link "Portland Trail Blazers" [ref=e237] [cursor=pointer]:
+                  - /url: /nba/team/_/name/por/portland-trail-blazers
+                - text: 1d - Dave McMenamin
+          - generic [ref=e238]:
+            - link [ref=e239] [cursor=pointer]:
+              - /url: /nba/story/_/id/47932615/silver-considering-all-remedies-rampant-tanking-nba
+            - generic [ref=e241]:
+              - link "Silver considering all fixes for NBA's tanking issue" [ref=e243] [cursor=pointer]:
+                - /url: /nba/story/_/id/47932615/silver-considering-all-remedies-rampant-tanking-nba
+              - generic [ref=e244]: 1d - Ramona Shelburne
+          - generic [ref=e245]:
+            - link [ref=e246] [cursor=pointer]:
+              - /url: /nba/story/_/id/47931443/suns-agree-multiyear-deal-free-agent-highsmith
+            - generic [ref=e248]:
+              - link "Suns agree to deal with free agent Highsmith" [ref=e250] [cursor=pointer]:
+                - /url: /nba/story/_/id/47931443/suns-agree-multiyear-deal-free-agent-highsmith
+              - generic [ref=e251]:
+                - link "Phoenix Suns" [ref=e253] [cursor=pointer]:
+                  - /url: /nba/team/_/name/phx/phoenix-suns
+                - text: 1d - Shams Charania
+          - generic [ref=e254]:
+            - link [ref=e255] [cursor=pointer]:
+              - /url: /nba/story/_/id/47920879/chris-paul-announces-retirement-nba-21-seasons
+            - generic [ref=e257]:
+              - link "Paul announces NBA retirement after 21 seasons" [ref=e259] [cursor=pointer]:
+                - /url: /nba/story/_/id/47920879/chris-paul-announces-retirement-nba-21-seasons
+              - generic [ref=e260]:
+                - link "LA Clippers" [ref=e262] [cursor=pointer]:
+                  - /url: /nba/team/_/name/lac/la-clippers
+                - text: 2d
+          - generic [ref=e263]:
+            - link [ref=e264] [cursor=pointer]:
+              - /url: /nba/story/_/id/47890213/nba-power-rankings-all-30-teams-all-star-break-post-trade-deadline
+            - generic [ref=e266]:
+              - 'link "NBA Power Rankings: Where all 30 teams stack up after the trade deadline" [ref=e268] [cursor=pointer]':
+                - /url: /nba/story/_/id/47890213/nba-power-rankings-all-30-teams-all-star-break-post-trade-deadline
+              - generic [ref=e269]:
+                - link "Washington Wizards" [ref=e271] [cursor=pointer]:
+                  - /url: /nba/team/_/name/wsh/washington-wizards
+                - text: 5d - NBA insiders
+          - generic [ref=e272]:
+            - link [ref=e273] [cursor=pointer]:
+              - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+            - generic [ref=e275]:
+              - 'link "Slam dunks, global games, emerging stars: The biggest takeaways from All-Star Weekend" [ref=e277] [cursor=pointer]':
+                - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+              - generic [ref=e278]: 11m - NBA insiders
+          - generic [ref=e279]:
+            - link [ref=e280] [cursor=pointer]:
+              - /url: /nba/story/_/id/47910623/language-basketball-how-international-nba-players-think-game
+            - generic [ref=e282]:
+              - 'link "The language of basketball: How international NBA players think about the game" [ref=e284] [cursor=pointer]':
+                - /url: /nba/story/_/id/47910623/language-basketball-how-international-nba-players-think-game
+              - generic [ref=e285]: 3d - Tim MacMahon
+          - generic [ref=e286]:
+            - link [ref=e287] [cursor=pointer]:
+              - /url: /nba/story/_/id/47912061/all-star-2026-los-angeles-best-high-school-players-lamelo-lonzo-ball-james-harden-klay-thompson
+            - generic [ref=e289]:
+              - 'link "LaMelo to DeMar: Which L.A. NBA stars would''ve made an All-Star roster in high school?" [ref=e291] [cursor=pointer]':
+                - /url: /nba/story/_/id/47912061/all-star-2026-los-angeles-best-high-school-players-lamelo-lonzo-ball-james-harden-klay-thompson
+              - generic [ref=e292]: 6h - Jason Jordan
+          - generic [ref=e293]:
+            - link [ref=e294] [cursor=pointer]:
+              - /url: /nba/story/_/id/47910957/slam-dunk-champ-g-league-nba
+            - generic [ref=e296]:
+              - 'link "Beyond dunking: Mac McClung''s quest for full NBA roster status" [ref=e298] [cursor=pointer]':
+                - /url: /nba/story/_/id/47910957/slam-dunk-champ-g-league-nba
+              - generic [ref=e299]:
+                - link "Orlando Magic" [ref=e301] [cursor=pointer]:
+                  - /url: /nba/team/_/name/orl/orlando-magic
+                - text: 3d - Anthony Olivieri
+          - generic [ref=e302]:
+            - link [ref=e303] [cursor=pointer]:
+              - /url: /nba/story/_/id/47316812/inside-ugly-chris-paul-la-clippers-divorce-nba-season-disaster-end-kawhi-leonard-era
+            - generic [ref=e305]:
+              - link "Inside the ugly Chris Paul-Clippers divorce -- and a season on the brink of disaster" [ref=e307] [cursor=pointer]:
+                - /url: /nba/story/_/id/47316812/inside-ugly-chris-paul-la-clippers-divorce-nba-season-disaster-end-kawhi-leonard-era
+              - generic [ref=e308]:
+                - link "LA Clippers" [ref=e310] [cursor=pointer]:
+                  - /url: /nba/team/_/name/lac/la-clippers
+                - text: 2d - Ramona Shelburne
+          - generic [ref=e311]:
+            - link [ref=e312] [cursor=pointer]:
+              - /url: /nba/story/_/id/47886508/nba-playoff-race-questions-2026-eastern-conference-cavs-favorites-harden-celtics-pistons-knicks
+            - generic [ref=e314]:
+              - 'link "Six big questions on the East playoff race: Does James Harden make the Cavs the favorites?" [ref=e316] [cursor=pointer]':
+                - /url: /nba/story/_/id/47886508/nba-playoff-race-questions-2026-eastern-conference-cavs-favorites-harden-celtics-pistons-knicks
+              - generic [ref=e317]:
+                - link "New York Knicks" [ref=e319] [cursor=pointer]:
+                  - /url: /nba/team/_/name/ny/new-york-knicks
+                - text: 5d - Tim Bontemps and Vincent Goodwill
+          - generic [ref=e320]:
+            - link [ref=e321] [cursor=pointer]:
+              - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+            - generic [ref=e323]:
+              - 'link "Slam dunks, global games, emerging stars: The biggest takeaways from All-Star Weekend" [ref=e325] [cursor=pointer]':
+                - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+              - generic [ref=e326]: 12m - NBA insiders
+          - generic [ref=e327]:
+            - link [ref=e328] [cursor=pointer]:
+              - /url: /nba/story/_/id/47900664/nba-all-star-weekend-2026-live-updates-results-highlights
+            - generic [ref=e330]:
+              - 'link "NBA All-Star 2026: Team Stripes vs. Team World playing in Game 2" [ref=e332] [cursor=pointer]':
+                - /url: /nba/story/_/id/47900664/nba-all-star-weekend-2026-live-updates-results-highlights
+              - generic [ref=e333]:
+                - link "Washington Wizards" [ref=e335] [cursor=pointer]:
+                  - /url: /nba/team/_/name/wsh/washington-wizards
+                - text: 9m - ESPN staff
+          - generic [ref=e336]:
+            - link [ref=e337] [cursor=pointer]:
+              - /url: /nba/story/_/id/47942171/stephen-curry-make-return-3-point-contest-2027
+            - generic [ref=e339]:
+              - link "Curry to make return to 3-point contest in 2027" [ref=e341] [cursor=pointer]:
+                - /url: /nba/story/_/id/47942171/stephen-curry-make-return-3-point-contest-2027
+              - generic [ref=e342]:
+                - link "Golden State Warriors" [ref=e344] [cursor=pointer]:
+                  - /url: /nba/team/_/name/gs/golden-state-warriors
+                - text: 46m - Vincent Goodwill
+          - generic [ref=e345]:
+            - link [ref=e346] [cursor=pointer]:
+              - /url: /nba/story/_/id/47941093/lebron-james-says-unsure-play-24th-season
+            - generic [ref=e348]:
+              - 'link "LeBron: Still unsure about future past this year" [ref=e350] [cursor=pointer]':
+                - /url: /nba/story/_/id/47941093/lebron-james-says-unsure-play-24th-season
+              - generic [ref=e351]:
+                - link "Los Angeles Lakers" [ref=e353] [cursor=pointer]:
+                  - /url: /nba/team/_/name/lal/los-angeles-lakers
+                - text: 3h - Dave McMenamin
+          - generic [ref=e354]:
+            - link [ref=e355] [cursor=pointer]:
+              - /url: /nba/story/_/id/47912061/all-star-2026-los-angeles-best-high-school-players-lamelo-lonzo-ball-james-harden-klay-thompson
+            - generic [ref=e357]:
+              - 'link "LaMelo to DeMar: Which L.A. NBA stars would''ve made an All-Star roster in high school?" [ref=e359] [cursor=pointer]':
+                - /url: /nba/story/_/id/47912061/all-star-2026-los-angeles-best-high-school-players-lamelo-lonzo-ball-james-harden-klay-thompson
+              - generic [ref=e360]: 6h - Jason Jordan
+          - generic [ref=e361]:
+            - link [ref=e362] [cursor=pointer]:
+              - /url: /nba/story/_/id/47939125/celtics-jaylen-brown-toying-idea-ufc-boxing-nba
+            - generic [ref=e364]:
+              - link "Brown toying with idea of UFC, boxing after NBA" [ref=e366] [cursor=pointer]:
+                - /url: /nba/story/_/id/47939125/celtics-jaylen-brown-toying-idea-ufc-boxing-nba
+              - generic [ref=e367]:
+                - link "Boston Celtics" [ref=e369] [cursor=pointer]:
+                  - /url: /nba/team/_/name/bos/boston-celtics
+                - text: 6h - Brett Okamoto
+          - generic [ref=e370]:
+            - link [ref=e371] [cursor=pointer]:
+              - /url: /nba/story/_/id/47938515/giannis-antetokounmpo-addresses-bucks-commitment-title-drive
+            - generic [ref=e373]:
+              - 'link "Giannis: ''As of today, I''m committed'' to Bucks" [ref=e375] [cursor=pointer]':
+                - /url: /nba/story/_/id/47938515/giannis-antetokounmpo-addresses-bucks-commitment-title-drive
+              - generic [ref=e376]:
+                - link "Milwaukee Bucks" [ref=e378] [cursor=pointer]:
+                  - /url: /nba/team/_/name/mil/milwaukee-bucks
+                - text: 7h
+          - generic [ref=e379]:
+            - link [ref=e380] [cursor=pointer]:
+              - /url: /nba/story/_/id/47932930/lillard-returns-win-record-tying-third-3-point-shootout
+            - generic [ref=e382]:
+              - link "Dame claims 3rd title; Johnson wins dunk contest" [ref=e384] [cursor=pointer]:
+                - /url: /nba/story/_/id/47932930/lillard-returns-win-record-tying-third-3-point-shootout
+              - generic [ref=e385]:
+                - link "Portland Trail Blazers" [ref=e387] [cursor=pointer]:
+                  - /url: /nba/team/_/name/por/portland-trail-blazers
+                - text: 1d - Dave McMenamin
+          - generic [ref=e388]:
+            - link [ref=e389] [cursor=pointer]:
+              - /url: /nba/story/_/id/47932809/wembanyama-vows-bring-competitiveness-all-star-game
+            - generic [ref=e391]:
+              - link "Wemby vows to set competitive tone at ASG" [ref=e393] [cursor=pointer]:
+                - /url: /nba/story/_/id/47932809/wembanyama-vows-bring-competitiveness-all-star-game
+              - generic [ref=e394]: 1d - Dave McMenamin
+          - generic [ref=e395]:
+            - link [ref=e396] [cursor=pointer]:
+              - /url: /nba/story/_/id/47932615/silver-considering-all-remedies-rampant-tanking-nba
+            - generic [ref=e398]:
+              - link "Silver considering all fixes for NBA's tanking issue" [ref=e400] [cursor=pointer]:
+                - /url: /nba/story/_/id/47932615/silver-considering-all-remedies-rampant-tanking-nba
+              - generic [ref=e401]: 1d - Ramona Shelburne
+        - article [ref=e403]:
+          - generic [ref=e404]:
+            - 'heading "NBA All-Star 2026: Live updates, highlights through the weekend" [level=1] [ref=e406]'
+            - figure [ref=e407]:
+              - img [ref=e409]
+              - generic [ref=e410]: Jesse D. Garrabrant/NBAE via Getty Images
+            - generic [ref=e411]:
+              - list [ref=e414]:
+                - listitem [ref=e415]:
+                  - generic [ref=e417]:
+                    - text: ESPN staff
+                    - generic [ref=e418]: Feb 15, 2026, 06:36 PM ET
+              - generic [ref=e419]:  @ °
+              - paragraph [ref=e426]: The 2026 NBA All-Star Weekend has arrived with festivities occurring throughout Los Angeles.
+              - complementary [ref=e427]:
+                - heading "Editor's Picks" [level=2] [ref=e428]
+                - list [ref=e429]:
+                  - listitem [ref=e430]:
+                    - link [ref=e431] [cursor=pointer]:
+                      - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                      - img [ref=e432]
+                    - 'heading "Slam dunks, global games, emerging stars: The biggest takeaways from All-Star Weekend NBA insiders" [level=2] [ref=e433]':
+                      - 'link "Slam dunks, global games, emerging stars: The biggest takeaways from All-Star Weekend" [ref=e434] [cursor=pointer]':
+                        - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                      - generic [ref=e435]: NBA insiders
+                  - listitem [ref=e436]:
+                    - link [ref=e437] [cursor=pointer]:
+                      - /url: /nba/story/_/id/47905452/kevin-durant-laughs-questions-nba-all-star-game-competition-takes-playful-jab-luka-doncic-nikola-jokic-world-team
+                      - img [ref=e438]
+                    - heading "KD laughs off ASG competition, jabs at Luka, Jokic Michael C. Wright" [level=2] [ref=e439]:
+                      - link "KD laughs off ASG competition, jabs at Luka, Jokic" [ref=e440] [cursor=pointer]:
+                        - /url: /nba/story/_/id/47905452/kevin-durant-laughs-questions-nba-all-star-game-competition-takes-playful-jab-luka-doncic-nikola-jokic-world-team
+                      - generic [ref=e441]: Michael C. Wright
+                  - listitem [ref=e442]:
+                    - link [ref=e443] [cursor=pointer]:
+                      - /url: /nba/story/_/id/47811191/nba-2026-all-star-game-weekend-uniform-courts-california
+                      - img [ref=e444]
+                    - heading "NBA 2026 All-Star Game uniforms and court unveiled, inspired by Los Angeles and new format Anthony Gharib" [level=2] [ref=e445]:
+                      - link "NBA 2026 All-Star Game uniforms and court unveiled, inspired by Los Angeles and new format" [ref=e446] [cursor=pointer]:
+                        - /url: /nba/story/_/id/47811191/nba-2026-all-star-game-weekend-uniform-courts-california
+                      - generic [ref=e447]: Anthony Gharib
+              - paragraph [ref=e448]: The league's best players will come together for the NBA All-Star Game on Sunday at Intuit Dome in Inglewood, California. This year marks the 75th annual All-Star Game -- and it will be unlike any other.
+              - paragraph [ref=e449]: The L.A. area has hosted the event a record seven times and last had it in 2018.
+              - paragraph [ref=e450]: Two teams of U.S. players will face one World team in a round-robin tournament with four 12-minute games. Each team has a minimum of eight players. Team A will play Team B in Game 1, and the winning team will meet Team C. The loser of Game 1 will face Team C in the penultimate game. The sides with the top two records will match up in the championship.
+              - paragraph [ref=e451]: All-Star Weekend tipped off Friday with the celebrity game at the Kia Forum in Inglewood. The Rising Stars followed at Intuit Dome with Team Vince defeating Team Melo to win the championship in a highly competitive game. The HBCU Classic between Hampton and North Carolina A&T's men's basketball teams ended the night at Kia Forum.
+              - paragraph [ref=e452]: On Saturday night, Keshad Johnson defeated Carter Bryant in the slam dunk contest, Damian Lillard edged Devin Booker to win the 3-point contest, and Team Knicks beat Team Cameron in the Shooting Stars competition.
+              - paragraph [ref=e453]: We'll have all the highlights and best moments from the weekend below.
+              - img [ref=e454]
+              - complementary [ref=e455]:
+                - iframe [ref=e456]:
+                  - generic [ref=f261e14]:
+                    - generic [ref=f261e15]:
+                      - article [ref=f261e18]:
+                        - generic [ref=f261e19]:
+                          - timer [ref=f261e24]:
+                            - generic [ref=f261e25]: 2 minutes ago
+                          - generic [ref=f261e27]:
+                            - heading "Wembanyama has an emphatic jam" [level=2] [ref=f261e29]
+                            - generic [ref=f261e31] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e32]:
+                                - paragraph [ref=f261e33]:
+                                  - text: An absolute RIM-ROCKER from Wemby 😮‍💨
+                                  - text: "It's WORLD vs. USA STRIPES on NBC & Peacock... watch here:"
+                                  - link "https://t.co/uaP8VtXA3D" [ref=f261e34]:
+                                    - /url: https://t.co/uaP8VtXA3D
+                                  - link "pic.twitter.com/DQo0GZUBzX" [ref=f261e35]:
+                                    - /url: https://t.co/DQo0GZUBzX
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e36]:
+                                  - /url: https://twitter.com/NBA/status/2023182937676714198?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e39]:
+                              - generic [ref=f261e42] [cursor=pointer]: "0"
+                              - generic [ref=f261e45] [cursor=pointer]: "0"
+                      - article [ref=f261e48]:
+                        - generic [ref=f261e49]:
+                          - timer [ref=f261e54]:
+                            - generic [ref=f261e55]: 9 minutes ago
+                          - generic [ref=f261e57]:
+                            - heading "The implications of a Team World win vs. Team Stripes" [level=2] [ref=f261e59]
+                            - paragraph [ref=f261e61]: "With Team Stripes 1-0, Team Stars 1-1 and Team World 0-1, a victory for Team World in Game 3 would mean all three teams would have a 1-1 record. In that scenario, according to the NBA, the three teams will be ranked using the following criteria: record, point differential, total points and random drawing."
+                            - blockquote [ref=f261e64] [cursor=pointer]:
+                              - paragraph [ref=f261e65]:
+                                - text: Who will make the championship game??
+                                - text: "USA STARS: 1-1 (0 diff)"
+                                - text: "USA STRIPES: 1-0 (+2 diff)"
+                                - text: "WORLD: 0-1 (-2 diff)"
+                                - text: World advances with a 3+ point win vs. USA Stripes... USA Stripes advances with any win.
+                                - text: If World wins by 2, total points will determine which 2 teams advance.
+                              - text: — NBA (@NBA)
+                              - link "February 15, 2026" [ref=f261e66]:
+                                - /url: https://twitter.com/NBA/status/2023183452108116055?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e69]:
+                              - generic [ref=f261e72] [cursor=pointer]: "3"
+                              - generic [ref=f261e75] [cursor=pointer]: "3"
+                      - article [ref=f261e78]:
+                        - generic [ref=f261e79]:
+                          - timer [ref=f261e84]:
+                            - generic [ref=f261e85]: 18 minutes ago
+                          - generic [ref=f261e87]:
+                            - heading "De'Aaron Fox hits game-winner for Team Stripes" [level=2] [ref=f261e89]
+                            - generic [ref=f261e90]:
+                              - paragraph [ref=f261e91]: Coming off an overtime victory against Team World, Team Stars nearly came from behind to defeat Team Stripes and advance to the championship game. However, De'Aaron Fox hit the winning 3-pointer for a thrilling 42-40 victory. Team Stripes will now face Team World in Game 3, while Team Stars awaits its fate.
+                              - paragraph [ref=f261e92]
+                              - paragraph [ref=f261e93]: Jaylen Brown led Team Stripes with 11 points. Cade Cunningham and Anthony Edwards had 11 points each for Team Stars.
+                            - generic [ref=f261e95] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e96]:
+                                - paragraph [ref=f261e97]:
+                                  - text: WILD ENDING OF USA STARS/STRIPES!
+                                  - text: ANT LAY TO MAKE IT A 2-POINT GAME.
+                                  - text: ANT STEAL.
+                                  - text: ANT 3 FOR THE LEAD.
+                                  - text: FOX GAME-WINNER.
+                                  - text: USA STRIPES SECURES THE WIN 😱
+                                  - link "pic.twitter.com/EjQ74Twq9p" [ref=f261e98]:
+                                    - /url: https://t.co/EjQ74Twq9p
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e99]:
+                                  - /url: https://twitter.com/NBA/status/2023179158340137304?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e102]:
+                              - generic [ref=f261e105] [cursor=pointer]: "2"
+                              - generic [ref=f261e108] [cursor=pointer]: "0"
+                      - article [ref=f261e111]:
+                        - generic [ref=f261e112]:
+                          - timer [ref=f261e117]:
+                            - generic [ref=f261e118]: 34 minutes ago
+                          - generic [ref=f261e120]:
+                            - heading "Kyrie and Brandy share a moment courtside" [level=2] [ref=f261e122]
+                            - generic [ref=f261e124] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e125]:
+                                - paragraph [ref=f261e126]:
+                                  - text: Kyrie Irving sitting with
+                                  - link "@4everBrandy" [ref=f261e127]:
+                                    - /url: https://twitter.com/4everBrandy?ref_src=twsrc%5Etfw
+                                  - text: for the 2026 NBA All-Star Game 🤩
+                                  - link "pic.twitter.com/8BHQzvqf66" [ref=f261e128]:
+                                    - /url: https://t.co/8BHQzvqf66
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e129]:
+                                  - /url: https://twitter.com/NBA/status/2023174691280535597?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e132]:
+                              - generic [ref=f261e135] [cursor=pointer]: "1"
+                              - generic [ref=f261e138] [cursor=pointer]: "0"
+                      - article [ref=f261e141]:
+                        - generic [ref=f261e142]:
+                          - timer [ref=f261e147]:
+                            - generic [ref=f261e148]: 37 minutes ago
+                          - generic [ref=f261e150]:
+                            - heading "Takeaways from Team Stars vs. Team World" [level=2] [ref=f261e152]
+                            - generic [ref=f261e155] [cursor=pointer]:
+                              - generic [ref=f261e156]:
+                                - link "Takeaways from Team Stars vs. Team World ESPN" [ref=f261e157]:
+                                  - /url: https://www.espn.com
+                                  - img "Takeaways from Team Stars vs. Team World" [ref=f261e160]
+                                  - generic [ref=f261e161]: ESPN
+                                - link "Takeaways from Team Stars vs. Team World" [ref=f261e162]:
+                                  - /url: https://www.espn.com/nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                                  - img "Takeaways from Team Stars vs. Team World" [ref=f261e164]
+                              - 'link "2026 NBA All-Star Weekend takeaways: Dunks, stars and more" [ref=f261e165]':
+                                - /url: https://www.espn.com/nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                              - generic [ref=f261e166]: Our experts break down what to watch over the 2026 NBA All-Star Weekend and their picks for contests, competitions and more.
+                              - link "Read the article on https://www.espn.com" [ref=f261e168]:
+                                - /url: https://www.espn.com/nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                            - generic [ref=f261e171]:
+                              - generic [ref=f261e174] [cursor=pointer]: "0"
+                              - generic [ref=f261e177] [cursor=pointer]: "0"
+                      - article [ref=f261e180]:
+                        - generic [ref=f261e181]:
+                          - timer [ref=f261e186]:
+                            - generic [ref=f261e187]: 40 minutes ago
+                          - generic [ref=f261e189]:
+                            - heading "Team Stripes splashing from deep" [level=2] [ref=f261e191]
+                            - generic [ref=f261e193] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e194]:
+                                - paragraph [ref=f261e195]:
+                                  - text: LBJ 3.
+                                  - text: Kawhi 3.
+                                  - text: USA Stripes hitting from downtown on NBC & Peacock 🫡
+                                  - link "pic.twitter.com/AKcNRPfzyL" [ref=f261e196]:
+                                    - /url: https://t.co/AKcNRPfzyL
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e197]:
+                                  - /url: https://twitter.com/NBA/status/2023173279557595492?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e200]:
+                              - generic [ref=f261e203] [cursor=pointer]: "3"
+                              - generic [ref=f261e206] [cursor=pointer]: "0"
+                      - article [ref=f261e209]:
+                        - generic [ref=f261e210]:
+                          - timer [ref=f261e215]:
+                            - generic [ref=f261e216]: an hour ago
+                          - generic [ref=f261e218]:
+                            - heading "Team Stars defeats Team World in overtime" [level=2] [ref=f261e220]
+                            - generic [ref=f261e221]:
+                              - paragraph [ref=f261e222]: The first game of the NBA's newly formed All-Star Game format delivered as Team Stars won 37-35 in a competitive battle. Team World held a three-point lead with 28.4 seconds remaining, but Anthony Edwards tied the score, giving Team World the ball back with 13 seconds remaining. However, Team Stars got the stop to force overtime, which was won by the first team to score five points.
+                              - paragraph [ref=f261e223]
+                              - paragraph [ref=f261e224]: Stars won the extra period 5-2 after baskets from Edwards and Scottie Barnes. They will now face Team Stripes in Game 2, while Team World will face Team Stars in Game 3. Edwards led Team Stars with 13 points, while Victor Wembanyama had a game-high 14 points for Team World.
+                            - generic [ref=f261e226] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e227]:
+                                - paragraph [ref=f261e228]:
+                                  - text: SCOTTIE BARNES WINS IT FOR USA STARS.
+                                  - text: USA STARS VS. USA STRIPES COMING UP NEXT ON NBC & PEACOCK 🍿
+                                  - text: "Tap to watch:"
+                                  - link "https://t.co/UOPqgMKbFu" [ref=f261e229]:
+                                    - /url: https://t.co/UOPqgMKbFu
+                                  - link "pic.twitter.com/IokO8Nhvg0" [ref=f261e230]:
+                                    - /url: https://t.co/IokO8Nhvg0
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e231]:
+                                  - /url: https://twitter.com/NBA/status/2023169491983651223?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e234]:
+                              - generic [ref=f261e237] [cursor=pointer]: "2"
+                              - generic [ref=f261e240] [cursor=pointer]: "1"
+                      - article [ref=f261e243]:
+                        - generic [ref=f261e244]:
+                          - timer [ref=f261e249]:
+                            - generic [ref=f261e250]: an hour ago
+                          - generic [ref=f261e252]:
+                            - heading "Anthony Edwards nails 3-pointer, Team Stars gets stop to force OT" [level=2] [ref=f261e254]
+                            - generic [ref=f261e256] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e257]:
+                                - paragraph [ref=f261e258]:
+                                  - text: ANT TIES THE GAME AT 32.
+                                  - text: WE ARE HEADED TO OVERTIME IN USA STARS/WORLD!
+                                  - link "pic.twitter.com/mKHt7ACFdu" [ref=f261e259]:
+                                    - /url: https://t.co/mKHt7ACFdu
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e260]:
+                                  - /url: https://twitter.com/NBA/status/2023168585900671455?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e263]:
+                              - generic [ref=f261e266] [cursor=pointer]: "0"
+                              - generic [ref=f261e269] [cursor=pointer]: "1"
+                      - article [ref=f261e272]:
+                        - generic [ref=f261e273]:
+                          - timer [ref=f261e278]:
+                            - generic [ref=f261e279]: an hour ago
+                          - generic [ref=f261e281]:
+                            - heading "Defense turns into offense for Team World" [level=2] [ref=f261e283]
+                            - generic [ref=f261e285] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e286]:
+                                - paragraph [ref=f261e287]:
+                                  - text: THIS WORLD SEQUENCE 😳
+                                  - text: WEMBY SWAT.
+                                  - text: KAT JAM.
+                                  - text: WORLD LEADS 30-29 WITH UNDER 40 SECONDS TO GO!
+                                  - link "pic.twitter.com/AoUo3nsHYp" [ref=f261e288]:
+                                    - /url: https://t.co/AoUo3nsHYp
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e289]:
+                                  - /url: https://twitter.com/NBA/status/2023167738399650261?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e292]:
+                              - generic [ref=f261e295] [cursor=pointer]: "1"
+                              - generic [ref=f261e298] [cursor=pointer]: "1"
+                      - article [ref=f261e301]:
+                        - generic [ref=f261e302]:
+                          - timer [ref=f261e307]:
+                            - generic [ref=f261e308]: an hour ago
+                          - generic [ref=f261e310]:
+                            - heading "A triple from KAT caps off big Team World run" [level=2] [ref=f261e312]
+                            - generic [ref=f261e314] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e315]:
+                                - paragraph [ref=f261e316]:
+                                  - text: A pair of DEEP TRIPLES by Karl-Anthony Towns!
+                                  - text: The World is on a 14-2 run on NBC and Peacock 👌
+                                  - link "pic.twitter.com/9gcFgJ7SCX" [ref=f261e317]:
+                                    - /url: https://t.co/9gcFgJ7SCX
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e318]:
+                                  - /url: https://twitter.com/NBA/status/2023165545210663201?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e321]:
+                              - generic [ref=f261e324] [cursor=pointer]: "0"
+                              - generic [ref=f261e327] [cursor=pointer]: "2"
+                      - article [ref=f261e330]:
+                        - generic [ref=f261e331]:
+                          - timer [ref=f261e336]:
+                            - generic [ref=f261e337]: an hour ago
+                          - generic [ref=f261e339]:
+                            - heading "Team World and Stars trading baskets early" [level=2] [ref=f261e341]
+                            - generic [ref=f261e343] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e344]:
+                                - paragraph [ref=f261e345]:
+                                  - text: Wemby with the DUNK.
+                                  - text: Ant with the THREE.
+                                  - text: Back-and-forth action early on NBC and Peacock 👀
+                                  - link "https://t.co/w9kuEjpLuk" [ref=f261e346]:
+                                    - /url: https://t.co/w9kuEjpLuk
+                                  - link "pic.twitter.com/fbidgRWPSQ" [ref=f261e347]:
+                                    - /url: https://t.co/fbidgRWPSQ
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e348]:
+                                  - /url: https://twitter.com/NBA/status/2023162825191850154?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e351]:
+                              - generic [ref=f261e354] [cursor=pointer]: "1"
+                              - generic [ref=f261e357] [cursor=pointer]: "1"
+                      - article [ref=f261e360]:
+                        - generic [ref=f261e361]:
+                          - timer [ref=f261e366]:
+                            - generic [ref=f261e367]: an hour ago
+                          - generic [ref=f261e369]:
+                            - heading "Wembanyama off to a hot start" [level=2] [ref=f261e371]
+                            - paragraph [ref=f261e373]:
+                              - text: During All-Star media availability on Saturday, Victor Wembanyama
+                              - link "said" [ref=f261e374] [cursor=pointer]:
+                                - /url: https://www.espn.com/nba/story/_/id/47932809/wembanyama-vows-bring-competitiveness-all-star-game
+                              - text: that he vowed to set a competitive tone for the game and he did exactly that, scoring the first seven points for Team World.
+                            - generic [ref=f261e376] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e377]:
+                                - paragraph [ref=f261e378]:
+                                  - text: WEMBY OPENS WITH WORLD'S FIRST 7 POINTS!
+                                  - text: "Tap to watch USA Stars vs. World:"
+                                  - link "https://t.co/t0WVYcJqXi" [ref=f261e379]:
+                                    - /url: https://t.co/t0WVYcJqXi
+                                - text: "— #NBAAllStar (@NBAAllStar)"
+                                - link "February 15, 2026" [ref=f261e380]:
+                                  - /url: https://twitter.com/NBAAllStar/status/2023161629974966643?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e383]:
+                              - generic [ref=f261e386] [cursor=pointer]: "1"
+                              - generic [ref=f261e389] [cursor=pointer]: "3"
+                      - article [ref=f261e392]:
+                        - generic [ref=f261e393]:
+                          - timer [ref=f261e398]:
+                            - generic [ref=f261e399]: 2 hours ago
+                          - generic [ref=f261e401]:
+                            - heading "Team World vs. Team Stars is underway" [level=2] [ref=f261e403]
+                            - generic [ref=f261e405] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e406]:
+                                - paragraph [ref=f261e407]:
+                                  - text: THE WORLD ROSTER 🤩
+                                  - text: "They'll open NBA All-Star 2026 vs. USA STARS... watch here:"
+                                  - link "https://t.co/bYalInRFVZ" [ref=f261e408]:
+                                    - /url: https://t.co/bYalInRFVZ
+                                  - link "pic.twitter.com/xsVaq1dRlv" [ref=f261e409]:
+                                    - /url: https://t.co/xsVaq1dRlv
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e410]:
+                                  - /url: https://twitter.com/NBA/status/2023160019244511588?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e413]:
+                              - generic [ref=f261e416] [cursor=pointer]: "1"
+                              - generic [ref=f261e419] [cursor=pointer]: "2"
+                      - article [ref=f261e422]:
+                        - generic [ref=f261e423]:
+                          - timer [ref=f261e428]:
+                            - generic [ref=f261e429]: 2 hours ago
+                          - generic [ref=f261e431]:
+                            - heading "Curry announces he'll compete in the 3-point contest next year" [level=2] [ref=f261e433]
+                            - generic [ref=f261e435] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e436]:
+                                - paragraph [ref=f261e437]:
+                                  - text: STEPH TO NEXT YEAR'S
+                                  - link "@StateFarm" [ref=f261e438]:
+                                    - /url: https://twitter.com/StateFarm?ref_src=twsrc%5Etfw
+                                  - text: NBA 3-POINT CONTEST??
+                                  - text: Listen to the man himself give his answer 🤯👌
+                                  - link "pic.twitter.com/9fqjmwBpiE" [ref=f261e439]:
+                                    - /url: https://t.co/9fqjmwBpiE
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e440]:
+                                  - /url: https://twitter.com/NBA/status/2023157111304180154?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e443]:
+                              - generic [ref=f261e446] [cursor=pointer]: "10"
+                              - generic [ref=f261e449] [cursor=pointer]: "4"
+                      - article [ref=f261e452]:
+                        - generic [ref=f261e453]:
+                          - timer [ref=f261e458]:
+                            - generic [ref=f261e459]: 2 hours ago
+                          - generic [ref=f261e461]:
+                            - heading "NBA All-Stars in the building" [level=2] [ref=f261e463]
+                            - generic [ref=f261e465] [cursor=pointer]:
+                              - generic:
+                                - iframe
+                              - blockquote [ref=f261e466]:
+                                - paragraph [ref=f261e467]:
+                                  - text: The 2026 NBA All-Stars are here 🤩
+                                  - link "pic.twitter.com/pNi7wNXRYN" [ref=f261e468]:
+                                    - /url: https://t.co/pNi7wNXRYN
+                                - text: — NBA (@NBA)
+                                - link "February 15, 2026" [ref=f261e469]:
+                                  - /url: https://twitter.com/NBA/status/2023150527476052379?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e472]:
+                              - generic [ref=f261e475] [cursor=pointer]: "4"
+                              - generic [ref=f261e478] [cursor=pointer]: "1"
+                      - article [ref=f261e481]:
+                        - generic [ref=f261e482]:
+                          - timer [ref=f261e487]:
+                            - generic [ref=f261e488]: 3 hours ago
+                          - generic [ref=f261e490]:
+                            - heading "Wembanyama meets Giannis' kids" [level=2] [ref=f261e492]
+                            - blockquote [ref=f261e495] [cursor=pointer]:
+                              - paragraph [ref=f261e496]:
+                                - text: "\"Hi Wemby!\" 🥹"
+                                - link "https://t.co/YDl4r5YrBI" [ref=f261e497]:
+                                  - /url: https://t.co/YDl4r5YrBI
+                                - link "pic.twitter.com/CwabvpV1eT" [ref=f261e498]:
+                                  - /url: https://t.co/CwabvpV1eT
+                              - text: — NBA (@NBA)
+                              - link "February 15, 2026" [ref=f261e499]:
+                                - /url: https://twitter.com/NBA/status/2023135383932789029?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e502]:
+                              - generic [ref=f261e505] [cursor=pointer]: "6"
+                              - generic [ref=f261e508] [cursor=pointer]: "1"
+                      - article [ref=f261e511]:
+                        - generic [ref=f261e512]:
+                          - timer [ref=f261e517]:
+                            - generic [ref=f261e518]: 3 hours ago
+                          - generic [ref=f261e520]:
+                            - heading "LeBron shares thoughts on All-Star Game format" [level=2] [ref=f261e522]
+                            - blockquote [ref=f261e525] [cursor=pointer]:
+                              - paragraph [ref=f261e526]:
+                                - text: LeBron says he prefers the standard East vs. West All-Star format 👀
+                                - link "pic.twitter.com/47WbyHVZWy" [ref=f261e527]:
+                                  - /url: https://t.co/47WbyHVZWy
+                              - text: — NBA on ESPN (@ESPNNBA)
+                              - link "February 15, 2026" [ref=f261e528]:
+                                - /url: https://twitter.com/ESPNNBA/status/2023130783318233314?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e531]:
+                              - generic [ref=f261e534] [cursor=pointer]: "3"
+                              - generic [ref=f261e537] [cursor=pointer]: "4"
+                      - article [ref=f261e540]:
+                        - generic [ref=f261e541]:
+                          - timer [ref=f261e546]:
+                            - generic [ref=f261e547]: 3 hours ago
+                          - generic [ref=f261e549]:
+                            - heading "Special uniform details for Team World" [level=2] [ref=f261e551]
+                            - blockquote [ref=f261e554] [cursor=pointer]:
+                              - paragraph [ref=f261e555]:
+                                - text: Representing WORLD in the 2026 NBA All-Star Game, each player has their country's flag on their jersey 🔥
+                                - text: Tune in on NBC & Peacock at 5pm/et!
+                                - link "pic.twitter.com/EhSTm7Nicj" [ref=f261e556]:
+                                  - /url: https://t.co/EhSTm7Nicj
+                              - text: — NBA (@NBA)
+                              - link "February 15, 2026" [ref=f261e557]:
+                                - /url: https://twitter.com/NBA/status/2023125879694467179?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e560]:
+                              - generic [ref=f261e563] [cursor=pointer]: "1"
+                              - generic [ref=f261e566] [cursor=pointer]: "1"
+                      - article [ref=f261e569]:
+                        - generic [ref=f261e570]:
+                          - timer [ref=f261e575]:
+                            - generic [ref=f261e576]: 3 hours ago
+                          - generic [ref=f261e578]:
+                            - heading "LeBron arrives for the All-Star Game" [level=2] [ref=f261e580]
+                            - blockquote [ref=f261e583] [cursor=pointer]:
+                              - paragraph [ref=f261e584]:
+                                - text: LeBron James is in the building for his NBA-record 22nd All-Star Game appearance 👏
+                                - text: Action tips off at 5pm/et on NBC & Peacock 🍿
+                                - link "pic.twitter.com/u6xOCsc7tR" [ref=f261e585]:
+                                  - /url: https://t.co/u6xOCsc7tR
+                              - text: — NBA (@NBA)
+                              - link "February 15, 2026" [ref=f261e586]:
+                                - /url: https://twitter.com/NBA/status/2023128294363676995?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e589]:
+                              - generic [ref=f261e592] [cursor=pointer]: "0"
+                              - generic [ref=f261e595] [cursor=pointer]: "3"
+                      - article [ref=f261e598]:
+                        - generic [ref=f261e599]:
+                          - timer [ref=f261e604]:
+                            - generic [ref=f261e605]: a day ago
+                          - generic [ref=f261e607]:
+                            - heading "Bryant can't quite pull off his final dunk, and Johnson wins it!" [level=2] [ref=f261e609]
+                            - blockquote [ref=f261e612] [cursor=pointer]:
+                              - paragraph [ref=f261e613]:
+                                - text: KESHAD JOHNSON IS YOUR 2026 SLAM DUNK CHAMPION 🏆
+                                - link "pic.twitter.com/4gbHZ9IEDg" [ref=f261e614]:
+                                  - /url: https://t.co/4gbHZ9IEDg
+                              - text: — NBA on ESPN (@ESPNNBA)
+                              - link "February 15, 2026" [ref=f261e615]:
+                                - /url: https://twitter.com/ESPNNBA/status/2022836267579318435?ref_src=twsrc%5Etfw
+                            - generic [ref=f261e618]:
+                              - generic [ref=f261e621] [cursor=pointer]: "9"
+                              - generic [ref=f261e624] [cursor=pointer]: "5"
+                    - link "Show More Posts" [ref=f261e625] [cursor=pointer]:
+                      - /url: https://go.arena.im/embed?publisher=espn-69077&event=BxrEsjh&v=2&consent=T&theme=light&startAfter=1771116428683
+            - generic [ref=e460]:
+              - list [ref=e461]:
+                - listitem [ref=e462]:
+                  - link "Terms of Use" [ref=e463] [cursor=pointer]:
+                    - /url: https://disneytermsofuse.com/english/
+                - listitem [ref=e464]:
+                  - link "Privacy Policy" [ref=e465] [cursor=pointer]:
+                    - /url: https://privacy.thewaltdisneycompany.com/en/current-privacy-policy/
+                - listitem [ref=e466]:
+                  - link "Your US State Privacy Rights" [ref=e467] [cursor=pointer]:
+                    - /url: https://privacy.thewaltdisneycompany.com/en/current-privacy-policy/your-us-state-privacy-rights/
+                - listitem [ref=e468]:
+                  - link "Children's Online Privacy Policy" [ref=e469] [cursor=pointer]:
+                    - /url: https://disneyprivacycenter.com/kids-privacy-policy/english/
+                - listitem [ref=e470]:
+                  - link "Interest-Based Ads" [ref=e471] [cursor=pointer]:
+                    - /url: https://privacy.thewaltdisneycompany.com/en/privacy-controls/online-tracking-and-advertising/
+                - listitem [ref=e472]:
+                  - link "About Nielsen Measurement" [ref=e473] [cursor=pointer]:
+                    - /url: http://www.nielsen.com/digitalprivacy
+                - listitem [ref=e474]:
+                  - link "Your Privacy Choices" [ref=e475] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e476]:
+                  - link "Contact Us" [ref=e477] [cursor=pointer]:
+                    - /url: https://www.espn.com/espn/news/story?page=contact-index
+                - listitem [ref=e478]:
+                  - link "Disney Ad Sales Site" [ref=e479] [cursor=pointer]:
+                    - /url: https://www.disneyadvertising.com/
+                - listitem [ref=e480]:
+                  - link "Work for ESPN" [ref=e481] [cursor=pointer]:
+                    - /url: https://jobs.disneycareers.com/espn
+                - listitem [ref=e482]:
+                  - link "Corrections" [ref=e483] [cursor=pointer]:
+                    - /url: https://www.espn.com/espn/corrections
+              - generic [ref=e484]: "GAMBLING PROBLEM? CALL 1-800-GAMBLER, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY). Please Gamble Responsibly. 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD). 21+ and present in most states. (18+ DC/KY/NH/WY). Void in ONT/OR/NH. Eligibility restrictions apply. On behalf of Boot Hill Casino & Resort (KS). Terms: sportsbook.draftkings.com/promos."
+              - generic [ref=e485]: "Copyright: © 2026 ESPN Enterprises, Inc. All rights reserved."
+  - text: desktop-lg

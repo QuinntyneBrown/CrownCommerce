@@ -1,0 +1,1356 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - region [ref=e4]:
+        - button "Skip to main content" [ref=e5] [cursor=pointer]
+        - button "Skip to navigation" [ref=e6] [cursor=pointer]
+        - generic [ref=e8]:
+          - generic [ref=e9]:
+            - text: 
+            - button "NBA " [ref=e11] [cursor=pointer]
+          - text:  
+          - button "Feb 15 " [ref=e14] [cursor=pointer]
+          - generic:  <
+          - link "Full Scoreboard »" [ref=e16] [cursor=pointer]:
+            - /url: https://www.espn.com/nba/scoreboard
+          - generic:  >
+          - list [ref=e18]:
+            - listitem [ref=e19]:
+              - generic [ref=e20]:
+                - link "6:45 NBC /Peacock WORLD 27 STRIPES 20" [ref=e22] [cursor=pointer]:
+                  - /url: /nba/game?gameId=401838142
+                  - generic [ref=e23]:
+                    - generic [ref=e24]: 6:45
+                    - generic [ref=e26]:
+                      - generic [ref=e27]: NBC
+                      - generic [ref=e28]: /Peacock
+                  - list [ref=e30]:
+                    - listitem [ref=e31]:
+                      - generic [ref=e33]:
+                        - generic [ref=e34]: WORLD
+                        - generic [ref=e35]: "27"
+                    - listitem [ref=e36]:
+                      - generic [ref=e38]:
+                        - generic [ref=e39]: STRIPES
+                        - generic [ref=e40]: "20"
+                - link "Final/OT WORLD 35 STARS 37" [ref=e42] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838140/world-team-stars
+                  - generic [ref=e44]: Final/OT
+                  - list [ref=e46]:
+                    - listitem [ref=e47]:
+                      - generic [ref=e49]:
+                        - generic [ref=e50]: WORLD
+                        - generic [ref=e51]: "35"
+                    - listitem [ref=e52]:
+                      - generic [ref=e54]:
+                        - generic [ref=e55]: STARS
+                        - generic [ref=e56]: "37"
+                - link "Final STARS 40 STRIPES 42" [ref=e58] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838141/team-stars-team-stripes
+                  - generic [ref=e60]: Final
+                  - list [ref=e62]:
+                    - listitem [ref=e63]:
+                      - generic [ref=e65]:
+                        - generic [ref=e66]: STARS
+                        - generic [ref=e67]: "40"
+                    - listitem [ref=e68]:
+                      - generic [ref=e70]:
+                        - generic [ref=e71]: STRIPES
+                        - generic [ref=e72]: "42"
+                - link "7:10 PM ET NBC /Peacock TBD TBD" [ref=e74] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838143
+                  - generic [ref=e75]:
+                    - generic [ref=e76]: 7:10 PM ET
+                    - generic [ref=e78]:
+                      - generic [ref=e79]: NBC
+                      - generic [ref=e80]: /Peacock
+                  - list [ref=e82]:
+                    - listitem [ref=e83]:
+                      - generic [ref=e85]: TBD
+                    - listitem [ref=e86]:
+                      - generic [ref=e88]: TBD
+      - banner [ref=e89]:
+        - generic:
+          - heading "ESPN" [level=2] [ref=e90]:
+            - link "ESPN" [ref=e91] [cursor=pointer]:
+              - /url: /
+          - list [ref=e92]:
+            - text: 
+            - listitem [ref=e93]:
+              - button "Open Search" [ref=e94] [cursor=pointer]: 
+              - generic:
+                - generic:
+                  - textbox "Search" [ref=e95]:
+                    - /placeholder: Search Sports, Teams or Players...
+                  - button "Submit" [ref=e96] [cursor=pointer]
+            - listitem [ref=e97]:
+              - link "Log In ≠" [ref=e831] [cursor=pointer]:
+                - /url: "#"
+            - listitem
+        - navigation [ref=e98]:
+          - list [ref=e99]:
+            - listitem [ref=e100]:
+              - link "NFL" [ref=e101] [cursor=pointer]:
+                - /url: /nfl/
+                - generic [ref=e102]: NFL
+              - text: 
+            - listitem [ref=e103]:
+              - link "NBA" [ref=e104] [cursor=pointer]:
+                - /url: /nba/
+                - generic [ref=e105]: NBA
+              - text: 
+            - listitem [ref=e106]:
+              - link "NCAAM" [ref=e107] [cursor=pointer]:
+                - /url: /mens-college-basketball/
+                - generic [ref=e108]: NCAAM
+              - text: 
+            - listitem [ref=e109]:
+              - link "NCAAW" [ref=e110] [cursor=pointer]:
+                - /url: /womens-college-basketball/
+                - generic [ref=e111]: NCAAW
+            - listitem [ref=e112]:
+              - link "Olympics" [ref=e113] [cursor=pointer]:
+                - /url: /olympics/
+                - generic [ref=e114]: Olympics
+              - text: 
+            - listitem [ref=e115]:
+              - link "NHL" [ref=e116] [cursor=pointer]:
+                - /url: /nhl/
+                - generic [ref=e117]: NHL
+            - listitem [ref=e118]:
+              - link "Soccer" [ref=e119] [cursor=pointer]:
+                - /url: /soccer/
+                - generic [ref=e120]: Soccer
+              - text: 
+            - listitem [ref=e121]:
+              - link "More Sports" [ref=e122] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e123]: More Sports
+              - text: 
+            - listitem:
+              - link:
+                - /url: "#"
+            - listitem [ref=e124]:
+              - link " Where to Watch" [ref=e125] [cursor=pointer]:
+                - /url: http://www.espn.com/where-to-watch/
+                - generic [ref=e126]:  Where to Watch
+            - listitem [ref=e127]:
+              - link "Fantasy" [ref=e128] [cursor=pointer]:
+                - /url: /fantasy/
+                - img [ref=e130]
+                - generic [ref=e131]: Fantasy
+            - listitem [ref=e132]:
+              - link "Watch" [ref=e133] [cursor=pointer]:
+                - /url: http://www.espn.com/watch/
+                - img [ref=e135]
+                - generic [ref=e136]: Watch
+        - navigation [ref=e137]:
+          - list [ref=e139]:
+            - listitem [ref=e140]:
+              - link "NBA NBA" [ref=e142] [cursor=pointer]:
+                - /url: /nba/
+                - img "NBA" [ref=e144]
+                - generic [ref=e145]: NBA
+            - listitem [ref=e146]:
+              - link "Home" [ref=e147] [cursor=pointer]:
+                - /url: /nba/
+            - listitem [ref=e148]:
+              - link "Scores" [ref=e149] [cursor=pointer]:
+                - /url: /nba/scoreboard
+            - listitem [ref=e150]:
+              - link "Schedule" [ref=e151] [cursor=pointer]:
+                - /url: /nba/schedule
+            - listitem [ref=e152]:
+              - link "Standings" [ref=e153] [cursor=pointer]:
+                - /url: /nba/standings
+            - listitem [ref=e154]:
+              - link "Stats " [ref=e155] [cursor=pointer]:
+                - /url: /nba/stats
+            - listitem [ref=e156]:
+              - link "Teams " [ref=e157] [cursor=pointer]:
+                - /url: /nba/teams
+            - listitem [ref=e158]:
+              - link "Trade Machine" [ref=e159] [cursor=pointer]:
+                - /url: https://www.espn.com/nba/tradeMachine
+            - listitem [ref=e160]:
+              - link "Players" [ref=e161] [cursor=pointer]:
+                - /url: https://www.espn.com/nba/players
+            - listitem [ref=e162]:
+              - link "Odds" [ref=e163] [cursor=pointer]:
+                - /url: /nba/odds
+            - listitem [ref=e164]:
+              - link "Where To Watch" [ref=e165] [cursor=pointer]:
+                - /url: https://www.espn.com/where-to-watch/leagues/nba
+            - listitem [ref=e166]:
+              - link "More " [ref=e167] [cursor=pointer]:
+                - /url: "#"
+              - text: 
+    - generic [ref=e168]:
+      - iframe [ref=e172]:
+        - iframe [ref=f26e4]:
+          
+      - generic [ref=e174]:
+        - generic [ref=e178]:
+          - generic [ref=e179]:
+            - link [ref=e180] [cursor=pointer]:
+              - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+            - generic [ref=e182]:
+              - 'link "Slam dunks, global games, emerging stars: The biggest takeaways from All-Star Weekend" [ref=e184] [cursor=pointer]':
+                - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+              - generic [ref=e185]: 12m - NBA insiders
+          - generic [ref=e186]:
+            - link [ref=e187] [cursor=pointer]:
+              - /url: /nba/story/_/id/47910623/language-basketball-how-international-nba-players-think-game
+            - generic [ref=e189]:
+              - 'link "The language of basketball: How international NBA players think about the game" [ref=e191] [cursor=pointer]':
+                - /url: /nba/story/_/id/47910623/language-basketball-how-international-nba-players-think-game
+              - generic [ref=e192]: 3d - Tim MacMahon
+          - article [ref=e193]:
+            - iframe [ref=e197]:
+              - iframe [ref=f27e4]:
+                
+          - generic [ref=e198]:
+            - link [ref=e199] [cursor=pointer]:
+              - /url: /nba/story/_/id/47912061/all-star-2026-los-angeles-best-high-school-players-lamelo-lonzo-ball-james-harden-klay-thompson
+            - generic [ref=e201]:
+              - 'link "LaMelo to DeMar: Which L.A. NBA stars would''ve made an All-Star roster in high school?" [ref=e203] [cursor=pointer]':
+                - /url: /nba/story/_/id/47912061/all-star-2026-los-angeles-best-high-school-players-lamelo-lonzo-ball-james-harden-klay-thompson
+              - generic [ref=e204]: 6h - Jason Jordan
+          - generic [ref=e205]:
+            - link [ref=e206] [cursor=pointer]:
+              - /url: /nba/story/_/id/47910957/slam-dunk-champ-g-league-nba
+            - generic [ref=e208]:
+              - 'link "Beyond dunking: Mac McClung''s quest for full NBA roster status" [ref=e210] [cursor=pointer]':
+                - /url: /nba/story/_/id/47910957/slam-dunk-champ-g-league-nba
+              - generic [ref=e211]:
+                - link "Orlando Magic" [ref=e213] [cursor=pointer]:
+                  - /url: /nba/team/_/name/orl/orlando-magic
+                - text: 3d - Anthony Olivieri
+          - generic [ref=e214]:
+            - link [ref=e215] [cursor=pointer]:
+              - /url: /nba/story/_/id/47316812/inside-ugly-chris-paul-la-clippers-divorce-nba-season-disaster-end-kawhi-leonard-era
+            - generic [ref=e217]:
+              - link "Inside the ugly Chris Paul-Clippers divorce -- and a season on the brink of disaster" [ref=e219] [cursor=pointer]:
+                - /url: /nba/story/_/id/47316812/inside-ugly-chris-paul-la-clippers-divorce-nba-season-disaster-end-kawhi-leonard-era
+              - generic [ref=e220]:
+                - link "LA Clippers" [ref=e222] [cursor=pointer]:
+                  - /url: /nba/team/_/name/lac/la-clippers
+                - text: 2d - Ramona Shelburne
+          - generic [ref=e223]:
+            - link [ref=e224] [cursor=pointer]:
+              - /url: /nba/story/_/id/47886508/nba-playoff-race-questions-2026-eastern-conference-cavs-favorites-harden-celtics-pistons-knicks
+            - generic [ref=e226]:
+              - 'link "Six big questions on the East playoff race: Does James Harden make the Cavs the favorites?" [ref=e228] [cursor=pointer]':
+                - /url: /nba/story/_/id/47886508/nba-playoff-race-questions-2026-eastern-conference-cavs-favorites-harden-celtics-pistons-knicks
+              - generic [ref=e229]:
+                - link "New York Knicks" [ref=e231] [cursor=pointer]:
+                  - /url: /nba/team/_/name/ny/new-york-knicks
+                - text: 5d - Tim Bontemps and Vincent Goodwill
+          - generic [ref=e232]:
+            - link [ref=e233] [cursor=pointer]:
+              - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+            - generic [ref=e235]:
+              - 'link "Slam dunks, global games, emerging stars: The biggest takeaways from All-Star Weekend" [ref=e237] [cursor=pointer]':
+                - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+              - generic [ref=e238]: 12m - NBA insiders
+          - generic [ref=e239]:
+            - link [ref=e240] [cursor=pointer]:
+              - /url: /nba/story/_/id/47900664/nba-all-star-weekend-2026-live-updates-results-highlights
+            - generic [ref=e242]:
+              - 'link "NBA All-Star 2026: Team Stripes vs. Team World playing in Game 2" [ref=e244] [cursor=pointer]':
+                - /url: /nba/story/_/id/47900664/nba-all-star-weekend-2026-live-updates-results-highlights
+              - generic [ref=e245]:
+                - link "Washington Wizards" [ref=e247] [cursor=pointer]:
+                  - /url: /nba/team/_/name/wsh/washington-wizards
+                - text: 9m - ESPN staff
+          - generic [ref=e248]:
+            - link [ref=e249] [cursor=pointer]:
+              - /url: /nba/story/_/id/47942171/stephen-curry-make-return-3-point-contest-2027
+            - generic [ref=e251]:
+              - link "Curry to make return to 3-point contest in 2027" [ref=e253] [cursor=pointer]:
+                - /url: /nba/story/_/id/47942171/stephen-curry-make-return-3-point-contest-2027
+              - generic [ref=e254]:
+                - link "Golden State Warriors" [ref=e256] [cursor=pointer]:
+                  - /url: /nba/team/_/name/gs/golden-state-warriors
+                - text: 46m - Vincent Goodwill
+          - generic [ref=e257]:
+            - link [ref=e258] [cursor=pointer]:
+              - /url: /nba/story/_/id/47941093/lebron-james-says-unsure-play-24th-season
+            - generic [ref=e260]:
+              - 'link "LeBron: Still unsure about future past this year" [ref=e262] [cursor=pointer]':
+                - /url: /nba/story/_/id/47941093/lebron-james-says-unsure-play-24th-season
+              - generic [ref=e263]:
+                - link "Los Angeles Lakers" [ref=e265] [cursor=pointer]:
+                  - /url: /nba/team/_/name/lal/los-angeles-lakers
+                - text: 3h - Dave McMenamin
+          - generic [ref=e266]:
+            - link [ref=e267] [cursor=pointer]:
+              - /url: /nba/story/_/id/47912061/all-star-2026-los-angeles-best-high-school-players-lamelo-lonzo-ball-james-harden-klay-thompson
+            - generic [ref=e269]:
+              - 'link "LaMelo to DeMar: Which L.A. NBA stars would''ve made an All-Star roster in high school?" [ref=e271] [cursor=pointer]':
+                - /url: /nba/story/_/id/47912061/all-star-2026-los-angeles-best-high-school-players-lamelo-lonzo-ball-james-harden-klay-thompson
+              - generic [ref=e272]: 6h - Jason Jordan
+          - generic [ref=e273]:
+            - link [ref=e274] [cursor=pointer]:
+              - /url: /nba/story/_/id/47939125/celtics-jaylen-brown-toying-idea-ufc-boxing-nba
+            - generic [ref=e276]:
+              - link "Brown toying with idea of UFC, boxing after NBA" [ref=e278] [cursor=pointer]:
+                - /url: /nba/story/_/id/47939125/celtics-jaylen-brown-toying-idea-ufc-boxing-nba
+              - generic [ref=e279]:
+                - link "Boston Celtics" [ref=e281] [cursor=pointer]:
+                  - /url: /nba/team/_/name/bos/boston-celtics
+                - text: 6h - Brett Okamoto
+          - generic [ref=e282]:
+            - link [ref=e283] [cursor=pointer]:
+              - /url: /nba/story/_/id/47938515/giannis-antetokounmpo-addresses-bucks-commitment-title-drive
+            - generic [ref=e285]:
+              - 'link "Giannis: ''As of today, I''m committed'' to Bucks" [ref=e287] [cursor=pointer]':
+                - /url: /nba/story/_/id/47938515/giannis-antetokounmpo-addresses-bucks-commitment-title-drive
+              - generic [ref=e288]:
+                - link "Milwaukee Bucks" [ref=e290] [cursor=pointer]:
+                  - /url: /nba/team/_/name/mil/milwaukee-bucks
+                - text: 7h
+          - generic [ref=e291]:
+            - link [ref=e292] [cursor=pointer]:
+              - /url: /nba/story/_/id/47932930/lillard-returns-win-record-tying-third-3-point-shootout
+            - generic [ref=e294]:
+              - link "Dame claims 3rd title; Johnson wins dunk contest" [ref=e296] [cursor=pointer]:
+                - /url: /nba/story/_/id/47932930/lillard-returns-win-record-tying-third-3-point-shootout
+              - generic [ref=e297]:
+                - link "Portland Trail Blazers" [ref=e299] [cursor=pointer]:
+                  - /url: /nba/team/_/name/por/portland-trail-blazers
+                - text: 1d - Dave McMenamin
+          - generic [ref=e300]:
+            - link [ref=e301] [cursor=pointer]:
+              - /url: /nba/story/_/id/47932809/wembanyama-vows-bring-competitiveness-all-star-game
+            - generic [ref=e303]:
+              - link "Wemby vows to set competitive tone at ASG" [ref=e305] [cursor=pointer]:
+                - /url: /nba/story/_/id/47932809/wembanyama-vows-bring-competitiveness-all-star-game
+              - generic [ref=e306]: 1d - Dave McMenamin
+          - generic [ref=e307]:
+            - link [ref=e308] [cursor=pointer]:
+              - /url: /nba/story/_/id/47932615/silver-considering-all-remedies-rampant-tanking-nba
+            - generic [ref=e310]:
+              - link "Silver considering all fixes for NBA's tanking issue" [ref=e312] [cursor=pointer]:
+                - /url: /nba/story/_/id/47932615/silver-considering-all-remedies-rampant-tanking-nba
+              - generic [ref=e313]: 1d - Ramona Shelburne
+        - article [ref=e315]:
+          - generic [ref=e316]:
+            - 'heading "2026 NBA All-Star Weekend takeaways: Dunks, stars and more" [level=1] [ref=e318]'
+            - 'figure "LeBron James: ‘I have no idea’ if I''ll play a 24th season (0:33) LeBron James says he just wants to live and doesn''t know if he''ll play for a 24th season. (0:33)" [ref=e319]':
+              - generic [ref=e320]:
+                - img [ref=e321]
+                - generic [ref=e322] [cursor=pointer]: play
+                - iframe [ref=e324]:
+                  - main [ref=f9e1]:
+                    - generic [ref=f9e8]:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - img
+            - generic [ref=e325]:
+              - generic [ref=e326]:
+                - list [ref=e328]:
+                  - listitem [ref=e329]:
+                    - generic [ref=e330]: NBA insiders
+                - text: Feb 15, 2026, 06:37 PM ET
+              - generic [ref=e331]:
+                - generic [ref=e832]:
+                  - generic [ref=e833]:
+                    - button "Share" [ref=e834] [cursor=pointer]:
+                      - img
+                      - text: Share
+                    - text:  @ °
+                  - generic [ref=e835]:
+                    - button "Like" [ref=e836] [cursor=pointer]:
+                      - img "Like"
+                      - text: Like
+                    - button "Open Extended Reactions" [ref=e837] [cursor=pointer]
+                - button "Reaction count" [ref=e839] [cursor=pointer]:
+                  - img "Like"
+                  - img "Fire"
+                  - img "Laugh"
+                  - generic [ref=e840]: 1.8K
+              - paragraph [ref=e338]:
+                - text: The 2026
+                - link "NBA All-Star Game" [ref=e339] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47660958/2026-nba-all-star-starters-snubs-surprises-superstar-team-ups-international-national
+                - text: ", taking place at the Intuit Dome near Los Angeles, tipped off Friday with a plethora of superstar players arriving for a jam-packed weekend."
+              - paragraph [ref=e340]:
+                - text: Some fresh new faces of the league got things started with the Rising Stars showcase Friday. With No. 1 pick
+                - link "Cooper Flagg" [ref=e341] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5041939/cooper-flagg
+                - text: out through the
+                - link "All-Star break with injury" [ref=e342] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47904470/mavericks-cooper-flagg-left-midfoot-sprain-vs-lakers-rising-stars-game-all-star-weekend
+                - text: ", the young troupe was headlined by Rookie of the Year contender"
+                - link "VJ Edgecombe" [ref=e343] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5124612/vj-edgecombe
+                - text: ", who took home MVP honors."
+              - paragraph [ref=e344]:
+                - text: On Saturday, the league's top-tier talents demonstrate their skills in the 3-point contest, Shooting Stars competition and dunk contest. Most notably,
+                - link "Damian Lillard" [ref=e345] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/6606/damian-lillard
+                - text: took home the 3-point contest despite an Achilles injury that has kept him out the entire season. Team Knicks (
+                - link "Jalen Brunson" [ref=e346] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3934672/jalen-brunson
+                - text: ","
+                - link "Karl-Anthony Towns" [ref=e347] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3136195/karl-anthony-towns
+                - text: and Allan Houston) followed up Lillard's performance by winning the Shooting Stars competition before the
+                - link "Miami Heat" [ref=e348] [cursor=pointer]:
+                  - /url: /nba/team/_/name/mia/miami-heat
+                - text: "'s"
+                - link "Keshad Johnson" [ref=e349] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4431786/keshad-johnson
+                - text: won the dunk contest.
+              - paragraph [ref=e350]:
+                - text: Finally, on Sunday, three
+                - link "star-stacked teams" [ref=e351] [cursor=pointer]:
+                  - /url: https://www.espn.com/espn/feature/story/_/id/22345151/build-your-own-nba-all-star-team
+                - text: took the court in a new format that rosters American players against international players. Can
+                - link "Victor Wembanyama" [ref=e352] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5104157/victor-wembanyama
+                - text: lead Team World against
+                - link "Kevin Durant" [ref=e353] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3202/kevin-durant
+                - text: and Team Stripes? Or will
+                - link "Anthony Edwards" [ref=e354] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4594268/anthony-edwards
+                - text: spoil the fun leading Team Stars?
+              - paragraph [ref=e355]: Our NBA insiders gave a sneak preview of what to watch heading into the 2026 NBA All-Star Weekend, including who they pick to win each event.
+              - paragraph [ref=e356]:
+                - emphasis [ref=e357]: Expert picks were voted on by a panel of NBA insiders.
+              - paragraph [ref=e358]:
+                - text: "Previews:"
+                - link "Rising Stars" [ref=e359] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby#risingstars
+                - text: "|"
+                - link "Saturday skills" [ref=e360] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby#skills
+                - text: "|"
+                - link "USA vs. World tournament" [ref=e361] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby#tournament
+                - link "Saturday's takeaways" [ref=e362] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby#saturday
+                - text: "|"
+                - link "Saturday's results" [ref=e363] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby#results
+                - link "Sunday's takeaways" [ref=e364] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point#sundaytakeaways
+                - text: "|"
+                - link "Sunday's results" [ref=e365] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47851191/nba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point#sundayresults
+              - paragraph
+              - img [ref=e366]
+              - heading "Sunday's All-Star game takeaways" [level=2] [ref=e367]
+              - paragraph [ref=e368]:
+                - strong [ref=e369]:
+                  - link "De'Aaron Fox" [ref=e370] [cursor=pointer]:
+                    - /url: https://www.espn.com/nba/player/_/id/4066259/deaaron-fox
+                  - text: and Team Stripes hit buzzer-beater over Team Stars
+              - paragraph [ref=e371]: There have been plenty of theories as to why the competitiveness of the All-Star Game has fallen off in recent years. Most of those correspond with the careers of the players on the Stripes, the so-called old-heads team.
+              - paragraph [ref=e372]:
+                - text: Whether that's fair is a matter of debate. But from the moment
+                - link "LeBron James" [ref=e373] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/1966/lebron-james
+                - text: tossed his chalk up in the air before the start of this game against the Stars -- the younger-generation United States team -- it was clear that the veterans intended to put a little respect on their names.
+                - link "Kevin Durant" [ref=e374] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3202/kevin-durant
+                - text: hit a 3-pointer to open the scoring,
+                - link "Kawhi Leonard" [ref=e375] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/6450/kawhi-leonard
+                - text: stole the ball from
+                - link "Devin Booker" [ref=e376] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3136193/devin-booker
+                - text: and ran to the corner to hit a 3 of his own. Durant stole the ball from
+                - link "Jalen Duren" [ref=e377] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4433621/jalen-duren
+                - text: "and fouled him. (Let's stop there to point out: Fouls were committed! Real fouls! Steals were made! Real steals!)"
+              - paragraph [ref=e378]:
+                - text: Sometimes the person committing the foul stopped to apologize, like
+                - link "Tyrese Maxey" [ref=e379] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4431678/tyrese-maxey
+                - text: to
+                - link "Donovan Mitchell" [ref=e380] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3908809/donovan-mitchell
+                - text: at one point. And through it all,
+                - link "Jaylen Brown" [ref=e381] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3917376/jaylen-brown
+                - text: kept shooting, finishing with a team-high 11 points on 5-of-9 shooting. At 29, Brown is one of the youngest players on the veteran team, so it made sense for him to play nine of the 12 minutes. And Durant, James and Mitchell swinging the ball to 28-year-old De'Aaron Fox for the game-winning 3-pointer as time expired? Score one for the old guys.
+                - emphasis [ref=e382]: "-- Ramona Shelburne"
+              - paragraph [ref=e383]:
+                - strong [ref=e384]: Team Stars takes Team World to OT
+              - paragraph [ref=e385]:
+                - link "Victor Wembanyama" [ref=e386] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5104157/victor-wembanyama
+                - text: vowed to make the All-Star Game more competitive and backed up his words with his play, scoring the World team's first seven points against the USA Stars to start off Sunday's new format.
+              - paragraph [ref=e387]:
+                - text: With
+                - link "Luka Doncic" [ref=e388] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3945274/luka-doncic
+                - text: "-- playing for the first time in more than a week after a four-game absence because of a mild hamstring strain -- limited to two points in five minutes,"
+                - link "Karl-Anthony Towns" [ref=e389] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3136195/karl-anthony-towns
+                - text: gave the World a boost off the bench with 10 points, including a deep 3 that forced the Stars to call a timeout and regroup.
+              - paragraph [ref=e390]:
+                - text: In Wembanyama's second shift of the period, he pinned a
+                - link "Cade Cunningham" [ref=e391] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4432166/cade-cunningham
+                - text: layup attempt against the glass for his third blocked shot of the game.
+                - link "Anthony Edwards" [ref=e392] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4594268/anthony-edwards
+                - text: (13 points) hit a 3 with 14.3 seconds left to tie it at 32-32 to force overtime. The OT period was first to five points, and Wembanyama hit a 3 to give the World a 3-2 lead, but
+                - link "Scottie Barnes" [ref=e393] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4433134/scottie-barnes
+                - text: made the one shot he took count, nailing a 3-pointer from the left wing to give the Stars the 37-35 opening win.
+              - paragraph [ref=e394]:
+                - text: Wemby (14 points, 6 rebounds) didn't get the win but got credit from Edwards during the guard's on-court interview for "setting the tone" at the event that already looked vastly different from the defense-optional games in recent years.
+                - emphasis [ref=e395]: "-- Dave McMenamin"
+              - paragraph
+              - separator [ref=e396]
+              - heading "Sunday's results" [level=2] [ref=e397]
+              - paragraph [ref=e398]:
+                - strong [ref=e399]: "Game 1:"
+                - link "Teams Stars 37, Team World 35 (OT)" [ref=e400] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838140/world-team-stars
+                - strong [ref=e401]: "Game 2:"
+                - link "Team Stripes 42, Team Stars 40" [ref=e402] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838141/team-stars-team-stripes
+              - paragraph
+              - img [ref=e403]
+              - heading "All-Star Saturday's takeaways" [level=2] [ref=e404]
+              - paragraph [ref=e405]:
+                - strong [ref=e406]: Overall takeaways
+              - paragraph [ref=e407]: "Damian Lillard's triumphant return to the NBA stage captured the essence of what All-Star Weekend has always been about: Entertaining the fans and doing it with some flair."
+              - paragraph [ref=e408]: Lillard was last seen on the court clutching the back of his leg during the NBA playoffs last season, knowing his Achilles tendon was ruptured when he was a Milwaukee Buck.
+              - paragraph [ref=e409]:
+                - text: The last thing anyone expected was him winning his third 3-point contest title less than nine months later, and doing it back in that
+                - link "Portland Trail Blazers" [ref=e410] [cursor=pointer]:
+                  - /url: /nba/team/_/name/por/portland-trail-blazers
+                - text: uniform he's become so synonymous with.
+              - paragraph [ref=e411]:
+                - text: He defeated
+                - link "Phoenix Suns" [ref=e412] [cursor=pointer]:
+                  - /url: /nba/team/_/name/phx/phoenix-suns
+                - text: guard
+                - link "Devin Booker" [ref=e413] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3136193/devin-booker
+                - text: and
+                - link "Charlotte Hornets" [ref=e414] [cursor=pointer]:
+                  - /url: /nba/team/_/name/cha/charlotte-hornets
+                - text: rookie
+                - link "Kon Knueppel" [ref=e415] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5061575/kon-knueppel
+                - text: in the finals to take home the trophy and tie Larry Bird and Craig Hodges for most 3-point contest wins.
+              - paragraph [ref=e416]: In the aftermath, he spoke about doing this for the fans, prompting a roar from the still-arriving crowd.
+              - paragraph [ref=e417]: As has become routine over the last decade, the 3-point contest brings out the best names, storylines and drama -- relative to the perpetually underwhelming Slam Dunk Contest because the stars won't agree to compete.
+              - paragraph [ref=e418]:
+                - link "Miami Heat" [ref=e419] [cursor=pointer]:
+                  - /url: /nba/team/_/name/mia/miami-heat
+                - text: second-year forward
+                - link "Keshad Johnson" [ref=e420] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4431786/keshad-johnson
+                - text: was giddy to be there and used every bit of his 15 minutes of fame to etch his name in history with a dunk contest victory, beating
+                - link "San Antonio Spurs" [ref=e421] [cursor=pointer]:
+                  - /url: /nba/team/_/name/sa/san-antonio-spurs
+                - text: rookie
+                - link "Carter Bryant" [ref=e422] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5061568/carter-bryant
+                - text: . Bryant had some flair of his own, but didn't have enough energy to put down his final dunk -- which ranked high in difficulty.
+              - paragraph [ref=e423]:
+                - text: The
+                - link "New York Knicks" [ref=e424] [cursor=pointer]:
+                  - /url: /nba/team/_/name/ny/new-york-knicks
+                - text: contingent of
+                - link "Jalen Brunson" [ref=e425] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3934672/jalen-brunson
+                - text: ","
+                - link "Karl-Anthony Towns" [ref=e426] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3136195/karl-anthony-towns
+                - text: ","
+                - link "Allan Houston" [ref=e427] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/349/allan-houston
+                - text: and Rick Brunson took home the Shooting Stars trophy with a last-second win over a group that featured Knueppel, Hawks forward
+                - link "Jalen Johnson" [ref=e428] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4701230/jalen-johnson
+                - text: and former NBA player Corey Maggette.
+              - paragraph [ref=e429]:
+                - text: The day felt a bit awkward given the early start on the west coast, but the crowd was engaged by the end, even if there weren't big stars delivering on the growing atmosphere. Perhaps it's something the NBA, forever willing to tinker with its midseason showcase, will take a look at before next season in Phoenix. --
+                - emphasis [ref=e430]: Vincent Goodwill
+              - paragraph [ref=e431]:
+                - strong [ref=e432]: Slam dunk contest
+              - paragraph [ref=e433]:
+                - text: The Miami Heat's
+                - link "Keshad Johnson" [ref=e434] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4431786/keshad-johnson
+                - text: looked happiest to be at the dunk contest -- an event that sometimes lacks energy as the premier event of All-Star Weekend -- on Saturday night and perhaps that was fitting, as he eventually walked away from the trophy.
+              - paragraph [ref=e435]:
+                - text: The second-year forward defeated
+                - link "San Antonio Spurs" [ref=e436] [cursor=pointer]:
+                  - /url: /nba/team/_/name/sa/san-antonio-spurs
+                - text: rookie
+                - link "Carter Bryant" [ref=e437] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5061568/carter-bryant
+                - text: in the final, when Bryant couldn't convert a creative between-the-legs, over-the-head dunk. The two advanced to the final over
+                - link "Los Angeles Lakers" [ref=e438] [cursor=pointer]:
+                  - /url: /nba/team/_/name/lal/los-angeles-lakers
+                - text: center
+                - link "Jaxson Hayes" [ref=e439] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4397077/jaxson-hayes
+                - text: and
+                - link "Orlando Magic" [ref=e440] [cursor=pointer]:
+                  - /url: /nba/team/_/name/orl/orlando-magic
+                - text: guard
+                - link "Jase Richardson" [ref=e441] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5239561/jase-richardson
+                - text: .
+              - paragraph [ref=e442]: Richardson had a scary moment when he fell flat on his back during a dunk attempt, getting a bit stuck on a 360 dunk. Luckily, he popped back up and completed his next chance -- nearly capturing the spirit of the dunk contest his dad, Jason, did as a two-time winner of the contest in the early 2000's.
+              - paragraph [ref=e443]: Johnson brought out rapper E-40 in his introduction and ultimately leapt over him while cupping the ball on his first dunk, surprising many in the crowd who hadn't seen or heard much from him before.
+              - paragraph [ref=e444]: And even though it took him a couple of tries in the final, he put his last dunk away with ease, earning a close to perfect score from the judges.
+              - paragraph [ref=e445]: It put the pressure on Bryant, who couldn't complete his attempts in the allotted time before putting away a basic dunk just so he could register a score.
+              - paragraph [ref=e446]:
+                - text: In the end, Heat czar Pat Riley stood to his feet while Johnson danced in celebration as the winner. --
+                - emphasis [ref=e447]: Goodwill
+              - paragraph [ref=e448]:
+                - strong [ref=e449]: Shooting Stars
+              - paragraph [ref=e450]:
+                - text: Team Knicks had its work cut out for it, with Team Cameron (Atlanta's
+                - link "Jalen Johnson" [ref=e451] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4701230/jalen-johnson
+                - text: ", Charlotte's"
+                - link "Kon Knueppel" [ref=e452] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5061575/kon-knueppel
+                - text: and former NBA player Corey Maggette) hitting a bevy of half-court shots to put the pressure on
+                - link "Allan Houston" [ref=e453] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/349/allan-houston
+                - text: ","
+                - link "Jalen Brunson" [ref=e454] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3934672/jalen-brunson
+                - text: and
+                - link "Karl-Anthony Towns" [ref=e455] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3136195/karl-anthony-towns
+                - text: to beat the clock and hit deep shots of its own. Team Knicks needed four half-court shots to win, and Towns unleashed from 30 feet to bring the team closer, while Brunson played the finisher to clinch the Shooting Stars competition.
+              - paragraph [ref=e456]: "\"I felt very confident in our team, especially Allan Houston,\" Towns said afterward."
+              - paragraph [ref=e457]:
+                - text: The NBA has tried various versions of this, at times using WNBA players and most recently, deploying a skills competition that didn't return after last year's
+                - link "debacle in San Francisco" [ref=e458] [cursor=pointer]:
+                  - /url: /nba/story/_/id/43865605/wemby-paul-dqd-skills-challenge-skirting-shooting-rules
+                - text: .
+              - paragraph [ref=e459]:
+                - text: This competition had a twist, with Knicks assistant coach Rick Brunson, Jalen's father, delivering passes to the shooters. Houston, now in the Knicks' front office, was one of the most prolific 3-point shooters during his NBA days and showed his skills from midrange, while the current Knicks hit from deep to seal the victory. --
+                - emphasis [ref=e460]: Goodwill
+              - paragraph [ref=e461]:
+                - strong [ref=e462]: 3-point contest
+              - paragraph [ref=e463]: The 3-point contest came down to two repeat winners and one new kid on the block -- it did not disappoint.
+              - paragraph [ref=e464]:
+                - link "Portland Trail Blazers" [ref=e465] [cursor=pointer]:
+                  - /url: /nba/team/_/name/por/portland-trail-blazers
+                - text: star
+                - link "Damian Lillard" [ref=e466] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/6606/damian-lillard
+                - text: won for the third time in the last four years -- becoming the third three-time winner since the competition started in 1986 -- to thwart the
+                - link "Phoenix Suns" [ref=e467] [cursor=pointer]:
+                  - /url: /nba/team/_/name/phx/phoenix-suns
+                - text: "'"
+                - link "Devin Booker" [ref=e468] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3136193/devin-booker
+                - text: from winning his second and
+                - link "Charlotte Hornets" [ref=e469] [cursor=pointer]:
+                  - /url: /nba/team/_/name/cha/charlotte-hornets
+                - text: rookie
+                - link "Kon Knueppel" [ref=e470] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5061575/kon-knueppel
+                - text: from winning his first.
+              - paragraph [ref=e471]: This win might have been the most impressive of his three, as Lillard entered the shootout despite not playing a game all season for the Blazers as he recovers from a torn Achilles.
+              - paragraph [ref=e472]: "\"To get some competition, feel a little pressure, get in front of the fans again is a great experience,\" Lillard told NBC on the court after receiving the trophy."
+              - paragraph [ref=e473]:
+                - text: Booker went last in the final round and had a shot at beating Lillard's score of 29, but he missed his final three "money ball" shots -- which would have been worth two points apiece -- to stall out at 27 points and fall two points short of Lillard. --
+                - emphasis [ref=e474]: McMenamin
+              - separator [ref=e475]
+              - paragraph
+              - heading "Saturday's results" [level=2] [ref=e476]
+              - paragraph [ref=e477]:
+                - strong [ref=e478]: "3-point champion:"
+                - link "Damian Lillard" [ref=e479] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/6606/damian-lillard
+                - text: (
+                - link "Portland Trail Blazers" [ref=e480] [cursor=pointer]:
+                  - /url: /nba/team/_/name/por/portland-trail-blazers
+                - text: )
+                - strong [ref=e481]: "Shooting Stars champion:"
+                - text: Team Knicks (Jalen Brunson, Karl-Anthony Towns and Alan Houston)
+              - img [ref=e482]
+              - paragraph:
+                - strong
+              - heading "Knueppel and Queen usher in the next wave of Rising Stars" [level=2] [ref=e483]
+              - paragraph [ref=e484]:
+                - text: There will be a
+                - link "Cooper Flagg" [ref=e485] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5041939/cooper-flagg
+                - text: "-shaped void in this event,"
+                - link "with a foot sprain sidelining" [ref=e486] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47904470/mavericks-cooper-flagg-left-midfoot-sprain-vs-lakers-rising-stars-game-all-star-weekend
+                - text: 2025's No. 1 pick for the duration of the weekend. Plus, former No. 2 pick
+                - link "Alex Sarr" [ref=e487] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5160992/alex-sarr
+                - text: will be absent from Friday's faceoffs after sustaining a right hamstring strain, which will
+                - link "keep him out for two weeks" [ref=e488] [cursor=pointer]:
+                  - /url: /nba/story/_/id/47908104/sources-wizards-alex-sarr-hamstring-2-weeks
+                - text: . The game should still be a fun spotlight for the strong 2025 draft class, with
+                - link "Kon Knueppel" [ref=e489] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5061575/kon-knueppel
+                - text: ","
+                - link "Dylan Harper" [ref=e490] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5037871/dylan-harper
+                - text: and
+                - link "VJ Edgecombe" [ref=e491] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5124612/vj-edgecombe
+                - text: all on different teams.
+                - link "Stephon Castle" [ref=e492] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4845367/stephon-castle
+                - text: ", reigning Rookie of the Year, is one of the top second-year players involved. Originally, I would have picked Flagg's team to win the mini-tournament, but with him sidelined, I suppose I'll take Team Vince, which includes Edgecombe,"
+                - link "Derik Queen" [ref=e493] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4869780/derik-queen
+                - text: and
+                - link "Matas Buzelis" [ref=e494] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4711294/matas-buzelis
+                - text: . Whether I'm right or wrong, I'm willing to bet history won't remember in this case.
+                - emphasis [ref=e495]: "-- Jeremy Woo"
+              - paragraph [ref=e496]:
+                - strong [ref=e497]: "Game 1:"
+                - text: Team Melo 40, Team Austin
+                - strong [ref=e498]: "Game 2:"
+                - text: Team Vince 41, Team T-Mac 36
+                - strong [ref=e499]: "Game 3:"
+                - text: Team Vince 25, Team Melo 24
+              - paragraph [ref=e500]:
+                - strong [ref=e501]: "Winner:"
+                - text: Team Vince
+              - complementary [ref=e502]:
+                - heading "2026 Rising Stars Roster" [level=2] [ref=e503]
+                - table [ref=e504]:
+                  - rowgroup [ref=e505]:
+                    - row "Team Melo Team T-Mac Team Vince Team Austin" [ref=e506]:
+                      - columnheader "Team Melo" [ref=e507]
+                      - columnheader "Team T-Mac" [ref=e508]
+                      - columnheader "Team Vince" [ref=e509]
+                      - columnheader "Team Austin" [ref=e510]
+                  - rowgroup [ref=e511]:
+                    - row "Cooper Flagg* Kon Knueppel VJ Edgecombe Sean East II" [ref=e512]:
+                      - cell "Cooper Flagg*" [ref=e513]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5041939/cooper-flagg
+                        - link "Cooper Flagg" [ref=e514] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5041939/cooper-flagg
+                        - text: "*"
+                      - cell "Kon Knueppel" [ref=e515]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5061575/kon-knueppel
+                        - link "Kon Knueppel" [ref=e516] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5061575/kon-knueppel
+                      - cell "VJ Edgecombe" [ref=e517]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5124612/vj-edgecombe
+                        - link "VJ Edgecombe" [ref=e518] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5124612/vj-edgecombe
+                      - cell "Sean East II" [ref=e519]:
+                        - link "Sean East II" [ref=e520] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4592453/sean-east-ii
+                    - row "Stephon Castle Tre Johnson Kyshawn George Yanic Konan Niederhauser" [ref=e521]:
+                      - cell "Stephon Castle" [ref=e522]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4845367/stephon-castle
+                        - link "Stephon Castle" [ref=e523] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4845367/stephon-castle
+                      - cell "Tre Johnson" [ref=e524]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5238230/tre-johnson
+                        - link "Tre Johnson" [ref=e525] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5238230/tre-johnson
+                      - cell "Kyshawn George" [ref=e526]:
+                        - link "Kyshawn George" [ref=e527] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5174563/kyshawn-george
+                          - text: Kyshawn
+                          - text: George
+                      - cell "Yanic Konan Niederhauser" [ref=e528]:
+                        - link "Yanic Konan Niederhauser" [ref=e529] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5108024/yanic-konan-niederhauser
+                          - text: Yanic Konan
+                          - text: Niederhauser
+                    - row "Jeremiah Fears Ajay Mitchell* Egor Demin Tristen Newton" [ref=e530]:
+                      - cell "Jeremiah Fears" [ref=e531]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5144091/jeremiah-fears
+                        - link "Jeremiah Fears" [ref=e532] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5144091/jeremiah-fears
+                      - cell "Ajay Mitchell*" [ref=e533]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4900671/ajay-mitchell
+                        - link "Ajay Mitchell" [ref=e534] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4900671/ajay-mitchell
+                        - text: "*"
+                      - cell "Egor Demin" [ref=e535]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5175643/egor-demin
+                        - link "Egor Demin" [ref=e536] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5175643/egor-demin
+                      - cell "Tristen Newton" [ref=e537]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4592965/tristen-newton
+                        - link "Tristen Newton" [ref=e538] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4592965/tristen-newton
+                    - row "Collin Murray-Boyles Zaccharie Risacher Jaylen Wells Mac McClung" [ref=e539]:
+                      - cell "Collin Murray-Boyles" [ref=e540]:
+                        - link "Collin Murray-Boyles" [ref=e541] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5093267/collin-murray-boyles
+                          - text: Collin
+                          - text: Murray-Boyles
+                      - cell "Zaccharie Risacher" [ref=e542]:
+                        - link "Zaccharie Risacher" [ref=e543] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5211175/zaccharie-risacher
+                          - text: Zaccharie
+                          - text: Risacher
+                      - cell "Jaylen Wells" [ref=e544]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5112087/jaylen-wells
+                        - link "Jaylen Wells" [ref=e545] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5112087/jaylen-wells
+                      - cell "Mac McClung" [ref=e546]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4397071/mac-mcclung
+                        - link "Mac McClung" [ref=e547] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4397071/mac-mcclung
+                    - row "Reed Sheppard Kel'el Ware Derik Queen Ron Harper Jr." [ref=e548]:
+                      - cell "Reed Sheppard" [ref=e549]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4711272/reed-sheppard
+                        - link "Reed Sheppard" [ref=e550] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4711272/reed-sheppard
+                      - cell "Kel'el Ware" [ref=e551]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5105623/kelel-ware
+                        - link "Kel'el Ware" [ref=e552] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5105623/kelel-ware
+                      - cell "Derik Queen" [ref=e553]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4869780/derik-queen
+                        - link "Derik Queen" [ref=e554] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4869780/derik-queen
+                      - cell "Ron Harper Jr." [ref=e555]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4397251/ron-harper-jr
+                        - link "Ron Harper Jr" [ref=e556] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4397251/ron-harper-jr
+                        - text: .
+                    - row "Dylan Harper Alex Sarr* Matas Buzelis Alijah Martin" [ref=e557]:
+                      - cell "Dylan Harper" [ref=e558]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5037871/dylan-harper
+                        - link "Dylan Harper" [ref=e559] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5037871/dylan-harper
+                      - cell "Alex Sarr*" [ref=e560]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5160992/alex-sarr
+                        - link "Alex Sarr" [ref=e561] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5160992/alex-sarr
+                        - text: "*"
+                      - cell "Matas Buzelis" [ref=e562]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4711294/matas-buzelis
+                        - link "Matas Buzelis" [ref=e563] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4711294/matas-buzelis
+                      - cell "Alijah Martin" [ref=e564]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4702656/alijah-martin
+                        - link "Alijah Martin" [ref=e565] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4702656/alijah-martin
+                    - row "Donovan Clingan Jaylon Tyson Cedric Coward* Yang Hansen" [ref=e566]:
+                      - cell "Donovan Clingan" [ref=e567]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5105565/donovan-clingan
+                        - link "Donovan Clingan" [ref=e568] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5105565/donovan-clingan
+                      - cell "Jaylon Tyson" [ref=e569]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4683747/jaylon-tyson
+                        - link "Jaylon Tyson" [ref=e570] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4683747/jaylon-tyson
+                      - cell "Cedric Coward*" [ref=e571]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4903027/cedric-coward
+                        - link "Cedric Coward" [ref=e572] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4903027/cedric-coward
+                        - text: "*"
+                      - cell "Yang Hansen" [ref=e573]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5217746/yang-hansen
+                        - link "Yang Hansen" [ref=e574] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5217746/yang-hansen
+                    - row "Ace Bailey Cam Spencer Bub Carrington David Jones Garcia*" [ref=e575]:
+                      - cell "Ace Bailey" [ref=e576]:
+                        - link "Ace Bailey" [ref=e577] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4873138/ace-bailey
+                      - cell "Cam Spencer" [ref=e578]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4433083/cam-spencer
+                        - link "Cam Spencer" [ref=e579] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4433083/cam-spencer
+                      - cell "Bub Carrington" [ref=e580]:
+                        - link "Bub Carrington" [ref=e581] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4845374/bub-carrington
+                      - cell "David Jones Garcia*" [ref=e582]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4713010/david-jones-garcia
+                        - link "David Jones Garcia" [ref=e583] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4713010/david-jones-garcia
+                          - text: David
+                          - text: Jones Garcia
+                        - text: "*"
+                    - row "Carter Bryant" [ref=e584]:
+                      - cell [ref=e585]
+                      - cell [ref=e586]
+                      - cell "Carter Bryant" [ref=e587]:
+                        - link "Carter Bryant" [ref=e588] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5061568/carter-bryant
+                      - cell [ref=e589]
+                  - rowgroup [ref=e590]:
+                    - row "* denotes injury" [ref=e591]:
+                      - cell "* denotes injury" [ref=e592]
+              - separator [ref=e593]
+              - heading "Celebrity takeover!" [level=2] [ref=e594]
+              - heading "Friday, 7 p.m. ET (ESPN)" [level=3] [ref=e595]
+              - paragraph [ref=e596]:
+                - text: The celebrity game returns with familiar faces on the court, but what stands out this year is the fact that two current NBA governors will participate -- the
+                - link "Phoenix Suns" [ref=e597] [cursor=pointer]:
+                  - /url: /nba/team/_/name/phx/phoenix-suns
+                - text: "' Mat Ishbia and the"
+                - link "Charlotte Hornets" [ref=e598] [cursor=pointer]:
+                  - /url: /nba/team/_/name/cha/charlotte-hornets
+                - text: "' Rick Schnall, who have a combined age of 103."
+              - paragraph [ref=e599]: However, history says when it comes to the celebrity game, age is just a number. Former U.S. Secretary of Education Arne Duncan routinely showed up while playing in his late 40s/early 50s (he won MVP in 2014 at 49).
+              - paragraph [ref=e600]:
+                - text: NFL star wide receivers Keenan Allen and Amon-Ra St. Brown will take the court, too, as well as ESPN's own NBA insider Shams Charania. Luckily, the trade deadline is behind us, meaning Charania can play phone-free.
+                - emphasis [ref=e601]: "-- Anthony Gharib"
+              - iframe [ref=e603]:
+                - generic [active] [ref=f12e1]:
+                  - article [ref=f12e4] [cursor=pointer]:
+                    - link "Visit this post on X":
+                      - /url: https://twitter.com/ESPNPR/status/2018731535591940119?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                    - generic [ref=f12e5]:
+                      - link [ref=f12e14]:
+                        - /url: https://twitter.com/ESPNPR?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                      - generic [ref=f12e20]:
+                        - link "ESPN PR Verified account" [ref=f12e21]:
+                          - /url: https://twitter.com/ESPNPR?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                          - generic [ref=f12e22]:
+                            - generic [ref=f12e24]: ESPN PR
+                            - generic [ref=f12e26]:
+                              - img "Verified account" [ref=f12e27]
+                              - link [ref=f12e33]
+                        - generic [ref=f12e40]:
+                          - link "@ESPNPR" [ref=f12e41]:
+                            - /url: https://twitter.com/ESPNPR?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                            - generic [ref=f12e43]: "@ESPNPR"
+                          - generic [ref=f12e44]:
+                            - generic [ref=f12e45]: ·
+                            - link "Follow" [ref=f12e46]:
+                              - /url: https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point&screen_name=ESPNPR
+                      - link "View on X" [ref=f12e47]:
+                        - /url: https://twitter.com/ESPNPR/status/2018731535591940119?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                        - img [ref=f12e48]
+                    - generic [ref=f12e52]:
+                      - text: Introducing the 2026
+                      - link "@NBAAllStar" [ref=f12e54]:
+                        - /url: https://twitter.com/NBAAllStar?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                      - link "#RufflesCelebGame" [ref=f12e56]:
+                        - /url: https://twitter.com/hashtag/RufflesCelebGame?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point&src=hashtag_click
+                      - text: rosters
+                      - img "🏀" [ref=f12e57]
+                      - text: "Friday, Feb. 13 | 7p ET | ESPN More:"
+                      - link "bit.ly/3ZbxHmm" [ref=f12e58]:
+                        - /url: https://t.co/wCR9iDfnJB
+                    - link "Image" [ref=f12e61]:
+                      - /url: https://x.com/ESPNPR/status/2018731535591940119/photo/1
+                      - generic "Image" [ref=f12e65]:
+                        - img "Image" [ref=f12e67]
+                    - generic [ref=f12e68]:
+                      - link "12:01 PM · Feb 3, 2026" [ref=f12e73]:
+                        - /url: https://twitter.com/ESPNPR/status/2018731535591940119?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                        - time [ref=f12e74]: 12:01 PM · Feb 3, 2026
+                      - link "X Ads info and privacy" [ref=f12e75]:
+                        - /url: https://help.twitter.com/en/twitter-for-websites-ads-info-and-privacy
+                        - img [ref=f12e76]
+                    - generic [ref=f12e79]:
+                      - link "Like. This post has 448 likes" [ref=f12e80]:
+                        - /url: https://twitter.com/intent/like?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point&tweet_id=2018731535591940119
+                        - img [ref=f12e82]
+                        - generic [ref=f12e85]: "448"
+                      - link "Reply to this post on X" [ref=f12e86]:
+                        - /url: https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point&in_reply_to=2018731535591940119
+                        - img [ref=f12e88]
+                        - generic [ref=f12e91]: Reply
+                      - button "Copy link" [ref=f12e92]:
+                        - img [ref=f12e94]
+                        - generic [ref=f12e97]: Copy link
+                    - link "Read 65 replies" [ref=f12e99]:
+                      - /url: https://twitter.com/ESPNPR/status/2018731535591940119?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E2018731535591940119%7Ctwgr%5E16d731ac26290e651747af19fce887f281a6c401%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.espn.com%2Fnba%2Fstory%2F_%2Fid%2F47851191%2Fnba-all-star-2026-superstar-weekend-usa-world-lebron-durant-giannis-wemby-dunk-contest-3-point
+                      - generic [ref=f12e101]: Read 65 replies
+                  - generic:
+                    - img
+                  - generic:
+                    - img
+              - paragraph:
+                - strong
+              - separator [ref=e604]
+              - heading "Legendary team-ups, high-flying dunks and Dame Time for All-Star Saturday" [level=2] [ref=e605]
+              - heading "Saturday, 8 p.m. ET (NBC, Peacock)" [level=3] [ref=e606]
+              - paragraph [ref=e607]:
+                - strong [ref=e608]: Can Spida spoil Dame Time?
+              - paragraph [ref=e609]:
+                - text: Any of the eight 3-point contestants could get hot for a minute and produce the winning score. But based on each participant's 3-point percentage on wide-open 3s this year, according to NBA Advanced Stats, the favorites should be Donovan Mitchell (50% on wide-open 3s),
+                - link "Norman Powell" [ref=e610] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/2595516/norman-powell
+                - text: (49%) and
+                - link "Jamal Murray" [ref=e611] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3936299/jamal-murray
+                - text: (48%).
+                - link "Bobby Portis" [ref=e612] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3064482/bobby-portis
+                - text: ", Kon Knueppel and Tyrese Maxey are in the lower 40s, while Devin Booker is all the way down at 31%."
+              - paragraph [ref=e613]:
+                - text: "The eighth contestant is the wild card: Damian Lillard hasn't played an NBA game since tearing an Achilles in the 2025 postseason. But Lillard won this event in 2023 and 2024, and he could become the first three-time winner in the 21st century. (Larry Bird and Craig Hodges each won three times in the 1980s and 1990s, respectively.)"
+                - emphasis [ref=e614]: "-- Zach Kram"
+              - paragraph [ref=e615]:
+                - strong [ref=e616]: "Expert picks:"
+                - text: Damian Lillard
+              - paragraph [ref=e617]:
+                - strong [ref=e618]: New faces and a family affair for the dunk contest
+              - paragraph [ref=e619]:
+                - text: This isn't the most star-studded field in the dunk contest's history, and three of the four contestants have scarcely dunked in NBA games.
+                - link "Jaxson Hayes" [ref=e620] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4397077/jaxson-hayes
+                - text: is a seven-year veteran with his fair share of slams from the center position, but second-year forward
+                - link "Keshad Johnson" [ref=e621] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4431786/keshad-johnson
+                - text: and rookies
+                - link "Carter Bryant" [ref=e622] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5061568/carter-bryant
+                - text: and
+                - link "Jase Richardson" [ref=e623] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/5239561/jase-richardson
+                - text: have recorded single-digit dunk tallies this season.
+              - paragraph [ref=e624]:
+                - text: At least there's star lineage in this field. Richardson's father is Jason Richardson, who won back-to-back dunk contest crowns in 2002 and 2003 -- a few years before Jase was born.
+                - emphasis [ref=e625]: "-- Kram"
+              - paragraph [ref=e626]:
+                - strong [ref=e627]: "Expert picks:"
+                - text: Keshad Johnson
+              - paragraph [ref=e628]: When you wish upon a shooting star(s)
+              - paragraph [ref=e629]: "In place of the skills challenge, the NBA is bringing back the shooting stars competition, which previously ran from 2004 through 2015 and featured three-person teams: a current NBA player, an NBA legend and a WNBA player."
+              - paragraph [ref=e630]:
+                - text: "There's no WNBA presence in the renewed competition, with a second current player joining the three-man teams instead. Two aspects of this year's teams stand out: Team Harper -- with Ron Harper as the NBA legend and Dylan and Ron Jr. as the current NBA players -- offers a compelling family element, while first-time All-Star"
+                - link "Jalen Johnson" [ref=e631] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4701230/jalen-johnson
+                - text: "'s presence on Team Cameron is ironic, given that Johnson controversially left Duke University in the middle of his freshman season to focus on his preparation for the draft."
+                - emphasis [ref=e632]: "-- Kram"
+              - paragraph [ref=e633]:
+                - strong [ref=e634]: "Expert picks:"
+                - text: Team Knicks
+              - complementary [ref=e635]:
+                - heading "2026 NBA All-Star Saturday participants" [level=2] [ref=e636]
+                - table [ref=e637]:
+                  - rowgroup [ref=e638]:
+                    - row "3-Point Contest Shooting Stars Slam Dunk" [ref=e639]:
+                      - columnheader "3-Point Contest" [ref=e640]
+                      - columnheader "Shooting Stars" [ref=e641]
+                      - columnheader "Slam Dunk" [ref=e642]
+                  - rowgroup [ref=e643]:
+                    - 'row "Devin Booker Team All-Star: Carter Bryant" [ref=e644]':
+                      - cell "Devin Booker" [ref=e645]:
+                        - link "Devin Booker" [ref=e646] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3136193/devin-booker
+                      - cell "Team All-Star:" [ref=e647]
+                      - cell "Carter Bryant" [ref=e648]:
+                        - link "Carter Bryant" [ref=e649] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5061568/carter-bryant
+                    - row "Kon Knueppel Scottie Barnes, Chet Holmgren, Richard Hamilton Jaxson Hayes" [ref=e650]:
+                      - cell "Kon Knueppel" [ref=e651]:
+                        - link "Kon Knueppel" [ref=e652] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5061575/kon-knueppel
+                      - cell "Scottie Barnes, Chet Holmgren, Richard Hamilton" [ref=e653]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4433134/scottie-barnes
+                        - link "Scottie Barnes" [ref=e654] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4433134/scottie-barnes
+                        - text: ","
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4433255/chet-holmgren
+                        - link "Chet Holmgren" [ref=e655] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4433255/chet-holmgren
+                        - text: ","
+                        - text: Richard Hamilton
+                      - cell "Jaxson Hayes" [ref=e656]:
+                        - link "Jaxson Hayes" [ref=e657] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4397077/jaxson-hayes
+                    - 'row "Damian Lillard Team Cameron: Keshad Johnson" [ref=e658]':
+                      - cell "Damian Lillard" [ref=e659]:
+                        - link "Damian Lillard" [ref=e660] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/6606/damian-lillard
+                      - cell "Team Cameron:" [ref=e661]
+                      - cell "Keshad Johnson" [ref=e662]:
+                        - link "Keshad Johnson" [ref=e663] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4431786/keshad-johnson
+                    - row "Tyrese Maxey Jalen Johnson, Kon Knueppel, Corey Maggette Jase Richardson" [ref=e664]:
+                      - cell "Tyrese Maxey" [ref=e665]:
+                        - link "Tyrese Maxey" [ref=e666] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4431678/tyrese-maxey
+                      - cell "Jalen Johnson, Kon Knueppel, Corey Maggette" [ref=e667]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4701230/jalen-johnson
+                        - link "Jalen Johnson" [ref=e668] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4701230/jalen-johnson
+                        - text: ","
+                        - text: Kon Knueppel,
+                        - text: Corey Maggette
+                      - cell "Jase Richardson" [ref=e669]:
+                        - link "Jase Richardson" [ref=e670] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5239561/jase-richardson
+                    - row "Donovan Mitchell Team Harper:" [ref=e671]:
+                      - cell "Donovan Mitchell" [ref=e672]:
+                        - link "Donovan Mitchell" [ref=e673] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3908809/donovan-mitchell
+                      - cell "Team Harper:" [ref=e674]
+                      - cell [ref=e675]
+                    - row "Jamal Murray Dylan Harper, Ron Harper Jr., Ron Harper" [ref=e676]:
+                      - cell "Jamal Murray" [ref=e677]:
+                        - link "Jamal Murray" [ref=e678] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3936299/jamal-murray
+                      - cell "Dylan Harper, Ron Harper Jr., Ron Harper" [ref=e679]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/5037871/dylan-harper
+                        - link "Dylan Harper" [ref=e680] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5037871/dylan-harper
+                        - text: ","
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/4397251/ron-harper-jr
+                        - link "Ron Harper Jr" [ref=e681] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4397251/ron-harper-jr
+                        - text: .,
+                        - text: Ron Harper
+                      - cell [ref=e682]
+                    - row "Bobby Portis Jr. Team Knicks:" [ref=e683]:
+                      - cell "Bobby Portis Jr." [ref=e684]:
+                        - link "Bobby Portis Jr." [ref=e685] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3064482/bobby-portis
+                      - cell "Team Knicks:" [ref=e686]
+                      - cell [ref=e687]
+                    - row "Norman Powell Jalen Brunson, Karl-Anthony Towns, Allan Houston" [ref=e688]:
+                      - cell "Norman Powell" [ref=e689]:
+                        - link "Norman Powell" [ref=e690] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/2595516/norman-powell
+                      - cell "Jalen Brunson, Karl-Anthony Towns, Allan Houston" [ref=e691]:
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/3934672/jalen-brunson
+                        - link "Jalen Brunson" [ref=e692] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3934672/jalen-brunson
+                        - text: ","
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/3136195/karl-anthony-towns
+                        - link "Karl-Anthony Towns" [ref=e693] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3136195/karl-anthony-towns
+                        - text: ","
+                        - link:
+                          - /url: https://www.espn.com/nba/player/_/id/349/allan-houston
+                        - link "Allan Houston" [ref=e694] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/349/allan-houston
+                      - cell [ref=e695]
+              - separator [ref=e696]
+              - complementary [ref=e697]:
+                - figure "(Photo by Ronald Martinez/Getty Images)" [ref=e698]:
+                  - img [ref=e700]
+                  - generic [ref=e702]: (Photo by Ronald Martinez/Getty Images)
+              - paragraph:
+                - strong
+              - heading "International vs. homegrown? What to watch in the All-Star game" [level=2] [ref=e703]
+              - heading "Sunday, 5 p.m. ET (NBC, Peacock)" [level=3] [ref=e704]
+              - paragraph [ref=e705]:
+                - text: In its latest attempt to inject some life into the NBA's midseason showcase, the league is leaning into NBC's Olympic coverage by deploying a Team USA versus The World format. Sadly, though, the three-team round-robin tournament has already lost some significant participants, with
+                - link "Giannis Antetokounmpo" [ref=e706] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3032977/giannis-antetokounmpo
+                - text: ","
+                - link "Shai Gilgeous-Alexander" [ref=e707] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/4278073/shai-gilgeous-alexander
+                - text: and
+                - link "Stephen Curry" [ref=e708] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/3975/stephen-curry
+                - text: ruled out for the All-Star Game, with others to potentially follow.
+              - paragraph [ref=e709]:
+                - text: Still, there's at least some hope this format could inspire some interesting moments this weekend. The World roster features only one guard (Jamal Murray), and he's the only player below 6-foot-8. This also could be the final All-Star appearance for
+                - link "LeBron James" [ref=e710] [cursor=pointer]:
+                  - /url: https://www.espn.com/nba/player/_/id/1966/lebron-james
+                - text: ", so perhaps he'll show up to play, wanting to go out with a bang. Either way, it will serve as another referendum on Adam Silver's ongoing attempts to salvage the event into something more competitive to watch."
+                - emphasis [ref=e711]: "-- Tim Bontemps"
+              - paragraph [ref=e712]:
+                - strong [ref=e713]: "Game 1:"
+                - link "Stars vs. World" [ref=e714] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838140/team-stars-world
+                - strong [ref=e715]: "Game 2:"
+                - link "Stripes vs. Game 1 winner" [ref=e716] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838141/team-stripes-tbd
+                - strong [ref=e717]: "Game 3:"
+                - link "Stripes vs. Game 1 loser" [ref=e718] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838142/team-stripes-tbd
+                - strong [ref=e719]: "Game 4:"
+                - link "All-Star Championship" [ref=e720] [cursor=pointer]:
+                  - /url: /nba/game/_/gameId/401838143/tbd-tbd
+              - paragraph [ref=e721]:
+                - strong [ref=e722]: "Expert picks:"
+                - text: Team World
+              - complementary [ref=e723]:
+                - heading "2026 All-Star Roster" [level=2] [ref=e724]
+                - table [ref=e725]:
+                  - rowgroup [ref=e726]:
+                    - row "USA Stars USA Stripes World" [ref=e727]:
+                      - columnheader "USA Stars" [ref=e728]
+                      - columnheader "USA Stripes" [ref=e729]
+                      - columnheader "World" [ref=e730]
+                  - rowgroup [ref=e731]:
+                    - row "Scottie Barnes Jaylen Brown Giannis Antetokounmpo*" [ref=e732]:
+                      - cell "Scottie Barnes" [ref=e733]:
+                        - link "Scottie Barnes" [ref=e734] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4433134/scottie-barnes
+                      - cell "Jaylen Brown" [ref=e735]:
+                        - link "Jaylen Brown" [ref=e736] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3917376/jaylen-brown
+                      - cell "Giannis Antetokounmpo*" [ref=e737]:
+                        - link "Giannis Antetokounmpo" [ref=e738] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3032977/giannis-antetokounmpo
+                        - text: "*"
+                    - row "Cade Cunningham Stephen Curry* Luka Doncic" [ref=e739]:
+                      - cell "Cade Cunningham" [ref=e740]:
+                        - link "Cade Cunningham" [ref=e741] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4432166/cade-cunningham
+                      - cell "Stephen Curry*" [ref=e742]:
+                        - link "Stephen Curry" [ref=e743] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3975/stephen-curry
+                        - text: "*"
+                      - cell "Luka Doncic" [ref=e744]:
+                        - link "Luka Doncic" [ref=e745] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3945274/luka-doncic
+                    - row "Anthony Edwards Brandon Ingram Nikola Jokic" [ref=e746]:
+                      - cell "Anthony Edwards" [ref=e747]:
+                        - link "Anthony Edwards" [ref=e748] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4594268/anthony-edwards
+                      - cell "Brandon Ingram" [ref=e749]:
+                        - link "Brandon Ingram" [ref=e750] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3913176/brandon-ingram
+                      - cell "Nikola Jokic" [ref=e751]:
+                        - link "Nikola Jokic" [ref=e752] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3112335/nikola-jokic
+                    - row "Jalen Johnson Kawhi Leonard Alperen Sengun" [ref=e753]:
+                      - cell "Jalen Johnson" [ref=e754]:
+                        - link "Jalen Johnson" [ref=e755] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4701230/jalen-johnson
+                      - cell "Kawhi Leonard" [ref=e756]:
+                        - link "Kawhi Leonard" [ref=e757] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/6450/kawhi-leonard
+                      - cell "Alperen Sengun" [ref=e758]:
+                        - link "Alperen Sengun" [ref=e759] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4871144/alperen-sengun
+                    - row "Devin Booker Jalen Brunson Karl-Anthony Towns" [ref=e760]:
+                      - cell "Devin Booker" [ref=e761]:
+                        - link "Devin Booker" [ref=e762] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3136193/devin-booker
+                      - cell "Jalen Brunson" [ref=e763]:
+                        - link "Jalen Brunson" [ref=e764] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3934672/jalen-brunson
+                      - cell "Karl-Anthony Towns" [ref=e765]:
+                        - link "Karl-Anthony Towns" [ref=e766] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3136195/karl-anthony-towns
+                    - row "Jalen Duren Kevin Durant Deni Avdija" [ref=e767]:
+                      - cell "Jalen Duren" [ref=e768]:
+                        - link "Jalen Duren" [ref=e769] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4433621/jalen-duren
+                      - cell "Kevin Durant" [ref=e770]:
+                        - link "Kevin Durant" [ref=e771] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3202/kevin-durant
+                      - cell "Deni Avdija" [ref=e772]:
+                        - link "Deni Avdija" [ref=e773] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4683021/deni-avdija
+                    - row "Chet Holmgren LeBron James Shai Gilgeous-Alexander*" [ref=e774]:
+                      - cell "Chet Holmgren" [ref=e775]:
+                        - link "Chet Holmgren" [ref=e776] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4433255/chet-holmgren
+                      - cell "LeBron James" [ref=e777]:
+                        - link "LeBron James" [ref=e778] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/1966/lebron-james
+                      - cell "Shai Gilgeous-Alexander*" [ref=e779]:
+                        - link "Shai Gilgeous-Alexander" [ref=e780] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4278073/shai-gilgeous-alexander
+                        - text: "*"
+                    - row "Tyrese Maxey Donovan Mitchell Pascal Siakam" [ref=e781]:
+                      - cell "Tyrese Maxey" [ref=e782]:
+                        - link "Tyrese Maxey" [ref=e783] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4431678/tyrese-maxey
+                      - cell "Donovan Mitchell" [ref=e784]:
+                        - link "Donovan Mitchell" [ref=e785] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3908809/donovan-mitchell
+                      - cell "Pascal Siakam" [ref=e786]:
+                        - link "Pascal Siakam" [ref=e787] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/3149673/pascal-siakam
+                    - row "De'Aaron Fox Victor Wembanyama" [ref=e788]:
+                      - cell [ref=e789]
+                      - cell "De'Aaron Fox" [ref=e790]:
+                        - link "De'Aaron Fox" [ref=e791] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/4066259/deaaron-fox
+                      - cell "Victor Wembanyama" [ref=e792]:
+                        - link "Victor Wembanyama" [ref=e793] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/5104157/victor-wembanyama
+                    - row "Norman Powell" [ref=e794]:
+                      - cell [ref=e795]
+                      - cell [ref=e796]
+                      - cell "Norman Powell" [ref=e797]:
+                        - link "Norman Powell" [ref=e798] [cursor=pointer]:
+                          - /url: https://www.espn.com/nba/player/_/id/2595516/norman-powell
+                  - rowgroup [ref=e799]:
+                    - row "* denotes injury" [ref=e800]:
+                      - cell "* denotes injury" [ref=e801]
+            - generic [ref=e805]:
+              - list [ref=e806]:
+                - listitem [ref=e807]:
+                  - link "Terms of Use" [ref=e808] [cursor=pointer]:
+                    - /url: https://disneytermsofuse.com/english/
+                - listitem [ref=e809]:
+                  - link "Privacy Policy" [ref=e810] [cursor=pointer]:
+                    - /url: https://privacy.thewaltdisneycompany.com/en/current-privacy-policy/
+                - listitem [ref=e811]:
+                  - link "Your US State Privacy Rights" [ref=e812] [cursor=pointer]:
+                    - /url: https://privacy.thewaltdisneycompany.com/en/current-privacy-policy/your-us-state-privacy-rights/
+                - listitem [ref=e813]:
+                  - link "Children's Online Privacy Policy" [ref=e814] [cursor=pointer]:
+                    - /url: https://disneyprivacycenter.com/kids-privacy-policy/english/
+                - listitem [ref=e815]:
+                  - link "Interest-Based Ads" [ref=e816] [cursor=pointer]:
+                    - /url: https://privacy.thewaltdisneycompany.com/en/privacy-controls/online-tracking-and-advertising/
+                - listitem [ref=e817]:
+                  - link "About Nielsen Measurement" [ref=e818] [cursor=pointer]:
+                    - /url: http://www.nielsen.com/digitalprivacy
+                - listitem [ref=e819]:
+                  - link "Your Privacy Choices" [ref=e820] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e821]:
+                  - link "Contact Us" [ref=e822] [cursor=pointer]:
+                    - /url: https://www.espn.com/espn/news/story?page=contact-index
+                - listitem [ref=e823]:
+                  - link "Disney Ad Sales Site" [ref=e824] [cursor=pointer]:
+                    - /url: https://www.disneyadvertising.com/
+                - listitem [ref=e825]:
+                  - link "Work for ESPN" [ref=e826] [cursor=pointer]:
+                    - /url: https://jobs.disneycareers.com/espn
+                - listitem [ref=e827]:
+                  - link "Corrections" [ref=e828] [cursor=pointer]:
+                    - /url: https://www.espn.com/espn/corrections
+              - generic [ref=e829]: "GAMBLING PROBLEM? CALL 1-800-GAMBLER, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY). Please Gamble Responsibly. 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD). 21+ and present in most states. (18+ DC/KY/NH/WY). Void in ONT/OR/NH. Eligibility restrictions apply. On behalf of Boot Hill Casino & Resort (KS). Terms: sportsbook.draftkings.com/promos."
+              - generic [ref=e830]: "Copyright: © 2026 ESPN Enterprises, Inc. All rights reserved."
+  - text: desktop-lg

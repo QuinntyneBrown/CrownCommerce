@@ -1,0 +1,530 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - region
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - navigation "Sections Menu" [ref=e6]:
+        - generic [ref=e7]:
+          - button "Sections" [ref=e11]:
+            - generic: Sections
+            - img [ref=e12]
+          - link "TSN Logo" [ref=e14]:
+            - /url: /
+            - img "TSN Logo" [ref=e15]
+          - navigation "Top Links" [ref=e16]:
+            - link "NHL" [ref=e18]:
+              - /url: /nhl
+            - link "NFL" [ref=e20]:
+              - /url: /nfl
+            - link "Olympics" [ref=e22]:
+              - /url: /olympics
+            - link "NBA" [ref=e24]:
+              - /url: /nba
+            - link "FIFA World Cup" [ref=e26]:
+              - /url: /soccer/fifa-world-cup
+            - link "Golf" [ref=e28]:
+              - /url: /golf
+          - generic [ref=e30]:
+            - navigation "More Links" [ref=e32]:
+              - link "Watch" [ref=e33]:
+                - /url: /video
+              - link "Listen" [ref=e34]:
+                - /url: /radio
+            - link "Live" [ref=e36]:
+              - /url: /live/
+              - img [ref=e37]
+              - text: Live
+            - button "Sign In" [ref=e46]:
+              - img [ref=e47]
+              - generic [ref=e49]: Sign In
+            - button "Search" [ref=e51]:
+              - img [ref=e52]
+      - complementary "Scoreboard" [ref=e57]:
+        - heading "Scoreboard" [level=2] [ref=e58]
+        - button "nba" [ref=e60] [cursor=pointer]
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - group "1 / 17" [ref=e64]:
+              - time [ref=e66]:
+                - strong [ref=e67]: Thu
+                - text: Feb 12
+            - group "2 / 17" [ref=e68]:
+              - generic [ref=e69]:
+                - link "Visit the event page" [ref=e70] [cursor=pointer]:
+                  - /url: /nba/event/milwaukee-bucks-oklahoma-city-thunder-20260212/2915355
+                  - generic [ref=e71]: Visit the event page
+                - generic [ref=e72]:
+                  - list [ref=e73]:
+                    - listitem [ref=e74]:
+                      - figure [ref=e75]:
+                        - img "milwaukee-bucks" [ref=e76]
+                      - generic [ref=e77]: MIL
+                      - generic [ref=e78]: "110"
+                    - listitem [ref=e79]:
+                      - figure [ref=e80]:
+                        - img "oklahoma-city-thunder" [ref=e81]
+                      - generic [ref=e82]: OKC
+                      - generic [ref=e83]: "93"
+                  - generic [ref=e84]:
+                    - generic [ref=e85]: OKC -13.5
+                    - generic [ref=e86]: "O/U: 214.5"
+                - generic [ref=e87]:
+                  - generic [ref=e88]: Final
+                  - link "highlights" [ref=e89] [cursor=pointer]:
+                    - /url: /nba/event/milwaukee-bucks-oklahoma-city-thunder-20260212/2915355?activeTab=highlights
+                    - img "highlights" [ref=e90]
+            - group "3 / 17" [ref=e92]:
+              - generic [ref=e93]:
+                - link "Visit the event page" [ref=e94] [cursor=pointer]:
+                  - /url: /nba/event/portland-trail-blazers-utah-jazz-20260212/2914643
+                  - generic [ref=e95]: Visit the event page
+                - generic [ref=e96]:
+                  - list [ref=e97]:
+                    - listitem [ref=e98]:
+                      - figure [ref=e99]:
+                        - img "portland-trail-blazers" [ref=e100]
+                      - generic [ref=e101]: POR
+                      - generic [ref=e102]: "135"
+                    - listitem [ref=e103]:
+                      - figure [ref=e104]:
+                        - img "utah-jazz" [ref=e105]
+                      - generic [ref=e106]: UTA
+                      - generic [ref=e107]: "119"
+                  - generic [ref=e108]:
+                    - generic [ref=e109]: POR -6.0
+                    - generic [ref=e110]: "O/U: 236.5"
+                - generic [ref=e112]: Final
+            - group "4 / 17" [ref=e113]:
+              - generic [ref=e114]:
+                - link "Visit the event page" [ref=e115] [cursor=pointer]:
+                  - /url: /nba/event/dallas-mavericks-los-angeles-lakers-20260212/2915109
+                  - generic [ref=e116]: Visit the event page
+                - generic [ref=e117]:
+                  - list [ref=e118]:
+                    - listitem [ref=e119]:
+                      - figure [ref=e120]:
+                        - img "dallas-mavericks" [ref=e121]
+                      - generic [ref=e122]: DAL
+                      - generic [ref=e123]: "104"
+                    - listitem [ref=e124]:
+                      - figure [ref=e125]:
+                        - img "los-angeles-lakers" [ref=e126]
+                      - generic [ref=e127]: LAL
+                      - generic [ref=e128]: "124"
+                  - generic [ref=e129]:
+                    - generic [ref=e130]: LAL -6.0
+                    - generic [ref=e131]: "O/U: 237.5"
+                - generic [ref=e132]:
+                  - generic [ref=e133]: Final
+                  - link "highlights" [ref=e134] [cursor=pointer]:
+                    - /url: /nba/event/dallas-mavericks-los-angeles-lakers-20260212/2915109?activeTab=highlights
+                    - img "highlights" [ref=e135]
+            - group "5 / 17" [ref=e137]:
+              - time [ref=e139]:
+                - strong [ref=e140]: Sun
+                - text: Feb 15
+            - group "6 / 17" [ref=e141]:
+              - generic [ref=e142]:
+                - link "Visit the event page" [ref=e143] [cursor=pointer]:
+                  - /url: /nba/event/-20260215/2956602
+                  - generic [ref=e144]: Visit the event page
+                - generic [ref=e145]:
+                  - heading "All-Star Game" [level=3] [ref=e146]
+                  - list [ref=e147]:
+                    - listitem [ref=e148]:
+                      - generic [ref=e149]: WLD
+                      - generic [ref=e150]: "35"
+                    - listitem [ref=e151]:
+                      - generic [ref=e152]: STA
+                      - generic [ref=e153]: "37"
+                - generic [ref=e155]: Final
+            - group "7 / 17" [ref=e156]:
+              - time [ref=e158]:
+                - strong [ref=e159]: Thu
+                - text: Feb 19
+            - group "8 / 17" [ref=e160]:
+              - generic [ref=e161]:
+                - link "Visit the event page" [ref=e162] [cursor=pointer]:
+                  - /url: /nba/event/indiana-pacers-washington-wizards-20260219/2914275
+                  - generic [ref=e163]: Visit the event page
+                - list [ref=e165]:
+                  - listitem [ref=e166]:
+                    - figure [ref=e167]:
+                      - img "indiana-pacers" [ref=e168]
+                    - generic [ref=e169]: IND
+                    - generic [ref=e170]: 15-40
+                  - listitem [ref=e171]:
+                    - figure [ref=e172]:
+                      - img "washington-wizards" [ref=e173]
+                    - generic [ref=e174]: WAS
+                    - generic [ref=e175]: 14-39
+                - time [ref=e177]: 7:00 PM
+            - group "9 / 17" [ref=e178]:
+              - generic [ref=e179]:
+                - link "Visit the event page" [ref=e180] [cursor=pointer]:
+                  - /url: /nba/event/houston-rockets-charlotte-hornets-20260219/2914550
+                  - generic [ref=e181]: Visit the event page
+                - list [ref=e183]:
+                  - listitem [ref=e184]:
+                    - figure [ref=e185]:
+                      - img "houston-rockets" [ref=e186]
+                    - generic [ref=e187]: HOU
+                    - generic [ref=e188]: 33-20
+                  - listitem [ref=e189]:
+                    - figure [ref=e190]:
+                      - img "charlotte-hornets" [ref=e191]
+                    - generic [ref=e192]: CHA
+                    - generic [ref=e193]: 26-29
+                - time [ref=e195]: 7:00 PM
+            - group "10 / 17" [ref=e196]:
+              - generic [ref=e197]:
+                - link "Visit the event page" [ref=e198] [cursor=pointer]:
+                  - /url: /nba/event/brooklyn-nets-cleveland-cavaliers-20260219/2914651
+                  - generic [ref=e199]: Visit the event page
+                - list [ref=e201]:
+                  - listitem [ref=e202]:
+                    - figure [ref=e203]:
+                      - img "brooklyn-nets" [ref=e204]
+                    - generic [ref=e205]: BKN
+                    - generic [ref=e206]: 15-38
+                  - listitem [ref=e207]:
+                    - figure [ref=e208]:
+                      - img "cleveland-cavaliers" [ref=e209]
+                    - generic [ref=e210]: CLE
+                    - generic [ref=e211]: 34-21
+                - time [ref=e213]: 7:00 PM
+            - group "11 / 17" [ref=e214]:
+              - generic [ref=e215]:
+                - link "Visit the event page" [ref=e216] [cursor=pointer]:
+                  - /url: /nba/event/atlanta-hawks-philadelphia-76ers-20260219/2915099
+                  - generic [ref=e217]: Visit the event page
+                - list [ref=e219]:
+                  - listitem [ref=e220]:
+                    - figure [ref=e221]:
+                      - img "atlanta-hawks" [ref=e222]
+                    - generic [ref=e223]: ATL
+                    - generic [ref=e224]: 26-30
+                  - listitem [ref=e225]:
+                    - figure [ref=e226]:
+                      - img "philadelphia-76ers" [ref=e227]
+                    - generic [ref=e228]: PHI
+                    - generic [ref=e229]: 30-24
+                - time [ref=e231]: 7:00 PM
+            - group "12 / 17" [ref=e232]:
+              - generic [ref=e233]:
+                - link "Visit the event page" [ref=e234] [cursor=pointer]:
+                  - /url: /nba/event/detroit-pistons-new-york-knicks-20260219/2915286
+                  - generic [ref=e235]: Visit the event page
+                - list [ref=e237]:
+                  - listitem [ref=e238]:
+                    - figure [ref=e239]:
+                      - img "detroit-pistons" [ref=e240]
+                    - generic [ref=e241]: DET
+                    - generic [ref=e242]: 40-13
+                  - listitem [ref=e243]:
+                    - figure [ref=e244]:
+                      - img "new-york-knicks" [ref=e245]
+                    - generic [ref=e246]: NYK
+                    - generic [ref=e247]: 35-20
+                - generic [ref=e248]:
+                  - img "tsn" [ref=e249]
+                  - time [ref=e250]: 7:30 PM
+            - group "13 / 17" [ref=e251]:
+              - generic [ref=e252]:
+                - link "Visit the event page" [ref=e253] [cursor=pointer]:
+                  - /url: /nba/event/toronto-raptors-chicago-bulls-20260219/2914370
+                  - generic [ref=e254]: Visit the event page
+                - list [ref=e256]:
+                  - listitem [ref=e257]:
+                    - figure [ref=e258]:
+                      - img "toronto-raptors" [ref=e259]
+                    - generic [ref=e260]: TOR
+                    - generic [ref=e261]: 32-23
+                  - listitem [ref=e262]:
+                    - figure [ref=e263]:
+                      - img "chicago-bulls" [ref=e264]
+                    - generic [ref=e265]: CHI
+                    - generic [ref=e266]: 24-31
+                - time [ref=e268]: 8:00 PM
+            - group "14 / 17" [ref=e269]:
+              - generic [ref=e270]:
+                - link "Visit the event page" [ref=e271] [cursor=pointer]:
+                  - /url: /nba/event/phoenix-suns-san-antonio-spurs-20260219/2914758
+                  - generic [ref=e272]: Visit the event page
+                - list [ref=e274]:
+                  - listitem [ref=e275]:
+                    - figure [ref=e276]:
+                      - img "phoenix-suns" [ref=e277]
+                    - generic [ref=e278]: PHX
+                    - generic [ref=e279]: 32-23
+                  - listitem [ref=e280]:
+                    - figure [ref=e281]:
+                      - img "san-antonio-spurs" [ref=e282]
+                    - generic [ref=e283]: SAS
+                    - generic [ref=e284]: 38-16
+                - time [ref=e286]: 8:30 PM
+            - group "15 / 17" [ref=e287]:
+              - generic [ref=e288]:
+                - link "Visit the event page" [ref=e289] [cursor=pointer]:
+                  - /url: /nba/event/boston-celtics-golden-state-warriors-20260219/2914580
+                  - generic [ref=e290]: Visit the event page
+                - list [ref=e292]:
+                  - listitem [ref=e293]:
+                    - figure [ref=e294]:
+                      - img "boston-celtics" [ref=e295]
+                    - generic [ref=e296]: BOS
+                    - generic [ref=e297]: 35-19
+                  - listitem [ref=e298]:
+                    - figure [ref=e299]:
+                      - img "golden-state-warriors" [ref=e300]
+                    - generic [ref=e301]: GSW
+                    - generic [ref=e302]: 29-26
+                - generic [ref=e303]:
+                  - img "tsn" [ref=e304]
+                  - time [ref=e305]: 10:00 PM
+            - group "16 / 17" [ref=e306]:
+              - generic [ref=e307]:
+                - link "Visit the event page" [ref=e308] [cursor=pointer]:
+                  - /url: /nba/event/orlando-magic-sacramento-kings-20260219/2914850
+                  - generic [ref=e309]: Visit the event page
+                - list [ref=e311]:
+                  - listitem [ref=e312]:
+                    - figure [ref=e313]:
+                      - img "orlando-magic" [ref=e314]
+                    - generic [ref=e315]: ORL
+                    - generic [ref=e316]: 28-25
+                  - listitem [ref=e317]:
+                    - figure [ref=e318]:
+                      - img "sacramento-kings" [ref=e319]
+                    - generic [ref=e320]: SAC
+                    - generic [ref=e321]: 12-44
+                - time [ref=e323]: 10:00 PM
+            - group "17 / 17" [ref=e324]:
+              - generic [ref=e325]:
+                - link "Visit the event page" [ref=e326] [cursor=pointer]:
+                  - /url: /nba/event/denver-nuggets-los-angeles-clippers-20260219/2914842
+                  - generic [ref=e327]: Visit the event page
+                - list [ref=e329]:
+                  - listitem [ref=e330]:
+                    - figure [ref=e331]:
+                      - img "denver-nuggets" [ref=e332]
+                    - generic [ref=e333]: DEN
+                    - generic [ref=e334]: 35-20
+                  - listitem [ref=e335]:
+                    - figure [ref=e336]:
+                      - img "los-angeles-clippers" [ref=e337]
+                    - generic [ref=e338]: LAC
+                    - generic [ref=e339]: 26-28
+                - time [ref=e341]: 10:30 PM
+          - button "Previous slide" [ref=e342] [cursor=pointer]
+          - button "Next slide" [ref=e343] [cursor=pointer]
+        - generic [ref=e345]:
+          - generic [ref=e346]: "Odds By:"
+          - link "fanduel" [ref=e348] [cursor=pointer]:
+            - /url: https://on.sportsbook.fanduel.ca/
+            - generic [ref=e349]: fanduel
+        - link "Full scores" [ref=e351] [cursor=pointer]:
+          - /url: /nba/scores
+    - main [ref=e352]:
+      - generic [ref=e353]:
+        - paragraph [ref=e356]: ADVERTISEMENT
+        - generic [ref=e358]:
+          - button "Share current article via Email" [ref=e359]:
+            - img [ref=e361]
+          - button "Share current article via Facebook" [ref=e363]:
+            - img [ref=e365]
+          - button "Share current article via Pinterest" [ref=e367]:
+            - img [ref=e369]
+          - button "Share current article via X" [ref=e371]:
+            - img [ref=e373]
+          - button "Share current article via Reddit" [ref=e375]:
+            - img [ref=e377]
+          - button "Share current article via LinkedIn" [ref=e379]:
+            - img [ref=e381]
+      - generic [ref=e383]:
+        - generic [ref=e384]:
+          - link "NBA" [ref=e386] [cursor=pointer]:
+            - /url: /nba/
+          - heading "Barnes’ OT 3-pointer sends Stars past World in the first clash at the NBA All-Star Game" [level=1] [ref=e387]
+          - generic [ref=e388]:
+            - text: By
+            - link "The Canadian Press Opens in new window" [ref=e390] [cursor=pointer]:
+              - /url: https://www.ctvnews.ca/about-us/team/the-canadian-press/
+              - generic [ref=e391]: The Canadian Press
+              - generic [ref=e392]: Opens in new window
+          - paragraph [ref=e394]:
+            - text: "Published:"
+            - time [ref=e395]: February 15, 2026 at 6:18PM EST
+          - figure "USA Stars forward Scottie Barnes, center, celebrates with guard Cade Cunningham after a win over World during the NBA All-Star basketball game Sunday, Feb. 15, 2026, in Inglewood, Calif. (AP Photo/Mark J. Terrill) (Mark J. Terrill/AP)" [ref=e397]:
+            - generic [ref=e399]: USA Stars forward Scottie Barnes, center, celebrates with guard Cade Cunningham after a win over World during the NBA All-Star basketball game Sunday, Feb. 15, 2026, in Inglewood, Calif. (AP Photo/Mark J. Terrill) (Mark J. Terrill/AP)
+          - article [ref=e400]:
+            - paragraph [ref=e401]: INGLEWOOD, Calif. (AP) — De'Aaron Fox hit a 3-pointer at the buzzer, and the “Stripes” team of All-Stars beat their fellow Americans on the “Stars” team 42-40 for the second straight thrilling finish in the mini-tournament comprising the NBA All-Star Game on Sunday.
+            - paragraph [ref=e402]: Scottie Barnes won the opening game for the Stars with a clinching 3-pointer in overtime, beating the World team 37-36 to begin the main event of All-Star weekend at the Los Angeles Clippers’ Intuit Dome.
+            - paragraph [ref=e403]: Donovan Mitchell then took a pass under the net from LeBron James and kicked it out to Fox on the perimeter for another dramatic ending.
+            - paragraph [ref=e404]: Both mini-games appeared to be played at a higher level of competitiveness than most All-Star Games in recent years, suggesting the league's fourth All-Star format in four years might have finally cracked the code on the long-standing question of how to make this midseason showcase more entertaining.
+            - paragraph [ref=e405]: The All-Star Game has received years of criticism for the players’ increasingly indifferent effort and TV viewers’ declining interest. The intriguing new setup matches two teams of American All-Stars against a team representing the World, hoping to stoke nationalistic passion from players and fans during an Olympic year. The three teams are playing a round-robin tournament of 12-minute games to determine the final matchup.
+            - paragraph [ref=e406]: Jaylen Brown led the slightly older Stripes roster with 11 points, and James scored eight to begin his record 21st All-Star appearance.
+            - paragraph [ref=e407]: “Old heads 1-0,” James said with a laugh. “We’ve got a lot of guys that have played a lot of basketball, so no matter what’s going on, we know how to keep our composure and execute.”
+            - paragraph [ref=e408]: A few hours beforehand, the top scorer in NBA history said the game's presence in the Los Angeles area meant “nothing, because this is not our building. This is a road game.”
+            - paragraph [ref=e409]: Indeed, the Clippers fans in Intuit Dome booed James and fellow Lakers superstar Luka Doncic whenever they touched the ball in the first two games.
+            - paragraph [ref=e410]: Anthony Edwards and Cade Cunningham scored 11 points apiece for the slightly younger Stars team in its second matchup.
+            - paragraph [ref=e411]: NBA scoring leader Doncic played the first 5:05 for the World in the opening game before sitting down. The Lakers superstar hadn't played since Feb. 5 due to a hamstring strain, but he was determined to play after receiving his sixth All-Star nod.
+            - paragraph [ref=e412]: The World team was a clear powerhouse with a starting lineup featuring three-time MVP Nikola Jokic, Doncic and Victor Wembanyama, who scored 13 points and urged the All-Stars to match his effort in a game not known for passion. Wembanyama was visibly frustrated when Barnes' winning 3-pointer went in.
+            - paragraph [ref=e413]: John Tesh took the court with his band before the game for a live rendition of “Roundball Rock,” the iconic 1990s theme song of “NBA on NBC," to mark the league's return to the network this season. That network partnership is also the reason the All-Star Game was an afternoon affair on the West Coast, because NBC airs the Winter Olympics at night.
+            - paragraph [ref=e414]: The Intuit Dome crowd included former President Barack Obama, who received a standing ovation pregame.
+            - paragraph [ref=e415]: First game
+            - paragraph [ref=e416]: Edwards scored 13 points and hit the tying 3-pointer with 13.3 seconds left in regulation to begin the mini-tourney.
+            - paragraph [ref=e417]: Edwards hit a 14-footer to begin the first-to-five-points overtime period. Wembanyama made a 3-pointer, but Raptors star Barnes ended it by draining his only shot of the game.
+            - paragraph [ref=e418]: Wembanyama is making good on his vow to take the game seriously, scoring 14 points to lead the World team. Karl-Anthony Towns added 10 points, but Norman Powell — a born-and-raised Californian who represents Jamaica internationally — missed a potential winning shot for the World at the regulation buzzer.
+            - paragraph [ref=e419]: Towns scored 50 points in the All-Star Game two years ago and then hit a 37-footer from the logo in last year’s game in San Francisco. He made a 27-footer to put the World up 26-17 with 4 1/2 minutes left, but Cade Cunningham and Jalen Johnson led the Stars’ late 15-6 rally.
+            - paragraph [ref=e420]: Up next
+            - paragraph [ref=e421]: The All-Star weekend stays out West in February 2027 when Phoenix hosts for the fourth time.
+            - paragraph [ref=e422]: ___
+            - paragraph [ref=e423]: "AP NBA: https://apnews.com/nba"
+            - paragraph [ref=e424]: Greg Beacham, The Associated Press
+          - generic [ref=e426]:
+            - article [ref=e427]:
+              - heading "Barnes’ OT 3-pointer sends Stars past World in the first clash at the NBA All-Star Game" [level=2] [ref=e428]:
+                - link "Barnes’ OT 3-pointer sends Stars past World in the first clash at the NBA All-Star Game" [ref=e429]:
+                  - /url: /nba/article/barnes-ot-3-pointer-sends-stars-past-world-in-the-first-clash-at-the-nba-all-star-game/
+              - time [ref=e431]: February 15, 2026 at 6:18PM EST
+            - article [ref=e432]:
+              - heading "All-Star James says he still doesn’t know whether his 23rd NBA season will be his last" [level=2] [ref=e433]:
+                - link "All-Star James says he still doesn’t know whether his 23rd NBA season will be his last" [ref=e434]:
+                  - /url: /nba/article/all-star-james-says-he-still-doesnt-know-whether-his-23rd-nba-season-will-be-his-last/
+              - time [ref=e436]: February 15, 2026 at 4:13PM EST
+            - article [ref=e437]:
+              - heading "Celtics’ Brown toying with idea of UFC, boxing after NBA" [level=2] [ref=e438]:
+                - link "Celtics’ Brown toying with idea of UFC, boxing after NBA" [ref=e439]:
+                  - /url: /nba/article/celtics-brown-toying-with-idea-of-ufc-boxing-after-nba-n1-47939125/
+              - time [ref=e441]: February 15, 2026 at 12:40PM EST
+        - complementary [ref=e442]:
+          - paragraph [ref=e445]: ADVERTISEMENT
+    - contentinfo [ref=e447]:
+      - generic:
+        - generic:
+          - generic:
+            - region "TSN Slip":
+              - generic [ref=e448]:
+                - button "Open the bet slip" [ref=e449]:
+                  - generic [ref=e450]: Open the bet slip
+                - button "Help" [ref=e452]:
+                  - generic [ref=e454]: Help
+      - navigation "More Links" [ref=e455]:
+        - link "Talent" [ref=e456]:
+          - /url: /talent
+        - link "Careers Opens in new window" [ref=e457]:
+          - /url: https://jobs.bce.ca/bell/go/Media/3537600
+          - text: Careers
+          - generic [ref=e458]: Opens in new window
+        - link "Advertise with Bell Media Opens in new window" [ref=e459]:
+          - /url: https://www.bellmedia.ca/advertising-sales/
+          - text: Advertise with Bell Media
+          - generic [ref=e460]: Opens in new window
+        - link "Facebook Opens in new window" [ref=e461]:
+          - /url: https://www.facebook.com/TSN
+          - text: Facebook
+          - generic [ref=e462]: Opens in new window
+        - link "Instagram Opens in new window" [ref=e463]:
+          - /url: https://www.instagram.com/tsn_official/?hl=en
+          - text: Instagram
+          - generic [ref=e464]: Opens in new window
+        - link "Youtube Opens in new window" [ref=e465]:
+          - /url: https://www.youtube.com/channel/UC--i2rV5NCxiEIPefr3l-zQ
+          - text: Youtube
+          - generic [ref=e466]: Opens in new window
+        - link "Snapchat Opens in new window" [ref=e467]:
+          - /url: https://www.snapchat.com/p/a8ea7a77-48e6-47c8-be16-1a3f430e3d31/760045854199808
+          - text: Snapchat
+          - generic [ref=e468]: Opens in new window
+      - separator [ref=e469]
+      - generic [ref=e470]:
+        - generic [ref=e471]:
+          - link "Twitter feed" [ref=e474]:
+            - /url: https://twitter.com/TSN_Sports
+            - img [ref=e475]
+            - generic [ref=e477]: Twitter feed
+          - paragraph [ref=e478]: ©2026 BellMedia All Rights Reserved
+        - generic [ref=e479]:
+          - generic [ref=e480]:
+            - heading "Accessibility & Help" [level=2] [ref=e481]
+            - list [ref=e482]:
+              - listitem [ref=e483]:
+                - link "BCE Accessibility Opens in new window" [ref=e484]:
+                  - /url: https://www.bce.ca/Accessibility_services
+                  - text: BCE Accessibility
+                  - generic [ref=e485]: Opens in new window
+              - listitem [ref=e486]:
+                - link "Contact Us Opens in new window" [ref=e487]:
+                  - /url: https://www.tsn.ca/help/contact-us/
+                  - text: Contact Us
+                  - generic [ref=e488]: Opens in new window
+              - listitem [ref=e489]:
+                - link "Help Opens in new window" [ref=e490]:
+                  - /url: https://www.tsn.ca/help
+                  - text: Help
+                  - generic [ref=e491]: Opens in new window
+          - generic [ref=e492]:
+            - heading "About Bell Media" [level=2] [ref=e493]
+            - list [ref=e494]:
+              - listitem [ref=e495]:
+                - link "Privacy Policy Opens in new window" [ref=e496]:
+                  - /url: https://aliant.bell.ca/Security_and_privacy/Commitment_to_privacy
+                  - text: Privacy Policy
+                  - generic [ref=e497]: Opens in new window
+              - listitem [ref=e498]:
+                - link "Bell Media Terms and Conditions Opens in new window" [ref=e499]:
+                  - /url: https://www.bellmedia.ca/bell-media-website-terms-conditions/
+                  - text: Bell Media Terms and Conditions
+                  - generic [ref=e500]: Opens in new window
+              - listitem [ref=e501]:
+                - link "TSN Terms and Conditions Opens in new window" [ref=e502]:
+                  - /url: https://www.tsn.ca/terms-and-conditions/
+                  - text: TSN Terms and Conditions
+                  - generic [ref=e503]: Opens in new window
+              - listitem [ref=e504]:
+                - link "Political Ad Registry Opens in new window" [ref=e505]:
+                  - /url: https://www.bellmedia.ca/advertising-sales/political-ads-registry/?_gl=1*bo4ryg*_gcl_au*NjYwMTcxMzYyLjE3NTA2ODQ1MTk.
+                  - text: Political Ad Registry
+                  - generic [ref=e506]: Opens in new window
+          - generic [ref=e507]:
+            - heading "Other Brands" [level=2] [ref=e508]
+            - list [ref=e509]:
+              - listitem [ref=e510]:
+                - link "CTV News Opens in new window" [ref=e511]:
+                  - /url: https://ctvnews.ca
+                  - text: CTV News
+                  - generic [ref=e512]: Opens in new window
+              - listitem [ref=e513]:
+                - link "CP24 Opens in new window" [ref=e514]:
+                  - /url: https://cp24.com
+                  - text: CP24
+                  - generic [ref=e515]: Opens in new window
+              - listitem [ref=e516]:
+                - link "BNN Bloomberg Opens in new window" [ref=e517]:
+                  - /url: https://bnnbloomberg.ca
+                  - text: BNN Bloomberg
+                  - generic [ref=e518]: Opens in new window
+          - generic [ref=e519]:
+            - heading "Autres Marques" [level=2] [ref=e520]
+            - list [ref=e521]:
+              - listitem [ref=e522]:
+                - link "RDS Opens in new window" [ref=e523]:
+                  - /url: https://rds.ca
+                  - text: RDS
+                  - generic [ref=e524]: Opens in new window
+              - listitem [ref=e525]:
+                - link "Noovo Info Opens in new window" [ref=e526]:
+                  - /url: http://noovo.info
+                  - text: Noovo Info
+                  - generic [ref=e527]: Opens in new window
+              - listitem [ref=e528]:
+                - link "Noovo Moi Opens in new window" [ref=e529]:
+                  - /url: https://noovomoi.ca
+                  - text: Noovo Moi
+                  - generic [ref=e530]: Opens in new window
+        - figure [ref=e531]:
+          - img "TSN Logo" [ref=e532]

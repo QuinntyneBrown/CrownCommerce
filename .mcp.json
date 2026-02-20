@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "aspire": {
+      "command": "aspire",
+      "args": [
+        "mcp",
+        "start"
+      ],
+      "env": {
+        "DOTNET_ROOT": "C:\\Program Files\\dotnet"
+      }
+    }
+  }
+}
