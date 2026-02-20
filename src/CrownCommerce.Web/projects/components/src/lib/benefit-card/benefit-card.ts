@@ -1,10 +1,12 @@
 import { Component, computed, inject, input } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'lib-benefit-card',
+  imports: [NgClass],
   template: `
-    <article class="benefit-card">
+    <article class="benefit-card" [ngClass]="'benefit-card--' + variant()">
       <div class="benefit-card__icon-wrap">
         <span class="benefit-card__icon" [innerHTML]="safeIcon()"></span>
       </div>
@@ -21,6 +23,12 @@ import { DomSanitizer } from '@angular/platform-browser';
       border-radius: 16px;
       background: var(--color-bg-card);
       border: 1px solid var(--color-border);
+
+      &--outlined {
+        background: transparent;
+        border-radius: 20px;
+        border-color: var(--color-gold-border);
+      }
     }
 
     .benefit-card__icon-wrap {
@@ -93,6 +101,7 @@ export class BenefitCardComponent {
   iconSvg = input.required<string>();
   title = input.required<string>();
   description = input.required<string>();
+  variant = input<'filled' | 'outlined'>('filled');
 
   safeIcon = computed(() => this.sanitizer.bypassSecurityTrustHtml(this.iconSvg()));
 }

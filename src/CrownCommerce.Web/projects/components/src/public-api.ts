@@ -21,3 +21,4 @@ export { EmailSignupComponent } from './lib/email-signup/email-signup';
 export { CountdownTimerComponent, type CountdownValues } from './lib/countdown-timer/countdown-timer';
 export { LoadingSpinnerComponent } from './lib/loading-spinner/loading-spinner';
 export { ErrorStateComponent } from './lib/error-state/error-state';
+export { TimelineCardComponent } from './lib/timeline-card/timeline-card';
