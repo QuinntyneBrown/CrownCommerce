@@ -47,3 +47,9 @@ export interface UpdateOrderStatusRequest {
   status: string;
   trackingNumber?: string;
 }
+
+export interface OrderFilterParams {
+  status?: string;
+  page?: number;
+  pageSize?: number;
+}

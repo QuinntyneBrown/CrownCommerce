@@ -30,11 +30,24 @@ export type {
   UpdateOriginRequest,
 } from './lib/models/catalog.models';
 
+// Models — CRM
+export type {
+  ContactStatus,
+  CustomerTier,
+  CrmBrand,
+  LeadSource,
+  LeadStatus,
+  Customer,
+  Lead,
+  CreateCustomerRequest,
+  CreateLeadRequest,
+} from './lib/models/crm.models';
+
 // Models — Identity
-export type { LoginRequest, RegisterRequest, AuthResponse, UserProfile, UpdateProfileRequest } from './lib/models/identity.models';
+export type { LoginRequest, RegisterRequest, AuthResponse, UserProfile, UpdateProfileRequest, AdminUser, ChangePasswordRequest, UpdateUserRoleRequest } from './lib/models/identity.models';
 
 // Models — Order
-export type { CartItem, AddToCartRequest, CreateOrderRequest, OrderItem, Order, UpdateOrderStatusRequest } from './lib/models/order.models';
+export type { CartItem, AddToCartRequest, CreateOrderRequest, OrderItem, Order, UpdateOrderStatusRequest, OrderFilterParams } from './lib/models/order.models';
 
 // Models — Payment
 export type { CreatePaymentRequest, Payment, ConfirmPaymentRequest, CreateRefundRequest, Refund } from './lib/models/payment.models';
@@ -61,6 +74,12 @@ export type {
   ReturnsPolicy,
   ReturnCondition,
   WholesaleTier,
+  CreateGalleryImageRequest,
+  UpdateGalleryImageRequest,
+  CreateFaqRequest,
+  UpdateFaqRequest,
+  CreatePageRequest,
+  UpdatePageRequest,
 } from './lib/models/content.models';
 
 // Models — Inquiry
@@ -148,3 +167,4 @@ export { NewsletterService } from './lib/services/newsletter.service';
 export { SchedulingService } from './lib/services/scheduling.service';
 export { TeamHubService, type HubMessage, type HubPresenceUpdate, type HubTypingUpdate } from './lib/services/team-hub.service';
 export { AmbassadorService } from './lib/services/ambassador.service';
+export { CrmService } from './lib/services/crm.service';

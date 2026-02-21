@@ -34,3 +34,22 @@ export interface UpdateProfileRequest {
   lastName: string;
   phone?: string;
 }
+
+export interface AdminUser {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  phone: string | null;
+  role: string;
+  createdAt: string;
+}
+
+export interface ChangePasswordRequest {
+  currentPassword: string;
+  newPassword: string;
+}
+
+export interface UpdateUserRoleRequest {
+  role: string;
+}

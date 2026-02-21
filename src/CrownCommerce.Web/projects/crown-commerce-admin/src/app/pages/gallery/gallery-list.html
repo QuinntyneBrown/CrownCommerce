@@ -1,0 +1,71 @@
+<!-- Toolbar -->
+<div class="toolbar">
+  <h1 class="toolbar-title">Gallery</h1>
+</div>
+
+<!-- Content Area -->
+<div class="content-area">
+  @if (error()) {
+    <div class="error-banner">
+      <mat-icon>error</mat-icon>
+      {{ error() }}
+    </div>
+  }
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Gallery Management</h2>
+      <p class="page-subtitle">Manage gallery images and categories</p>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="filter-row">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="Search images..." (input)="searchTerm.set($any($event.target).value)">
+    </mat-form-field>
+  </div>
+
+  @if (loading()) {
+    <div class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  } @else {
+    <div class="table-card">
+      <table mat-table [dataSource]="filteredImages()" class="table-full-width">
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let row" class="cell-bold">{{ row.title }}</td>
+        </ng-container>
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>Category</th>
+          <td mat-cell *matCellDef="let row">
+            <span class="chip chip--default">{{ row.category }}</span>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="imageUrl">
+          <th mat-header-cell *matHeaderCellDef>Image URL</th>
+          <td mat-cell *matCellDef="let row" class="cell-muted cell-truncate">{{ row.imageUrl }}</td>
+        </ng-container>
+        <ng-container matColumnDef="created">
+          <th mat-header-cell *matHeaderCellDef>Created</th>
+          <td mat-cell *matCellDef="let row" class="cell-muted">{{ row.createdAt | date:'mediumDate' }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="actions-cell">
+              <button mat-icon-button class="action-btn action-btn--delete" (click)="deleteImage(row.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  }
+</div>

@@ -34,6 +34,7 @@ export class ProductFormPage implements OnInit {
   readonly origins = signal<HairOrigin[]>([]);
   readonly textures = ['Straight', 'Curly', 'Wavy', 'Kinky', 'Body Wave'];
   readonly types = ['Bundle', 'Wig', 'Closure', 'Frontal'];
+  readonly categories = ['bundles', 'closures', 'frontals', 'bundle-deals'] as const;
 
   readonly isEditMode = signal(false);
   readonly loading = signal(false);
@@ -45,6 +46,7 @@ export class ProductFormPage implements OnInit {
   originId = '';
   texture = '';
   type = '';
+  category: 'bundles' | 'closures' | 'frontals' | 'bundle-deals' = 'bundles';
   lengthInches: number | null = null;
   price: number | null = null;
   imageUrl = '';
@@ -77,6 +79,7 @@ export class ProductFormPage implements OnInit {
         this.originId = product.originId;
         this.texture = product.texture;
         this.type = product.type;
+        this.category = product.category;
         this.lengthInches = product.lengthInches;
         this.price = product.price;
         this.imageUrl = product.imageUrl ?? '';
@@ -111,6 +114,7 @@ export class ProductFormPage implements OnInit {
       originId: this.originId,
       texture: this.texture,
       type: this.type,
+      category: this.category,
       lengthInches: this.lengthInches!,
       price: this.price!,
       description: this.description.trim(),

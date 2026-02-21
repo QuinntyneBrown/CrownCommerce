@@ -2,7 +2,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap, type Observable } from 'rxjs';
 import { API_CONFIG } from '../api.config';
-import type { AuthResponse, LoginRequest, RegisterRequest, UpdateProfileRequest, UserProfile } from '../models/identity.models';
+import type { AdminUser, AuthResponse, ChangePasswordRequest, LoginRequest, RegisterRequest, UpdateProfileRequest, UpdateUserRoleRequest, UserProfile } from '../models/identity.models';
 
 const TOKEN_KEY = 'auth_token';
 const USER_KEY = 'auth_user';
@@ -44,6 +44,27 @@ export class AuthService {
 
   updateProfile(userId: string, request: UpdateProfileRequest): Observable<UserProfile> {
     return this.http.put<UserProfile>(`${this.baseUrl}/profile/${userId}`, request);
+  }
+
+  // Admin user management
+  getUsers(): Observable<AdminUser[]> {
+    return this.http.get<AdminUser[]>(`${this.baseUrl}/users`);
+  }
+
+  getUser(id: string): Observable<AdminUser> {
+    return this.http.get<AdminUser>(`${this.baseUrl}/users/${id}`);
+  }
+
+  updateUserRole(id: string, request: UpdateUserRoleRequest): Observable<AdminUser> {
+    return this.http.put<AdminUser>(`${this.baseUrl}/users/${id}/role`, request);
+  }
+
+  deleteUser(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/users/${id}`);
+  }
+
+  changePassword(userId: string, request: ChangePasswordRequest): Observable<void> {
+    return this.http.post<void>(`${this.baseUrl}/users/${userId}/change-password`, request);
   }
 
   private storeAuth(response: AuthResponse): void {

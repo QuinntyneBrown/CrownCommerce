@@ -124,6 +124,62 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'users',
+        loadComponent: () =>
+          import('./pages/users/users-list').then(
+            (m) => m.UsersListPage
+          ),
+      },
+      {
+        path: 'customers',
+        loadComponent: () =>
+          import('./pages/customers/customers-list').then(
+            (m) => m.CustomersListPage
+          ),
+      },
+      {
+        path: 'leads',
+        loadComponent: () =>
+          import('./pages/leads/leads-list').then(
+            (m) => m.LeadsListPage
+          ),
+      },
+      {
+        path: 'gallery',
+        loadComponent: () =>
+          import('./pages/gallery/gallery-list').then(
+            (m) => m.GalleryListPage
+          ),
+      },
+      {
+        path: 'faqs',
+        loadComponent: () =>
+          import('./pages/faqs/faqs-list').then(
+            (m) => m.FaqsListPage
+          ),
+      },
+      {
+        path: 'content-pages',
+        loadComponent: () =>
+          import('./pages/content-pages/content-pages-list').then(
+            (m) => m.ContentPagesListPage
+          ),
+      },
+      {
+        path: 'campaigns',
+        loadComponent: () =>
+          import('./pages/campaigns/campaigns-list').then(
+            (m) => m.CampaignsListPage
+          ),
+      },
+      {
+        path: 'orders',
+        loadComponent: () =>
+          import('./pages/orders/orders-list').then(
+            (m) => m.OrdersListPage
+          ),
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',

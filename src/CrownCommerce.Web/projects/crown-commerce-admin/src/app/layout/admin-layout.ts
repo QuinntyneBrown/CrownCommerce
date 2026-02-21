@@ -39,5 +39,13 @@ export class AdminLayout {
     { icon: 'forum', label: 'Conversations', route: '/conversations' },
     { icon: 'view_carousel', label: 'Hero Content', route: '/hero-content' },
     { icon: 'verified', label: 'Trust Bar', route: '/trust-bar' },
+    { icon: 'admin_panel_settings', label: 'Users', route: '/users' },
+    { icon: 'contacts', label: 'Customers', route: '/customers' },
+    { icon: 'trending_up', label: 'Leads', route: '/leads' },
+    { icon: 'photo_library', label: 'Gallery', route: '/gallery' },
+    { icon: 'quiz', label: 'FAQs', route: '/faqs' },
+    { icon: 'article', label: 'Pages', route: '/content-pages' },
+    { icon: 'campaign', label: 'Campaigns', route: '/campaigns' },
+    { icon: 'receipt_long', label: 'Orders', route: '/orders' },
   ];
 }

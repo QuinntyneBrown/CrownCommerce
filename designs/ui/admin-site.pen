@@ -32497,6 +32497,733 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "frame",
+              "id": "9P6lq",
+              "name": "mtr",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "id": "0HCFv",
+                  "type": "ref",
+                  "ref": "imHcD",
+                  "width": "fill_container",
+                  "name": "m1",
+                  "descendants": {
+                    "lQ2Yc": {
+                      "content": "Total Products"
+                    },
+                    "eV5qG": {
+                      "content": "342"
+                    },
+                    "ti2Kh": {
+                      "content": "+18"
+                    }
+                  }
+                },
+                {
+                  "id": "3c3E5",
+                  "type": "ref",
+                  "ref": "imHcD",
+                  "width": "fill_container",
+                  "name": "m2",
+                  "descendants": {
+                    "lQ2Yc": {
+                      "content": "Active Products"
+                    },
+                    "eV5qG": {
+                      "content": "298"
+                    },
+                    "ti2Kh": {
+                      "content": "+12"
+                    }
+                  }
+                },
+                {
+                  "id": "SJ4Aj",
+                  "type": "ref",
+                  "ref": "imHcD",
+                  "width": "fill_container",
+                  "name": "m3",
+                  "descendants": {
+                    "lQ2Yc": {
+                      "content": "Categories"
+                    },
+                    "eV5qG": {
+                      "content": "24"
+                    },
+                    "ti2Kh": {
+                      "content": "+3"
+                    }
+                  }
+                },
+                {
+                  "id": "EQLHO",
+                  "type": "ref",
+                  "ref": "imHcD",
+                  "width": "fill_container",
+                  "name": "m4",
+                  "descendants": {
+                    "lQ2Yc": {
+                      "content": "Low Stock"
+                    },
+                    "eV5qG": {
+                      "content": "8"
+                    },
+                    "ti2Kh": {
+                      "content": "-2"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dajLq",
+              "name": "tbl",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": "$radius-lg",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$outline"
+              },
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "KDEIg",
+                  "name": "top",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "UkDOH",
+                      "type": "ref",
+                      "ref": "x2mVZ",
+                      "width": 280,
+                      "name": "srch"
+                    },
+                    {
+                      "id": "UuDLn",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "name": "fc1",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "All"
+                        }
+                      }
+                    },
+                    {
+                      "id": "ikigl",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "name": "fc2",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "Hair Care"
+                        }
+                      }
+                    },
+                    {
+                      "id": "W47Da",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "name": "fc3",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "Styling"
+                        }
+                      }
+                    },
+                    {
+                      "id": "YnFPa",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "name": "fc4",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "Tools"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "9Mrre",
+                  "name": "hr",
+                  "width": "fill_container",
+                  "fill": "$surface-variant",
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "7qRHe",
+                      "name": "h1",
+                      "fill": "$text-secondary",
+                      "content": "Product",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "StMUT",
+                      "name": "h2",
+                      "fill": "$text-secondary",
+                      "content": "Category",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "PfXwu",
+                      "name": "h3",
+                      "fill": "$text-secondary",
+                      "content": "Price",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wkHFG",
+                      "name": "h4",
+                      "fill": "$text-secondary",
+                      "content": "Stock",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gaNRM",
+                      "name": "h5",
+                      "fill": "$text-secondary",
+                      "content": "Status",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Kdk3B",
+                      "name": "h6",
+                      "fill": "$text-secondary",
+                      "content": "Actions",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "i8rZm",
+                  "name": "r1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$outline"
+                  },
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "o9fCY",
+                      "name": "r1c1",
+                      "fill": "$text-primary",
+                      "content": "Moisturizing Shampoo",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Avz9b",
+                      "name": "r1c2",
+                      "fill": "$text-secondary",
+                      "content": "Hair Care",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Tge2L",
+                      "name": "r1c3",
+                      "fill": "$text-primary",
+                      "content": "$24.99",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BHd0s",
+                      "name": "r1c4",
+                      "fill": "$text-primary",
+                      "content": "156",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "gZgpz",
+                      "type": "ref",
+                      "ref": "KCVXR",
+                      "width": "fill_container",
+                      "name": "r1c5",
+                      "descendants": {
+                        "UEsP8": {
+                          "content": "Active"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zSdQr",
+                      "name": "r1c6",
+                      "width": 80,
+                      "gap": 8,
+                      "children": [
+                        {
+                          "id": "UkUZX",
+                          "type": "ref",
+                          "ref": "tu1B5",
+                          "width": 28,
+                          "height": 28,
+                          "name": "r1a1",
+                          "descendants": {
+                            "CE9WZ": {
+                              "iconFontName": "edit"
+                            }
+                          }
+                        },
+                        {
+                          "id": "LfkMv",
+                          "type": "ref",
+                          "ref": "tu1B5",
+                          "width": 28,
+                          "height": 28,
+                          "name": "r1a2",
+                          "descendants": {
+                            "CE9WZ": {
+                              "iconFontName": "delete"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Y969E",
+                  "name": "r2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$outline"
+                  },
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xhatq",
+                      "name": "r2c1",
+                      "fill": "$text-primary",
+                      "content": "Curl Defining Cream",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "7sAcI",
+                      "name": "r2c2",
+                      "fill": "$text-secondary",
+                      "content": "Styling",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "weyug",
+                      "name": "r2c3",
+                      "fill": "$text-primary",
+                      "content": "$32.50",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "T1q0A",
+                      "name": "r2c4",
+                      "fill": "$text-primary",
+                      "content": "89",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "zQKop",
+                      "type": "ref",
+                      "ref": "KCVXR",
+                      "width": "fill_container",
+                      "name": "r2c5",
+                      "descendants": {
+                        "UEsP8": {
+                          "content": "Active"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Y7SEX",
+                      "name": "r2c6",
+                      "width": 80,
+                      "gap": 8,
+                      "children": [
+                        {
+                          "id": "b8URO",
+                          "type": "ref",
+                          "ref": "tu1B5",
+                          "width": 28,
+                          "height": 28,
+                          "name": "r2a1",
+                          "descendants": {
+                            "CE9WZ": {
+                              "iconFontName": "edit"
+                            }
+                          }
+                        },
+                        {
+                          "id": "7wONR",
+                          "type": "ref",
+                          "ref": "tu1B5",
+                          "width": 28,
+                          "height": 28,
+                          "name": "r2a2",
+                          "descendants": {
+                            "CE9WZ": {
+                              "iconFontName": "delete"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wt6zL",
+                  "name": "r3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$outline"
+                  },
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "6JUW5",
+                      "name": "r3c1",
+                      "fill": "$text-primary",
+                      "content": "Professional Flat Iron",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OJ5tt",
+                      "name": "r3c2",
+                      "fill": "$text-secondary",
+                      "content": "Tools",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "j5wPF",
+                      "name": "r3c3",
+                      "fill": "$text-primary",
+                      "content": "$89.99",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OPJ3B",
+                      "name": "r3c4",
+                      "fill": "$error",
+                      "content": "5",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "id": "KLXsU",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "width": "fill_container",
+                      "name": "r3c5",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "Low Stock"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bAA6k",
+                      "name": "r3c6",
+                      "width": 80,
+                      "gap": 8,
+                      "children": [
+                        {
+                          "id": "WH8UZ",
+                          "type": "ref",
+                          "ref": "tu1B5",
+                          "width": 28,
+                          "height": 28,
+                          "name": "r3a1",
+                          "descendants": {
+                            "CE9WZ": {
+                              "iconFontName": "edit"
+                            }
+                          }
+                        },
+                        {
+                          "id": "3VFj3",
+                          "type": "ref",
+                          "ref": "tu1B5",
+                          "width": 28,
+                          "height": 28,
+                          "name": "r3a2",
+                          "descendants": {
+                            "CE9WZ": {
+                              "iconFontName": "delete"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wYxJR",
+                  "name": "r4",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$outline"
+                  },
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dLxAx",
+                      "name": "r4c1",
+                      "fill": "$text-primary",
+                      "content": "Deep Conditioner Mask",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qqbG5",
+                      "name": "r4c2",
+                      "fill": "$text-secondary",
+                      "content": "Hair Care",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "35kbW",
+                      "name": "r4c3",
+                      "fill": "$text-primary",
+                      "content": "$18.99",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "4iFXG",
+                      "name": "r4c4",
+                      "fill": "$error",
+                      "content": "0",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "id": "h6RMe",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "width": "fill_container",
+                      "name": "r4c5",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "Out of Stock"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RTHkm",
+                      "name": "r4c6",
+                      "width": 80,
+                      "gap": 8,
+                      "children": [
+                        {
+                          "id": "5KG9i",
+                          "type": "ref",
+                          "ref": "tu1B5",
+                          "width": 28,
+                          "height": 28,
+                          "name": "r4a1",
+                          "descendants": {
+                            "CE9WZ": {
+                              "iconFontName": "edit"
+                            }
+                          }
+                        },
+                        {
+                          "id": "9YAJh",
+                          "type": "ref",
+                          "ref": "tu1B5",
+                          "width": 28,
+                          "height": 28,
+                          "name": "r4a2",
+                          "descendants": {
+                            "CE9WZ": {
+                              "iconFontName": "delete"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "CU8HL",
+                  "name": "r5",
+                  "width": "fill_container",
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zWx2z",
+                      "name": "r5c1",
+                      "fill": "$text-primary",
+                      "content": "Edge Control Gel",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FyPJ2",
+                      "name": "r5c2",
+                      "fill": "$text-secondary",
+                      "content": "Styling",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "4xhU5",
+                      "name": "r5c3",
+                      "fill": "$text-primary",
+                      "content": "$12.99",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "1SXBv",
+                      "name": "r5c4",
+                      "fill": "$text-primary",
+                      "content": "234",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "0S7uH",
+                      "type": "ref",
+                      "ref": "KCVXR",
+                      "width": "fill_container",
+                      "name": "r5c5",
+                      "descendants": {
+                        "UEsP8": {
+                          "content": "Active"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -32511,7 +33238,505 @@
       "width": 390,
       "height": 844,
       "fill": "$background",
-      "layout": "vertical"
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Dp8Y0",
+          "name": "nv",
+          "width": "fill_container",
+          "height": 56,
+          "fill": "$surface",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$outline"
+          },
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "QN7AC",
+              "name": "mi",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "menu",
+              "iconFontFamily": "Material Symbols Rounded",
+              "fill": "$text-primary"
+            },
+            {
+              "type": "text",
+              "id": "NOTYQ",
+              "name": "lg",
+              "fill": "$text-primary",
+              "content": "CrownCommerce",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "bCHo8",
+              "name": "av",
+              "width": 32,
+              "height": 32,
+              "fill": "$primary",
+              "cornerRadius": 16,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fouiw",
+                  "name": "avt",
+                  "fill": "$on-primary",
+                  "content": "A",
+                  "fontFamily": "DM Sans",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Upx7H",
+          "name": "ct",
+          "clip": true,
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "DuWYI",
+              "name": "mh",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "uTfVh",
+                  "name": "mt",
+                  "fill": "$text-primary",
+                  "content": "Catalog",
+                  "fontFamily": "Fraunces",
+                  "fontSize": 22,
+                  "fontWeight": "600"
+                },
+                {
+                  "id": "VQsrb",
+                  "type": "ref",
+                  "ref": "L0tLI",
+                  "width": 40,
+                  "height": 40,
+                  "cornerRadius": "$radius-full",
+                  "name": "fb",
+                  "descendants": {
+                    "W07E9": {
+                      "iconFontName": "add",
+                      "width": 20,
+                      "height": 20
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "O6Qxj",
+              "type": "ref",
+              "ref": "x2mVZ",
+              "width": "fill_container",
+              "name": "sr"
+            },
+            {
+              "type": "frame",
+              "id": "XqB4F",
+              "name": "cps",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "MhPie",
+                  "type": "ref",
+                  "ref": "98ETe",
+                  "name": "cp1",
+                  "descendants": {
+                    "6plKl": {
+                      "content": "All"
+                    }
+                  }
+                },
+                {
+                  "id": "vaB8k",
+                  "type": "ref",
+                  "ref": "98ETe",
+                  "name": "cp2",
+                  "descendants": {
+                    "6plKl": {
+                      "content": "Hair Care"
+                    }
+                  }
+                },
+                {
+                  "id": "yTvfQ",
+                  "type": "ref",
+                  "ref": "98ETe",
+                  "name": "cp3",
+                  "descendants": {
+                    "6plKl": {
+                      "content": "Styling"
+                    }
+                  }
+                },
+                {
+                  "id": "m5UHm",
+                  "type": "ref",
+                  "ref": "98ETe",
+                  "name": "cp4",
+                  "descendants": {
+                    "6plKl": {
+                      "content": "Tools"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EP0jz",
+              "name": "c1",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": "$radius-md",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$outline"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AFRSw",
+                  "name": "c1t",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wX5sy",
+                      "name": "c1n",
+                      "fill": "$text-primary",
+                      "content": "Moisturizing Shampoo",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "4C2Ub",
+                      "type": "ref",
+                      "ref": "tu1B5",
+                      "width": 32,
+                      "height": 32,
+                      "name": "c1m"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "9rpbG",
+                  "name": "c1mid",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "StysI",
+                      "name": "c1price",
+                      "fill": "$text-primary",
+                      "content": "$24.99",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "AAQUA",
+                      "name": "c1stock",
+                      "fill": "$text-secondary",
+                      "content": "Stock: 156",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5kvNT",
+                  "name": "c1b",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "NY6vV",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "name": "c1ch1",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "Hair Care"
+                        }
+                      }
+                    },
+                    {
+                      "id": "vJWbb",
+                      "type": "ref",
+                      "ref": "KCVXR",
+                      "name": "c1ch2",
+                      "descendants": {
+                        "UEsP8": {
+                          "content": "Active"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "7SWX5",
+              "name": "c2",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": "$radius-md",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$outline"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uwq1S",
+                  "name": "c2t",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jZiXj",
+                      "name": "c2n",
+                      "fill": "$text-primary",
+                      "content": "Curl Defining Cream",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "HLigp",
+                      "type": "ref",
+                      "ref": "tu1B5",
+                      "width": 32,
+                      "height": 32,
+                      "name": "c2m"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xZ4wO",
+                  "name": "c2mid",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "z5Rq6",
+                      "name": "c2price",
+                      "fill": "$text-primary",
+                      "content": "$32.50",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "We2U3",
+                      "name": "c2stock",
+                      "fill": "$text-secondary",
+                      "content": "Stock: 89",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HW3zv",
+                  "name": "c2b",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "z8KVR",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "name": "c2ch1",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "Styling"
+                        }
+                      }
+                    },
+                    {
+                      "id": "OFyqZ",
+                      "type": "ref",
+                      "ref": "KCVXR",
+                      "name": "c2ch2",
+                      "descendants": {
+                        "UEsP8": {
+                          "content": "Active"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sFEZZ",
+              "name": "c3",
+              "width": "fill_container",
+              "fill": "$surface",
+              "cornerRadius": "$radius-md",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$outline"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zhxV9",
+                  "name": "c3t",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "9MzX5",
+                      "name": "c3n",
+                      "fill": "$text-primary",
+                      "content": "Professional Flat Iron",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "Fq8tU",
+                      "type": "ref",
+                      "ref": "tu1B5",
+                      "width": 32,
+                      "height": 32,
+                      "name": "c3m"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "7ObvM",
+                  "name": "c3mid",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ppeH2",
+                      "name": "c3price",
+                      "fill": "$text-primary",
+                      "content": "$89.99",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "t715K",
+                      "name": "c3stock",
+                      "fill": "$error",
+                      "content": "Stock: 5",
+                      "fontFamily": "DM Sans",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "A9zrL",
+                  "name": "c3b",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "PtuJb",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "name": "c3ch1",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "Tools"
+                        }
+                      }
+                    },
+                    {
+                      "id": "I0tNs",
+                      "type": "ref",
+                      "ref": "98ETe",
+                      "name": "c3ch2",
+                      "descendants": {
+                        "6plKl": {
+                          "content": "Low Stock"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "variables": {

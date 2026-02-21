@@ -13,6 +13,14 @@ import {
   mockCalendarEvents,
   mockConversations,
   mockConversationDetail,
+  mockAdminUsers,
+  mockCustomers,
+  mockLeads,
+  mockGalleryImages,
+  mockFaqs,
+  mockContentPages,
+  mockCampaignsPagedResult,
+  mockOrders,
 } from './mock-data';
 
 /**
@@ -112,6 +120,105 @@ export async function setupApiMocks(page: Page): Promise<void> {
       status: 200,
       contentType: 'application/json',
       body: JSON.stringify(mockSubscribersPagedResult),
+    });
+  });
+
+  // Admin users list
+  await page.route('**/api/identity/auth/users**', (route) => {
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(mockAdminUsers),
+    });
+  });
+
+  // CRM customers list
+  await page.route('**/api/crm/crm/customers**', (route) => {
+    const method = route.request().method();
+    if (method === 'POST') {
+      route.fulfill({
+        status: 201,
+        contentType: 'application/json',
+        body: JSON.stringify(mockCustomers[0]),
+      });
+    } else {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockCustomers),
+      });
+    }
+  });
+
+  // CRM leads list
+  await page.route('**/api/crm/crm/leads**', (route) => {
+    const method = route.request().method();
+    if (method === 'POST') {
+      route.fulfill({
+        status: 201,
+        contentType: 'application/json',
+        body: JSON.stringify(mockLeads[0]),
+      });
+    } else {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockLeads),
+      });
+    }
+  });
+
+  // Gallery images list
+  await page.route('**/api/content/gallery**', (route) => {
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(mockGalleryImages),
+    });
+  });
+
+  // FAQs list
+  await page.route('**/api/content/faqs**', (route) => {
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(mockFaqs),
+    });
+  });
+
+  // Content pages list
+  await page.route('**/api/content/pages**', (route) => {
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(mockContentPages),
+    });
+  });
+
+  // Newsletter campaigns list
+  await page.route('**/api/newsletters/admin/campaigns**', (route) => {
+    const method = route.request().method();
+    if (method === 'POST') {
+      route.fulfill({
+        status: 201,
+        contentType: 'application/json',
+        body: JSON.stringify(mockCampaignsPagedResult.items[0]),
+      });
+    } else {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockCampaignsPagedResult),
+      });
+    }
+  });
+
+  // Orders list
+  await page.route('**/api/orders/orders**', (route) => {
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(mockOrders),
     });
   });
 
@@ -397,6 +504,142 @@ export async function setupApiMocks(page: Page): Promise<void> {
     } else {
       route.fallback();
     }
+  });
+
+  // Admin user single (GET, DELETE, PUT role)
+  await page.route(/\/api\/identity\/auth\/users\/[^/]+$/, (route) => {
+    const method = route.request().method();
+    if (method === 'DELETE') {
+      route.fulfill({ status: 204, body: '' });
+    } else if (method === 'PUT') {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockAdminUsers[0]),
+      });
+    } else {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockAdminUsers[0]),
+      });
+    }
+  });
+
+  // CRM customer single
+  await page.route(/\/api\/crm\/crm\/customers\/[^/]+$/, (route) => {
+    const method = route.request().method();
+    if (method === 'DELETE') {
+      route.fulfill({ status: 204, body: '' });
+    } else if (method === 'PUT') {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockCustomers[0]),
+      });
+    } else {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockCustomers[0]),
+      });
+    }
+  });
+
+  // CRM lead single
+  await page.route(/\/api\/crm\/crm\/leads\/[^/]+$/, (route) => {
+    const method = route.request().method();
+    if (method === 'DELETE') {
+      route.fulfill({ status: 204, body: '' });
+    } else if (method === 'PUT') {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockLeads[0]),
+      });
+    } else {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockLeads[0]),
+      });
+    }
+  });
+
+  // Gallery image single
+  await page.route(/\/api\/content\/gallery\/[^/]+$/, (route) => {
+    const method = route.request().method();
+    if (method === 'DELETE') {
+      route.fulfill({ status: 204, body: '' });
+    } else if (method === 'PUT') {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockGalleryImages[0]),
+      });
+    } else {
+      route.fallback();
+    }
+  });
+
+  // FAQ single
+  await page.route(/\/api\/content\/faqs\/[^/]+$/, (route) => {
+    const method = route.request().method();
+    if (method === 'DELETE') {
+      route.fulfill({ status: 204, body: '' });
+    } else if (method === 'PUT') {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockFaqs[0]),
+      });
+    } else {
+      route.fallback();
+    }
+  });
+
+  // Content page single
+  await page.route(/\/api\/content\/pages\/[^/]+$/, (route) => {
+    const method = route.request().method();
+    if (method === 'DELETE') {
+      route.fulfill({ status: 204, body: '' });
+    } else if (method === 'PUT') {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockContentPages[0]),
+      });
+    } else {
+      route.fallback();
+    }
+  });
+
+  // Campaign actions (send, cancel) - must be higher priority than single campaign
+  await page.route(/\/api\/newsletters\/admin\/campaigns\/[^/]+\/(send|cancel)$/, (route) => {
+    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({}) });
+  });
+
+  // Campaign single (GET, DELETE)
+  await page.route(/\/api\/newsletters\/admin\/campaigns\/[^/]+$/, (route) => {
+    const method = route.request().method();
+    if (method === 'DELETE') {
+      route.fulfill({ status: 204, body: '' });
+    } else {
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockCampaignsPagedResult.items[0]),
+      });
+    }
+  });
+
+  // Order status update
+  await page.route(/\/api\/orders\/orders\/[^/]+\/status$/, (route) => {
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(mockOrders[0]),
+    });
   });
 }
 

@@ -89,4 +89,8 @@ export class NewsletterService {
     if (options?.status) params = params.set('status', options.status);
     return this.http.get<PagedResult<CampaignRecipient>>(`${this.baseUrl}/admin/campaigns/${id}/recipients`, { params });
   }
+
+  deleteCampaign(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/admin/campaigns/${id}`);
+  }
 }

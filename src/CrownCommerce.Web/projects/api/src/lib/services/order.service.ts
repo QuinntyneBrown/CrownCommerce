@@ -40,4 +40,8 @@ export class OrderService {
   updateOrderStatus(id: string, request: UpdateOrderStatusRequest): Observable<Order> {
     return this.http.patch<Order>(`${this.baseUrl}/orders/${id}/status`, request);
   }
+
+  getAllOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(`${this.baseUrl}/orders`);
+  }
 }

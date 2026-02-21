@@ -152,3 +152,40 @@ export interface WholesaleTier {
   features: string[];
   highlighted: boolean;
 }
+
+export interface CreateGalleryImageRequest {
+  title: string;
+  description?: string;
+  imageUrl: string;
+  category: string;
+}
+
+export interface UpdateGalleryImageRequest {
+  title: string;
+  description?: string;
+  imageUrl: string;
+  category: string;
+}
+
+export interface CreateFaqRequest {
+  question: string;
+  answer: string;
+  category: string;
+}
+
+export interface UpdateFaqRequest {
+  question: string;
+  answer: string;
+  category: string;
+}
+
+export interface CreatePageRequest {
+  slug: string;
+  title: string;
+  body: string;
+}
+
+export interface UpdatePageRequest {
+  title: string;
+  body: string;
+}

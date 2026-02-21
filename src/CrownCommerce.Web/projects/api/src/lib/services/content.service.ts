@@ -5,6 +5,9 @@ import { API_CONFIG } from '../api.config';
 import type {
   BrandStory,
   ContentPage,
+  CreateFaqRequest,
+  CreateGalleryImageRequest,
+  CreatePageRequest,
   CreateTestimonialRequest,
   FaqItem,
   GalleryImage,
@@ -12,6 +15,9 @@ import type {
   ReturnsPolicy,
   ShippingPolicy,
   Testimonial,
+  UpdateFaqRequest,
+  UpdateGalleryImageRequest,
+  UpdatePageRequest,
   UpdateTestimonialRequest,
   WholesaleTier,
 } from '../models/content.models';
@@ -79,5 +85,44 @@ export class ContentService {
 
   getWholesalePricing(): Observable<WholesaleTier[]> {
     return this.http.get<WholesaleTier[]>(`${this.baseUrl}/wholesale-pricing`);
+  }
+
+  // Gallery CRUD
+  createGalleryImage(request: CreateGalleryImageRequest): Observable<GalleryImage> {
+    return this.http.post<GalleryImage>(`${this.baseUrl}/gallery`, request);
+  }
+
+  updateGalleryImage(id: string, request: UpdateGalleryImageRequest): Observable<GalleryImage> {
+    return this.http.put<GalleryImage>(`${this.baseUrl}/gallery/${id}`, request);
+  }
+
+  deleteGalleryImage(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/gallery/${id}`);
+  }
+
+  // FAQ CRUD
+  createFaq(request: CreateFaqRequest): Observable<FaqItem> {
+    return this.http.post<FaqItem>(`${this.baseUrl}/faqs`, request);
+  }
+
+  updateFaq(id: string, request: UpdateFaqRequest): Observable<FaqItem> {
+    return this.http.put<FaqItem>(`${this.baseUrl}/faqs/${id}`, request);
+  }
+
+  deleteFaq(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/faqs/${id}`);
+  }
+
+  // Page CRUD
+  createPage(request: CreatePageRequest): Observable<ContentPage> {
+    return this.http.post<ContentPage>(`${this.baseUrl}/pages`, request);
+  }
+
+  updatePage(id: string, request: UpdatePageRequest): Observable<ContentPage> {
+    return this.http.put<ContentPage>(`${this.baseUrl}/pages/${id}`, request);
+  }
+
+  deletePage(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/pages/${id}`);
   }
 }

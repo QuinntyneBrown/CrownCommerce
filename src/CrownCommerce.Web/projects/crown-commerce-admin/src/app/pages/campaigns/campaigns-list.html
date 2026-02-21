@@ -1,0 +1,109 @@
+<!-- Toolbar -->
+<div class="toolbar">
+  <h1 class="toolbar-title">Campaigns</h1>
+</div>
+
+<!-- Content Area -->
+<div class="content-area">
+  @if (error()) {
+    <div class="error-banner">
+      <mat-icon>error</mat-icon>
+      {{ error() }}
+    </div>
+  }
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div>
+      <h2 class="page-title">Newsletter Campaigns</h2>
+      <p class="page-subtitle">Create and manage email campaigns</p>
+    </div>
+  </div>
+
+  <!-- Stats Cards -->
+  @if (statCards().length) {
+    <div class="stats-row">
+      @for (stat of statCards(); track stat.label) {
+        <div class="stat-card">
+          <mat-icon [style.color]="stat.color" class="stat-icon">{{ stat.icon }}</mat-icon>
+          <div class="stat-info">
+            <span class="stat-value">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Search -->
+  <div class="filter-row">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="Search campaigns..." (input)="searchTerm.set($any($event.target).value)">
+    </mat-form-field>
+  </div>
+
+  @if (loading()) {
+    <div class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  } @else {
+    <div class="table-card">
+      <table mat-table [dataSource]="filteredCampaigns()" class="table-full-width">
+        <ng-container matColumnDef="subject">
+          <th mat-header-cell *matHeaderCellDef>Subject</th>
+          <td mat-cell *matCellDef="let row" class="cell-bold">{{ row.subject }}</td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let row">
+            <span [class]="getStatusClass(row.status)">{{ row.status }}</span>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="recipients">
+          <th mat-header-cell *matHeaderCellDef>Recipients</th>
+          <td mat-cell *matCellDef="let row">{{ row.totalRecipients }}</td>
+        </ng-container>
+        <ng-container matColumnDef="sent">
+          <th mat-header-cell *matHeaderCellDef>Sent</th>
+          <td mat-cell *matCellDef="let row">{{ row.totalSent }}</td>
+        </ng-container>
+        <ng-container matColumnDef="opened">
+          <th mat-header-cell *matHeaderCellDef>Opened</th>
+          <td mat-cell *matCellDef="let row">{{ row.totalOpened }}</td>
+        </ng-container>
+        <ng-container matColumnDef="scheduledAt">
+          <th mat-header-cell *matHeaderCellDef>Scheduled</th>
+          <td mat-cell *matCellDef="let row" class="cell-muted">
+            @if (row.scheduledAt) {
+              {{ row.scheduledAt | date:'mediumDate' }}
+            } @else {
+              —
+            }
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="actions-cell">
+              <button mat-icon-button class="action-btn action-btn--delete" (click)="deleteCampaign(row.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <!-- Paginator -->
+      <div class="paginator-row">
+        <span class="paginator-text">Showing {{ pageIndex() * pageSize + 1 }}-{{ pageIndex() * pageSize + filteredCampaigns().length }} of {{ totalCount() }} campaigns</span>
+        <div class="paginator-buttons">
+          <button mat-stroked-button [disabled]="pageIndex() === 0" (click)="previousPage()">Previous</button>
+          <button mat-flat-button color="primary" class="primary-btn" [disabled]="(pageIndex() + 1) * pageSize >= totalCount()" (click)="nextPage()">Next</button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

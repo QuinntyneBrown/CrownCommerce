@@ -174,6 +174,14 @@ export const navItems = [
   { label: 'Conversations', route: '/conversations', icon: 'forum' },
   { label: 'Hero Content', route: '/hero-content', icon: 'view_carousel' },
   { label: 'Trust Bar', route: '/trust-bar', icon: 'verified' },
+  { label: 'Users', route: '/users', icon: 'admin_panel_settings' },
+  { label: 'Customers', route: '/customers', icon: 'contacts' },
+  { label: 'Leads', route: '/leads', icon: 'trending_up' },
+  { label: 'Gallery', route: '/gallery', icon: 'photo_library' },
+  { label: 'FAQs', route: '/faqs', icon: 'quiz' },
+  { label: 'Pages', route: '/content-pages', icon: 'article' },
+  { label: 'Campaigns', route: '/campaigns', icon: 'campaign' },
+  { label: 'Orders', route: '/orders', icon: 'receipt_long' },
 ];
 
 // Product form expects "Country - Region" format options from origins API
@@ -327,3 +335,177 @@ export const mockConversationDetail: ConversationDetailInfo = {
 
 // navItemsExtended is kept as alias for backward compatibility
 export const navItemsExtended = navItems;
+
+// ── Admin User Interfaces & Data ──
+
+export interface AdminUserInfo {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  phone: string | null;
+  role: string;
+  createdAt: string;
+}
+
+export const mockAdminUsers: AdminUserInfo[] = [
+  { id: 'user-1', email: 'quinn@crowncommerce.com', firstName: 'Quinn', lastName: 'Mitchell', phone: '+1-555-0101', role: 'admin', createdAt: '2024-06-01T00:00:00Z' },
+  { id: 'user-2', email: 'grace@crowncommerce.com', firstName: 'Grace', lastName: 'Ochieng', phone: '+254-700-1234', role: 'editor', createdAt: '2024-07-15T00:00:00Z' },
+  { id: 'user-3', email: 'maya@crowncommerce.com', firstName: 'Maya', lastName: 'Patel', phone: null, role: 'viewer', createdAt: '2024-09-01T00:00:00Z' },
+];
+
+// ── Customer Interfaces & Data ──
+
+export interface CustomerInfo {
+  id: string;
+  name: string;
+  email: string | null;
+  phone: string | null;
+  status: string;
+  tier: string;
+  brand: string | null;
+  totalOrders: number;
+  totalSpent: number;
+  firstPurchaseDate: string | null;
+  lastPurchaseDate: string | null;
+  createdAt: string;
+  tags: string[];
+}
+
+export const mockCustomers: CustomerInfo[] = [
+  { id: 'cust-1', name: 'Keisha Brown', email: 'keisha@email.com', phone: '+1-555-0201', status: 'Active', tier: 'VIP', brand: 'OriginHairCollective', totalOrders: 12, totalSpent: 2400, firstPurchaseDate: '2024-03-15T00:00:00Z', lastPurchaseDate: '2025-02-01T00:00:00Z', createdAt: '2024-03-15T00:00:00Z', tags: ['loyal'] },
+  { id: 'cust-2', name: 'Tamara Davis', email: 'tamara@email.com', phone: '+1-555-0202', status: 'Active', tier: 'Standard', brand: 'ManeHaus', totalOrders: 3, totalSpent: 450, firstPurchaseDate: '2024-09-01T00:00:00Z', lastPurchaseDate: '2025-01-15T00:00:00Z', createdAt: '2024-09-01T00:00:00Z', tags: [] },
+  { id: 'cust-3', name: 'Nicole James', email: 'nicole@email.com', phone: null, status: 'Inactive', tier: 'Elite', brand: null, totalOrders: 25, totalSpent: 8500, firstPurchaseDate: '2023-06-01T00:00:00Z', lastPurchaseDate: '2024-11-20T00:00:00Z', createdAt: '2023-06-01T00:00:00Z', tags: ['wholesale'] },
+];
+
+// ── Lead Interfaces & Data ──
+
+export interface LeadInfo {
+  id: string;
+  name: string;
+  company: string;
+  email: string | null;
+  phone: string | null;
+  source: string;
+  leadStatus: string;
+  estimatedAnnualRevenue: number;
+  industry: string | null;
+  createdAt: string;
+  qualifiedDate: string | null;
+  tags: string[];
+}
+
+export const mockLeads: LeadInfo[] = [
+  { id: 'lead-1', name: 'Sarah Robinson', company: 'Luxe Salon', email: 'sarah@luxesalon.com', phone: '+1-555-0301', source: 'Website', leadStatus: 'New', estimatedAnnualRevenue: 50000, industry: 'Beauty', createdAt: '2025-02-10T00:00:00Z', qualifiedDate: null, tags: [] },
+  { id: 'lead-2', name: 'Marcus Johnson', company: 'Style Studio', email: 'marcus@stylestudio.com', phone: '+1-555-0302', source: 'Referral', leadStatus: 'Qualified', estimatedAnnualRevenue: 120000, industry: 'Retail', createdAt: '2025-01-20T00:00:00Z', qualifiedDate: '2025-02-05T00:00:00Z', tags: ['high-value'] },
+  { id: 'lead-3', name: 'Aisha Williams', company: 'Crown Beauty', email: 'aisha@crownbeauty.com', phone: null, source: 'TradeShow', leadStatus: 'Won', estimatedAnnualRevenue: 200000, industry: 'Distribution', createdAt: '2024-11-15T00:00:00Z', qualifiedDate: '2025-01-10T00:00:00Z', tags: ['wholesale', 'priority'] },
+];
+
+// ── Gallery Image Interfaces & Data ──
+
+export interface GalleryImageInfo {
+  id: string;
+  title: string;
+  description: string | null;
+  imageUrl: string;
+  category: string;
+  createdAt: string;
+}
+
+export const mockGalleryImages: GalleryImageInfo[] = [
+  { id: 'gal-1', title: 'Cambodian Straight Bundle', description: 'Premium straight hair', imageUrl: 'https://example.com/img1.jpg', category: 'Products', createdAt: '2025-01-15T00:00:00Z' },
+  { id: 'gal-2', title: 'Salon Transformation', description: 'Before and after styling', imageUrl: 'https://example.com/img2.jpg', category: 'Transformations', createdAt: '2025-01-20T00:00:00Z' },
+  { id: 'gal-3', title: 'Team Photo', description: null, imageUrl: 'https://example.com/img3.jpg', category: 'Behind the Scenes', createdAt: '2025-02-01T00:00:00Z' },
+];
+
+// ── FAQ Interfaces & Data ──
+
+export interface FaqInfo {
+  id: string;
+  question: string;
+  answer: string;
+  category: string;
+}
+
+export const mockFaqs: FaqInfo[] = [
+  { id: 'faq-1', question: 'How long does shipping take?', answer: 'Standard shipping takes 3-5 business days within the US. International orders may take 7-14 business days depending on the destination.', category: 'Shipping' },
+  { id: 'faq-2', question: 'What is your return policy?', answer: 'We accept returns within 30 days of purchase for unused items in original packaging. Custom orders are non-refundable.', category: 'Returns' },
+  { id: 'faq-3', question: 'How do I care for my hair extensions?', answer: 'Wash with sulfate-free shampoo, condition regularly, and avoid excessive heat styling. Store in a silk bag when not in use.', category: 'Care' },
+];
+
+// ── Content Page Interfaces & Data ──
+
+export interface ContentPageInfo {
+  id: string;
+  slug: string;
+  title: string;
+  body: string;
+  createdAt: string;
+}
+
+export const mockContentPages: ContentPageInfo[] = [
+  { id: 'page-1', slug: 'about-us', title: 'About Us', body: 'Crown Commerce is a premium hair brand...', createdAt: '2024-06-01T00:00:00Z' },
+  { id: 'page-2', slug: 'privacy-policy', title: 'Privacy Policy', body: 'Your privacy is important to us...', createdAt: '2024-06-01T00:00:00Z' },
+  { id: 'page-3', slug: 'terms-of-service', title: 'Terms of Service', body: 'By using our website, you agree to these terms...', createdAt: '2024-06-01T00:00:00Z' },
+];
+
+// ── Campaign Interfaces & Data ──
+
+export interface CampaignInfo {
+  id: string;
+  subject: string;
+  status: string;
+  targetTag: string | null;
+  totalRecipients: number;
+  totalSent: number;
+  totalOpened: number;
+  totalClicked: number;
+  totalBounced: number;
+  totalUnsubscribed: number;
+  scheduledAt: string | null;
+  sentAt: string | null;
+  createdAt: string;
+}
+
+export const mockCampaigns: CampaignInfo[] = [
+  { id: 'camp-1', subject: 'Spring Sale Launch', status: 'Draft', targetTag: 'origin-coming-soon', totalRecipients: 0, totalSent: 0, totalOpened: 0, totalClicked: 0, totalBounced: 0, totalUnsubscribed: 0, scheduledAt: null, sentAt: null, createdAt: '2025-02-10T00:00:00Z' },
+  { id: 'camp-2', subject: 'Welcome to Crown Commerce', status: 'Sent', targetTag: null, totalRecipients: 150, totalSent: 148, totalOpened: 89, totalClicked: 42, totalBounced: 2, totalUnsubscribed: 1, scheduledAt: null, sentAt: '2025-01-15T10:00:00Z', createdAt: '2025-01-10T00:00:00Z' },
+  { id: 'camp-3', subject: 'Valentine\'s Day Special', status: 'Scheduled', targetTag: 'mane-haus-coming-soon', totalRecipients: 200, totalSent: 0, totalOpened: 0, totalClicked: 0, totalBounced: 0, totalUnsubscribed: 0, scheduledAt: '2025-02-14T08:00:00Z', sentAt: null, createdAt: '2025-02-05T00:00:00Z' },
+];
+
+export const mockCampaignsPagedResult = {
+  items: mockCampaigns,
+  totalCount: 3,
+  page: 1,
+  pageSize: 20,
+};
+
+// ── Order Interfaces & Data ──
+
+export interface OrderItemInfo {
+  id: string;
+  productId: string;
+  productName: string;
+  quantity: number;
+  unitPrice: number;
+  lineTotal: number;
+}
+
+export interface OrderInfo {
+  id: string;
+  userId: string | null;
+  customerEmail: string;
+  customerName: string;
+  shippingAddress: string;
+  trackingNumber: string | null;
+  status: string;
+  totalAmount: number;
+  createdAt: string;
+  items: OrderItemInfo[];
+}
+
+export const mockOrders: OrderInfo[] = [
+  { id: 'ord-1', userId: 'user-1', customerEmail: 'keisha@email.com', customerName: 'Keisha Brown', shippingAddress: '123 Main St, Toronto, ON', trackingNumber: null, status: 'Pending', totalAmount: 370, createdAt: '2025-02-10T00:00:00Z', items: [{ id: 'item-1', productId: 'prod-1', productName: 'Cambodian Straight Bundle', quantity: 2, unitPrice: 185, lineTotal: 370 }] },
+  { id: 'ord-2', userId: 'user-2', customerEmail: 'tamara@email.com', customerName: 'Tamara Davis', shippingAddress: '456 Oak Ave, Atlanta, GA', trackingNumber: 'TRK-123456', status: 'Shipped', totalAmount: 450, createdAt: '2025-02-05T00:00:00Z', items: [{ id: 'item-2', productId: 'prod-3', productName: 'Vietnamese Wavy Wig', quantity: 1, unitPrice: 450, lineTotal: 450 }] },
+  { id: 'ord-3', userId: null, customerEmail: 'nicole@email.com', customerName: 'Nicole James', shippingAddress: '789 Pine Rd, New York, NY', trackingNumber: 'TRK-789012', status: 'Delivered', totalAmount: 210, createdAt: '2025-01-28T00:00:00Z', items: [{ id: 'item-3', productId: 'prod-4', productName: 'Indonesian Body Wave', quantity: 1, unitPrice: 210, lineTotal: 210 }] },
+];
