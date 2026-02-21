@@ -20,7 +20,7 @@
     <div class="ambassador__perks-grid">
       @for (perk of p.perks; track perk.title) {
         <lib-benefit-card
-          [icon]="perk.icon"
+          [iconSvg]="perk.icon"
           [title]="perk.title"
           [description]="perk.description"
         />
@@ -34,7 +34,7 @@
     <div class="ambassador__steps-grid">
       @for (step of p.howItWorks; track step.stepNumber) {
         <lib-step-card
-          [badge]="'0' + step.stepNumber"
+          [stepNumber]="step.stepNumber"
           [title]="step.title"
           [description]="step.description"
           variant="large"

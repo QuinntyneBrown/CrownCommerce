@@ -1,4 +1,4 @@
-import { type Locator, type Page } from '@playwright/test';
+import { type Locator, type Page, expect } from '@playwright/test';
 
 export class HeaderComponent {
   readonly root: Locator;
@@ -41,6 +41,7 @@ export class HeaderComponent {
 
   async openMobileMenu(): Promise<void> {
     await this.mobileMenuButton.click();
+    await expect(this.page.locator('div.mobile-nav')).toBeVisible();
   }
 
   async isNavVisible(): Promise<boolean> {

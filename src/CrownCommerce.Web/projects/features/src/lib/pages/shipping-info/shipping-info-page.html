@@ -33,7 +33,7 @@
     <p class="shipping__body">{{ p.processingTime }}</p>
     <div class="shipping__process-notes">
       @for (step of p.processSteps; track step.stepNumber) {
-        <lib-checklist-item [text]="step.description" [checked]="true" color="gold" />
+        <lib-checklist-item [text]="step.description" />
       }
     </div>
   </section>

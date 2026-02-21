@@ -16,12 +16,12 @@
 
   @for (section of g.sections; track section.id; let i = $index; let even = $even) {
     <section class="hair-care__section" [class.hair-care__section--alt]="!even">
-      <span class="hair-care__label">{{ section.title | uppercase }}</span>
+      <span class="hair-care__label">{{ section.title.toUpperCase() }}</span>
       <h2 class="hair-care__section-title">{{ section.description }}</h2>
       <div class="hair-care__tips-grid">
-        @for (tip of section.tips; track tip.title) {
+        @for (tip of section.tips; track tip.title; let j = $index) {
           <lib-step-card
-            [badge]="tip.icon"
+            [stepNumber]="j + 1"
             [title]="tip.title"
             [description]="tip.description"
           />

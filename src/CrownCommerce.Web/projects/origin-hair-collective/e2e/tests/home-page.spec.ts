@@ -1,12 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../page-objects/pages/home.page';
-import { setupApiMocks } from '../fixtures/api-mocks';
 
 test.describe('Home Page - Full Page', () => {
   let homePage: HomePage;
 
   test.beforeEach(async ({ page }) => {
-    await setupApiMocks(page);
     homePage = new HomePage(page);
     await homePage.goto();
   });
@@ -46,22 +44,46 @@ test.describe('Home Page - Full Page', () => {
   });
 
   test('should navigate to /shop when Collection link is clicked', async ({ page }) => {
-    await homePage.header.clickNavLink('Collection');
+    const isMobile = (page.viewportSize()?.width ?? 1280) < 768;
+    if (isMobile) {
+      await homePage.header.openMobileMenu();
+      await homePage.mobileNav.clickNavLink('Collection');
+    } else {
+      await homePage.header.clickNavLink('Collection');
+    }
     await expect(page).toHaveURL(/\/shop/);
   });
 
   test('should navigate to /about when Our Story link is clicked', async ({ page }) => {
-    await homePage.header.clickNavLink('Our Story');
+    const isMobile = (page.viewportSize()?.width ?? 1280) < 768;
+    if (isMobile) {
+      await homePage.header.openMobileMenu();
+      await homePage.mobileNav.clickNavLink('Our Story');
+    } else {
+      await homePage.header.clickNavLink('Our Story');
+    }
     await expect(page).toHaveURL(/\/about/);
   });
 
   test('should navigate to /hair-care-guide when Hair Care link is clicked', async ({ page }) => {
-    await homePage.header.clickNavLink('Hair Care');
+    const isMobile = (page.viewportSize()?.width ?? 1280) < 768;
+    if (isMobile) {
+      await homePage.header.openMobileMenu();
+      await homePage.mobileNav.clickNavLink('Hair Care');
+    } else {
+      await homePage.header.clickNavLink('Hair Care');
+    }
     await expect(page).toHaveURL(/\/hair-care-guide/);
   });
 
   test('should navigate to /wholesale when Wholesale link is clicked', async ({ page }) => {
-    await homePage.header.clickNavLink('Wholesale');
+    const isMobile = (page.viewportSize()?.width ?? 1280) < 768;
+    if (isMobile) {
+      await homePage.header.openMobileMenu();
+      await homePage.mobileNav.clickNavLink('Wholesale');
+    } else {
+      await homePage.header.clickNavLink('Wholesale');
+    }
     await expect(page).toHaveURL(/\/wholesale/);
   });
 });

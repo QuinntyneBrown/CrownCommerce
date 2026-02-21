@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -100,7 +100,5 @@ export class StepCardComponent {
   description = input.required<string>();
   variant = input<'badge' | 'large'>('badge');
 
-  get paddedNumber(): string {
-    return String(this.stepNumber()).padStart(2, '0');
-  }
+  paddedNumber = computed(() => String(this.stepNumber()).padStart(2, '0'));
 }

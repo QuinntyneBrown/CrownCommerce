@@ -17,7 +17,7 @@
       @for (filter of filters; track filter) {
         <lib-filter-chip
           [label]="filter"
-          [active]="activeFilter() === filter"
+          [selected]="activeFilter() === filter"
           (toggle)="filterBy(filter)"
         />
       }

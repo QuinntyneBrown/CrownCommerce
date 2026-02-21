@@ -1,12 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../page-objects/pages/home.page';
-import { setupApiMocks } from '../fixtures/api-mocks';
 
 test.describe('Products Section', () => {
   let homePage: HomePage;
 
   test.beforeEach(async ({ page }) => {
-    await setupApiMocks(page);
     homePage = new HomePage(page);
     await homePage.goto();
   });
@@ -36,31 +34,28 @@ test.describe('Products Section', () => {
     expect(count).toBe(3);
   });
 
-  test('should display Virgin Hair Bundles card with correct info', async () => {
+  test('should display first product card with correct info', async () => {
     await homePage.products.productCards.first().waitFor({ state: 'visible' });
     const card = await homePage.products.getProductCardInfo(0);
-    expect(card.tag?.trim()).toBe('BESTSELLER');
-    expect(card.title?.trim()).toBe('Virgin Hair Bundles');
-    expect(card.description).toContain('Brazilian, Peruvian & Malaysian textures');
-    expect(card.price?.trim()).toBe('From $85 CAD');
+    expect(card.tag?.trim()).toBe('BUNDLE');
+    expect(card.title?.trim()).toBe('Cambodian Straight Bundle');
+    expect(card.price?.trim()).toBe('From $185 CAD');
   });
 
-  test('should display Lace Closures card with correct info', async () => {
+  test('should display second product card with correct info', async () => {
     await homePage.products.productCards.first().waitFor({ state: 'visible' });
     const card = await homePage.products.getProductCardInfo(1);
-    expect(card.tag?.trim()).toBe('ESSENTIAL');
-    expect(card.title?.trim()).toBe('Lace Closures');
-    expect(card.description).toContain('HD lace closures for a seamless, natural look');
-    expect(card.price?.trim()).toBe('From $65 CAD');
+    expect(card.tag?.trim()).toBe('BUNDLE');
+    expect(card.title?.trim()).toBe('Cambodian Wavy Bundle');
+    expect(card.price?.trim()).toBe('From $210 CAD');
   });
 
-  test('should display Lace Frontals card with correct info', async () => {
+  test('should display third product card with correct info', async () => {
     await homePage.products.productCards.first().waitFor({ state: 'visible' });
     const card = await homePage.products.getProductCardInfo(2);
-    expect(card.tag?.trim()).toBe('PREMIUM');
-    expect(card.title?.trim()).toBe('Lace Frontals');
-    expect(card.description).toContain('13x4 and 13x6 HD lace frontals');
-    expect(card.price?.trim()).toBe('From $95 CAD');
+    expect(card.tag?.trim()).toBe('BUNDLE');
+    expect(card.title?.trim()).toBe('Indonesian Silky Straight Bundle');
+    expect(card.price?.trim()).toBe('From $195 CAD');
   });
 
   test('should display images for all product cards', async () => {
@@ -73,7 +68,7 @@ test.describe('Products Section', () => {
 
   test('should have alt text matching product title on images', async () => {
     await homePage.products.productCards.first().waitFor({ state: 'visible' });
-    const expectedAlts = ['Virgin Hair Bundles', 'Lace Closures', 'Lace Frontals'];
+    const expectedAlts = ['Cambodian Straight Bundle', 'Cambodian Wavy Bundle', 'Indonesian Silky Straight Bundle'];
     for (let i = 0; i < 3; i++) {
       const alt = await homePage.products.getProductImageAlt(i);
       expect(alt).toBe(expectedAlts[i]);

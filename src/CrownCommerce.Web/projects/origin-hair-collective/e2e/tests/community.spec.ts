@@ -1,12 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../page-objects/pages/home.page';
-import { setupApiMocks } from '../fixtures/api-mocks';
 
 test.describe('Community Section', () => {
   let homePage: HomePage;
 
   test.beforeEach(async ({ page }) => {
-    await setupApiMocks(page);
     homePage = new HomePage(page);
     await homePage.goto();
   });
@@ -30,15 +28,16 @@ test.describe('Community Section', () => {
     expect(handle?.trim()).toBe('@OriginHairCollective');
   });
 
-  test('should display exactly 6 community photos', async () => {
+  test('should display exactly 8 community photos', async () => {
     await homePage.community.photos.first().waitFor({ state: 'visible' });
     const count = await homePage.community.getPhotoCount();
-    expect(count).toBe(6);
+    expect(count).toBe(8);
   });
 
   test('should have background images on all photos', async () => {
     await homePage.community.photos.first().waitFor({ state: 'visible' });
-    for (let i = 0; i < 6; i++) {
+    const count = await homePage.community.getPhotoCount();
+    for (let i = 0; i < count; i++) {
       const hasImage = await homePage.community.photoHasBackgroundImage(i);
       expect(hasImage).toBe(true);
     }

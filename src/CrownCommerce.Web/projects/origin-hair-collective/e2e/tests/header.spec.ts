@@ -1,12 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../page-objects/pages/home.page';
-import { setupApiMocks } from '../fixtures/api-mocks';
 
 test.describe('Header', () => {
   let homePage: HomePage;
 
   test.beforeEach(async ({ page }) => {
-    await setupApiMocks(page);
     homePage = new HomePage(page);
     await homePage.goto();
   });
@@ -41,9 +39,14 @@ test.describe('Header', () => {
     expect(href).toBe('/wholesale');
   });
 
-  test('should display Shop Now button', async () => {
-    await expect(homePage.header.shopNowButton).toBeVisible();
-    await expect(homePage.header.shopNowButton).toContainText('SHOP NOW');
+  test('should display Shop Now button on desktop and hide on mobile', async ({ page }) => {
+    const isMobile = (page.viewportSize()?.width ?? 1280) < 768;
+    if (isMobile) {
+      await expect(homePage.header.shopNowButton).toBeHidden();
+    } else {
+      await expect(homePage.header.shopNowButton).toBeVisible();
+      await expect(homePage.header.shopNowButton).toContainText('SHOP NOW');
+    }
   });
 
   test('should have sticky positioning', async ({ page }) => {
@@ -58,12 +61,22 @@ test.describe('Header', () => {
     await expect(homePage.header.root).toBeVisible();
   });
 
-  test('should hide hamburger menu on desktop', async () => {
-    await expect(homePage.header.mobileMenuButton).toBeHidden();
+  test('should toggle hamburger menu visibility by viewport', async ({ page }) => {
+    const isMobile = (page.viewportSize()?.width ?? 1280) < 768;
+    if (isMobile) {
+      await expect(homePage.header.mobileMenuButton).toBeVisible();
+    } else {
+      await expect(homePage.header.mobileMenuButton).toBeHidden();
+    }
   });
 
-  test('should show navigation on desktop', async () => {
+  test('should toggle desktop navigation visibility by viewport', async ({ page }) => {
+    const isMobile = (page.viewportSize()?.width ?? 1280) < 768;
     const isNavVisible = await homePage.header.isNavVisible();
-    expect(isNavVisible).toBe(true);
+    if (isMobile) {
+      expect(isNavVisible).toBe(false);
+    } else {
+      expect(isNavVisible).toBe(true);
+    }
   });
 });

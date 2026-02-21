@@ -22,7 +22,7 @@
     <div class="wholesale__benefits-grid">
       @for (benefit of benefits; track benefit.title) {
         <lib-benefit-card
-          [icon]="benefit.icon"
+          [iconSvg]="benefit.icon"
           [title]="benefit.title"
           [description]="benefit.description"
         />
@@ -36,10 +36,9 @@
     <div class="wholesale__tiers-grid">
       @for (tier of tiers(); track tier.id) {
         <lib-pricing-tier-card
-          [name]="tier.name"
+          [tierName]="tier.name"
           [discount]="tier.discount"
-          [minimumOrder]="tier.minimumOrder"
-          [features]="tier.features"
+          [volume]="'Min. ' + tier.minimumOrder + ' units'"
           [highlighted]="tier.highlighted"
         />
       }

@@ -32,7 +32,7 @@
     <div class="returns__steps-grid">
       @for (step of p.processSteps; track step.stepNumber) {
         <lib-step-card
-          [badge]="'0' + step.stepNumber"
+          [stepNumber]="step.stepNumber"
           [title]="step.title"
           [description]="step.description"
           variant="large"

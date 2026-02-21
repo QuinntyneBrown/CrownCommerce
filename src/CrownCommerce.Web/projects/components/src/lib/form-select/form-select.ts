@@ -1,6 +1,8 @@
-import { Component, input, model } from '@angular/core';
+import { Component, computed, input, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
+
+export type SelectOption = string | { label: string; value: string };
 
 @Component({
   selector: 'lib-form-select',
@@ -17,8 +19,8 @@ import { NgClass } from '@angular/common';
           @if (placeholder()) {
             <option value="" disabled selected>{{ placeholder() }}</option>
           }
-          @for (option of options(); track option) {
-            <option [value]="option">{{ option }}</option>
+          @for (option of normalizedOptions(); track optionValue(option)) {
+            <option [value]="optionValue(option)">{{ optionLabel(option) }}</option>
           }
         </select>
         <span class="form-select__arrow">
@@ -99,7 +101,17 @@ import { NgClass } from '@angular/common';
 export class FormSelectComponent {
   label = input.required<string>();
   placeholder = input<string>('');
-  options = input<string[]>([]);
+  options = input<SelectOption[]>([]);
   variant = input<'filled' | 'outlined'>('filled');
   value = model<string>('');
+
+  normalizedOptions = computed(() => this.options());
+
+  optionValue(option: SelectOption): string {
+    return typeof option === 'string' ? option : option.value;
+  }
+
+  optionLabel(option: SelectOption): string {
+    return typeof option === 'string' ? option : option.label;
+  }
 }

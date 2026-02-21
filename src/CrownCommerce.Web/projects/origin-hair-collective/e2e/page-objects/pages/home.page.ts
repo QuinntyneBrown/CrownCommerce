@@ -13,6 +13,7 @@ import {
   FinalCtaSectionPOM,
   ChatContainerPOM,
 } from '../../../../../e2e-shared/page-objects';
+import { setupApiMocks } from '../../fixtures/api-mocks';
 
 export class HomePage {
   // App-specific
@@ -47,6 +48,7 @@ export class HomePage {
   }
 
   async goto(): Promise<void> {
+    await setupApiMocks(this.page);
     await this.page.goto('/');
     await this.page.waitForLoadState('domcontentloaded');
   }

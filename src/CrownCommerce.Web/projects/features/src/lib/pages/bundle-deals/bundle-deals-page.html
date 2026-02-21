@@ -20,10 +20,10 @@
   <section class="bundle-deals__grid">
     @for (deal of deals(); track deal.id) {
       <lib-bundle-deal-card
-        [name]="deal.name"
+        [title]="deal.name"
         [description]="deal.description"
-        [originalPrice]="deal.originalPrice"
-        [dealPrice]="deal.dealPrice"
+        [originalPrice]="'$' + deal.originalPrice.toFixed(2)"
+        [dealPrice]="'$' + deal.dealPrice.toFixed(2)"
         [savingsLabel]="deal.savingsLabel"
         [imageUrl]="deal.imageUrl"
         (addToCart)="addToCart(deal)"

@@ -27,7 +27,7 @@ export async function setupFeatureApiMocks(page: Page): Promise<void> {
     if (url.includes('/api/catalog/products') && url.includes('/detail') && method === 'GET') {
       return json(route, data.mockProductDetail);
     }
-    if (url.includes('/api/catalog/products') && !url.match(/\/[^/]+$/) && method === 'GET')
+    if (/\/api\/catalog\/products\/?(\?.*)?$/.test(url) && method === 'GET')
       return json(route, data.mockProducts);
     if (url.match(/\/api\/catalog\/products\/[^/]+$/) && method === 'GET')
       return json(route, data.mockProducts[0]);

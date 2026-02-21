@@ -91,9 +91,9 @@ export class ProductDetailPage implements OnInit {
     return p?.availableLengths?.map(l => l + '"') ?? [];
   }
 
-  get breadcrumbItems(): { label: string; url: string }[] {
+  get breadcrumbLabels(): string[] {
     const p = this.product();
-    return p?.breadcrumb ?? [];
+    return p?.breadcrumb?.map(b => b.label) ?? [];
   }
 
   get cartButtonText(): string {

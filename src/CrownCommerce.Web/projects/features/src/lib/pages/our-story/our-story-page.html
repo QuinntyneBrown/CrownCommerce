@@ -41,7 +41,7 @@
     <div class="our-story__values-grid">
       @for (value of s.values; track value.title) {
         <lib-benefit-card
-          [icon]="value.icon"
+          [iconSvg]="value.icon"
           [title]="value.title"
           [description]="value.description"
           variant="outlined"

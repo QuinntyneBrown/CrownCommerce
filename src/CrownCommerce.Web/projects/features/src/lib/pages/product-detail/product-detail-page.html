@@ -8,7 +8,7 @@
   </div>
 } @else if (product(); as p) {
   <div class="product-detail__breadcrumb">
-    <lib-breadcrumb [items]="breadcrumbItems" />
+    <lib-breadcrumb [items]="breadcrumbLabels" />
   </div>
 
   <section class="product-detail">
@@ -20,7 +20,7 @@
       <h1 class="product-detail__name">{{ p.name }}</h1>
 
       <div class="product-detail__rating-row">
-        <lib-star-rating [rating]="p.rating" [count]="p.reviewCount" />
+        <lib-star-rating [rating]="p.rating" [reviewCount]="p.reviewCount" />
       </div>
 
       <p class="product-detail__price">${{ p.price.toFixed(2) }}</p>
@@ -53,7 +53,7 @@
       <div class="product-detail__features">
         <span class="product-detail__option-label">PRODUCT DETAILS</span>
         @for (feature of p.features; track feature) {
-          <lib-checklist-item [text]="feature" [checked]="true" color="gold" />
+          <lib-checklist-item [text]="feature" />
         }
       </div>
     </div>
