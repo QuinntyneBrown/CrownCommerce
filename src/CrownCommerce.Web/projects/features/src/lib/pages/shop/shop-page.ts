@@ -1,13 +1,25 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, computed } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductCardComponent, SectionHeaderComponent, ButtonComponent } from 'components';
+import {
+  ProductCardComponent,
+  SectionHeaderComponent,
+  DividerComponent,
+  LoadingSpinnerComponent,
+  ErrorStateComponent,
+} from 'components';
 import { CatalogService } from 'api';
 import type { HairProduct } from 'api';
 
 @Component({
   selector: 'feat-shop-page',
   standalone: true,
-  imports: [ProductCardComponent, SectionHeaderComponent, ButtonComponent],
+  imports: [
+    ProductCardComponent,
+    SectionHeaderComponent,
+    DividerComponent,
+    LoadingSpinnerComponent,
+    ErrorStateComponent,
+  ],
   templateUrl: './shop-page.html',
   styleUrl: './shop-page.scss',
 })
@@ -23,12 +35,21 @@ export class ShopPage implements OnInit {
 
   readonly activeCategory = signal<string | null>(null);
   readonly activeTexture = signal<string | null>(null);
-  readonly activeOrigin = signal<string | null>(null);
+  readonly activeLength = signal<number | null>(null);
+  readonly activePriceRange = signal<string | null>(null);
   readonly sortBy = signal<string>('name');
 
-  readonly categories = ['Bundle', 'Closure', 'Frontal', 'Wig'];
-  readonly textures = ['Straight', 'Wavy', 'Curly', 'Kinky'];
-  readonly origins = ['Cambodia', 'Indonesia', 'India', 'Vietnam', 'Myanmar'];
+  readonly categories = ['Bundles', 'Closures', 'Frontals', 'Wigs'];
+  readonly textures = ['Straight', 'Body Wave', 'Deep Wave', 'Kinky Curly'];
+  readonly lengths = [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+  readonly priceRanges = [
+    { label: 'Under $50', min: 0, max: 50 },
+    { label: '$50 – $100', min: 50, max: 100 },
+    { label: '$100 – $150', min: 100, max: 150 },
+    { label: '$150+', min: 150, max: Infinity },
+  ];
+
+  readonly productCount = computed(() => this.filteredProducts().length);
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -49,8 +70,13 @@ export class ShopPage implements OnInit {
     this.applyFilters();
   }
 
-  filterByOrigin(origin: string | null): void {
-    this.activeOrigin.set(origin);
+  filterByLength(length: number | null): void {
+    this.activeLength.set(length);
+    this.applyFilters();
+  }
+
+  filterByPrice(range: string | null): void {
+    this.activePriceRange.set(range);
     this.applyFilters();
   }
 
@@ -86,7 +112,10 @@ export class ShopPage implements OnInit {
 
     const category = this.activeCategory();
     if (category) {
-      products = products.filter(p => p.type.toLowerCase() === category.toLowerCase());
+      products = products.filter(p =>
+        p.category?.toLowerCase() === category.toLowerCase() ||
+        p.type?.toLowerCase() === category.toLowerCase()
+      );
     }
 
     const texture = this.activeTexture();
@@ -94,9 +123,17 @@ export class ShopPage implements OnInit {
       products = products.filter(p => p.texture.toLowerCase() === texture.toLowerCase());
     }
 
-    const origin = this.activeOrigin();
-    if (origin) {
-      products = products.filter(p => p.originCountry.toLowerCase() === origin.toLowerCase());
+    const length = this.activeLength();
+    if (length) {
+      products = products.filter(p => p.lengthInches === length);
+    }
+
+    const priceLabel = this.activePriceRange();
+    if (priceLabel) {
+      const range = this.priceRanges.find(r => r.label === priceLabel);
+      if (range) {
+        products = products.filter(p => p.price >= range.min && p.price < range.max);
+      }
     }
 
     const sort = this.sortBy();
@@ -104,6 +141,8 @@ export class ShopPage implements OnInit {
       products.sort((a, b) => a.price - b.price);
     } else if (sort === 'price-desc') {
       products.sort((a, b) => b.price - a.price);
+    } else if (sort === 'newest') {
+      products.sort((a, b) => b.id.localeCompare(a.id));
     } else {
       products.sort((a, b) => a.name.localeCompare(b.name));
     }

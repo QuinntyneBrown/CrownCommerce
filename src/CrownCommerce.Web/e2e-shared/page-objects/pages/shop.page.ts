@@ -1,23 +1,40 @@
 import { type Locator, type Page } from '@playwright/test';
-import { ProductGridPOM } from '../components/product-grid.component';
 
 export class ShopPagePOM {
   readonly root: Locator;
+  readonly heroLabel: Locator;
+  readonly heroTitle: Locator;
+  readonly heroDescription: Locator;
+  readonly sidebar: Locator;
+  readonly sidebarTitle: Locator;
   readonly filterGroups: Locator;
-  readonly filterButtons: Locator;
+  readonly filterItems: Locator;
+  readonly sortBar: Locator;
+  readonly productCount: Locator;
   readonly sortSelect: Locator;
+  readonly productGrid: Locator;
+  readonly productCards: Locator;
   readonly statusMessage: Locator;
+  readonly loadingSpinner: Locator;
   readonly errorState: Locator;
-  readonly grid: ProductGridPOM;
 
   constructor(private page: Page) {
     this.root = page.locator('feat-shop-page');
+    this.heroLabel = this.root.locator('.shop-hero__label');
+    this.heroTitle = this.root.locator('.shop-hero__title');
+    this.heroDescription = this.root.locator('.shop-hero__description');
+    this.sidebar = this.root.locator('.shop__sidebar');
+    this.sidebarTitle = this.root.locator('.shop__sidebar-title');
     this.filterGroups = this.root.locator('.shop__filter-group');
-    this.filterButtons = this.root.locator('.shop__filter-btn');
+    this.filterItems = this.root.locator('.shop__filter-item');
+    this.sortBar = this.root.locator('.shop__sort-bar');
+    this.productCount = this.root.locator('.shop__count');
     this.sortSelect = this.root.locator('.shop__sort');
+    this.productGrid = this.root.locator('.shop__grid');
+    this.productCards = this.root.locator('.shop__grid lib-product-card');
     this.statusMessage = this.root.locator('.shop__status');
-    this.errorState = this.root.locator('.shop__status--error');
-    this.grid = new ProductGridPOM(page, this.root);
+    this.loadingSpinner = this.root.locator('lib-loading-spinner');
+    this.errorState = this.root.locator('lib-error-state');
   }
 
   async goto(path = '/shop'): Promise<void> {
@@ -26,14 +43,22 @@ export class ShopPagePOM {
   }
 
   async filterBy(label: string): Promise<void> {
-    await this.filterButtons.filter({ hasText: label }).click();
+    await this.filterItems.filter({ hasText: label }).first().click();
   }
 
   async sortBy(value: string): Promise<void> {
     await this.sortSelect.selectOption(value);
   }
 
-  async getActiveFilterTexts(): Promise<string[]> {
-    return this.filterButtons.filter({ has: this.page.locator('.active') }).allTextContents();
+  async getProductCount(): Promise<number> {
+    return this.productCards.count();
+  }
+
+  async getProductCountText(): Promise<string | null> {
+    return this.productCount.textContent();
+  }
+
+  async getFilterGroupCount(): Promise<number> {
+    return this.filterGroups.count();
   }
 }
