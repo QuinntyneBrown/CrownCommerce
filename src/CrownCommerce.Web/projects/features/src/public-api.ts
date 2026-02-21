@@ -23,6 +23,14 @@ export { WholesalePage } from './lib/pages/wholesale/wholesale-page';
 export { AmbassadorPage } from './lib/pages/ambassador/ambassador-page';
 export { ContentPage, CONTENT_PAGE_SLUG } from './lib/pages/content-page/content-page';
 export { HomePage } from './lib/pages/home/home-page';
+export { OurStoryPage } from './lib/pages/our-story/our-story-page';
+export { HairCareGuidePage } from './lib/pages/hair-care-guide/hair-care-guide-page';
+export { ShippingInfoPage } from './lib/pages/shipping-info/shipping-info-page';
+export { ReturnsPage } from './lib/pages/returns/returns-page';
+export { BundlesPage } from './lib/pages/bundles/bundles-page';
+export { ClosuresPage } from './lib/pages/closures/closures-page';
+export { FrontalsPage } from './lib/pages/frontals/frontals-page';
+export { BundleDealsPage } from './lib/pages/bundle-deals/bundle-deals-page';
 
 // Injection Tokens & Configs
 export { HOME_PAGE_CONFIG, type HomePageConfig } from './lib/pages/home/home-page.config';

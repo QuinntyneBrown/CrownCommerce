@@ -1,0 +1,38 @@
+@if (loading()) {
+  <div class="hair-care__loading">
+    <lib-loading-spinner />
+  </div>
+} @else if (error()) {
+  <div class="hair-care__error">
+    <lib-error-state [message]="error()!" />
+  </div>
+} @else if (guide(); as g) {
+  <section class="hair-care__hero">
+    <span class="hair-care__label">HAIR CARE GUIDE</span>
+    <h1 class="hair-care__title">{{ g.heroTitle }}</h1>
+    <lib-divider variant="accent" />
+    <p class="hair-care__subtitle">{{ g.heroSubtitle }}</p>
+  </section>
+
+  @for (section of g.sections; track section.id; let i = $index; let even = $even) {
+    <section class="hair-care__section" [class.hair-care__section--alt]="!even">
+      <span class="hair-care__label">{{ section.title | uppercase }}</span>
+      <h2 class="hair-care__section-title">{{ section.description }}</h2>
+      <div class="hair-care__tips-grid">
+        @for (tip of section.tips; track tip.title) {
+          <lib-step-card
+            [badge]="tip.icon"
+            [title]="tip.title"
+            [description]="tip.description"
+          />
+        }
+      </div>
+    </section>
+  }
+
+  <section class="hair-care__cta">
+    <h2 class="hair-care__cta-title">{{ g.ctaTitle }}</h2>
+    <p class="hair-care__cta-description">{{ g.ctaDescription }}</p>
+    <lib-button variant="primary" (click)="navigateToContact()">CONTACT US</lib-button>
+  </section>
+}

@@ -1,32 +1,40 @@
 import { test, expect } from '@playwright/test';
-import { ContentPagePOM } from '../page-objects/pages/content.page';
+import { OurStoryPagePOM } from '../page-objects/pages/our-story.page';
+import { ShippingInfoPagePOM } from '../page-objects/pages/shipping-info.page';
+import { ReturnsPagePOM } from '../page-objects/pages/returns.page';
+import { HairCareGuidePagePOM } from '../page-objects/pages/hair-care-guide.page';
 import { setupFeatureApiMocks } from '../fixtures';
 
-test.describe('ContentPage (feat-content-page)', () => {
+test.describe('Content Routes (previously ContentPage)', () => {
   test.beforeEach(async ({ page }) => {
     await setupFeatureApiMocks(page);
   });
 
-  test('renders content page with title', async ({ page }) => {
-    const content = new ContentPagePOM(page);
-    await content.goto('about');
-    await expect(content.root).toBeVisible();
-    await expect(content.title).toBeVisible();
+  test('/about now renders OurStoryPage', async ({ page }) => {
+    const story = new OurStoryPagePOM(page);
+    await story.goto();
+    await expect(story.root).toBeVisible();
+    await expect(story.heroTitle).toBeVisible();
   });
 
-  test('displays page body content', async ({ page }) => {
-    const content = new ContentPagePOM(page);
-    await content.goto('about');
-    await expect(content.body).toBeVisible();
-    const bodyText = await content.getBodyText();
-    expect(bodyText).toBeTruthy();
+  test('/shipping-info now renders ShippingInfoPage', async ({ page }) => {
+    const shipping = new ShippingInfoPagePOM(page);
+    await shipping.goto();
+    await expect(shipping.root).toBeVisible();
+    await expect(shipping.heroTitle).toBeVisible();
   });
 
-  test('loads different content for different slugs', async ({ page }) => {
-    const content = new ContentPagePOM(page);
-    await content.goto('shipping-info');
-    await expect(content.root).toBeVisible();
-    const title = await content.getTitleText();
-    expect(title).toBeTruthy();
+  test('/returns now renders ReturnsPage', async ({ page }) => {
+    const returns = new ReturnsPagePOM(page);
+    await returns.goto();
+    await expect(returns.root).toBeVisible();
+    await expect(returns.heroTitle).toBeVisible();
+  });
+
+  test('/hair-care-guide now renders HairCareGuidePage', async ({ page }) => {
+    const guide = new HairCareGuidePagePOM(page);
+    await guide.goto();
+    await expect(guide.root).toBeVisible();
+    await expect(guide.heroTitle).toBeVisible();
   });
 });

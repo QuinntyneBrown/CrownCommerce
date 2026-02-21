@@ -1,0 +1,39 @@
+@if (loading()) {
+  <div class="category-page__loading">
+    <lib-loading-spinner />
+  </div>
+} @else if (error()) {
+  <div class="category-page__error">
+    <lib-error-state [message]="error()!" />
+  </div>
+} @else {
+  <section class="category-page__hero">
+    <span class="category-page__label">COLLECTION</span>
+    <h1 class="category-page__title">Hair Bundles</h1>
+    <p class="category-page__subtitle">
+      Premium 100% virgin hair bundles in a variety of textures and lengths. Build your perfect look.
+    </p>
+    <div class="category-page__filters">
+      @for (filter of filters; track filter) {
+        <lib-filter-chip
+          [label]="filter"
+          [active]="activeFilter() === filter"
+          (toggle)="filterBy(filter)"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="category-page__grid">
+    @for (product of filteredProducts(); track product.id) {
+      <lib-product-card
+        [imageUrl]="product.imageUrl ?? ''"
+        [title]="product.name"
+        [description]="product.availableLengths.length ? product.availableLengths[0] + '&quot;-' + product.availableLengths[product.availableLengths.length - 1] + '&quot; lengths' : ''"
+        [price]="'From $' + product.price"
+        [showShopButton]="true"
+        (click)="navigateToProduct(product)"
+      />
+    }
+  </section>
+}

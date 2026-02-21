@@ -1,35 +1,45 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { KeyValuePipe } from '@angular/common';
-import { SectionHeaderComponent } from 'components';
+import { Router } from '@angular/router';
+import {
+  AccordionItemComponent,
+  ButtonComponent,
+  LoadingSpinnerComponent,
+  ErrorStateComponent,
+} from 'components';
 import { ContentService } from 'api';
 import type { FaqItem } from 'api';
 
 @Component({
   selector: 'feat-faq-page',
   standalone: true,
-  imports: [KeyValuePipe, SectionHeaderComponent],
+  imports: [
+    AccordionItemComponent,
+    ButtonComponent,
+    LoadingSpinnerComponent,
+    ErrorStateComponent,
+  ],
   templateUrl: './faq-page.html',
   styleUrl: './faq-page.scss',
 })
 export class FaqPage implements OnInit {
   private readonly contentService = inject(ContentService);
+  private readonly router = inject(Router);
 
   readonly faqs = signal<FaqItem[]>([]);
+  readonly loading = signal(true);
+  readonly error = signal<string | null>(null);
   readonly expandedIds = signal<Set<string>>(new Set());
-
-  get groupedFaqs(): Map<string, FaqItem[]> {
-    const map = new Map<string, FaqItem[]>();
-    for (const faq of this.faqs()) {
-      const group = map.get(faq.category) ?? [];
-      group.push(faq);
-      map.set(faq.category, group);
-    }
-    return map;
-  }
 
   ngOnInit(): void {
     this.contentService.getFaqs().subscribe({
-      next: (faqs) => this.faqs.set(faqs),
+      next: (faqs) => {
+        this.faqs.set(faqs);
+        this.loading.set(false);
+      },
+      error: () => {
+        this.error.set('Failed to load FAQs.');
+        this.loading.set(false);
+      },
     });
   }
 
@@ -43,5 +53,9 @@ export class FaqPage implements OnInit {
 
   isExpanded(id: string): boolean {
     return this.expandedIds().has(id);
+  }
+
+  navigateToContact(): void {
+    this.router.navigate(['/contact']);
   }
 }

@@ -1,0 +1,33 @@
+@if (loading()) {
+  <div class="bundle-deals__loading">
+    <lib-loading-spinner />
+  </div>
+} @else if (error()) {
+  <div class="bundle-deals__error">
+    <lib-error-state [message]="error()!" />
+  </div>
+} @else {
+  <section class="bundle-deals__hero">
+    <span class="bundle-deals__label">CURATED SETS</span>
+    <h1 class="bundle-deals__title">Bundle Deals</h1>
+    <p class="bundle-deals__subtitle">
+      Save more when you bundle. Our curated sets include everything you need
+      for a flawless install at unbeatable prices.
+    </p>
+    <span class="bundle-deals__badge">UP TO 30% OFF</span>
+  </section>
+
+  <section class="bundle-deals__grid">
+    @for (deal of deals(); track deal.id) {
+      <lib-bundle-deal-card
+        [name]="deal.name"
+        [description]="deal.description"
+        [originalPrice]="deal.originalPrice"
+        [dealPrice]="deal.dealPrice"
+        [savingsLabel]="deal.savingsLabel"
+        [imageUrl]="deal.imageUrl"
+        (addToCart)="addToCart(deal)"
+      />
+    }
+  </section>
+}

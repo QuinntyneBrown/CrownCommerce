@@ -2,35 +2,43 @@ import { type Locator, type Page } from '@playwright/test';
 
 export class ProductDetailPagePOM {
   readonly root: Locator;
-  readonly loadingState: Locator;
-  readonly errorState: Locator;
-  readonly productImage: Locator;
-  readonly productType: Locator;
+  readonly breadcrumb: Locator;
+  readonly imageGallery: Locator;
   readonly productName: Locator;
+  readonly starRating: Locator;
   readonly productPrice: Locator;
   readonly productDescription: Locator;
-  readonly metaItems: Locator;
-  readonly quantityValue: Locator;
-  readonly quantityIncrement: Locator;
-  readonly quantityDecrement: Locator;
+  readonly lengthSelector: Locator;
+  readonly quantitySelector: Locator;
   readonly addToCartButton: Locator;
-  readonly viewCartButton: Locator;
+  readonly features: Locator;
+  readonly reviewsSection: Locator;
+  readonly reviewCards: Locator;
+  readonly reviewsLink: Locator;
+  readonly relatedSection: Locator;
+  readonly relatedProducts: Locator;
+  readonly loadingSpinner: Locator;
+  readonly errorState: Locator;
 
   constructor(private page: Page) {
     this.root = page.locator('feat-product-detail-page');
-    this.loadingState = this.root.locator('.product-detail__loading');
-    this.errorState = this.root.locator('.product-detail__error');
-    this.productImage = this.root.locator('.product-detail__image img');
-    this.productType = this.root.locator('.product-detail__type');
+    this.breadcrumb = this.root.locator('lib-breadcrumb');
+    this.imageGallery = this.root.locator('lib-image-gallery');
     this.productName = this.root.locator('.product-detail__name');
+    this.starRating = this.root.locator('lib-star-rating');
     this.productPrice = this.root.locator('.product-detail__price');
     this.productDescription = this.root.locator('.product-detail__description');
-    this.metaItems = this.root.locator('.product-detail__meta-item');
-    this.quantityValue = this.root.locator('.product-detail__qty-value');
-    this.quantityIncrement = this.root.locator('.product-detail__qty-btn').last();
-    this.quantityDecrement = this.root.locator('.product-detail__qty-btn').first();
-    this.addToCartButton = this.root.locator('.product-detail__actions lib-button button');
-    this.viewCartButton = this.root.locator('.product-detail__view-cart');
+    this.lengthSelector = this.root.locator('lib-length-selector');
+    this.quantitySelector = this.root.locator('lib-quantity-selector');
+    this.addToCartButton = this.root.locator('.product-detail__info lib-button');
+    this.features = this.root.locator('.product-detail__features lib-checklist-item');
+    this.reviewsSection = this.root.locator('.product-detail__reviews');
+    this.reviewCards = this.root.locator('.product-detail__reviews-grid lib-review-card');
+    this.reviewsLink = this.root.locator('.product-detail__reviews-link');
+    this.relatedSection = this.root.locator('.product-detail__related');
+    this.relatedProducts = this.root.locator('.product-detail__related-grid lib-product-card');
+    this.loadingSpinner = this.root.locator('lib-loading-spinner');
+    this.errorState = this.root.locator('lib-error-state');
   }
 
   async goto(productId: string): Promise<void> {
@@ -46,24 +54,19 @@ export class ProductDetailPagePOM {
     return this.productPrice.textContent();
   }
 
-  async getQuantity(): Promise<string | null> {
-    return this.quantityValue.textContent();
+  async getFeatureCount(): Promise<number> {
+    return this.features.count();
   }
 
-  async incrementQuantity(): Promise<void> {
-    await this.quantityIncrement.click();
+  async getReviewCount(): Promise<number> {
+    return this.reviewCards.count();
   }
 
-  async decrementQuantity(): Promise<void> {
-    await this.quantityDecrement.click();
+  async getRelatedProductCount(): Promise<number> {
+    return this.relatedProducts.count();
   }
 
   async addToCart(): Promise<void> {
     await this.addToCartButton.click();
-  }
-
-  async getMetaValue(label: string): Promise<string | null> {
-    const item = this.metaItems.filter({ has: this.page.locator(`.product-detail__meta-label:has-text("${label}")`) });
-    return item.locator('.product-detail__meta-value').textContent();
   }
 }

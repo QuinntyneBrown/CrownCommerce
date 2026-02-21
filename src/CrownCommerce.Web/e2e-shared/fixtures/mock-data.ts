@@ -6,38 +6,109 @@ export const mockProducts = [
     name: 'Virgin Hair Bundles',
     originId: 'org-001',
     originCountry: 'Brazil',
+    category: 'bundles',
     texture: 'Body Wave',
     type: 'bestseller',
     lengthInches: 18,
     description: 'Brazilian, Peruvian & Malaysian textures available in 10–30 inch lengths.',
     price: 85,
     imageUrl: '/assets/products/bundles.jpg',
+    imageUrls: ['/assets/products/bundles.jpg'],
+    rating: 4.8,
+    reviewCount: 124,
+    availableLengths: [14, 16, 18, 20, 22],
+    features: ['100% Virgin Hair', 'Double Wefted', 'Tangle Free'],
+    inStock: true,
   },
   {
     id: 'prod-002',
     name: 'Lace Closures',
     originId: 'org-002',
     originCountry: 'Peru',
+    category: 'closures',
     texture: 'Straight',
     type: 'essential',
     lengthInches: 16,
     description: 'HD lace closures for a seamless, natural look. 4x4 and 5x5 options.',
     price: 65,
     imageUrl: '/assets/products/closures.jpg',
+    imageUrls: ['/assets/products/closures.jpg'],
+    rating: 4.6,
+    reviewCount: 89,
+    availableLengths: [12, 14, 16, 18],
+    features: ['HD Lace', 'Pre-plucked', 'Bleached Knots'],
+    inStock: true,
   },
   {
     id: 'prod-003',
     name: 'Lace Frontals',
     originId: 'org-001',
     originCountry: 'Brazil',
+    category: 'frontals',
     texture: 'Straight',
     type: 'premium',
     lengthInches: 20,
     description: '13x4 and 13x6 HD lace frontals for a flawless ear-to-ear hairline.',
     price: 95,
     imageUrl: '/assets/products/frontals.jpg',
+    imageUrls: ['/assets/products/frontals.jpg'],
+    rating: 4.9,
+    reviewCount: 67,
+    availableLengths: [14, 16, 18, 20],
+    features: ['HD Swiss Lace', '13x4 Coverage', 'Natural Hairline'],
+    inStock: true,
   },
 ];
+
+// ── Product Detail ──
+
+export const mockProductDetail = {
+  ...mockProducts[0],
+  images: [
+    { url: '/assets/products/bundles.jpg', alt: 'Virgin Hair Bundles - Front' },
+    { url: '/assets/products/bundles-2.jpg', alt: 'Virgin Hair Bundles - Side' },
+  ],
+  breadcrumb: [
+    { label: 'Home', url: '/' },
+    { label: 'Shop', url: '/shop' },
+    { label: 'Virgin Hair Bundles', url: '/product/prod-001' },
+  ],
+};
+
+// ── Product Reviews ──
+
+export const mockProductReviews = {
+  items: [
+    {
+      id: 'rev-001',
+      customerName: 'Jasmine T.',
+      rating: 5,
+      content: 'Amazing quality! The hair is so soft and the texture holds up beautifully after multiple washes.',
+      createdAt: '2026-02-10T12:00:00Z',
+    },
+    {
+      id: 'rev-002',
+      customerName: 'Aisha M.',
+      rating: 4,
+      content: 'Great value for the price. The bundles blended perfectly with my natural hair.',
+      createdAt: '2026-02-05T12:00:00Z',
+    },
+    {
+      id: 'rev-003',
+      customerName: 'Nicole R.',
+      rating: 5,
+      content: 'This is my third time ordering and the quality is always consistent. Highly recommend!',
+      createdAt: '2026-01-28T12:00:00Z',
+    },
+  ],
+  totalCount: 124,
+  page: 1,
+  pageSize: 3,
+};
+
+// ── Related Products ──
+
+export const mockRelatedProducts = [mockProducts[1], mockProducts[2]];
 
 // ── Testimonials ──
 
@@ -105,3 +176,190 @@ export const mockChatResponse = {
 // ── Inquiry ──
 
 export const mockInquiryResponse = { id: 'inq-001', status: 'received' };
+
+// ── Brand Story ──
+
+export const mockBrandStory = {
+  heroImageUrl: '/assets/about/hero.jpg',
+  heroTitle: 'Our Story',
+  heroSubtitle: 'From humble beginnings to a global movement — this is the story of Origin Hair Collective.',
+  founder: {
+    name: 'Maya Johnson',
+    imageUrl: '/assets/about/founder.jpg',
+    bio: 'Maya founded Origin Hair Collective with a vision to make premium quality hair accessible to everyone.',
+  },
+  mission: {
+    title: 'Beauty Without Compromise',
+    description: 'We believe in providing the highest quality virgin hair while maintaining ethical sourcing practices.',
+  },
+  values: [
+    { icon: '✦', title: 'Quality First', description: 'Only the finest 100% virgin hair makes it into our collection.' },
+    { icon: '♡', title: 'Ethical Sourcing', description: 'Every strand is ethically sourced from trusted suppliers.' },
+    { icon: '★', title: 'Community Driven', description: 'We empower women to feel confident and beautiful.' },
+  ],
+  timeline: [
+    { year: '2020', title: 'The Beginning', description: 'Origin Hair Collective was founded in Toronto.' },
+    { year: '2022', title: 'Going Global', description: 'Expanded shipping to over 30 countries worldwide.' },
+    { year: '2024', title: 'Community First', description: 'Launched our ambassador program with 500+ members.' },
+    { year: '2026', title: 'The Future', description: 'Continuing to innovate and grow our community.' },
+  ],
+  ctaTitle: 'Ready to Experience the Difference?',
+  ctaDescription: 'Browse our curated collection of premium virgin hair extensions.',
+};
+
+// ── Hair Care Guide ──
+
+export const mockHairCareGuide = {
+  heroTitle: 'Hair Care Guide',
+  heroSubtitle: 'Everything you need to know to keep your extensions looking flawless.',
+  sections: [
+    {
+      id: 'washing',
+      title: 'Washing',
+      description: 'How to Wash Your Extensions',
+      tips: [
+        { icon: '💧', title: 'Use Sulfate-Free Shampoo', description: 'Sulfate-free formulas protect the hair cuticle.' },
+        { icon: '🧴', title: 'Condition Regularly', description: 'Deep condition weekly to maintain moisture.' },
+        { icon: '🌊', title: 'Rinse with Cool Water', description: 'Cool water seals the cuticle for extra shine.' },
+      ],
+    },
+    {
+      id: 'styling',
+      title: 'Styling',
+      description: 'Styling Tips & Best Practices',
+      tips: [
+        { icon: '🔥', title: 'Heat Protection', description: 'Always use heat protectant before styling.' },
+        { icon: '💨', title: 'Air Dry When Possible', description: 'Minimize heat damage by air drying.' },
+        { icon: '✂️', title: 'Trim Regularly', description: 'Trim ends every 6-8 weeks to prevent split ends.' },
+      ],
+    },
+  ],
+  ctaTitle: 'Need Personalized Advice?',
+  ctaDescription: 'Our stylists are here to help you get the best out of your extensions.',
+};
+
+// ── Shipping Policy ──
+
+export const mockShippingPolicy = {
+  heroTitle: 'Shipping Information',
+  heroSubtitle: 'Fast, reliable shipping across North America and worldwide.',
+  zones: [
+    { name: 'Standard Domestic', rate: '$5.99', deliveryTime: '5-7 business days' },
+    { name: 'Express Domestic', rate: '$14.99', deliveryTime: '2-3 business days' },
+    { name: 'International', rate: '$24.99', deliveryTime: '7-14 business days' },
+  ],
+  processingTime: 'Orders are processed within 1-2 business days.',
+  trackingInfo: 'Tracking numbers are emailed once your order ships.',
+  processSteps: [
+    { stepNumber: 1, title: 'Order Placed', description: 'Your order is confirmed and being prepared.' },
+    { stepNumber: 2, title: 'Shipped', description: 'Your order has been dispatched with tracking.' },
+    { stepNumber: 3, title: 'Delivered', description: 'Your package arrives at your doorstep.' },
+  ],
+};
+
+// ── Returns Policy ──
+
+export const mockReturnsPolicy = {
+  heroTitle: 'Returns & Exchanges',
+  heroSubtitle: 'We want you to be completely satisfied with your purchase.',
+  eligibilityWindow: '30 days',
+  conditions: [
+    { title: 'Unopened Packages', description: 'Items must be in their original, unopened packaging.' },
+    { title: '30-Day Window', description: 'Returns must be initiated within 30 days of delivery.' },
+    { title: 'Original Receipt', description: 'Proof of purchase is required for all returns.' },
+    { title: 'Quality Issues', description: 'Contact us immediately if you receive a defective product.' },
+  ],
+  processSteps: [
+    { stepNumber: 1, title: 'Contact Us', description: 'Email our support team to initiate your return.' },
+    { stepNumber: 2, title: 'Ship Your Return', description: 'Send your item back using the provided label.' },
+    { stepNumber: 3, title: 'Receive Refund', description: 'Refund processed within 5-7 business days.' },
+  ],
+  exchangeInfo: 'Exchanges are available for the same product in a different length or texture.',
+};
+
+// ── Wholesale Tiers ──
+
+export const mockWholesaleTiers = [
+  {
+    id: 'tier-001',
+    name: 'Starter',
+    minimumOrder: 500,
+    discount: 15,
+    features: ['15% off retail', 'Email support', 'Quarterly catalog'],
+    highlighted: false,
+  },
+  {
+    id: 'tier-002',
+    name: 'Professional',
+    minimumOrder: 2000,
+    discount: 25,
+    features: ['25% off retail', 'Priority support', 'Monthly catalog', 'Free shipping'],
+    highlighted: true,
+  },
+  {
+    id: 'tier-003',
+    name: 'Enterprise',
+    minimumOrder: 5000,
+    discount: 35,
+    features: ['35% off retail', 'Dedicated account manager', 'Custom orders', 'Free expedited shipping'],
+    highlighted: false,
+  },
+];
+
+// ── Ambassador Program ──
+
+export const mockAmbassadorProgram = {
+  heroTitle: 'Become an Ambassador',
+  heroSubtitle: 'Represent the brand you love and earn while doing it.',
+  perks: [
+    { icon: '💰', title: 'Commission', description: 'Earn 15% commission on every sale you refer.' },
+    { icon: '🎁', title: 'Free Products', description: 'Receive free products to create content with.' },
+    { icon: '🌟', title: 'Exclusive Access', description: 'Be the first to try new products and collections.' },
+    { icon: '📸', title: 'Content Support', description: 'Get professional photos and brand assets.' },
+  ],
+  howItWorks: [
+    { stepNumber: 1, title: 'Apply', description: 'Fill out our simple application form below.' },
+    { stepNumber: 2, title: 'Get Approved', description: "We'll review your application within 48 hours." },
+    { stepNumber: 3, title: 'Start Earning', description: 'Share your unique link and earn on every sale.' },
+  ],
+  ctaTitle: 'Ready to Join the Movement?',
+  ctaDescription: 'Apply today and start your journey as an Origin ambassador.',
+};
+
+// ── Bundle Deals ──
+
+export const mockBundleDeals = [
+  {
+    id: 'deal-001',
+    name: 'Starter Bundle',
+    description: '3 bundles of Body Wave hair at a discounted price.',
+    items: ['Body Wave 14"', 'Body Wave 16"', 'Body Wave 18"'],
+    originalPrice: 255,
+    dealPrice: 199,
+    savingsAmount: 56,
+    savingsLabel: 'SAVE 22%',
+    imageUrl: '/assets/deals/starter-bundle.jpg',
+  },
+  {
+    id: 'deal-002',
+    name: 'Complete Set',
+    description: '3 bundles + closure for a full sew-in install.',
+    items: ['Straight 16"', 'Straight 18"', 'Straight 20"', '4x4 Closure 14"'],
+    originalPrice: 370,
+    dealPrice: 279,
+    savingsAmount: 91,
+    savingsLabel: 'SAVE 25%',
+    imageUrl: '/assets/deals/complete-set.jpg',
+  },
+  {
+    id: 'deal-003',
+    name: 'Frontal Bundle',
+    description: '3 bundles + frontal for maximum versatility.',
+    items: ['Deep Wave 18"', 'Deep Wave 20"', 'Deep Wave 22"', '13x4 Frontal 16"'],
+    originalPrice: 420,
+    dealPrice: 299,
+    savingsAmount: 121,
+    savingsLabel: 'SAVE 29%',
+    imageUrl: '/assets/deals/frontal-bundle.jpg',
+  },
+];

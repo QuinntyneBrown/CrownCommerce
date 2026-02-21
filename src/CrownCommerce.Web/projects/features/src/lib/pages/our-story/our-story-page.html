@@ -1,0 +1,72 @@
+@if (loading()) {
+  <div class="our-story__loading">
+    <lib-loading-spinner />
+  </div>
+} @else if (error()) {
+  <div class="our-story__error">
+    <lib-error-state [message]="error()!" />
+  </div>
+} @else if (story(); as s) {
+  <section class="our-story__hero-image">
+    <img [src]="s.heroImageUrl" alt="Our Story" />
+  </section>
+
+  <section class="our-story__hero-content">
+    <span class="our-story__label">OUR STORY</span>
+    <h1 class="our-story__title">{{ s.heroTitle }}</h1>
+    <lib-divider variant="accent" />
+    <p class="our-story__subtitle">{{ s.heroSubtitle }}</p>
+  </section>
+
+  <section class="our-story__founder">
+    <div class="our-story__founder-image">
+      <img [src]="s.founder.imageUrl" [alt]="s.founder.name" />
+    </div>
+    <div class="our-story__founder-content">
+      <span class="our-story__label">THE FOUNDER</span>
+      <h2 class="our-story__section-title">Meet {{ s.founder.name }}</h2>
+      <p class="our-story__body">{{ s.founder.bio }}</p>
+    </div>
+  </section>
+
+  <section class="our-story__mission">
+    <span class="our-story__label">OUR MISSION</span>
+    <h2 class="our-story__section-title">{{ s.mission.title }}</h2>
+    <lib-divider variant="accent" />
+    <p class="our-story__body our-story__body--centered">{{ s.mission.description }}</p>
+  </section>
+
+  <section class="our-story__values">
+    <span class="our-story__label">OUR VALUES</span>
+    <div class="our-story__values-grid">
+      @for (value of s.values; track value.title) {
+        <lib-benefit-card
+          [icon]="value.icon"
+          [title]="value.title"
+          [description]="value.description"
+          variant="outlined"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="our-story__timeline">
+    <span class="our-story__label">OUR JOURNEY</span>
+    <h2 class="our-story__section-title our-story__section-title--centered">Milestones</h2>
+    <div class="our-story__timeline-grid">
+      @for (event of s.timeline; track event.year) {
+        <lib-timeline-card
+          [year]="event.year"
+          [title]="event.title"
+          [description]="event.description"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="our-story__cta">
+    <h2 class="our-story__cta-title">{{ s.ctaTitle }}</h2>
+    <p class="our-story__cta-description">{{ s.ctaDescription }}</p>
+    <lib-button variant="primary" (click)="navigateToShop()">SHOP THE COLLECTION</lib-button>
+  </section>
+}

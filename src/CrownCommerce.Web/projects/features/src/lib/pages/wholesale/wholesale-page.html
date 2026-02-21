@@ -1,0 +1,86 @@
+@if (loading()) {
+  <div class="wholesale__loading">
+    <lib-loading-spinner />
+  </div>
+} @else if (error()) {
+  <div class="wholesale__error">
+    <lib-error-state [message]="error()!" />
+  </div>
+} @else {
+  <section class="wholesale__hero">
+    <span class="wholesale__label">WHOLESALE PROGRAM</span>
+    <h1 class="wholesale__title">Partner With Origin</h1>
+    <lib-divider variant="accent" />
+    <p class="wholesale__subtitle">
+      Join our growing network of salon owners, stylists, and beauty entrepreneurs.
+      Enjoy exclusive pricing and priority support.
+    </p>
+  </section>
+
+  <section class="wholesale__benefits">
+    <span class="wholesale__label">WHY WHOLESALE WITH US</span>
+    <div class="wholesale__benefits-grid">
+      @for (benefit of benefits; track benefit.title) {
+        <lib-benefit-card
+          [icon]="benefit.icon"
+          [title]="benefit.title"
+          [description]="benefit.description"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="wholesale__pricing">
+    <span class="wholesale__label">PRICING TIERS</span>
+    <h2 class="wholesale__section-title">Volume-Based Discounts</h2>
+    <div class="wholesale__tiers-grid">
+      @for (tier of tiers(); track tier.id) {
+        <lib-pricing-tier-card
+          [name]="tier.name"
+          [discount]="tier.discount"
+          [minimumOrder]="tier.minimumOrder"
+          [features]="tier.features"
+          [highlighted]="tier.highlighted"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="wholesale__form-section">
+    <div class="wholesale__form-intro">
+      <span class="wholesale__label">GET STARTED</span>
+      <h2 class="wholesale__section-title">Wholesale Inquiry</h2>
+      <p class="wholesale__body">
+        Fill out the form and our wholesale team will get back to you within 24 hours
+        with pricing details and next steps.
+      </p>
+    </div>
+
+    @if (submitted()) {
+      <div class="wholesale__form-card wholesale__form-card--success">
+        <h3 class="wholesale__success-title">Inquiry Submitted!</h3>
+        <p class="wholesale__success-message">
+          Thank you for your interest. Our wholesale team will contact you within 24 hours.
+        </p>
+      </div>
+    } @else {
+      <div class="wholesale__form-card">
+        @if (submitError()) {
+          <p class="wholesale__form-error">{{ submitError() }}</p>
+        }
+        <div class="wholesale__form-row">
+          <lib-form-input label="Business Name" [(value)]="businessName" variant="filled" />
+          <lib-form-input label="Email Address" type="email" [(value)]="contactEmail" variant="filled" />
+        </div>
+        <div class="wholesale__form-row">
+          <lib-form-input label="Phone Number" type="tel" [(value)]="phone" variant="filled" />
+          <lib-form-select label="Monthly Volume" [options]="volumeOptions" [(value)]="monthlyVolume" variant="filled" />
+        </div>
+        <lib-form-textarea label="Message" [(value)]="message" variant="filled" />
+        <lib-button variant="primary" [disabled]="submitting()" (click)="submitInquiry()">
+          @if (submitting()) { SUBMITTING... } @else { SUBMIT INQUIRY }
+        </lib-button>
+      </div>
+    }
+  </section>
+}

@@ -1,55 +1,100 @@
 @if (loading()) {
-  <div class="product-detail__loading">Loading product...</div>
+  <div class="product-detail__loading">
+    <lib-loading-spinner />
+  </div>
 } @else if (error()) {
-  <div class="product-detail__error">{{ error() }}</div>
+  <div class="product-detail__error">
+    <lib-error-state [message]="error()!" />
+  </div>
 } @else if (product(); as p) {
+  <div class="product-detail__breadcrumb">
+    <lib-breadcrumb [items]="breadcrumbItems" />
+  </div>
+
   <section class="product-detail">
-    <div class="product-detail__image">
-      @if (p.imageUrl) {
-        <img [src]="p.imageUrl" [alt]="p.name" />
-      }
+    <div class="product-detail__gallery">
+      <lib-image-gallery [images]="productImages" [alt]="p.name" />
     </div>
+
     <div class="product-detail__info">
-      <span class="product-detail__type">{{ p.type }}</span>
       <h1 class="product-detail__name">{{ p.name }}</h1>
-      <p class="product-detail__price">${{ p.price }} CAD</p>
+
+      <div class="product-detail__rating-row">
+        <lib-star-rating [rating]="p.rating" [count]="p.reviewCount" />
+      </div>
+
+      <p class="product-detail__price">${{ p.price.toFixed(2) }}</p>
       <p class="product-detail__description">{{ p.description }}</p>
 
-      <div class="product-detail__meta">
-        <div class="product-detail__meta-item">
-          <span class="product-detail__meta-label">Origin</span>
-          <span class="product-detail__meta-value">{{ p.originCountry }}</span>
-        </div>
-        <div class="product-detail__meta-item">
-          <span class="product-detail__meta-label">Texture</span>
-          <span class="product-detail__meta-value">{{ p.texture }}</span>
-        </div>
-        <div class="product-detail__meta-item">
-          <span class="product-detail__meta-label">Length</span>
-          <span class="product-detail__meta-value">{{ p.lengthInches }}"</span>
-        </div>
-      </div>
+      <lib-divider />
 
-      <div class="product-detail__actions">
-        <div class="product-detail__quantity">
-          <button class="product-detail__qty-btn" (click)="decrementQuantity()">-</button>
-          <span class="product-detail__qty-value">{{ quantity() }}</span>
-          <button class="product-detail__qty-btn" (click)="incrementQuantity()">+</button>
+      @if (availableLengthStrings.length > 0) {
+        <div class="product-detail__option">
+          <span class="product-detail__option-label">LENGTH</span>
+          <lib-length-selector
+            [lengths]="availableLengthStrings"
+            [selectedLength]="selectedLength()"
+            (lengthChange)="onLengthChange($event)"
+          />
         </div>
-        <lib-button variant="primary" (click)="addToCart()">
-          @if (addingToCart()) {
-            ADDING...
-          } @else if (addedToCart()) {
-            ADDED TO CART
-          } @else {
-            ADD TO CART
-          }
-        </lib-button>
-      </div>
-
-      @if (addedToCart()) {
-        <button class="product-detail__view-cart" (click)="goToCart()">View Cart</button>
       }
+
+      <div class="product-detail__option">
+        <span class="product-detail__option-label">QUANTITY</span>
+        <lib-quantity-selector [(value)]="quantity" />
+      </div>
+
+      <lib-button variant="primary" [disabled]="addingToCart()" (click)="addToCart()">
+        {{ cartButtonText }}
+      </lib-button>
+
+      <lib-divider />
+
+      <div class="product-detail__features">
+        <span class="product-detail__option-label">PRODUCT DETAILS</span>
+        @for (feature of p.features; track feature) {
+          <lib-checklist-item [text]="feature" [checked]="true" color="gold" />
+        }
+      </div>
     </div>
   </section>
+
+  @if (reviews().length > 0) {
+    <section class="product-detail__reviews">
+      <lib-divider />
+      <div class="product-detail__reviews-header">
+        <span class="product-detail__option-label">CUSTOMER REVIEWS</span>
+        <button class="product-detail__reviews-link" (click)="navigateToReviews()">
+          View All {{ p.reviewCount }} Reviews &rarr;
+        </button>
+      </div>
+      <div class="product-detail__reviews-grid">
+        @for (review of reviews(); track review.id) {
+          <lib-review-card
+            [customerName]="review.customerName"
+            [rating]="review.rating"
+            [content]="review.content"
+            [date]="formatDate(review.createdAt)"
+          />
+        }
+      </div>
+    </section>
+  }
+
+  @if (relatedProducts().length > 0) {
+    <section class="product-detail__related">
+      <span class="product-detail__option-label">YOU MAY ALSO LIKE</span>
+      <div class="product-detail__related-grid">
+        @for (rp of relatedProducts(); track rp.id) {
+          <lib-product-card
+            [imageUrl]="rp.imageUrl ?? ''"
+            [title]="rp.name"
+            [price]="'$' + rp.price.toFixed(2)"
+            [showShopButton]="true"
+            (click)="navigateToProduct(rp)"
+          />
+        }
+      </div>
+    </section>
+  }
 }

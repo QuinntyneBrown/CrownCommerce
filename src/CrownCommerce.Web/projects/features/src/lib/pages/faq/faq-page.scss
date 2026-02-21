@@ -1,68 +1,103 @@
 .faq {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 60px 80px;
-  max-width: 800px;
-  margin: 0 auto;
+  &__loading,
+  &__error {
+    display: flex;
+    justify-content: center;
+    padding: 80px;
+  }
 
-  &__category {
+  &__label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--color-gold);
+    text-transform: uppercase;
+  }
+
+  &__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 80px;
+  }
+
+  &__title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    text-align: center;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 640px;
+    margin: 0;
+  }
+
+  &__list {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    padding: 0 200px 60px;
   }
 
-  &__category-title {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--color-gold);
-  }
-
-  &__item {
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    overflow: hidden;
-
-    &.expanded {
-      border-color: var(--color-gold-border);
-    }
-  }
-
-  &__question {
+  &__cta {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 20px 24px;
+    gap: 20px;
+    padding: 60px 80px;
     background: var(--color-bg-secondary);
-    border: none;
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-size: 16px;
-    font-weight: 500;
+  }
+
+  &__cta-title {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 300;
     color: var(--color-text-primary);
-    text-align: left;
+    text-align: center;
+    margin: 0;
   }
 
-  &__toggle {
-    font-size: 20px;
-    color: var(--color-gold);
-    flex-shrink: 0;
-    margin-left: 16px;
-  }
-
-  &__answer {
-    padding: 0 24px 20px;
+  &__cta-description {
     font-family: var(--font-body);
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.6;
     color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 640px;
+    margin: 0;
   }
 }
 
 @media (max-width: 768px) {
   .faq {
-    padding: 40px 24px;
+    &__hero {
+      padding: 40px 24px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__list {
+      padding: 0 24px 32px;
+    }
+
+    &__cta {
+      padding: 40px 24px;
+    }
+
+    &__cta-title {
+      font-size: 28px;
+    }
   }
 }

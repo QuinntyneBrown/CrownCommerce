@@ -1,35 +1,106 @@
-import { Component } from '@angular/core';
-import { SectionHeaderComponent } from 'components';
-import { InquiryFormComponent } from '../../intelligent/inquiry-form/inquiry-form';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import {
+  DividerComponent,
+  ButtonComponent,
+  BenefitCardComponent,
+  PricingTierCardComponent,
+  FormInputComponent,
+  FormTextareaComponent,
+  FormSelectComponent,
+  LoadingSpinnerComponent,
+  ErrorStateComponent,
+} from 'components';
+import { ContentService, InquiryService } from 'api';
+import type { WholesaleTier } from 'api';
 
 @Component({
   selector: 'feat-wholesale-page',
   standalone: true,
-  imports: [SectionHeaderComponent, InquiryFormComponent],
-  template: `
-    <section class="wholesale-page">
-      <lib-section-header label="WHOLESALE" heading="Bulk Orders & Partnerships" />
-      <p class="wholesale-page__intro">
-        Interested in carrying our products in your salon or store?
-        We offer competitive wholesale pricing for qualified businesses.
-      </p>
-      <feat-inquiry-form
-        subjectPrefix="[WHOLESALE]"
-        [showPhoneField]="true"
-        submitLabel="SUBMIT INQUIRY"
-      />
-    </section>
-  `,
-  styles: `
-    .wholesale-page {
-      display: flex; flex-direction: column; align-items: center; gap: 32px;
-      padding: 60px 80px; max-width: 600px; margin: 0 auto;
-      &__intro {
-        font-family: var(--font-body); font-size: 16px; line-height: 1.7;
-        color: var(--color-text-secondary); text-align: center;
-      }
-    }
-    @media (max-width: 768px) { .wholesale-page { padding: 40px 24px; } }
-  `,
+  imports: [
+    FormsModule,
+    DividerComponent,
+    ButtonComponent,
+    BenefitCardComponent,
+    PricingTierCardComponent,
+    FormInputComponent,
+    FormTextareaComponent,
+    FormSelectComponent,
+    LoadingSpinnerComponent,
+    ErrorStateComponent,
+  ],
+  templateUrl: './wholesale-page.html',
+  styleUrl: './wholesale-page.scss',
 })
-export class WholesalePage {}
+export class WholesalePage implements OnInit {
+  private readonly contentService = inject(ContentService);
+  private readonly inquiryService = inject(InquiryService);
+
+  readonly tiers = signal<WholesaleTier[]>([]);
+  readonly loading = signal(true);
+  readonly error = signal<string | null>(null);
+
+  readonly submitting = signal(false);
+  readonly submitted = signal(false);
+  readonly submitError = signal<string | null>(null);
+
+  businessName = '';
+  contactEmail = '';
+  phone = '';
+  monthlyVolume = '';
+  message = '';
+
+  readonly benefits = [
+    { icon: '💰', title: 'Competitive Pricing', description: 'Volume-based discounts with transparent tier pricing for your business.' },
+    { icon: '🚚', title: 'Priority Shipping', description: 'Fast-tracked orders with dedicated shipping lanes for wholesale partners.' },
+    { icon: '🤝', title: 'Dedicated Support', description: 'Personal account manager and priority support for all wholesale inquiries.' },
+  ];
+
+  readonly volumeOptions = [
+    { label: 'Select volume', value: '' },
+    { label: '10-50 units/month', value: '10-50' },
+    { label: '50-100 units/month', value: '50-100' },
+    { label: '100-500 units/month', value: '100-500' },
+    { label: '500+ units/month', value: '500+' },
+  ];
+
+  ngOnInit(): void {
+    this.contentService.getWholesalePricing().subscribe({
+      next: (tiers) => {
+        this.tiers.set(tiers);
+        this.loading.set(false);
+      },
+      error: () => {
+        this.error.set('Failed to load wholesale information.');
+        this.loading.set(false);
+      },
+    });
+  }
+
+  submitInquiry(): void {
+    if (!this.businessName || !this.contactEmail || !this.message) {
+      this.submitError.set('Please fill in all required fields.');
+      return;
+    }
+
+    this.submitting.set(true);
+    this.submitError.set(null);
+
+    this.inquiryService.createWholesaleInquiry({
+      businessName: this.businessName,
+      contactEmail: this.contactEmail,
+      phone: this.phone,
+      monthlyVolume: this.monthlyVolume,
+      message: this.message,
+    }).subscribe({
+      next: () => {
+        this.submitting.set(false);
+        this.submitted.set(true);
+      },
+      error: () => {
+        this.submitting.set(false);
+        this.submitError.set('Failed to submit inquiry. Please try again.');
+      },
+    });
+  }
+}

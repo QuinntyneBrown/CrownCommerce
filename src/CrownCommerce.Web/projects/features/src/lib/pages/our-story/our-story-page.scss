@@ -1,0 +1,235 @@
+.our-story {
+  &__loading,
+  &__error {
+    display: flex;
+    justify-content: center;
+    padding: 80px;
+  }
+
+  &__label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--color-gold);
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    text-align: center;
+    margin: 0;
+  }
+
+  &__section-title {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0;
+
+    &--centered {
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 640px;
+    margin: 0;
+  }
+
+  &__body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin: 0;
+
+    &--centered {
+      text-align: center;
+      max-width: 640px;
+    }
+  }
+
+  &__hero-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 80px 280px;
+  }
+
+  &__founder {
+    display: flex;
+    gap: 64px;
+    padding: 80px;
+    background: var(--color-bg-secondary);
+  }
+
+  &__founder-image {
+    width: 400px;
+    height: 480px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__founder-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  &__mission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 80px 280px;
+  }
+
+  &__values {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    padding: 80px;
+    background: var(--color-bg-secondary);
+  }
+
+  &__values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    width: 100%;
+  }
+
+  &__timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    padding: 80px 200px;
+  }
+
+  &__timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 100px 200px;
+    background: linear-gradient(180deg, #1a1508 0%, var(--color-bg-primary) 100%);
+  }
+
+  &__cta-title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    text-align: center;
+    margin: 0;
+  }
+
+  &__cta-description {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 640px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-story {
+    &__hero-image {
+      height: 240px;
+    }
+
+    &__hero-content {
+      padding: 40px 24px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__founder {
+      flex-direction: column;
+      padding: 40px 24px;
+      gap: 32px;
+    }
+
+    &__founder-image {
+      width: 100%;
+      height: 300px;
+    }
+
+    &__mission {
+      padding: 40px 24px;
+    }
+
+    &__values {
+      padding: 40px 24px;
+    }
+
+    &__values-grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__timeline {
+      padding: 40px 24px;
+    }
+
+    &__timeline-grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__cta {
+      padding: 60px 24px;
+    }
+
+    &__cta-title {
+      font-size: 32px;
+    }
+
+    &__section-title {
+      font-size: 28px;
+    }
+  }
+}

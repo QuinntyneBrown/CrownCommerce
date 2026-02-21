@@ -1,0 +1,43 @@
+@if (loading()) {
+  <div class="returns__loading">
+    <lib-loading-spinner />
+  </div>
+} @else if (error()) {
+  <div class="returns__error">
+    <lib-error-state [message]="error()!" />
+  </div>
+} @else if (policy(); as p) {
+  <section class="returns__hero">
+    <span class="returns__label">POLICY</span>
+    <h1 class="returns__title">{{ p.heroTitle }}</h1>
+    <p class="returns__subtitle">{{ p.heroSubtitle }}</p>
+  </section>
+
+  <section class="returns__conditions">
+    <span class="returns__label">RETURN POLICY</span>
+    <h2 class="returns__section-title">What You Need to Know</h2>
+    <div class="returns__conditions-grid">
+      @for (condition of p.conditions; track condition.title) {
+        <lib-policy-card
+          [title]="condition.title"
+          [description]="condition.description"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="returns__process">
+    <span class="returns__label">HOW TO RETURN</span>
+    <h2 class="returns__section-title">Return Process</h2>
+    <div class="returns__steps-grid">
+      @for (step of p.processSteps; track step.stepNumber) {
+        <lib-step-card
+          [badge]="'0' + step.stepNumber"
+          [title]="step.title"
+          [description]="step.description"
+          variant="large"
+        />
+      }
+    </div>
+  </section>
+}

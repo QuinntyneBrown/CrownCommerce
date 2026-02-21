@@ -2,15 +2,29 @@ import { type Locator, type Page } from '@playwright/test';
 
 export class FaqPagePOM {
   readonly root: Locator;
-  readonly sectionHeader: Locator;
-  readonly categories: Locator;
-  readonly items: Locator;
+  readonly heroLabel: Locator;
+  readonly heroTitle: Locator;
+  readonly heroSubtitle: Locator;
+  readonly faqList: Locator;
+  readonly accordionItems: Locator;
+  readonly ctaSection: Locator;
+  readonly ctaTitle: Locator;
+  readonly ctaButton: Locator;
+  readonly loadingSpinner: Locator;
+  readonly errorState: Locator;
 
   constructor(private page: Page) {
     this.root = page.locator('feat-faq-page');
-    this.sectionHeader = this.root.locator('lib-section-header');
-    this.categories = this.root.locator('.faq__category');
-    this.items = this.root.locator('.faq__item');
+    this.heroLabel = this.root.locator('.faq__hero .faq__label');
+    this.heroTitle = this.root.locator('.faq__title');
+    this.heroSubtitle = this.root.locator('.faq__subtitle');
+    this.faqList = this.root.locator('.faq__list');
+    this.accordionItems = this.root.locator('.faq__list lib-accordion-item');
+    this.ctaSection = this.root.locator('.faq__cta');
+    this.ctaTitle = this.root.locator('.faq__cta-title');
+    this.ctaButton = this.root.locator('.faq__cta lib-button');
+    this.loadingSpinner = this.root.locator('lib-loading-spinner');
+    this.errorState = this.root.locator('lib-error-state');
   }
 
   async goto(): Promise<void> {
@@ -18,28 +32,11 @@ export class FaqPagePOM {
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  async getCategoryCount(): Promise<number> {
-    return this.categories.count();
-  }
-
   async getItemCount(): Promise<number> {
-    return this.items.count();
+    return this.accordionItems.count();
   }
 
   async toggleItem(index: number): Promise<void> {
-    await this.items.nth(index).locator('.faq__question').click();
-  }
-
-  async isItemExpanded(index: number): Promise<boolean> {
-    const item = this.items.nth(index);
-    return item.evaluate((el) => el.classList.contains('expanded'));
-  }
-
-  async getItemQuestion(index: number): Promise<string | null> {
-    return this.items.nth(index).locator('.faq__question').textContent();
-  }
-
-  async getItemAnswer(index: number): Promise<string | null> {
-    return this.items.nth(index).locator('.faq__answer').textContent();
+    await this.accordionItems.nth(index).click();
   }
 }

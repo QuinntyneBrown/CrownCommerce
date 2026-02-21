@@ -1,0 +1,86 @@
+@if (loading()) {
+  <div class="ambassador__loading">
+    <lib-loading-spinner />
+  </div>
+} @else if (error()) {
+  <div class="ambassador__error">
+    <lib-error-state [message]="error()!" />
+  </div>
+} @else if (program(); as p) {
+  <section class="ambassador__hero">
+    <span class="ambassador__label">JOIN THE MOVEMENT</span>
+    <h1 class="ambassador__title">{{ p.heroTitle }}</h1>
+    <p class="ambassador__subtitle">{{ p.heroSubtitle }}</p>
+    <lib-button variant="primary" (click)="scrollToApply()">Apply Now</lib-button>
+  </section>
+
+  <section class="ambassador__perks">
+    <span class="ambassador__label">AMBASSADOR PERKS</span>
+    <h2 class="ambassador__section-title">Why Join?</h2>
+    <div class="ambassador__perks-grid">
+      @for (perk of p.perks; track perk.title) {
+        <lib-benefit-card
+          [icon]="perk.icon"
+          [title]="perk.title"
+          [description]="perk.description"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="ambassador__how-it-works">
+    <span class="ambassador__label">HOW IT WORKS</span>
+    <h2 class="ambassador__section-title">Three Simple Steps</h2>
+    <div class="ambassador__steps-grid">
+      @for (step of p.howItWorks; track step.stepNumber) {
+        <lib-step-card
+          [badge]="'0' + step.stepNumber"
+          [title]="step.title"
+          [description]="step.description"
+          variant="large"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="ambassador__cta">
+    <span class="ambassador__label">READY TO JOIN?</span>
+    <h2 class="ambassador__cta-title">{{ p.ctaTitle }}</h2>
+    <p class="ambassador__cta-description">{{ p.ctaDescription }}</p>
+    <lib-button variant="primary" (click)="scrollToApply()">Apply Now</lib-button>
+  </section>
+
+  <section class="ambassador__apply">
+    @if (submitted()) {
+      <div class="ambassador__apply-success">
+        <h3 class="ambassador__success-title">Application Submitted!</h3>
+        <p class="ambassador__success-message">
+          Thank you for applying. We'll review your application and get back to you within 48 hours.
+        </p>
+      </div>
+    } @else {
+      <div class="ambassador__apply-form">
+        <h2 class="ambassador__section-title">Apply Now</h2>
+        @if (submitError()) {
+          <p class="ambassador__form-error">{{ submitError() }}</p>
+        }
+        <div class="ambassador__form-row">
+          <lib-form-input label="Full Name" [(value)]="fullName" variant="filled" />
+          <lib-form-input label="Email" type="email" [(value)]="email" variant="filled" />
+        </div>
+        <div class="ambassador__form-row">
+          <lib-form-input label="Phone" type="tel" [(value)]="phone" variant="filled" />
+          <lib-form-select label="Follower Count" [options]="followerOptions" [(value)]="followerCount" variant="filled" />
+        </div>
+        <div class="ambassador__form-row">
+          <lib-form-input label="Instagram Handle" [(value)]="instagramHandle" variant="filled" />
+          <lib-form-input label="TikTok Handle (optional)" [(value)]="tiktokHandle" variant="filled" />
+        </div>
+        <lib-form-textarea label="Why do you want to join?" [(value)]="whyJoin" variant="filled" [rows]="4" />
+        <lib-button variant="primary" [disabled]="submitting()" (click)="applyNow()">
+          @if (submitting()) { SUBMITTING... } @else { SUBMIT APPLICATION }
+        </lib-button>
+      </div>
+    }
+  </section>
+}

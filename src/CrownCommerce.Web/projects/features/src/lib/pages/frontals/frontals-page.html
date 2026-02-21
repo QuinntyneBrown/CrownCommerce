@@ -1,0 +1,38 @@
+@if (loading()) {
+  <div class="category-page__loading">
+    <lib-loading-spinner />
+  </div>
+} @else if (error()) {
+  <div class="category-page__error">
+    <lib-error-state [message]="error()!" />
+  </div>
+} @else {
+  <section class="category-page__hero">
+    <span class="category-page__label">COLLECTION</span>
+    <h1 class="category-page__title">Lace Frontals</h1>
+    <p class="category-page__subtitle">
+      Ear-to-ear lace frontals for maximum versatility. Available in 13x4 and 13x6 sizes.
+    </p>
+    <div class="category-page__filters">
+      @for (filter of filters; track filter) {
+        <lib-filter-chip
+          [label]="filter"
+          [active]="activeFilter() === filter"
+          (toggle)="filterBy(filter)"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="category-page__grid">
+    @for (product of filteredProducts(); track product.id) {
+      <lib-product-card
+        [imageUrl]="product.imageUrl ?? ''"
+        [title]="product.name"
+        [price]="'From $' + product.price"
+        [showShopButton]="true"
+        (click)="navigateToProduct(product)"
+      />
+    }
+  </section>
+}

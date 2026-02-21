@@ -1,0 +1,40 @@
+@if (loading()) {
+  <div class="shipping__loading">
+    <lib-loading-spinner />
+  </div>
+} @else if (error()) {
+  <div class="shipping__error">
+    <lib-error-state [message]="error()!" />
+  </div>
+} @else if (policy(); as p) {
+  <section class="shipping__hero">
+    <span class="shipping__label">DELIVERY</span>
+    <h1 class="shipping__title">{{ p.heroTitle }}</h1>
+    <p class="shipping__subtitle">{{ p.heroSubtitle }}</p>
+  </section>
+
+  <section class="shipping__rates">
+    <span class="shipping__label">SHIPPING RATES</span>
+    <h2 class="shipping__section-title">Domestic &amp; International</h2>
+    <div class="shipping__rates-grid">
+      @for (zone of p.zones; track zone.name) {
+        <lib-shipping-rate-card
+          [price]="zone.rate"
+          [title]="zone.name"
+          [description]="zone.deliveryTime"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="shipping__processing">
+    <span class="shipping__label">PROCESSING</span>
+    <h2 class="shipping__section-title">Order Processing</h2>
+    <p class="shipping__body">{{ p.processingTime }}</p>
+    <div class="shipping__process-notes">
+      @for (step of p.processSteps; track step.stepNumber) {
+        <lib-checklist-item [text]="step.description" [checked]="true" color="gold" />
+      }
+    </div>
+  </section>
+}

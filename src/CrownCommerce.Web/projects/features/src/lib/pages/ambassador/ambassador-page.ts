@@ -1,45 +1,108 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { SectionHeaderComponent } from 'components';
-import { ContentService } from 'api';
-import { InquiryFormComponent } from '../../intelligent/inquiry-form/inquiry-form';
+import { FormsModule } from '@angular/forms';
+import {
+  DividerComponent,
+  ButtonComponent,
+  BenefitCardComponent,
+  StepCardComponent,
+  FormInputComponent,
+  FormTextareaComponent,
+  FormSelectComponent,
+  LoadingSpinnerComponent,
+  ErrorStateComponent,
+} from 'components';
+import { AmbassadorService } from 'api';
+import type { AmbassadorProgram } from 'api';
 
 @Component({
   selector: 'feat-ambassador-page',
   standalone: true,
-  imports: [SectionHeaderComponent, InquiryFormComponent],
-  template: `
-    <section class="ambassador-page">
-      <lib-section-header label="JOIN US" heading="Ambassador Program" />
-      @if (body()) {
-        <div class="ambassador-page__body" [innerHTML]="body()"></div>
-      }
-      <feat-inquiry-form
-        subjectPrefix="[AMBASSADOR APPLICATION]"
-        [showPhoneField]="false"
-        submitLabel="APPLY NOW"
-      />
-    </section>
-  `,
-  styles: `
-    .ambassador-page {
-      display: flex; flex-direction: column; align-items: center; gap: 32px;
-      padding: 60px 80px; max-width: 600px; margin: 0 auto;
-      &__body {
-        font-family: var(--font-body); font-size: 16px; line-height: 1.8;
-        color: var(--color-text-secondary); width: 100%;
-      }
-    }
-    @media (max-width: 768px) { .ambassador-page { padding: 40px 24px; } }
-  `,
+  imports: [
+    FormsModule,
+    DividerComponent,
+    ButtonComponent,
+    BenefitCardComponent,
+    StepCardComponent,
+    FormInputComponent,
+    FormTextareaComponent,
+    FormSelectComponent,
+    LoadingSpinnerComponent,
+    ErrorStateComponent,
+  ],
+  templateUrl: './ambassador-page.html',
+  styleUrl: './ambassador-page.scss',
 })
 export class AmbassadorPage implements OnInit {
-  private readonly contentService = inject(ContentService);
-  readonly body = signal('');
+  private readonly ambassadorService = inject(AmbassadorService);
+
+  readonly program = signal<AmbassadorProgram | null>(null);
+  readonly loading = signal(true);
+  readonly error = signal<string | null>(null);
+
+  readonly submitting = signal(false);
+  readonly submitted = signal(false);
+  readonly submitError = signal<string | null>(null);
+
+  fullName = '';
+  email = '';
+  phone = '';
+  instagramHandle = '';
+  tiktokHandle = '';
+  followerCount = '';
+  whyJoin = '';
+
+  readonly followerOptions = [
+    { label: 'Select range', value: '' },
+    { label: '1K - 5K', value: '1K-5K' },
+    { label: '5K - 10K', value: '5K-10K' },
+    { label: '10K - 50K', value: '10K-50K' },
+    { label: '50K - 100K', value: '50K-100K' },
+    { label: '100K+', value: '100K+' },
+  ];
 
   ngOnInit(): void {
-    this.contentService.getPage('ambassador-program').subscribe({
-      next: (page) => this.body.set(page.body),
-      error: () => {},
+    this.ambassadorService.getProgramInfo().subscribe({
+      next: (program) => {
+        this.program.set(program);
+        this.loading.set(false);
+      },
+      error: () => {
+        this.error.set('Failed to load ambassador program information.');
+        this.loading.set(false);
+      },
     });
+  }
+
+  applyNow(): void {
+    if (!this.fullName || !this.email || !this.instagramHandle || !this.whyJoin) {
+      this.submitError.set('Please fill in all required fields.');
+      return;
+    }
+
+    this.submitting.set(true);
+    this.submitError.set(null);
+
+    this.ambassadorService.applyForProgram({
+      fullName: this.fullName,
+      email: this.email,
+      phone: this.phone,
+      instagramHandle: this.instagramHandle,
+      tiktokHandle: this.tiktokHandle || undefined,
+      followerCount: this.followerCount,
+      whyJoin: this.whyJoin,
+    }).subscribe({
+      next: () => {
+        this.submitting.set(false);
+        this.submitted.set(true);
+      },
+      error: () => {
+        this.submitting.set(false);
+        this.submitError.set('Failed to submit application. Please try again.');
+      },
+    });
+  }
+
+  scrollToApply(): void {
+    document.querySelector('.ambassador__apply')?.scrollIntoView({ behavior: 'smooth' });
   }
 }

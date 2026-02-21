@@ -8,46 +8,40 @@ test.describe('FaqPage (feat-faq-page)', () => {
     await setupFeatureApiMocks(page);
   });
 
-  test('displays FAQ items', async ({ page }) => {
+  test('renders hero section', async ({ page }) => {
     const faq = new FaqPagePOM(page);
     await faq.goto();
     await expect(faq.root).toBeVisible();
+    await expect(faq.heroTitle).toContainText('Frequently Asked Questions');
+    await expect(faq.heroLabel).toContainText('HELP CENTER');
+  });
+
+  test('displays FAQ items as accordion', async ({ page }) => {
+    const faq = new FaqPagePOM(page);
+    await faq.goto();
+    await expect(faq.faqList).toBeVisible();
     expect(await faq.getItemCount()).toBe(mockFaqs.length);
   });
 
-  test('expands an FAQ item on click', async ({ page }) => {
+  test('toggles an accordion item on click', async ({ page }) => {
     const faq = new FaqPagePOM(page);
     await faq.goto();
-    await expect(faq.items.first()).toBeVisible();
-    expect(await faq.isItemExpanded(0)).toBe(false);
+    await expect(faq.accordionItems.first()).toBeVisible();
     await faq.toggleItem(0);
-    expect(await faq.isItemExpanded(0)).toBe(true);
+    await expect(faq.accordionItems.first()).toContainText(mockFaqs[0].answer);
   });
 
-  test('shows answer when expanded', async ({ page }) => {
+  test('displays CTA section with contact button', async ({ page }) => {
     const faq = new FaqPagePOM(page);
     await faq.goto();
-    await expect(faq.items.first()).toBeVisible();
-    await faq.toggleItem(0);
-    const answer = await faq.getItemAnswer(0);
-    expect(answer).toContain('12+ months');
+    await expect(faq.ctaSection).toBeVisible();
+    await expect(faq.ctaTitle).toContainText('Still Have Questions');
+    await expect(faq.ctaButton).toBeVisible();
   });
 
-  test('collapses an expanded FAQ item', async ({ page }) => {
+  test('displays subtitle in hero', async ({ page }) => {
     const faq = new FaqPagePOM(page);
     await faq.goto();
-    await expect(faq.items.first()).toBeVisible();
-    await faq.toggleItem(0);
-    expect(await faq.isItemExpanded(0)).toBe(true);
-    await faq.toggleItem(0);
-    expect(await faq.isItemExpanded(0)).toBe(false);
-  });
-
-  test('displays question text', async ({ page }) => {
-    const faq = new FaqPagePOM(page);
-    await faq.goto();
-    await expect(faq.items.first()).toBeVisible();
-    const question = await faq.getItemQuestion(0);
-    expect(question).toContain(mockFaqs[0].question);
+    await expect(faq.heroSubtitle).toBeVisible();
   });
 });

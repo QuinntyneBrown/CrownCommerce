@@ -1,0 +1,57 @@
+<section class="contact__hero">
+  <span class="contact__label">GET IN TOUCH</span>
+  <h1 class="contact__title">We'd Love to Hear From You</h1>
+  <p class="contact__subtitle">
+    Whether you have questions about our products, need styling advice,
+    or want to discuss wholesale opportunities, we're here to help.
+  </p>
+</section>
+
+<section class="contact__info-cards">
+  @for (info of contactInfo; track info.title) {
+    <lib-contact-info-card
+      [icon]="info.icon"
+      [title]="info.title"
+      [description]="info.description"
+    />
+  }
+</section>
+
+<section class="contact__form-section">
+  <div class="contact__form-intro">
+    <span class="contact__label">SEND A MESSAGE</span>
+    <h2 class="contact__section-title">Drop Us a Line</h2>
+    <p class="contact__body">
+      Fill out the form and we'll get back to you within 24 hours.
+    </p>
+    <div class="contact__features">
+      @for (feature of responseFeatures; track feature) {
+        <lib-checklist-item [text]="feature" [checked]="true" color="gold" />
+      }
+    </div>
+  </div>
+
+  @if (submitted()) {
+    <div class="contact__form-card contact__form-card--success">
+      <h3 class="contact__success-title">Message Sent!</h3>
+      <p class="contact__success-message">
+        Thank you for reaching out. We'll get back to you within 24 hours.
+      </p>
+    </div>
+  } @else {
+    <div class="contact__form-card">
+      @if (submitError()) {
+        <p class="contact__form-error">{{ submitError() }}</p>
+      }
+      <div class="contact__form-row">
+        <lib-form-input label="First Name" [(value)]="name" variant="filled" />
+        <lib-form-input label="Email Address" type="email" [(value)]="email" variant="filled" />
+      </div>
+      <lib-form-select label="Subject" [options]="subjectOptions" [(value)]="subject" variant="filled" />
+      <lib-form-textarea label="Message" [(value)]="message" variant="filled" [rows]="5" />
+      <lib-button variant="primary" [disabled]="submitting()" (click)="submitForm()">
+        @if (submitting()) { SENDING... } @else { Send Message }
+      </lib-button>
+    </div>
+  }
+</section>

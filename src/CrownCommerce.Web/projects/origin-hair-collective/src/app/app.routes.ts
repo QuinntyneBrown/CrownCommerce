@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { MainLayout } from './components/main-layout/main-layout';
-import { CONTENT_PAGE_SLUG } from 'features';
 
 export const routes: Routes = [
   {
@@ -36,24 +35,36 @@ export const routes: Routes = [
         loadComponent: () => import('features').then(m => m.FaqPage),
       },
       {
-        path: 'shipping-info',
-        loadComponent: () => import('features').then(m => m.ContentPage),
-        providers: [{ provide: CONTENT_PAGE_SLUG, useValue: 'shipping-information' }],
-      },
-      {
-        path: 'returns',
-        loadComponent: () => import('features').then(m => m.ContentPage),
-        providers: [{ provide: CONTENT_PAGE_SLUG, useValue: 'returns-policy' }],
+        path: 'about',
+        loadComponent: () => import('features').then(m => m.OurStoryPage),
       },
       {
         path: 'hair-care-guide',
-        loadComponent: () => import('features').then(m => m.ContentPage),
-        providers: [{ provide: CONTENT_PAGE_SLUG, useValue: 'hair-care-guide' }],
+        loadComponent: () => import('features').then(m => m.HairCareGuidePage),
       },
       {
-        path: 'about',
-        loadComponent: () => import('features').then(m => m.ContentPage),
-        providers: [{ provide: CONTENT_PAGE_SLUG, useValue: 'our-story' }],
+        path: 'shipping-info',
+        loadComponent: () => import('features').then(m => m.ShippingInfoPage),
+      },
+      {
+        path: 'returns',
+        loadComponent: () => import('features').then(m => m.ReturnsPage),
+      },
+      {
+        path: 'bundles',
+        loadComponent: () => import('features').then(m => m.BundlesPage),
+      },
+      {
+        path: 'closures',
+        loadComponent: () => import('features').then(m => m.ClosuresPage),
+      },
+      {
+        path: 'frontals',
+        loadComponent: () => import('features').then(m => m.FrontalsPage),
+      },
+      {
+        path: 'bundle-deals',
+        loadComponent: () => import('features').then(m => m.BundleDealsPage),
       },
       {
         path: 'wholesale',
