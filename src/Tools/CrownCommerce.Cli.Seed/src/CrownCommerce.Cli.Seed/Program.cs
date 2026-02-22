@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 
 var builder = Host.CreateApplicationBuilder(args);
 
+builder.Services.AddSingleton<ISeederRunner, SeederRunner>();
 builder.Services.AddSingleton<ISeedService, SeedService>();
 
 using var host = builder.Build();

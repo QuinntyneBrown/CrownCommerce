@@ -1,3 +1,4 @@
+using System.Globalization;
 using CrownCommerce.Cli.Env.Commands;
 using Microsoft.Extensions.Logging;
 
@@ -6,6 +7,8 @@ namespace CrownCommerce.Cli.Env.Services;
 public class EnvironmentService : IEnvironmentService
 {
     private readonly ILogger<EnvironmentService> _logger;
+    private readonly IHealthChecker _healthChecker;
+    private readonly IProcessManager _processManager;
 
     public static readonly List<PortEntry> PortMap = new()
     {
@@ -30,33 +33,48 @@ public class EnvironmentService : IEnvironmentService
         new("admin", 4206, "frontend"),
     };
 
-    public EnvironmentService(ILogger<EnvironmentService> logger)
+    public EnvironmentService(
+        ILogger<EnvironmentService> logger,
+        IHealthChecker healthChecker,
+        IProcessManager processManager)
     {
         _logger = logger;
+        _healthChecker = healthChecker;
+        _processManager = processManager;
     }
 
-    public Task CheckHealthAsync(string env)
+    public async Task CheckHealthAsync(string env)
     {
         _logger.LogInformation("Checking health for environment: {Environment}", env);
 
+        Console.WriteLine($"{"Name",-30} {"Port",-10} {"Status",-10} {"Error",-40}");
+        Console.WriteLine(new string('-', 90));
+
         foreach (var entry in PortMap)
         {
-            var url = $"http://localhost:{entry.Port}";
-            _logger.LogInformation("  Would check {Name} at {Url}...", entry.Name, url);
+            var result = await _healthChecker.CheckAsync(entry.Name, entry.Port);
+
+            var status = result.IsHealthy ? "Healthy" : "Unhealthy";
+            var error = result.Error ?? "";
+
+            Console.WriteLine($"{result.ServiceName,-30} {result.Port,-10} {status,-10} {error,-40}");
         }
 
         _logger.LogInformation("Health check complete for {Environment}.", env);
-        return Task.CompletedTask;
     }
 
     public Task ListDatabasesAsync()
     {
         _logger.LogInformation("Listing databases for all services...");
 
+        Console.WriteLine($"{"Service",-30} {"Database",-40}");
+        Console.WriteLine(new string('-', 70));
+
         var services = PortMap.Where(p => p.Category == "service").ToList();
         foreach (var svc in services)
         {
-            _logger.LogInformation("  {Service} -> {Service}Db (PostgreSQL)", svc.Name, svc.Name);
+            var dbName = $"CrownCommerce_{ToPascalCase(svc.Name)}";
+            Console.WriteLine($"{svc.Name,-30} {dbName,-40}");
         }
 
         return Task.CompletedTask;
@@ -75,28 +93,70 @@ public class EnvironmentService : IEnvironmentService
         return Task.CompletedTask;
     }
 
-    public Task StartAsync(string[]? services, string[]? frontends)
+    public async Task StartAsync(string[]? services, string[]? frontends)
     {
-        _logger.LogInformation("Starting Aspire AppHost...");
+        _logger.LogInformation("Starting services...");
+
+        var entriesToStart = GetFilteredEntries(services, frontends);
+
+        foreach (var entry in entriesToStart)
+        {
+            var command = entry.Category == "frontend" ? "ng" : "dotnet";
+            var arguments = entry.Category == "frontend"
+                ? $"serve {entry.Name} --port {entry.Port}"
+                : $"run --project src/Services/{ToPascalCase(entry.Name)}/CrownCommerce.{ToPascalCase(entry.Name)}.Api --urls http://localhost:{entry.Port}";
+
+            var started = await _processManager.StartAsync(entry.Name, command, arguments);
+            if (started)
+            {
+                _logger.LogInformation("Started {Name} on port {Port}", entry.Name, entry.Port);
+            }
+            else
+            {
+                _logger.LogWarning("Failed to start {Name}", entry.Name);
+            }
+        }
+
+        _logger.LogInformation("All requested processes started.");
+    }
+
+    public async Task StopAsync()
+    {
+        _logger.LogInformation("Stopping all running processes...");
+        await _processManager.StopAllAsync();
+        _logger.LogInformation("All processes stopped.");
+    }
+
+    internal static List<PortEntry> GetFilteredEntries(string[]? services, string[]? frontends)
+    {
+        if (services is null or { Length: 0 } && frontends is null or { Length: 0 })
+        {
+            return PortMap.ToList();
+        }
+
+        var result = new List<PortEntry>();
 
         if (services is { Length: > 0 })
         {
-            _logger.LogInformation("  Services filter: {Services}", string.Join(", ", services));
+            result.AddRange(PortMap.Where(p =>
+                (p.Category == "service" || p.Category == "infrastructure") &&
+                services.Contains(p.Name, StringComparer.OrdinalIgnoreCase)));
         }
 
         if (frontends is { Length: > 0 })
         {
-            _logger.LogInformation("  Frontends filter: {Frontends}", string.Join(", ", frontends));
+            result.AddRange(PortMap.Where(p =>
+                p.Category == "frontend" &&
+                frontends.Contains(p.Name, StringComparer.OrdinalIgnoreCase)));
         }
 
-        _logger.LogInformation("All requested processes started.");
-        return Task.CompletedTask;
+        return result;
     }
 
-    public Task StopAsync()
+    internal static string ToPascalCase(string name)
     {
-        _logger.LogInformation("Stopping all running processes...");
-        _logger.LogInformation("All processes stopped.");
-        return Task.CompletedTask;
+        var textInfo = CultureInfo.InvariantCulture.TextInfo;
+        var parts = name.Split('-');
+        return string.Join("", parts.Select(p => textInfo.ToTitleCase(p)));
     }
 }

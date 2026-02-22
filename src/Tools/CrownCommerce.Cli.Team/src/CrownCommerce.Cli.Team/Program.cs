@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var builder = Host.CreateApplicationBuilder(args);
+builder.Services.AddSingleton<ITeamStore, TeamStore>();
 builder.Services.AddSingleton<ITeamService, TeamService>();
 using var host = builder.Build();
 

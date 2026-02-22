@@ -5,64 +5,72 @@ namespace CrownCommerce.Cli.Cron.Services;
 
 public class CronService : ICronService
 {
-    private static readonly List<CronJobDefinition> Jobs =
-    [
-        new("clear-expired-carts", "*/30 * * * *", "order", "Remove cart items older than 24 hours"),
-        new("send-follow-up-reminders", "0 9 * * *", "crm", "Email contacts with overdue follow-ups"),
-        new("send-meeting-reminders", "*/15 * * * *", "scheduling", "Notify attendees 15 min before meetings"),
-        new("daily-subscriber-digest", "0 8 * * *", "newsletter", "Send daily digest to subscribers"),
-        new("sync-employee-presence", "*/5 * * * *", "scheduling", "Update presence based on last activity"),
-        new("cleanup-notification-logs", "0 2 * * *", "notification", "Archive logs older than 90 days"),
-    ];
-
+    private readonly ICronJobStore _store;
+    private readonly ICronJobRunner _runner;
     private readonly ILogger<CronService> _logger;
 
-    public CronService(ILogger<CronService> logger) => _logger = logger;
-
-    public Task<IReadOnlyList<CronJobDefinition>> ListJobsAsync()
+    public CronService(ICronJobStore store, ICronJobRunner runner, ILogger<CronService> logger)
     {
-        return Task.FromResult<IReadOnlyList<CronJobDefinition>>(Jobs);
+        _store = store;
+        _runner = runner;
+        _logger = logger;
     }
 
-    public Task<bool> RunJobAsync(string jobName)
+    public async Task<IReadOnlyList<CronJobDefinition>> ListJobsAsync()
     {
-        var job = Jobs.Find(j => j.Name == jobName);
+        return await _store.LoadJobsAsync();
+    }
+
+    public async Task<bool> RunJobAsync(string jobName)
+    {
+        var jobs = await _store.LoadJobsAsync();
+        var job = jobs.FirstOrDefault(j => j.Name == jobName);
+
         if (job is null)
         {
             _logger.LogError("Job '{JobName}' not found", jobName);
-            return Task.FromResult(false);
+            return false;
         }
 
-        _logger.LogInformation("Executing {JobName}...", jobName);
-        return Task.FromResult(true);
+        _logger.LogInformation("Running job '{JobName}'...", jobName);
+
+        var (success, error) = await _runner.RunJobAsync(job);
+
+        var history = new CronJobHistory(
+            jobName,
+            DateTime.UtcNow,
+            success ? "Success" : "Failed",
+            error
+        );
+
+        await _store.AppendHistoryAsync(history);
+
+        if (!success)
+        {
+            _logger.LogWarning("Job '{JobName}' failed: {Error}", jobName, error);
+        }
+
+        return success;
     }
 
-    public Task StartDaemonAsync(string? jobFilter)
+    public async Task StartDaemonAsync(string? jobFilter)
     {
+        var jobs = await _store.LoadJobsAsync();
+
         var filtered = jobFilter is not null
-            ? Jobs.Where(j => j.Name == jobFilter).ToList()
-            : Jobs;
+            ? jobs.Where(j => j.Name == jobFilter).ToList()
+            : jobs.ToList();
 
-        _logger.LogInformation("Daemon started with {Count} jobs", filtered.Count);
-        return Task.CompletedTask;
+        _logger.LogInformation("Daemon started with {Count} job(s)", filtered.Count);
+
+        foreach (var job in filtered)
+        {
+            _logger.LogInformation("  Scheduled: {JobName} [{Schedule}]", job.Name, job.Schedule);
+        }
     }
 
-    public Task<IReadOnlyList<CronJobHistory>> GetHistoryAsync(string? jobName)
+    public async Task<IReadOnlyList<CronJobHistory>> GetHistoryAsync(string? jobName)
     {
-        var history = new List<CronJobHistory>();
-
-        if (jobName is not null)
-        {
-            history.Add(new CronJobHistory(jobName, DateTime.UtcNow.AddHours(-1), "Success"));
-        }
-        else
-        {
-            foreach (var job in Jobs)
-            {
-                history.Add(new CronJobHistory(job.Name, DateTime.UtcNow.AddHours(-1), "Success"));
-            }
-        }
-
-        return Task.FromResult<IReadOnlyList<CronJobHistory>>(history);
+        return await _store.LoadHistoryAsync(jobName);
     }
 }

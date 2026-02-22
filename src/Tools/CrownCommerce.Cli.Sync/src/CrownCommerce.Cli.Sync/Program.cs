@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 
 var builder = Host.CreateApplicationBuilder(args);
 
+builder.Services.AddSingleton<IHandoffStore, HandoffStore>();
+builder.Services.AddSingleton<ITeamDirectory, TeamDirectory>();
 builder.Services.AddSingleton<ISyncService, SyncService>();
 
 using var host = builder.Build();

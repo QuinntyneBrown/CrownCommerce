@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using CrownCommerce.Cli.Migrate.Commands;
 using Microsoft.Extensions.Logging;
 
@@ -7,6 +6,7 @@ namespace CrownCommerce.Cli.Migrate.Services;
 public class MigrationService : IMigrationService
 {
     private readonly ILogger<MigrationService> _logger;
+    private readonly IProcessRunner _processRunner;
 
     public static readonly Dictionary<string, ServiceRegistryEntry> ServiceRegistry = new()
     {
@@ -23,9 +23,10 @@ public class MigrationService : IMigrationService
         ["scheduling"] = new("src/Services/Scheduling/CrownCommerce.Scheduling.Infrastructure", "SchedulingDbContext"),
     };
 
-    public MigrationService(ILogger<MigrationService> logger)
+    public MigrationService(ILogger<MigrationService> logger, IProcessRunner processRunner)
     {
         _logger = logger;
+        _processRunner = processRunner;
     }
 
     public async Task AddMigrationAsync(string service, string name)
@@ -39,30 +40,16 @@ public class MigrationService : IMigrationService
 
         _logger.LogInformation("Adding migration '{Name}' to {Service}...", name, service);
 
-        var process = new Process
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                FileName = "dotnet",
-                Arguments = $"ef migrations add {name} --project {entry.InfrastructureProjectPath} --context {entry.DbContextName}",
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
-            }
-        };
+        var arguments = $"ef migrations add {name} --project {entry.InfrastructureProjectPath} --context {entry.DbContextName}";
+        var result = await _processRunner.RunAsync("dotnet", arguments);
 
-        process.Start();
-        var output = await process.StandardOutput.ReadToEndAsync();
-        var error = await process.StandardError.ReadToEndAsync();
-        await process.WaitForExitAsync();
-
-        if (process.ExitCode != 0)
+        if (result.ExitCode != 0)
         {
-            _logger.LogError("Migration add failed: {Error}", error);
+            _logger.LogError("Migration add failed: {Error}", result.Error);
         }
         else
         {
-            _logger.LogInformation("Migration added successfully. {Output}", output);
+            _logger.LogInformation("Migration added successfully. {Output}", result.Output);
         }
     }
 
@@ -77,41 +64,53 @@ public class MigrationService : IMigrationService
 
         _logger.LogInformation("Applying migrations for {Service} in {Environment}...", service, env);
 
-        var process = new Process
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                FileName = "dotnet",
-                Arguments = $"ef database update --project {entry.InfrastructureProjectPath} --context {entry.DbContextName}",
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
-            }
-        };
+        var arguments = $"ef database update --project {entry.InfrastructureProjectPath} --context {entry.DbContextName}";
+        var result = await _processRunner.RunAsync("dotnet", arguments);
 
-        process.Start();
-        var output = await process.StandardOutput.ReadToEndAsync();
-        var error = await process.StandardError.ReadToEndAsync();
-        await process.WaitForExitAsync();
-
-        if (process.ExitCode != 0)
+        if (result.ExitCode != 0)
         {
-            _logger.LogError("Migration apply failed: {Error}", error);
+            _logger.LogError("Migration apply failed: {Error}", result.Error);
         }
         else
         {
-            _logger.LogInformation("Migrations applied successfully. {Output}", output);
+            _logger.LogInformation("Migrations applied successfully. {Output}", result.Output);
         }
     }
 
-    public Task<IReadOnlyList<MigrationStatus>> GetStatusAsync(string env)
+    public async Task<IReadOnlyList<MigrationStatus>> GetStatusAsync(string env)
     {
         _logger.LogInformation("Checking migration status for environment: {Environment}", env);
 
-        var statuses = ServiceRegistry.Keys
-            .Select(service => new MigrationStatus(service, AppliedCount: 0, PendingCount: 0))
-            .ToList();
+        var statuses = new List<MigrationStatus>();
 
-        return Task.FromResult<IReadOnlyList<MigrationStatus>>(statuses);
+        foreach (var (service, entry) in ServiceRegistry)
+        {
+            var arguments = $"ef migrations list --project {entry.InfrastructureProjectPath} --context {entry.DbContextName}";
+            var result = await _processRunner.RunAsync("dotnet", arguments);
+
+            var appliedCount = 0;
+            var pendingCount = 0;
+
+            if (result.ExitCode == 0)
+            {
+                var lines = result.Output
+                    .Split('\n', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(l => l.Trim())
+                    .Where(l => !string.IsNullOrWhiteSpace(l))
+                    .ToList();
+
+                foreach (var line in lines)
+                {
+                    if (line.Contains("(Pending)"))
+                        pendingCount++;
+                    else
+                        appliedCount++;
+                }
+            }
+
+            statuses.Add(new MigrationStatus(service, appliedCount, pendingCount));
+        }
+
+        return statuses;
     }
 }

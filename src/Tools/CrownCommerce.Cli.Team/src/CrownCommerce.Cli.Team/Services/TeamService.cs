@@ -5,46 +5,60 @@ namespace CrownCommerce.Cli.Team.Services;
 
 public class TeamService : ITeamService
 {
-    private static readonly List<TeamMember> Members =
-    [
-        new("quinn@crowncommerce.io", "Quinn", "Brown", "Admin", "Engineering", "America/Toronto", "active"),
-        new("amara@crowncommerce.io", "Amara", "Okafor", "Admin", "Engineering", "Africa/Lagos", "active"),
-        new("wanjiku@crowncommerce.io", "Wanjiku", "Mwangi", "Customer", "Hair Styling", "Africa/Lagos", "active"),
-        new("sophia@crowncommerce.io", "Sophia", "Chen", "Customer", "Marketing", "America/Toronto", "active"),
-        new("james@crowncommerce.io", "James", "Wright", "Customer", "Operations", "Europe/London", "active"),
-    ];
-
     private readonly ILogger<TeamService> _logger;
+    private readonly ITeamStore _store;
 
-    public TeamService(ILogger<TeamService> logger) => _logger = logger;
-
-    public Task<IReadOnlyList<TeamMember>> ListAsync(string? department, string status)
+    public TeamService(ILogger<TeamService> logger, ITeamStore store)
     {
-        var filtered = Members
-            .Where(m => m.Status == status)
+        _logger = logger;
+        _store = store;
+    }
+
+    public async Task<IReadOnlyList<TeamMember>> ListAsync(string? department, string status)
+    {
+        var all = await _store.GetAllAsync();
+
+        var filtered = all
+            .Where(m => m.Status.Equals(status, StringComparison.OrdinalIgnoreCase))
             .Where(m => department is null || m.Department.Equals(department, StringComparison.OrdinalIgnoreCase))
             .ToList();
 
-        return Task.FromResult<IReadOnlyList<TeamMember>>(filtered);
+        return filtered;
     }
 
-    public Task AddAsync(TeamMemberRequest request)
+    public async Task AddAsync(TeamMemberRequest request)
     {
         _logger.LogInformation(
             "Adding team member {FirstName} {LastName} ({Email}) as {Role} in {Department}",
             request.FirstName, request.LastName, request.Email, request.Role, request.Department ?? "Unassigned");
-        return Task.CompletedTask;
+
+        var member = new TeamMember(
+            Email: request.Email,
+            FirstName: request.FirstName,
+            LastName: request.LastName,
+            Role: request.Role,
+            Department: request.Department ?? "Unassigned",
+            TimeZone: request.TimeZone,
+            Status: "active");
+
+        await _store.AddAsync(member);
     }
 
-    public Task<TeamMember?> GetAsync(string email)
+    public async Task<TeamMember?> GetAsync(string email)
     {
-        var member = Members.Find(m => m.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
-        return Task.FromResult(member);
+        return await _store.GetByEmailAsync(email);
     }
 
-    public Task DeactivateAsync(string email)
+    public async Task DeactivateAsync(string email)
     {
         _logger.LogInformation("Deactivating team member {Email}", email);
-        return Task.CompletedTask;
+
+        var member = await _store.GetByEmailAsync(email);
+
+        if (member is not null)
+        {
+            var updated = member with { Status = "inactive" };
+            await _store.UpdateAsync(updated);
+        }
     }
 }

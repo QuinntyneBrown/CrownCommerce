@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 
 var builder = Host.CreateApplicationBuilder(args);
 
+builder.Services.AddSingleton<IFileSystem, FileSystemService>();
 builder.Services.AddSingleton<IGeneratorService, GeneratorService>();
 
 using var host = builder.Build();

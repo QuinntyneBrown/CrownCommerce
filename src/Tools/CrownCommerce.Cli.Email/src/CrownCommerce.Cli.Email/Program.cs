@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var builder = Host.CreateApplicationBuilder(args);
+builder.Services.AddSingleton<ISmtpClient, SmtpClientWrapper>();
+builder.Services.AddSingleton<ITemplateStore, TemplateStore>();
 builder.Services.AddSingleton<IEmailService, EmailService>();
 using var host = builder.Build();
 

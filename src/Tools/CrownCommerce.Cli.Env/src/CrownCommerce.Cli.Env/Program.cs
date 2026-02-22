@@ -6,6 +6,9 @@ using Microsoft.Extensions.Hosting;
 
 var builder = Host.CreateApplicationBuilder(args);
 
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<IHealthChecker, HealthChecker>();
+builder.Services.AddSingleton<IProcessManager, ProcessManager>();
 builder.Services.AddSingleton<IEnvironmentService, EnvironmentService>();
 
 using var host = builder.Build();

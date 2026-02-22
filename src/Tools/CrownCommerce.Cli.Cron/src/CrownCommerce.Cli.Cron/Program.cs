@@ -5,6 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var builder = Host.CreateApplicationBuilder(args);
+builder.Services.AddSingleton<ICronJobStore, CronJobStore>();
+builder.Services.AddSingleton<ICronJobRunner, CronJobRunner>();
+builder.Services.AddHttpClient();
 builder.Services.AddSingleton<ICronService, CronService>();
 using var host = builder.Build();
 

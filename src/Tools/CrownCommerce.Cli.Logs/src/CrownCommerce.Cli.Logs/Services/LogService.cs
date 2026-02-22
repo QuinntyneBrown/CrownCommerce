@@ -1,3 +1,4 @@
+using CrownCommerce.Cli.Logs.Commands;
 using Microsoft.Extensions.Logging;
 
 namespace CrownCommerce.Cli.Logs.Services;
@@ -5,6 +6,7 @@ namespace CrownCommerce.Cli.Logs.Services;
 public class LogService : ILogService
 {
     private readonly ILogger<LogService> _logger;
+    private readonly ILogSource _logSource;
 
     public static readonly string[] AllServices =
     {
@@ -12,35 +14,68 @@ public class LogService : ILogService
         "notification", "order", "payment", "chat", "crm", "scheduling"
     };
 
-    public LogService(ILogger<LogService> logger)
+    public LogService(ILogger<LogService> logger, ILogSource logSource)
     {
         _logger = logger;
+        _logSource = logSource;
     }
 
-    public Task TailLogsAsync(string[]? services, string? level, string? search, string? since, string? output)
+    public async Task TailLogsAsync(string[]? services, string? level, string? search, string? since, string? output)
     {
         var targetServices = services is { Length: > 0 } ? services : AllServices;
 
-        Console.WriteLine($"Tailing logs from {targetServices.Length} services (level: {level ?? "all"})...");
+        _logger.LogDebug("Tailing logs from {Count} services", targetServices.Length);
 
-        if (search is not null)
+        var entries = await _logSource.ReadLogsAsync(targetServices, since);
+
+        var filtered = entries.AsEnumerable();
+
+        if (!string.IsNullOrWhiteSpace(level))
         {
-            Console.WriteLine($"  Search filter: {search}");
+            filtered = filtered.Where(e =>
+                e.Level.Equals(level, StringComparison.OrdinalIgnoreCase));
         }
 
-        if (since is not null)
+        if (!string.IsNullOrWhiteSpace(search))
         {
-            Console.WriteLine($"  Since: {since}");
+            filtered = filtered.Where(e =>
+                e.Message.Contains(search, StringComparison.OrdinalIgnoreCase));
         }
 
-        if (output is not null)
+        var sorted = filtered.OrderBy(e => e.Timestamp).ToList();
+
+        var lines = new List<string>();
+
+        foreach (var entry in sorted)
         {
-            Console.WriteLine($"  Output file: {output}");
+            var formatted = $"[{entry.Timestamp:HH:mm:ss}] [{entry.Level}] [{entry.Service}] {entry.Message}";
+            lines.Add(formatted);
+
+            if (entry.Exception is not null)
+            {
+                lines.Add($"  {entry.Exception}");
+            }
         }
 
-        Console.WriteLine($"  Services: {string.Join(", ", targetServices)}");
-        Console.WriteLine("  Waiting for log entries... (placeholder - connect to Aspire structured logs)");
+        foreach (var line in lines)
+        {
+            Console.WriteLine(line);
+        }
 
-        return Task.CompletedTask;
+        if (!string.IsNullOrWhiteSpace(output))
+        {
+            var directory = Path.GetDirectoryName(output);
+            if (!string.IsNullOrWhiteSpace(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            await File.WriteAllLinesAsync(output, lines);
+        }
+
+        if (sorted.Count == 0)
+        {
+            Console.WriteLine("No log entries found matching the specified filters.");
+        }
     }
 }

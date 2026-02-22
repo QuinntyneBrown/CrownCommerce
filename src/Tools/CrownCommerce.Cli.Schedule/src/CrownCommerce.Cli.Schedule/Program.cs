@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var builder = Host.CreateApplicationBuilder(args);
+builder.Services.AddSingleton<IScheduleStore, ScheduleStore>();
 builder.Services.AddSingleton<IScheduleService, ScheduleService>();
 using var host = builder.Build();
 

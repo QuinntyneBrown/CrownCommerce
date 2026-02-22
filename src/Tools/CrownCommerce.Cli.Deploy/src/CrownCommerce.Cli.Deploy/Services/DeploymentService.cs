@@ -1,3 +1,4 @@
+using CrownCommerce.Cli.Deploy.Commands;
 using Microsoft.Extensions.Logging;
 
 namespace CrownCommerce.Cli.Deploy.Services;
@@ -5,6 +6,7 @@ namespace CrownCommerce.Cli.Deploy.Services;
 public class DeploymentService : IDeploymentService
 {
     private readonly ILogger<DeploymentService> _logger;
+    private readonly IProcessRunner _processRunner;
 
     public static readonly string[] BackendServices =
     [
@@ -18,64 +20,96 @@ public class DeploymentService : IDeploymentService
         "origin-hair-collective", "mane-haus", "crown-commerce-admin"
     ];
 
-    public DeploymentService(ILogger<DeploymentService> logger)
+    public DeploymentService(ILogger<DeploymentService> logger, IProcessRunner processRunner)
     {
         _logger = logger;
+        _processRunner = processRunner;
     }
 
-    public Task<bool> DeployServiceAsync(string name, string env)
+    public async Task<bool> DeployServiceAsync(string name, string env)
     {
         if (!BackendServices.Contains(name))
         {
             _logger.LogError("Unknown service: {Name}. Valid services: {Services}",
                 name, string.Join(", ", BackendServices));
-            return Task.FromResult(false);
+            return false;
         }
 
         _logger.LogInformation("Deploying service {Name} to {Environment}...", name, env);
-        _logger.LogInformation("Would run: az containerapp update --name crowncommerce-{Name} --resource-group crowncommerce-{Env} --image crowncommerce/{Name}:latest",
-            name, env, name);
 
-        return Task.FromResult(true);
+        var result = await _processRunner.RunAsync("az",
+            $"containerapp update --name crowncommerce-{name} --resource-group crowncommerce-{env} --image crowncommerce/{name}:latest");
+
+        if (result.ExitCode != 0)
+        {
+            _logger.LogError("Failed to deploy service {Name}: {Error}", name, result.Error);
+            return false;
+        }
+
+        _logger.LogInformation("Successfully deployed service {Name} to {Environment}", name, env);
+        return true;
     }
 
-    public Task<bool> DeployFrontendAsync(string name, string env)
+    public async Task<bool> DeployFrontendAsync(string name, string env)
     {
         if (!Frontends.Contains(name))
         {
             _logger.LogError("Unknown frontend: {Name}. Valid frontends: {Frontends}",
                 name, string.Join(", ", Frontends));
-            return Task.FromResult(false);
+            return false;
         }
 
         _logger.LogInformation("Deploying frontend {Name} to {Environment}...", name, env);
-        _logger.LogInformation("Would run: az staticwebapp deploy --name {Name} --environment {Env}",
-            name, env);
 
-        return Task.FromResult(true);
+        var result = await _processRunner.RunAsync("az",
+            $"staticwebapp deploy --name {name} --environment {env}");
+
+        if (result.ExitCode != 0)
+        {
+            _logger.LogError("Failed to deploy frontend {Name}: {Error}", name, result.Error);
+            return false;
+        }
+
+        _logger.LogInformation("Successfully deployed frontend {Name} to {Environment}", name, env);
+        return true;
     }
 
-    public Task<bool> GetStatusAsync(string env)
+    public async Task<bool> GetStatusAsync(string env)
     {
         _logger.LogInformation("Checking deployment status for environment: {Environment}", env);
 
-        Console.WriteLine($"{"Component",-30} {"Status",-15} {"Version",-15}");
-        Console.WriteLine(new string('-', 60));
+        var containerResult = await _processRunner.RunAsync("az",
+            $"containerapp list --resource-group crowncommerce-{env} --output json");
+
+        var staticResult = await _processRunner.RunAsync("az",
+            $"staticwebapp list --resource-group crowncommerce-{env} --output json");
+
+        var statuses = new List<DeploymentStatus>();
 
         foreach (var service in BackendServices)
         {
-            Console.WriteLine($"{service,-30} {"running",-15} {"latest",-15}");
+            var status = containerResult.ExitCode == 0 ? "running" : "unknown";
+            statuses.Add(new DeploymentStatus(service, "service", status, "latest", env));
         }
 
         foreach (var frontend in Frontends)
         {
-            Console.WriteLine($"{frontend,-30} {"deployed",-15} {"latest",-15}");
+            var status = staticResult.ExitCode == 0 ? "deployed" : "unknown";
+            statuses.Add(new DeploymentStatus(frontend, "frontend", status, "latest", env));
         }
 
-        return Task.FromResult(true);
+        Console.WriteLine($"{"Component",-30} {"Type",-12} {"Status",-15} {"Version",-15} {"Environment",-15}");
+        Console.WriteLine(new string('-', 87));
+
+        foreach (var s in statuses)
+        {
+            Console.WriteLine($"{s.Component,-30} {s.Type,-12} {s.Status,-15} {s.Version,-15} {s.Environment,-15}");
+        }
+
+        return true;
     }
 
-    public Task<bool> DeployAllAsync(string env, bool dryRun)
+    public async Task<bool> DeployAllAsync(string env, bool dryRun)
     {
         if (dryRun)
         {
@@ -90,22 +124,32 @@ public class DeploymentService : IDeploymentService
             {
                 _logger.LogInformation("[DRY RUN] Would deploy frontend: {Frontend}", frontend);
             }
+
+            return true;
         }
-        else
+
+        _logger.LogInformation("Deploying all services and frontends to {Environment}...", env);
+
+        var allSuccess = true;
+
+        foreach (var service in BackendServices)
         {
-            _logger.LogInformation("Deploying all services and frontends to {Environment}...", env);
-
-            foreach (var service in BackendServices)
+            var success = await DeployServiceAsync(service, env);
+            if (!success)
             {
-                _logger.LogInformation("Deploying service: {Service}", service);
-            }
-
-            foreach (var frontend in Frontends)
-            {
-                _logger.LogInformation("Deploying frontend: {Frontend}", frontend);
+                allSuccess = false;
             }
         }
 
-        return Task.FromResult(true);
+        foreach (var frontend in Frontends)
+        {
+            var success = await DeployFrontendAsync(frontend, env);
+            if (!success)
+            {
+                allSuccess = false;
+            }
+        }
+
+        return allSuccess;
     }
 }
