@@ -2,7 +2,8 @@
 
 | # | Feature | Status | Description |
 |---|---------|--------|-------------|
-| 02 | [Design System & Multi-Brand Theming](02-design-system-theming/README.md) | Draft | CSS design token system, hostname-based brand detection, responsive layout strategies, and brand-aware component architecture covering L2-039, L2-021, L2-022, L2-036, L2-037, L2-038, L2-057, L2-058, L2-061 |
+| 01 | [Platform Architecture & API Gateway](01-platform-architecture/README.md) | Draft | Modular monolith architecture, 11-domain pgSchema isolation, API gateway routing, 3-tier frontend module hierarchy (components → api → features), error handling and loading states covering L2-035, L2-054, L2-040, L2-041, L2-042, L2-043, L2-060 |
+| 02 |[Design System & Multi-Brand Theming](02-design-system-theming/README.md) | Draft | CSS design token system, hostname-based brand detection, responsive layout strategies, and brand-aware component architecture covering L2-039, L2-021, L2-022, L2-036, L2-037, L2-038, L2-057, L2-058, L2-061 |
 | 04 |[Product Catalog & Search](04-product-catalog/README.md) | Draft | Product browsing, search, filtering, category collections, reviews, bundle deals, and admin CRUD covering L2-001 through L2-004, L2-059, L2-064, L2-075, L2-076 |
 | 05 |[Shopping Cart & Checkout](05-shopping-cart-checkout/README.md) | Draft | Cart management, multi-step checkout flow, and payment lifecycle (create, confirm, refund) covering L2-005, L2-006, L2-007 |
 | 06 | [Content Management System](06-content-management/README.md) | Draft | Dynamic pages, FAQs, testimonials, gallery, hero content, trust bar — 6 content types with admin CRUD covering L2-010 through L2-013, L2-025, L2-026, L2-073, L2-074 |

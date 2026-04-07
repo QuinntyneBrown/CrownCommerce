@@ -1,0 +1,74 @@
+@startuml seq-api-request
+!theme plain
+
+title API Request Lifecycle — GET /api/catalog/products (L2-035, L2-041)
+
+actor "Browser" as browser
+participant "API Client\n(catalogApi)" as client
+participant "Next.js Server\n(App Router)" as server
+participant "Route Handler\napp/api/catalog/\nproducts/route.ts" as handler
+participant "Drizzle ORM\n(lib/db)" as drizzle
+database "PostgreSQL\ncatalog.products" as db
+
+browser -> client: catalogApi.getProducts()
+activate client
+
+client -> server: GET /api/catalog/products
+activate server
+
+server -> handler: Match route, invoke GET()
+activate handler
+
+handler -> drizzle: db.select().from(products)
+activate drizzle
+
+drizzle -> db: SELECT * FROM catalog.products
+activate db
+
+db --> drizzle: Row[]
+deactivate db
+
+drizzle --> handler: Product[]
+deactivate drizzle
+
+handler --> server: NextResponse.json(products)
+deactivate handler
+
+server --> client: 200 OK — JSON body
+deactivate server
+
+client --> browser: Promise<Product[]>
+deactivate client
+
+== Error Path (L2-060) ==
+
+browser -> client: catalogApi.getProducts()
+activate client
+
+client -> server: GET /api/catalog/products
+activate server
+
+server -> handler: Invoke GET()
+activate handler
+
+handler -> drizzle: db.select().from(products)
+activate drizzle
+
+drizzle --> handler: throws Error
+deactivate drizzle
+
+handler --> server: NextResponse.json(\n  { error: "Failed to fetch products" },\n  { status: 500 }\n)
+deactivate handler
+
+server --> client: 500 Internal Server Error
+deactivate server
+
+client --> browser: throws Error
+deactivate client
+
+note right of browser
+  Component displays:
+  <ErrorState onRetry={refetch} />
+end note
+
+@enduml

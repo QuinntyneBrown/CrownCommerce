@@ -1,0 +1,31 @@
+@startuml c4-container
+!theme plain
+!include <C4/C4_Container>
+
+title CrownCommerce — Container Diagram (L2-035, L2-041)
+
+Person(user, "User", "Customer, Admin, or Team Member")
+
+System_Boundary(cc, "CrownCommerce Platform") {
+    Container(browser, "Browser App", "React / Next.js", "Client-side rendering, API client library, feature components")
+    Container(nextjs, "Next.js Server", "Node.js, App Router", "Server components, API route handlers, auth, SSR")
+    Container(apiclient, "API Client Library", "TypeScript, lib/api/", "12 typed domain clients with configurable base URL")
+}
+
+ContainerDb(pg_catalog, "catalog schema", "PostgreSQL", "products, origins, reviews, bundleDeals")
+ContainerDb(pg_orders, "orders schema", "PostgreSQL", "carts, cartItems, orders, orderItems, payments")
+ContainerDb(pg_identity, "identity schema", "PostgreSQL", "users, sessions")
+ContainerDb(pg_other, "8 more schemas", "PostgreSQL", "content, newsletter, chat, inquiries,\nscheduling, crm, notifications")
+
+System_Ext(cdn, "Vercel CDN", "Static assets and edge caching")
+
+Rel(user, browser, "Interacts", "HTTPS")
+Rel(browser, apiclient, "Imports")
+Rel(apiclient, nextjs, "API calls", "/api/{domain}/*")
+Rel(nextjs, pg_catalog, "Drizzle queries", "catalog.*")
+Rel(nextjs, pg_orders, "Drizzle queries", "orders.*")
+Rel(nextjs, pg_identity, "Drizzle queries", "identity.*")
+Rel(nextjs, pg_other, "Drizzle queries", "{schema}.*")
+Rel(nextjs, cdn, "Serves static assets")
+
+@enduml

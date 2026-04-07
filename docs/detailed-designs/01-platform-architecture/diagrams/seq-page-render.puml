@@ -1,0 +1,58 @@
+@startuml seq-page-render
+!theme plain
+
+title Storefront Page Rendering — Home Page Composition (L2-042, L2-060)
+
+participant "Browser" as browser
+participant "Next.js SSR\napp/(storefront)/\npage.tsx" as page
+participant "getBrand()\nlib/theme" as brand
+participant "Server Fetch\n/api/catalog/products" as catalog
+participant "Server Fetch\n/api/content/testimonials" as content
+participant "Features\nlib/features/*.tsx" as features
+participant "Components\ncomponents/*.tsx" as components
+
+browser -> page: GET / (originhair.com)
+activate page
+
+page -> brand: getBrand()
+brand --> page: { id: "origin", ... }
+
+page -> catalog: fetch("/api/catalog/products")
+page -> content: fetch("/api/content/testimonials")
+note right of page: Parallel fetch\nvia Promise.all()
+
+catalog --> page: Product[]
+content --> page: Testimonial[]
+
+page -> features: <ProductGrid\n  products={products.slice(0,8)}\n  title="Featured Products" />
+activate features
+features -> components: <ProductCard /> × N
+components --> features: Rendered cards
+features --> page: Product grid HTML
+deactivate features
+
+page -> features: <TestimonialsSection\n  testimonials={testimonials} />
+activate features
+features -> components: <TestimonialCard /> × N
+features --> page: Testimonials HTML
+deactivate features
+
+page -> features: <NewsletterSignup\n  brandTag="origin" />
+activate features
+features -> components: <EmailSignup />\n<SectionHeader />
+features --> page: Newsletter section HTML
+deactivate features
+
+page --> browser: Full rendered HTML
+
+deactivate page
+
+note right of page
+  On fetch failure:
+  - Returns empty arrays []
+  - Features render empty states
+  - ErrorState shown on client
+  re-fetch failures (L2-060)
+end note
+
+@enduml

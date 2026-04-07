@@ -1,0 +1,31 @@
+@startuml c4-component
+!theme plain
+!include <C4/C4_Component>
+
+title CrownCommerce — Frontend Module System (L2-040, L2-041, L2-042)
+
+Container_Boundary(frontend, "Frontend Application") {
+    Component(pages, "Page Components", "app/(storefront|admin|teams)/**", "Route group pages composing features")
+    Component(features, "Features Library", "lib/features/*.tsx", "7 smart compositions:\nCartSummary, ChatContainer, FAQList,\nInquiryForm, NewsletterSignup,\nProductGrid, TestimonialsSection")
+    Component(api_clients, "API Client Library", "lib/api/*.ts", "12 typed domain clients:\ncatalogApi, ordersApi, identityApi,\ncontentApi, newsletterApi, chatApi, etc.")
+    Component(ui_components, "UI Components", "components/ui/*.tsx", "8 shadcn primitives:\nButton, Card, Input, Label,\nTextarea, Badge, Separator, Skeleton")
+    Component(custom_components, "Custom Components", "components/*.tsx", "7 domain components:\nProductCard, ChatWidget, ErrorState,\nLoadingSpinner, EmailSignup, etc.")
+}
+
+Container_Boundary(backend, "API Route Layer") {
+    Component(catalog_api, "Catalog Routes", "app/api/catalog/*", "Products, Origins, Reviews,\nBundleDeals CRUD")
+    Component(orders_api, "Orders Routes", "app/api/orders/*", "Orders, Carts, CartItems CRUD")
+    Component(identity_api, "Identity Routes", "app/api/identity/*", "Auth (register/login/logout),\nUsers CRUD")
+    Component(other_api, "8 Domain Routes", "app/api/{domain}/*", "Content, Newsletter, Chat,\nInquiries, Scheduling, CRM,\nNotifications, Payments")
+}
+
+Rel(pages, features, "Composes")
+Rel(features, api_clients, "Calls")
+Rel(features, ui_components, "Renders")
+Rel(features, custom_components, "Renders")
+Rel(api_clients, catalog_api, "HTTP GET/POST/PUT/DELETE")
+Rel(api_clients, orders_api, "HTTP")
+Rel(api_clients, identity_api, "HTTP")
+Rel(api_clients, other_api, "HTTP")
+
+@enduml

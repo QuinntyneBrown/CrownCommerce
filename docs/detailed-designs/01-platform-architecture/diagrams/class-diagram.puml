@@ -1,0 +1,106 @@
+@startuml class-diagram
+!theme plain
+
+title CrownCommerce — Core Domain Entities (L2-054)
+
+package "catalog schema" <<Database>> {
+    class Product {
+        +id: UUID <<PK>>
+        +name: varchar(255)
+        +description: text
+        +price: decimal(10,2)
+        +texture: varchar(100)
+        +type: varchar(100)
+        +length: varchar(50)
+        +originId: UUID <<FK>>
+        +imageUrl: varchar(500)
+        +createdAt: timestamp
+        +updatedAt: timestamp
+    }
+    class Origin {
+        +id: UUID <<PK>>
+        +name: varchar(255)
+        +country: varchar(100)
+    }
+    class Review {
+        +id: UUID <<PK>>
+        +productId: UUID <<FK>>
+        +author: varchar(255)
+        +rating: integer
+        +content: text
+        +createdAt: timestamp
+    }
+    class BundleDeal {
+        +id: UUID <<PK>>
+        +name: varchar(255)
+        +items: text (JSON)
+        +originalPrice: decimal(10,2)
+        +dealPrice: decimal(10,2)
+    }
+}
+
+package "orders schema" <<Database>> {
+    class Order {
+        +id: UUID <<PK>>
+        +userId: UUID
+        +status: varchar(50)
+        +total: decimal(10,2)
+        +shippingAddress: text
+        +createdAt: timestamp
+        +updatedAt: timestamp
+    }
+    class OrderItem {
+        +id: UUID <<PK>>
+        +orderId: UUID <<FK>>
+        +productId: UUID
+        +quantity: integer
+        +unitPrice: decimal(10,2)
+    }
+    class Cart {
+        +id: UUID <<PK>>
+        +userId: UUID
+        +createdAt: timestamp
+    }
+    class CartItem {
+        +id: UUID <<PK>>
+        +cartId: UUID <<FK>>
+        +productId: UUID
+        +quantity: integer
+    }
+    class Payment {
+        +id: UUID <<PK>>
+        +orderId: UUID <<FK>>
+        +amount: decimal(10,2)
+        +status: varchar(50)
+        +confirmedAt: timestamp
+        +refundedAt: timestamp
+    }
+}
+
+package "identity schema" <<Database>> {
+    class User {
+        +id: UUID <<PK>>
+        +name: varchar(255)
+        +email: varchar(255) <<unique>>
+        +passwordHash: text
+        +role: varchar(50)
+        +createdAt: timestamp
+    }
+    class Session {
+        +id: UUID <<PK>>
+        +userId: UUID <<FK>>
+        +token: text <<unique>>
+        +expiresAt: timestamp
+    }
+}
+
+Origin "1" --> "*" Product : has
+Product "1" --> "*" Review : receives
+Order "1" --> "*" OrderItem : contains
+Cart "1" --> "*" CartItem : holds
+Order "1" --> "0..1" Payment : paid by
+User "1" --> "*" Session : authenticates
+User "1" --> "*" Order : places
+User "1" --> "*" Cart : owns
+
+@enduml
