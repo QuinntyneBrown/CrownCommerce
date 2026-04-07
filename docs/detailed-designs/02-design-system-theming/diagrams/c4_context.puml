@@ -1,0 +1,18 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Design System & Multi-Brand Theming — System Context (L2-039)
+
+Person(origin_customer, "Origin Hair Customer", "Visits originhair.com\nExpects dark luxury aesthetic")
+Person(mane_customer, "Mane Haus Customer", "Visits manehaus.com\nExpects warm luxury aesthetic")
+
+System(cc, "CrownCommerce Platform", "Single Next.js codebase serving\nboth brands with distinct visual\nidentities via CSS design tokens")
+
+System_Ext(google_fonts, "Google Fonts", "Fraunces (headings)\nDM Sans (body)")
+
+Rel(origin_customer, cc, "Browses", "originhair.com")
+Rel(mane_customer, cc, "Browses", "manehaus.com")
+Rel(cc, google_fonts, "Loads typefaces", "HTTPS")
+
+@enduml

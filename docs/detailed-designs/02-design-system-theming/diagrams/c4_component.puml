@@ -1,0 +1,33 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Design System — Component Architecture (L2-039, L2-040, L2-042)
+
+Container_Boundary(ui, "UI Primitives (components/ui/)") {
+    Component(button, "Button", "components/ui/button.tsx", "CVA variants: default, destructive,\noutline, secondary, ghost, link\nSizes: default, sm, lg, icon")
+    Component(card, "Card", "components/ui/card.tsx", "Card, CardHeader, CardTitle,\nCardContent, CardFooter\nbg-card text-card-foreground")
+    Component(input, "Input", "components/ui/input.tsx", "bg-input, border-border\nfocus ring via --color-ring")
+    Component(badge, "Badge", "components/ui/badge.tsx", "Variants: default, secondary,\ndestructive, outline")
+}
+
+Container_Boundary(custom, "Custom Components") {
+    Component(product_card, "ProductCard", "components/product-card.tsx", "font-heading title, accent price\nImage hover scale-105")
+    Component(section_header, "SectionHeader", "components/section-header.tsx", "font-heading text-3xl md:text-4xl\nCentered with mb-12")
+    Component(loading, "LoadingSpinner", "components/loading-spinner.tsx", "Animated border with accent color")
+    Component(error_state, "ErrorState", "components/error-state.tsx", "Centered error + retry button")
+}
+
+Container_Boundary(tokens, "Design Tokens") {
+    Component(css_tokens, "CSS Variables", "app/globals.css @theme", "--color-accent, --color-background\n--font-heading, --radius-*")
+}
+
+Rel(button, css_tokens, "Uses")
+Rel(card, css_tokens, "Uses")
+Rel(input, css_tokens, "Uses")
+Rel(badge, css_tokens, "Uses")
+Rel(product_card, css_tokens, "Uses")
+Rel(product_card, card, "Wraps")
+Rel(section_header, css_tokens, "Uses")
+
+@enduml

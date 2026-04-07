@@ -1,0 +1,31 @@
+@startuml sequence_responsive
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Responsive Layout Strategy (L2-036, L2-037, L2-038, L2-061)
+
+participant "Viewport" as vp
+participant "Tailwind CSS\nBreakpoints" as tw
+participant "Storefront Layout\n(L2-036)" as store
+participant "Admin Layout\n(L2-037)" as admin
+participant "Teams Layout\n(L2-038)" as teams
+
+== Mobile (<640px / sm) ==
+vp -> tw: width: 375px
+tw -> store: Hero stacks vertically\nProduct grid: 1 column\nHamburger menu visible (L2-061)\nFull-screen nav panel on tap
+tw -> admin: Sidebar collapsed (icon-only)\nTables scroll horizontally
+tw -> teams: Sidebar hidden\nSingle-panel view
+
+== Tablet (≥640px / md breakpoint) ==
+vp -> tw: width: 768px
+tw -> store: Product grid: 2 columns (md:grid-cols-2)\nHero side-by-side layout
+tw -> admin: Sidebar icon-only\nContent area wider
+tw -> teams: Sidebar icon-only\nTwo-panel view
+
+== Desktop (≥1024px / lg breakpoint) ==
+vp -> tw: width: 1200px
+tw -> store: Product grid: 3-4 columns\n(lg:grid-cols-3 xl:grid-cols-4)\nFull hero layout, desktop nav visible
+tw -> admin: Full sidebar with labels\nTables full-width
+tw -> teams: Full three-panel layout\nChat + sidebar + detail panel
+
+@enduml

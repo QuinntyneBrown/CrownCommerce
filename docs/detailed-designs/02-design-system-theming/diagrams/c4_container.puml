@@ -1,0 +1,22 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Design System & Multi-Brand Theming — Container Diagram (L2-039, L2-021, L2-022)
+
+System_Boundary(cc, "CrownCommerce Platform") {
+    Container(middleware, "Next.js Middleware", "app/middleware.ts", "Maps hostname to brand ID\nSets x-brand header on response")
+    Container(layout, "Root Layout", "app/layout.tsx", "Reads x-brand header via getBrand()\nSets data-brand attribute on <body>")
+    Container(css, "CSS Engine", "app/globals.css", "@theme defaults (Origin dark-luxury)\n[data-brand] overrides (Mane Haus warm-luxury)")
+    Container(theme_lib, "Theme Library", "lib/theme/index.ts", "BrandConfig type, getBrand()\nBRANDS registry, getBrandSync()")
+    Container(font_lib, "Font Config", "lib/theme/fonts.ts", "Fraunces → --font-heading\nDM Sans → --font-body")
+    Container(components, "UI Components", "components/ui/*.tsx", "8 shadcn primitives + custom\nConsume CSS custom properties only")
+}
+
+Rel(middleware, layout, "x-brand header")
+Rel(layout, theme_lib, "getBrand()")
+Rel(layout, font_lib, "Font families")
+Rel(layout, css, "data-brand attribute")
+Rel(css, components, "CSS custom properties")
+
+@enduml

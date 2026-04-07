@@ -1,0 +1,35 @@
+@startuml sequence_brand_detection
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Brand Detection & Theme Application Flow (L2-039, L2-021, L2-022)
+
+actor "Customer" as customer
+participant "Browser" as browser
+participant "Next.js Middleware\napp/middleware.ts" as mw
+participant "Root Layout\napp/layout.tsx" as layout
+participant "getBrand()\nlib/theme/index.ts" as theme
+participant "CSS Engine\napp/globals.css" as css
+participant "UI Components" as ui
+
+customer -> browser: Visit manehaus.com
+browser -> mw: GET / (Host: manehaus.com)
+
+mw -> mw: getBrandFromHostname("manehaus.com")\nStrip port → lookup BRAND_HOSTNAMES\n→ "mane-haus"
+mw -> mw: Set response header\nx-brand: mane-haus
+
+mw -> layout: Forward request with headers
+layout -> theme: getBrand()
+theme -> theme: Read x-brand header\nfrom request headers\n→ "mane-haus"
+theme --> layout: BrandConfig {\n  id: "mane-haus",\n  name: "Mane Haus",\n  aesthetic: "warm-luxury"\n}
+
+layout -> layout: Render <body\n  data-brand="mane-haus"\n  style="font-family: ..."\n>
+
+layout -> css: CSS cascade triggered
+css -> css: @theme defaults loaded\n(Origin = base tokens)
+css -> css: [data-brand="mane-haus"]\noverrides applied:\n--color-background: #FAF7F2\n--color-accent: #B8860B
+
+css -> ui: Components receive\nwarm-luxury token values
+ui --> browser: Rendered Mane Haus page\nwith warm luxury aesthetic
+
+@enduml
