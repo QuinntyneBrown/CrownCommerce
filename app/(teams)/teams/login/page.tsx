@@ -17,7 +17,7 @@ export default function TeamsLoginPage() {
     const formData = new FormData(e.currentTarget);
     try {
       const res = await fetch("/api/identity/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "login", email: formData.get("email"), password: formData.get("password") }) });
-      if (res.ok) { router.push("/home"); router.refresh(); }
+      if (res.ok) { router.push("/teams/home"); router.refresh(); }
       else { const d = await res.json(); setError(d.error || "Login failed"); }
     } catch { setError("Something went wrong"); }
     finally { setLoading(false); }

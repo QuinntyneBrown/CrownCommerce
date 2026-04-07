@@ -4,14 +4,14 @@
 
 title CrownCommerce Platform — System Context (L2-035, L2-054)
 
-Person(customer, "Customer", "Browses products, places orders\nvia originhair.com or manehaus.com")
+Person(customer, "Customer", "Browses products and places orders\nvia originhair.com or manehaus.com")
 Person(admin, "Admin", "Manages products, orders,\ncontent, CRM via /admin/*")
 Person(team, "Team Member", "Collaborates via /teams/*\nchat, meetings, scheduling")
 
-System(cc, "CrownCommerce Platform", "Next.js 15 modular monolith serving multi-brand premium hair e-commerce with 11 isolated domain modules")
+System(cc, "CrownCommerce Platform", "Next.js 16 modular monolith serving multi-brand hair commerce with 11 domain modules and 10 PostgreSQL schemas")
 
 System_Ext(cdn, "Vercel CDN", "Static asset delivery and edge caching")
-SystemDb_Ext(pg, "PostgreSQL Database", "Single instance with 11 isolated pgSchema domains")
+SystemDb_Ext(pg, "PostgreSQL Database", "Single instance with 10 isolated pgSchema domains\n(payments lives in orders)")
 
 Rel(customer, cc, "Browses, orders", "HTTPS")
 Rel(admin, cc, "Manages data", "HTTPS")

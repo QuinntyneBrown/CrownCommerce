@@ -2,26 +2,26 @@ import Link from "next/link";
 import { requireAdmin } from "@/lib/auth/guards";
 
 const navItems = [
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/products", label: "Products" },
-  { href: "/origins", label: "Origins" },
-  { href: "/orders", label: "Orders" },
-  { href: "/customers", label: "Customers" },
-  { href: "/leads", label: "Leads" },
-  { href: "/inquiries", label: "Inquiries" },
-  { href: "/subscribers", label: "Subscribers" },
-  { href: "/campaigns", label: "Campaigns" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/faqs", label: "FAQs" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/content-pages", label: "Pages" },
-  { href: "/hero-content", label: "Hero" },
-  { href: "/trust-bar", label: "Trust Bar" },
-  { href: "/employees", label: "Employees" },
-  { href: "/users", label: "Users" },
-  { href: "/schedule", label: "Schedule" },
-  { href: "/meetings", label: "Meetings" },
-  { href: "/conversations", label: "Conversations" },
+  { href: "/admin/dashboard", label: "Dashboard" },
+  { href: "/admin/products", label: "Products" },
+  { href: "/admin/origins", label: "Origins" },
+  { href: "/admin/orders", label: "Orders" },
+  { href: "/admin/customers", label: "Customers" },
+  { href: "/admin/leads", label: "Leads" },
+  { href: "/admin/inquiries", label: "Inquiries" },
+  { href: "/admin/subscribers", label: "Subscribers" },
+  { href: "/admin/campaigns", label: "Campaigns" },
+  { href: "/admin/testimonials", label: "Testimonials" },
+  { href: "/admin/faqs", label: "FAQs" },
+  { href: "/admin/gallery", label: "Gallery" },
+  { href: "/admin/content-pages", label: "Pages" },
+  { href: "/admin/hero-content", label: "Hero" },
+  { href: "/admin/trust-bar", label: "Trust Bar" },
+  { href: "/admin/employees", label: "Employees" },
+  { href: "/admin/users", label: "Users" },
+  { href: "/admin/schedule", label: "Schedule" },
+  { href: "/admin/meetings", label: "Meetings" },
+  { href: "/admin/conversations", label: "Conversations" },
 ];
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -30,7 +30,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   return (
     <div className="min-h-screen flex">
       <aside className="w-64 border-r border-border bg-card p-4 hidden md:block overflow-y-auto">
-        <Link href="/dashboard" className="font-heading text-lg font-bold text-accent block mb-6">
+        <Link href="/admin/dashboard" className="font-heading text-lg font-bold text-accent block mb-6">
           CrownCommerce Admin
         </Link>
         <nav className="space-y-1">

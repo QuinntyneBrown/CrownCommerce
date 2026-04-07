@@ -1,26 +1,37 @@
 @startuml seq-page-render
 !theme plain
 
-title Storefront Page Rendering — Home Page Composition (L2-042, L2-060)
+title Storefront Page Rendering — Direct Server Data Path (L2-042, L2-060)
 
 participant "Browser" as browser
-participant "Next.js SSR\napp/(storefront)/\npage.tsx" as page
+participant "proxy.ts" as proxy
+participant "Next.js Page\napp/(storefront)/page.tsx" as page
 participant "getBrand()\nlib/theme" as brand
-participant "Server Fetch\n/api/catalog/products" as catalog
-participant "Server Fetch\n/api/content/testimonials" as content
+participant "Catalog Queries\nlib/domains/catalog/queries.ts" as catalog
+participant "Content Queries\nlib/domains/content/queries.ts" as content
+database "PostgreSQL" as db
 participant "Features\nlib/features/*.tsx" as features
 participant "Components\ncomponents/*.tsx" as components
 
-browser -> page: GET / (originhair.com)
+browser -> proxy: GET /
+activate proxy
+proxy --> page: Forward request with x-brand header
+deactivate proxy
+
 activate page
 
 page -> brand: getBrand()
 brand --> page: { id: "origin", ... }
 
-page -> catalog: fetch("/api/catalog/products")
-page -> content: fetch("/api/content/testimonials")
-note right of page: Parallel fetch\nvia Promise.all()
+page -> catalog: listFeaturedProducts()
+page -> content: listHomepageTestimonials()
+note right of page: Parallel queries\nvia Promise.all()
 
+catalog -> db: SELECT projected columns\nFROM catalog.products LIMIT 8
+content -> db: SELECT projected columns\nFROM content.testimonials
+
+db --> catalog: Product[]
+db --> content: Testimonial[]
 catalog --> page: Product[]
 content --> page: Testimonial[]
 
@@ -43,16 +54,17 @@ features -> components: <EmailSignup />\n<SectionHeader />
 features --> page: Newsletter section HTML
 deactivate features
 
-page --> browser: Full rendered HTML
+page --> browser: Streamed HTML
 
 deactivate page
 
 note right of page
-  On fetch failure:
-  - Returns empty arrays []
-  - Features render empty states
-  - ErrorState shown on client
-  re-fetch failures (L2-060)
+  Server render path never calls
+  the app's own /api/* endpoints.
+
+  Read-heavy queries use tagged caches.
+  Slow subtrees stream behind loading.tsx
+  or explicit Suspense boundaries.
 end note
 
 @enduml

@@ -1,74 +1,70 @@
 @startuml seq-api-request
 !theme plain
 
-title API Request Lifecycle — GET /api/catalog/products (L2-035, L2-041)
+title API Request Lifecycle — Browser Mutation via Route Handler (L2-035, L2-041)
 
 actor "Browser" as browser
-participant "API Client\n(catalogApi)" as client
-participant "Next.js Server\n(App Router)" as server
+participant "API Client\n(lib/api/*)" as client
 participant "Route Handler\napp/api/catalog/\nproducts/route.ts" as handler
-participant "Drizzle ORM\n(lib/db)" as drizzle
-database "PostgreSQL\ncatalog.products" as db
+participant "Validation + Auth\n(zod / withAdmin)" as guard
+participant "Domain Service\nlib/domains/catalog/\nmutations.ts" as service
+database "PostgreSQL" as db
 
-browser -> client: catalogApi.getProducts()
+browser -> client: createProduct(data)
 activate client
 
-client -> server: GET /api/catalog/products
-activate server
-
-server -> handler: Match route, invoke GET()
+client -> handler: POST /api/catalog/products
 activate handler
 
-handler -> drizzle: db.select().from(products)
-activate drizzle
+handler -> guard: Parse body + verify admin session
+activate guard
 
-drizzle -> db: SELECT * FROM catalog.products
+guard --> handler: Validated input
+deactivate guard
+
+handler -> service: createProduct(input)
+activate service
+
+service -> db: INSERT INTO catalog.products ...
 activate db
 
-db --> drizzle: Row[]
+db --> service: Product row
 deactivate db
 
-drizzle --> handler: Product[]
-deactivate drizzle
+service --> handler: Product DTO
+deactivate service
 
-handler --> server: NextResponse.json(products)
+handler --> client: 201 Created + JSON body
 deactivate handler
 
-server --> client: 200 OK — JSON body
-deactivate server
-
-client --> browser: Promise<Product[]>
+client --> browser: Promise<Product>
 deactivate client
 
 == Error Path (L2-060) ==
 
-browser -> client: catalogApi.getProducts()
+browser -> client: createProduct(data)
 activate client
 
-client -> server: GET /api/catalog/products
-activate server
-
-server -> handler: Invoke GET()
+client -> handler: POST /api/catalog/products
 activate handler
 
-handler -> drizzle: db.select().from(products)
-activate drizzle
+handler -> guard: Parse body + verify admin session
+activate guard
 
-drizzle --> handler: throws Error
-deactivate drizzle
+guard --> handler: 400 Validation error\nor 401/403 auth failure
+deactivate guard
 
-handler --> server: NextResponse.json(\n  { error: "Failed to fetch products" },\n  { status: 500 }\n)
+handler --> client: Structured JSON error
 deactivate handler
-
-server --> client: 500 Internal Server Error
-deactivate server
 
 client --> browser: throws Error
 deactivate client
 
 note right of browser
-  Component displays:
-  <ErrorState onRetry={refetch} />
+  Client surfaces render an explicit
+  form error or ErrorState.
+
+  Server Components do not use this path.
 end note
 
 @enduml
