@@ -1,0 +1,18 @@
+@startuml c4-context
+!theme plain
+!include <C4/C4_Context>
+
+title Real-Time Communication — C4 Context Diagram
+
+Person(teamMember, "Team Member", "Authenticated employee using the Teams application to chat and collaborate")
+
+System(platform, "CrownCommerce Platform", "Provides real-time messaging, presence tracking, typing indicators, and file sharing for teams")
+
+System_Ext(s3, "S3-Compatible Storage", "Object store for file uploads and downloads (e.g., MinIO, Cloudflare R2)")
+System_Ext(postgres, "PostgreSQL", "Relational database hosting the scheduling schema (channels, messages, files, employees)")
+
+Rel(teamMember, platform, "Sends messages, uploads files, receives real-time events", "WebSocket / HTTPS")
+Rel(platform, postgres, "Reads and writes channel messages, file metadata, presence", "TCP / SQL")
+Rel(platform, s3, "Generates presigned URLs; stores and retrieves files", "HTTPS / S3 API")
+
+@enduml

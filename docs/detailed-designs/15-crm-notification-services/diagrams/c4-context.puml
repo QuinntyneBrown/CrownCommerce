@@ -1,0 +1,18 @@
+@startuml c4-context
+!theme plain
+!include <C4/C4_Context>
+
+title CRM & Notification Services — System Context
+
+Person(admin, "Admin User", "CrownCommerce team member who manages customers, leads, and views notifications")
+
+System(crowncommerce, "CrownCommerce Platform", "Multi-brand premium hair e-commerce platform with CRM and notification capabilities")
+
+System_Ext(resend, "Resend Email Service", "Third-party transactional email delivery API")
+System_Ext(postgres, "PostgreSQL Database", "Persistent storage for CRM and notification data across separate schemas")
+
+Rel(admin, crowncommerce, "Manages customers, leads,\nand reads notifications", "HTTPS")
+Rel(crowncommerce, resend, "Sends notification emails\nfor high-priority events", "HTTPS / REST API")
+Rel(crowncommerce, postgres, "Reads and writes CRM\nand notification records", "SQL / TCP")
+
+@enduml

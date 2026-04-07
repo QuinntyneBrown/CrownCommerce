@@ -1,0 +1,19 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Schedule & Meeting Management — System Context
+
+Person(admin, "Admin User", "Platform administrator who\nmanages schedules and\ncreates meetings.")
+
+System(crowncommerce, "CrownCommerce Platform", "Multi-brand premium hair\ne-commerce platform with\nschedule & meeting management.")
+
+System_Ext(resend, "Resend", "Transactional email\ndelivery service.")
+
+SystemDb_Ext(postgres, "PostgreSQL Database", "Persistent storage for\nmeetings, attendees,\nand employees.")
+
+Rel(admin, crowncommerce, "Manages schedules,\ncreates meetings", "HTTPS")
+Rel(crowncommerce, postgres, "Reads/writes scheduling data", "TCP/SQL")
+Rel(crowncommerce, resend, "Sends meeting\ninvitation emails", "HTTPS/API")
+
+@enduml

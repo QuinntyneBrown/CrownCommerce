@@ -1,0 +1,48 @@
+@startuml seq-notification-flow
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Notification Creation and Delivery Flow
+
+participant "System Event\n(OrderService,\nMeetingService)" as SysEvent
+participant "NotificationDispatcher" as Dispatcher
+participant "NotificationsAPI\n/api/notifications" as NotifAPI
+participant "NotificationService" as NotifSvc
+database "PostgreSQL\nnotifications.notifications" as DB
+participant "Admin Dashboard" as AdminApp
+actor Admin
+
+== Notification Creation ==
+
+SysEvent -> Dispatcher : Event: order_placed\n{ orderId, customerId }
+Dispatcher -> Dispatcher : Build notification payload
+Dispatcher -> NotifAPI : POST /api/notifications\n{ recipientId: adminId,\ntype: 'order',\nmessage: 'New order #1042 placed' }
+NotifAPI -> NotifSvc : Create notification
+NotifSvc -> DB : INSERT INTO notifications\n(recipientId, type, message, read=false)
+DB --> NotifSvc : notification record
+NotifSvc --> NotifAPI : created notification
+NotifAPI --> Dispatcher : 201 Created
+
+== Notification Retrieval ==
+
+Admin -> AdminApp : Open notifications page
+AdminApp -> NotifAPI : GET /api/notifications\n?recipientId={adminId}
+NotifAPI -> NotifSvc : Fetch by recipientId
+NotifSvc -> DB : SELECT * FROM notifications\nWHERE recipient_id=?\nORDER BY created_at DESC
+DB --> NotifSvc : notification list
+NotifSvc --> NotifAPI : notifications[]
+NotifAPI --> AdminApp : 200 OK — notification list
+AdminApp --> Admin : Display unread notifications
+
+== Mark as Read ==
+
+Admin -> AdminApp : Click notification
+AdminApp -> NotifAPI : PUT /api/notifications/{id}\n{ read: true }
+NotifAPI -> NotifSvc : Update read status
+NotifSvc -> DB : UPDATE notifications\nSET read=true WHERE id=?
+DB --> NotifSvc : updated
+NotifSvc --> NotifAPI : updated notification
+NotifAPI --> AdminApp : 200 OK
+AdminApp --> Admin : Notification marked as read
+
+@enduml

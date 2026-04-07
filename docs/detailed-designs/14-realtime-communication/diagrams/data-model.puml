@@ -1,0 +1,57 @@
+@startuml data-model
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+
+title Real-Time Communication — Data Model (scheduling schema)
+
+package "scheduling" {
+    class employees {
+        + id : uuid <<PK>>
+        --
+        userId : uuid
+        name : varchar(255) <<NOT NULL>>
+        role : varchar(100)
+        department : varchar(100)
+        timezone : varchar(100) = 'UTC'
+        presence : varchar(50) = 'offline'
+        avatarUrl : varchar(500)
+    }
+
+    class channels {
+        + id : uuid <<PK>>
+        --
+        name : varchar(255) <<NOT NULL>>
+        type : varchar(50) = 'public'
+        createdBy : uuid <<FK>>
+        createdAt : timestamp <<NOT NULL>>
+    }
+
+    class channel_messages {
+        + id : uuid <<PK>>
+        --
+        channelId : uuid <<FK, NOT NULL>>
+        senderId : uuid <<FK, NOT NULL>>
+        content : text <<NOT NULL>>
+        attachments : text {JSON array of file IDs}
+        createdAt : timestamp <<NOT NULL>>
+    }
+
+    class files {
+        + id : uuid <<PK>>
+        --
+        filename : varchar(255) <<NOT NULL>>
+        url : varchar(500) <<NOT NULL>>
+        contentType : varchar(100)
+        uploadedBy : uuid <<FK>>
+        createdAt : timestamp <<NOT NULL>>
+    }
+}
+
+channels "1" --> "0..*" channel_messages : has messages
+employees "1" --> "0..*" channel_messages : sends
+employees "1" --> "0..*" files : uploads
+channel_messages "0..*" ..> "0..*" files : attachments\n(JSON array of file IDs)
+
+@enduml

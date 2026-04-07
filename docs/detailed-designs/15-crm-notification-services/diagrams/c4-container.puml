@@ -1,0 +1,26 @@
+@startuml c4-container
+!theme plain
+!include <C4/C4_Container>
+
+title CRM & Notification Services — Container Diagram
+
+Person(admin, "Admin User", "Manages CRM records and reads notifications")
+
+System_Boundary(platform, "CrownCommerce Platform") {
+    Container(adminapp, "Admin Dashboard", "Next.js 15, React", "Admin UI for CRM management and notification center")
+    Container(crmapi, "CRM API", "Next.js API Routes, TypeScript", "REST endpoints for customer and lead CRUD operations")
+    Container(notifapi, "Notification API", "Next.js API Routes, TypeScript", "REST endpoints for notification creation and retrieval")
+    ContainerDb(crmdb, "crm Schema", "PostgreSQL / Drizzle ORM", "Stores customers and leads tables")
+    ContainerDb(notifdb, "notifications Schema", "PostgreSQL / Drizzle ORM", "Stores notifications table")
+}
+
+System_Ext(resend, "Resend", "Email delivery service")
+
+Rel(admin, adminapp, "Uses", "HTTPS")
+Rel(adminapp, crmapi, "Calls", "JSON / HTTPS")
+Rel(adminapp, notifapi, "Calls", "JSON / HTTPS")
+Rel(crmapi, crmdb, "Reads / Writes", "SQL")
+Rel(notifapi, notifdb, "Reads / Writes", "SQL")
+Rel(notifapi, resend, "Dispatches email\nnotifications", "HTTPS")
+
+@enduml

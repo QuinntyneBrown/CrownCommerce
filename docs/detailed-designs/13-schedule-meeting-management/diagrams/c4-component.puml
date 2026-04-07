@@ -1,0 +1,43 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Schedule & Meeting Management — Component Diagram
+
+Person(admin, "Admin User", "Platform administrator")
+
+Container_Boundary(scheduling, "Scheduling Module") {
+    Component(calendarPage, "ScheduleCalendarPage", "React Server + Client Component", "Month calendar grid with\nevent overlays, employee\nfilter, and detail side panel.")
+
+    Component(meetingPage, "MeetingFormPage", "React Client Component", "Meeting booking form with\nvalidation, email toggle,\nand .ics download.")
+
+    Component(meetingsApi, "MeetingsAPI", "Next.js Route Handler", "GET/POST /api/scheduling/meetings\nGET/PATCH/DELETE .../[id]")
+
+    Component(employeesApi, "EmployeesAPI", "Next.js Route Handler", "GET /api/scheduling/employees")
+
+    Component(meetingService, "MeetingService", "TypeScript Service", "Meeting CRUD logic,\nvalidation, attendee\nmanagement.")
+
+    Component(icsGenerator, "IcsGenerator", "TypeScript Utility", "Generates RFC 5545\niCalendar (.ics) files.")
+
+    Component(emailService, "EmailService", "TypeScript Service", "Composes and sends\nmeeting invitation emails.")
+
+    Component(drizzle, "DrizzleORM Layer", "Drizzle ORM", "Schema definitions and\nqueries for scheduling.*\ntables.")
+}
+
+SystemDb_Ext(postgres, "PostgreSQL", "scheduling schema")
+System_Ext(resend, "Resend", "Email delivery")
+
+Rel(admin, calendarPage, "Views schedule")
+Rel(admin, meetingPage, "Creates meetings")
+Rel(calendarPage, meetingsApi, "Fetches meetings")
+Rel(calendarPage, employeesApi, "Fetches employee list")
+Rel(meetingPage, meetingsApi, "Submits meeting")
+Rel(meetingPage, employeesApi, "Fetches employees\nfor attendee picker")
+Rel(meetingsApi, meetingService, "Delegates logic")
+Rel(meetingService, drizzle, "Data access")
+Rel(meetingService, emailService, "Triggers notifications")
+Rel(meetingService, icsGenerator, "Generates .ics")
+Rel(emailService, resend, "Sends emails", "HTTPS")
+Rel(drizzle, postgres, "SQL queries", "TCP")
+
+@enduml

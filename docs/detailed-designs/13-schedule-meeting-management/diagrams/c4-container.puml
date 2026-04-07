@@ -1,0 +1,27 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Schedule & Meeting Management — Container Diagram
+
+Person(admin, "Admin User", "Platform administrator")
+
+System_Boundary(crowncommerce, "CrownCommerce Platform") {
+    Container(webapp, "Admin UI", "Next.js 15 App Router,\nReact, TypeScript", "Schedule calendar page\nand meeting form page\nin (admin) route group.")
+
+    Container(api, "Scheduling API", "Next.js Route Handlers,\nTypeScript", "REST endpoints for\nmeetings and employees\nunder /api/scheduling/*.")
+
+    Container(services, "Scheduling Services", "TypeScript", "MeetingService, IcsGenerator,\nEmailService — core business\nlogic and integrations.")
+}
+
+SystemDb_Ext(postgres, "PostgreSQL", "scheduling schema:\nmeetings, meeting_attendees,\nemployees tables.")
+
+System_Ext(resend, "Resend", "Email delivery API")
+
+Rel(admin, webapp, "Views calendar,\ncreates meetings", "HTTPS")
+Rel(webapp, api, "Fetches/submits\nscheduling data", "HTTP/JSON")
+Rel(api, services, "Delegates business logic")
+Rel(services, postgres, "Reads/writes via\nDrizzle ORM", "TCP/SQL")
+Rel(services, resend, "Sends invitation\nemails", "HTTPS/API")
+
+@enduml

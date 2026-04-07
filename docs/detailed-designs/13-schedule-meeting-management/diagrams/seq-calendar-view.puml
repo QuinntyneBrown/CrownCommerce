@@ -1,0 +1,47 @@
+@startuml seq_calendar_view
+!theme plain
+
+title Calendar Month View Loading (L2-031)
+
+actor "Admin" as admin
+participant "ScheduleCalendarPage" as page
+participant "MeetingsAPI" as api
+participant "MeetingService" as service
+database "PostgreSQL\nscheduling.*" as db
+
+admin -> page : Navigate to /admin/schedule\n(?month=2025-03&employeeId=...)
+
+activate page
+page -> api : GET /api/scheduling/meetings\n?from=2025-03-01&to=2025-03-31\n&employeeId=...
+activate api
+
+api -> api : Verify JWT + admin role
+
+api -> service : getMeetings(dateRange, employeeId?)
+activate service
+
+service -> db : SELECT meetings\nJOIN meeting_attendees\nJOIN employees\nWHERE date BETWEEN from AND to
+activate db
+db --> service : Meeting rows with attendees
+deactivate db
+
+service --> api : Meeting[]
+deactivate service
+
+api --> page : 200 OK — JSON meeting list
+deactivate api
+
+page -> page : Render calendar grid\nwith event overlays
+
+page --> admin : Display month calendar
+deactivate page
+
+== Event Detail Interaction ==
+
+admin -> page : Click event tile
+activate page
+page -> page : Open detail side panel\n(title, time, location,\norganizer, attendees + RSVP)
+page --> admin : Display meeting details
+deactivate page
+
+@enduml

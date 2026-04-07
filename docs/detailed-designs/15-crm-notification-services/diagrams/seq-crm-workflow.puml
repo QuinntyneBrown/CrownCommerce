@@ -1,0 +1,39 @@
+@startuml seq-crm-workflow
+!theme plain
+skinparam sequenceMessageAlign center
+
+title CRM Customer Lifecycle — Create, Tier Progression, Notification
+
+actor Admin
+participant "Admin Dashboard" as AdminApp
+participant "CustomersAPI\n/api/crm/customers" as CustAPI
+participant "CustomerService" as CustSvc
+database "PostgreSQL\ncrm.customers" as DB
+participant "NotificationDispatcher" as Dispatcher
+participant "NotificationsAPI\n/api/notifications" as NotifAPI
+
+== Customer Creation ==
+
+Admin -> AdminApp : Fill customer form
+AdminApp -> CustAPI : POST /api/crm/customers\n{ name, email }
+CustAPI -> CustSvc : validate and create
+CustSvc -> DB : INSERT INTO crm.customers\n(status='active', tier='standard', order_count=0)
+DB --> CustSvc : customer record
+CustSvc --> CustAPI : created customer
+CustAPI --> AdminApp : 201 Created
+AdminApp --> Admin : Show success
+
+== Order Event — Tier Recalculation ==
+
+[-> CustSvc : Order completed event\n(customerId, newOrderCount)
+CustSvc -> DB : SELECT tier, order_count\nFROM crm.customers WHERE id=?
+DB --> CustSvc : current tier='silver',\norder_count=14
+CustSvc -> CustSvc : Calculate new tier:\norder_count 15 → 'gold'
+CustSvc -> DB : UPDATE crm.customers\nSET tier='gold', order_count=15
+DB --> CustSvc : updated
+
+CustSvc -> Dispatcher : Tier changed: silver → gold
+Dispatcher -> NotifAPI : POST /api/notifications\n{ recipientId: adminId,\ntype: 'crm',\nmessage: 'Customer upgraded to Gold' }
+NotifAPI --> Dispatcher : 201 Created
+
+@enduml

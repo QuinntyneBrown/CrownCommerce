@@ -1,0 +1,34 @@
+@startuml c4-component
+!theme plain
+!include <C4/C4_Component>
+
+title Real-Time Communication — C4 Component Diagram
+
+System_Boundary(realtime, "Real-Time Communication Module") {
+    Component(hub, "RealtimeHub", "lib/realtime/hub.ts", "Bootstraps ws server, authenticates JWT on upgrade, manages connection pool")
+    Component(channelMgr, "ChannelManager", "lib/realtime/channel-manager.ts", "Maintains channel → connection subscriptions, validates membership")
+    Component(presence, "PresenceTracker", "lib/realtime/presence-tracker.ts", "Tracks and broadcasts employee presence (online/away/offline)")
+    Component(typing, "TypingIndicatorService", "lib/realtime/typing-indicator.ts", "Relays typing:start/stop events to channel members with auto-expire")
+    Component(broadcaster, "MessageBroadcaster", "lib/realtime/message-broadcaster.ts", "Fans out message:new events to channel subscribers")
+    Component(filesApi, "FileUploadHandler", "app/api/scheduling/files/route.ts", "REST endpoint for presigned URL generation and file metadata")
+    Component(messagesApi, "ChannelMessagesAPI", "app/api/scheduling/channels/[id]/messages/route.ts", "REST endpoint for message persistence and retrieval")
+    Component(s3Adapter, "S3StorageAdapter", "lib/storage/s3-adapter.ts", "Generates presigned PUT/GET URLs for S3-compatible storage")
+}
+
+ContainerDb(db, "PostgreSQL", "scheduling schema")
+System_Ext(s3, "S3-Compatible Storage", "Object store")
+
+Rel(hub, channelMgr, "Delegates channel:join / channel:leave")
+Rel(hub, presence, "Delegates presence updates on connect/disconnect")
+Rel(hub, typing, "Delegates typing events")
+Rel(typing, channelMgr, "Resolves channel members")
+Rel(broadcaster, channelMgr, "Resolves channel members")
+Rel(messagesApi, broadcaster, "Triggers broadcast after persist")
+Rel(filesApi, s3Adapter, "Requests presigned URLs")
+Rel(channelMgr, db, "Validates channel membership", "SQL")
+Rel(presence, db, "Updates employees.presence", "SQL")
+Rel(messagesApi, db, "Reads/writes channel_messages", "SQL")
+Rel(filesApi, db, "Reads/writes files", "SQL")
+Rel(s3Adapter, s3, "Signs URLs", "S3 API")
+
+@enduml

@@ -1,0 +1,70 @@
+@startuml seq-file-upload
+!theme plain
+
+skinparam sequenceMessageAlign center
+
+title File Upload with Presigned URLs (L2-052)
+
+actor "Team Member" as user
+participant "Browser" as browser
+participant "FilesAPI\n/api/scheduling/files" as filesApi
+participant "S3StorageAdapter" as s3Adapter
+participant "S3-Compatible\nStorage" as s3
+database "PostgreSQL\nscheduling.*" as db
+participant "ChannelMessagesAPI\n/api/scheduling/\nchannels/[id]/messages" as messagesApi
+participant "MessageBroadcaster" as broadcaster
+
+== Request Presigned Upload URL ==
+
+user -> browser : Selects file to attach
+browser -> filesApi : POST /api/scheduling/files\n{ filename, contentType }
+activate filesApi
+
+filesApi -> filesApi : Validate content type\n& size limit (25 MB)
+alt Invalid file type or size
+    filesApi --> browser : 400 { error: "Unsupported content type" }
+else Valid
+    filesApi -> s3Adapter : generatePresignedPutUrl(\n  key, contentType, 900s)
+    activate s3Adapter
+    s3Adapter -> s3 : Create presigned PUT URL
+    s3 --> s3Adapter : presigned URL
+    s3Adapter --> filesApi : presigned URL
+    deactivate s3Adapter
+
+    filesApi -> db : INSERT INTO scheduling.files\n(id, filename, url, content_type,\n uploaded_by, created_at)
+    db --> filesApi : file record created
+
+    filesApi --> browser : 201 { id, presignedUrl, expiresIn: 900 }
+end
+deactivate filesApi
+
+== Upload File to S3 ==
+
+browser -> s3 : PUT presigned URL\n(file binary payload)
+activate s3
+s3 --> browser : 200 OK
+deactivate s3
+
+== Send Message with Attachment ==
+
+user -> browser : Types message, clicks Send
+browser -> messagesApi : POST /api/scheduling/\nchannels/[id]/messages\n{ content, attachments: [fileId] }
+activate messagesApi
+
+messagesApi -> db : INSERT INTO\nscheduling.channel_messages\n(id, channelId, senderId,\n content, attachments, createdAt)
+db --> messagesApi : message persisted
+
+messagesApi -> broadcaster : broadcastMessage(\n  channelId, message)
+activate broadcaster
+broadcaster -> broadcaster : Fan out message:new\nto channel subscribers
+broadcaster --> messagesApi : broadcast complete
+deactivate broadcaster
+
+messagesApi --> browser : 201 { id, channelId,\nsenderId, content,\nattachments, createdAt }
+deactivate messagesApi
+
+== Recipients Render Attachment ==
+
+note over browser : Image attachments → inline preview\nOther types → download link\n(presigned GET URL on demand)
+
+@enduml

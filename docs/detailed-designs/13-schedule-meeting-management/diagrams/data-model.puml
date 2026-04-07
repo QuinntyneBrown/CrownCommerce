@@ -1,0 +1,55 @@
+@startuml data_model
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+
+title Schedule & Meeting Management — Domain Model (scheduling.*)
+
+class "scheduling.meetings" as meetings {
+    +id : uuid <<PK>>
+    +title : varchar(255)
+    +description : text
+    +date : date
+    +startTime : time
+    +endTime : time
+    +location : varchar(255)
+    +organizerId : uuid <<FK>>
+    +createdAt : timestamp
+    +updatedAt : timestamp
+}
+
+note right of meetings::endTime
+  Constraint: endTime > startTime
+end note
+
+class "scheduling.meeting_attendees" as attendees {
+    +id : uuid <<PK>>
+    +meetingId : uuid <<FK>>
+    +employeeId : uuid <<FK>>
+    +rsvpStatus : varchar(20)
+}
+
+note right of attendees::rsvpStatus
+  "pending" | "accepted" | "declined"
+end note
+
+class "scheduling.employees" as employees {
+    +id : uuid <<PK>>
+    +userId : uuid <<FK>>
+    +name : varchar(255)
+    +role : varchar(100)
+    +department : varchar(100)
+    +timezone : varchar(50)
+    +presence : varchar(20)
+    +avatarUrl : text
+}
+
+note right of employees::presence
+  "online" | "away" | "offline"
+end note
+
+meetings "1" -- "*" attendees : has attendees >
+employees "1" -- "*" attendees : attends meetings >
+employees "1" -- "*" meetings : organizes >
+
+@enduml

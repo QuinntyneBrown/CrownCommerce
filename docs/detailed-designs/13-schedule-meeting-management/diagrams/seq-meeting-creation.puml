@@ -1,0 +1,71 @@
+@startuml seq_meeting_creation
+!theme plain
+
+title Meeting Creation with Email Notification (L2-032)
+
+actor "Admin" as admin
+participant "MeetingFormPage" as form
+participant "MeetingsAPI" as api
+participant "MeetingService" as service
+database "PostgreSQL\nscheduling.*" as db
+participant "EmailService" as email
+participant "Resend" as resend
+participant "IcsGenerator" as ics
+
+admin -> form : Fill meeting form\n(title, date, times, location,\norganizer, attendees)
+admin -> form : Check "Send email notification"\nCheck "Download .ics"
+
+form -> form : Client-side validation\n(required fields, endTime > startTime)
+
+form -> api : POST /api/scheduling/meetings\n{title, date, startTime, endTime,\nlocation, organizerId, attendeeIds,\nsendEmail: true, downloadIcs: true}
+activate api
+
+api -> api : Verify JWT + admin role
+
+api -> service : createMeeting(payload)
+activate service
+
+service -> service : Server-side validation\n(endTime > startTime,\nvalid employee UUIDs)
+
+service -> db : BEGIN TRANSACTION
+activate db
+service -> db : INSERT INTO scheduling.meetings
+db --> service : meeting record
+service -> db : INSERT INTO scheduling.meeting_attendees\n(one row per attendee, rsvpStatus='pending')
+db --> service : attendee records
+service -> db : COMMIT
+deactivate db
+
+opt sendEmail = true
+    service -> ics : generateIcs(meeting)
+    activate ics
+    ics --> service : .ics file content
+    deactivate ics
+
+    service -> email : sendInvitations(meeting, attendees, icsContent)
+    activate email
+
+    loop for each attendee
+        email -> resend : POST /emails\n(to, subject, html, .ics attachment)
+        activate resend
+        resend --> email : 200 OK — sent
+        deactivate resend
+    end
+
+    email --> service : emailsSent count
+    deactivate email
+end
+
+service --> api : { meeting, emailsSent }
+deactivate service
+
+api --> form : 201 Created — meeting JSON
+deactivate api
+
+opt downloadIcs = true
+    form -> form : Generate .ics blob\nand trigger browser download
+end
+
+form --> admin : Success confirmation\n+ .ics file download
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml c4-component
+!theme plain
+!include <C4/C4_Component>
+
+title CRM & Notification Services — Component Diagram
+
+Container_Boundary(crmmodule, "CRM Module") {
+    Component(custapi, "CustomersAPI", "Next.js Route Handler", "GET/POST /api/crm/customers\nGET/PUT /api/crm/customers/[id]")
+    Component(leadapi, "LeadsAPI", "Next.js Route Handler", "GET/POST /api/crm/leads\nGET/PUT/DELETE /api/crm/leads/[id]")
+    Component(custsvc, "CustomerService", "TypeScript", "Customer validation, tier calculation, CRUD orchestration")
+    Component(leadsvc, "LeadService", "TypeScript", "Lead pipeline management, status transitions, CRUD orchestration")
+}
+
+Container_Boundary(notifmodule, "Notification Module") {
+    Component(notifapi, "NotificationsAPI", "Next.js Route Handler", "GET/POST /api/notifications\nPUT /api/notifications/[id]")
+    Component(notifsvc, "NotificationService", "TypeScript", "Notification creation, recipient filtering, read-state management")
+    Component(dispatcher, "NotificationDispatcher", "TypeScript", "Listens for system events and creates notification records")
+}
+
+Component(drizzle, "Drizzle ORM", "TypeScript ORM", "Database access layer for crm.* and notifications.* schemas")
+
+Rel(custapi, custsvc, "Delegates to")
+Rel(leadapi, leadsvc, "Delegates to")
+Rel(notifapi, notifsvc, "Delegates to")
+Rel(custsvc, drizzle, "Queries / Mutates")
+Rel(leadsvc, drizzle, "Queries / Mutates")
+Rel(notifsvc, drizzle, "Queries / Mutates")
+Rel(custsvc, dispatcher, "Emits tier-change events")
+Rel(leadsvc, dispatcher, "Emits lead-status events")
+Rel(dispatcher, notifsvc, "Creates notifications")
+
+@enduml

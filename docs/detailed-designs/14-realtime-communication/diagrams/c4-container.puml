@@ -1,0 +1,27 @@
+@startuml c4-container
+!theme plain
+!include <C4/C4_Container>
+
+title Real-Time Communication — C4 Container Diagram
+
+Person(teamMember, "Team Member", "Authenticated employee")
+
+System_Boundary(platform, "CrownCommerce Platform") {
+    Container(spa, "Next.js App", "React / TypeScript", "Teams SPA at /teams/* providing chat UI, file previews, and presence indicators")
+    Container(wsServer, "WebSocket Server", "Node.js / ws", "Handles real-time connections, channel subscriptions, presence, and typing broadcasts")
+    Container(schedulingApi, "Scheduling API", "Next.js API Routes", "REST endpoints for messages, files, and channel management")
+    ContainerDb(db, "PostgreSQL", "scheduling schema", "Stores channels, channel_messages, files, employees")
+}
+
+System_Ext(s3, "S3-Compatible Storage", "Object store for uploaded files")
+
+Rel(teamMember, spa, "Interacts with chat UI", "HTTPS")
+Rel(spa, wsServer, "Connects for real-time events", "WebSocket (WSS)")
+Rel(spa, schedulingApi, "Sends messages, uploads files", "HTTPS / JSON")
+Rel(spa, s3, "Uploads files via presigned PUT URL", "HTTPS")
+Rel(wsServer, db, "Validates channel membership, updates presence", "SQL")
+Rel(schedulingApi, db, "Persists messages and file metadata", "SQL")
+Rel(schedulingApi, s3, "Generates presigned URLs", "S3 API")
+Rel(schedulingApi, wsServer, "Triggers message broadcast after persist", "In-process call")
+
+@enduml

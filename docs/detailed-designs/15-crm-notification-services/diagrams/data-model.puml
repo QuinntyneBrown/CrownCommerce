@@ -1,0 +1,93 @@
+@startuml data-model
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+
+title CRM & Notification Services — Data Model
+
+package "crm schema" {
+    enum CustomerStatus {
+        active
+        inactive
+        churned
+    }
+
+    enum CustomerTier {
+        standard
+        bronze
+        silver
+        gold
+        platinum
+    }
+
+    enum LeadStatus {
+        new
+        contacted
+        qualified
+        proposal
+        negotiation
+        won
+        lost
+    }
+
+    class "crm.customers" as customers {
+        +id : UUID <<PK>>
+        +name : VARCHAR(255)
+        +email : VARCHAR(255)
+        +status : VARCHAR(50) = 'active'
+        +tier : VARCHAR(50) = 'standard'
+        +order_count : INTEGER = 0
+    }
+
+    class "crm.leads" as leads {
+        +id : UUID <<PK>>
+        +name : VARCHAR(255)
+        +email : VARCHAR(255)
+        +phone : VARCHAR(50)
+        +source : VARCHAR(100)
+        +status : VARCHAR(50) = 'new'
+        +notes : TEXT
+        +created_at : TIMESTAMP
+    }
+
+    customers .. CustomerStatus : status ∈
+    customers .. CustomerTier : tier ∈
+    leads .. LeadStatus : status ∈
+}
+
+package "notifications schema" {
+    enum NotificationType {
+        order
+        crm
+        meeting
+        system
+        lead
+    }
+
+    class "notifications.notifications" as notifications {
+        +id : UUID <<PK>>
+        +recipient_id : UUID
+        +type : VARCHAR(100)
+        +message : TEXT
+        +read : BOOLEAN = false
+        +created_at : TIMESTAMP
+    }
+
+    notifications .. NotificationType : type ∈
+}
+
+customers "1" -[hidden]- leads
+notifications -[hidden]- leads
+
+note bottom of customers
+  Tier is recalculated when
+  order_count crosses thresholds:
+  bronze=1, silver=5, gold=15, platinum=30
+end note
+
+note bottom of leads
+  Leads with status 'won'
+  are converted to customers
+end note
+
+@enduml

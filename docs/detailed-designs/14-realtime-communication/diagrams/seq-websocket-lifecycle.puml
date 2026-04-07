@@ -1,0 +1,79 @@
+@startuml seq-websocket-lifecycle
+!theme plain
+
+skinparam sequenceMessageAlign center
+
+title WebSocket Connection Lifecycle (L2-051)
+
+actor "Team Member" as user
+participant "Browser" as browser
+participant "RealtimeHub\n(ws server)" as hub
+participant "ChannelManager" as channelMgr
+participant "PresenceTracker" as presence
+database "PostgreSQL\nscheduling.*" as db
+
+== Connect & Authenticate ==
+
+user -> browser : Opens Teams chat
+browser -> hub : WebSocket upgrade\n?token=<JWT>
+activate hub
+hub -> hub : Verify JWT via jose
+alt Invalid token
+    hub --> browser : HTTP 401 Unauthorized
+else Valid token
+    hub --> browser : HTTP 101 Switching Protocols
+    hub -> hub : Add to connection pool\n(employeeId → ws)
+end
+deactivate hub
+
+== Join Channel ==
+
+browser -> hub : { action: "channel:join",\n  channelId: "uuid" }
+activate hub
+hub -> channelMgr : join(channelId, ws)
+activate channelMgr
+channelMgr -> db : SELECT membership\nFROM channels WHERE id = ?
+db --> channelMgr : membership confirmed
+channelMgr -> channelMgr : Add ws to channel set
+channelMgr --> hub : joined
+deactivate channelMgr
+deactivate hub
+
+== Presence Update ==
+
+hub -> presence : setPresence(employeeId, "online")
+activate presence
+presence -> db : UPDATE employees\nSET presence = 'online'
+presence -> hub : broadcast to all
+hub -> browser : { type: "presence:update",\n  employeeId, status: "online" }
+deactivate presence
+
+== Typing Indicator ==
+
+user -> browser : Starts typing
+browser -> hub : { action: "typing:start",\n  channelId: "uuid" }
+hub -> channelMgr : getMembers(channelId)
+channelMgr --> hub : [ws1, ws2, ...]
+hub -> browser : { type: "typing:start",\n  channelId, employeeId }
+note right : Broadcast to other\nchannel members only
+
+== Receive Message ==
+
+hub -> browser : { type: "message:new",\n  channelId, message: {...} }
+note right : Triggered by\nMessageBroadcaster\nafter REST persist
+
+== Disconnect ==
+
+user -> browser : Closes tab / navigates away
+browser ->x hub : Connection closed
+activate hub
+hub -> channelMgr : removeFromAll(ws)
+hub -> presence : setPresence(employeeId, "offline")
+activate presence
+presence -> db : UPDATE employees\nSET presence = 'offline'
+presence -> hub : broadcast to all
+hub -> browser : { type: "presence:update",\n  employeeId, status: "offline" }
+deactivate presence
+deactivate hub
+
+@enduml
