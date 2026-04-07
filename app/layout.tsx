@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { fraunces, dmSans } from "@/lib/theme/fonts";
 import { getBrand } from "@/lib/theme";
 import "./globals.css";
 
@@ -16,8 +15,14 @@ export default async function RootLayout({
   const brand = await getBrand();
 
   return (
-    <html lang="en" className={`${fraunces.variable} ${dmSans.variable}`}>
-      <body data-brand={brand.id === "mane-haus" ? "mane-haus" : undefined}>
+    <html lang="en">
+      <body
+        data-brand={brand.id === "mane-haus" ? "mane-haus" : undefined}
+        style={{
+          fontFamily:
+            "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+        }}
+      >
         {children}
       </body>
     </html>

@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors - Origin Hair Collective (Dark Luxury) - Default */
+  --color-background: #1A1A1C;
+  --color-foreground: #FAFAF9;
+  --color-accent: #C9A962;
+  --color-accent-foreground: #1A1A1C;
+  --color-muted: #2A2A2E;
+  --color-muted-foreground: #A1A1AA;
+  --color-card: #232326;
+  --color-card-foreground: #FAFAF9;
+  --color-border: #3A3A3E;
+  --color-input: #2A2A2E;
+  --color-ring: #C9A962;
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FAFAF9;
+
+  /* Fonts */
+  --font-heading: "Fraunces", serif;
+  --font-body: "DM Sans", sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+/* Mane Haus (Warm Luxury) theme override */
+[data-brand="mane-haus"] {
+  --color-background: #FAF7F2;
+  --color-foreground: #1C1917;
+  --color-accent: #B8860B;
+  --color-accent-foreground: #FAF7F2;
+  --color-muted: #F5F0E8;
+  --color-muted-foreground: #78716C;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #1C1917;
+  --color-border: #E7E0D5;
+  --color-input: #F5F0E8;
+  --color-ring: #B8860B;
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FAFAF9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
