@@ -1,0 +1,32 @@
+@startuml
+!theme plain
+!include <C4/C4_Component>
+
+title E2E Test Suite — C4 Component Diagram
+
+Container_Boundary(fixtures, "e2e/fixtures/index.ts") {
+    Component(baseTest, "base test", "@playwright/test", "Playwright base test\nwith page, context, browser")
+    Component(customTest, "test (extended)", "test.extend()", "Custom test with\nproject-specific fixtures")
+    Component(adminFixture, "adminPage Fixture", "Fixture", "Pre-authenticated admin\nsession via login flow")
+    Component(mockFixture, "mockAPI Fixture", "Fixture", "API route interception\nhelper with typed mocks")
+    Component(viewportFixture, "Viewport Fixtures", "Fixture", "mobile: 375px\ntablet: 768px\ndesktop: 1280px")
+}
+
+Container_Boundary(specFiles, "Spec Files") {
+    Component(homeSpec, "home.spec.ts", "Storefront", "Hero, trust bar,\nfeatured products")
+    Component(shopSpec, "shop.spec.ts", "Storefront", "Product grid,\nfilters, sorting")
+    Component(adminSpec, "dashboard.spec.ts", "Admin", "Stats, charts,\nrecent activity")
+    Component(chatSpec, "chat.spec.ts", "Teams", "Messaging, channels,\nreal-time updates")
+}
+
+Rel(baseTest, customTest, "Extended by")
+Rel(customTest, adminFixture, "Provides")
+Rel(customTest, mockFixture, "Provides")
+Rel(customTest, viewportFixture, "Provides")
+Rel(homeSpec, customTest, "Imports test, expect")
+Rel(shopSpec, customTest, "Imports test, expect")
+Rel(adminSpec, adminFixture, "Uses adminPage")
+Rel(chatSpec, customTest, "Imports test, expect")
+Rel(shopSpec, mockFixture, "Uses mockAPI")
+
+@enduml

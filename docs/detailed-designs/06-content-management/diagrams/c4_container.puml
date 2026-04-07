@@ -1,0 +1,27 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Content Management System — Container Diagram
+caption Shows how CMS components are distributed across Next.js containers
+
+Person(visitor, "Visitor", "Views storefront content")
+Person(admin, "Admin", "Manages content types")
+
+System_Boundary(crown, "CrownCommerce Platform") {
+    Container(storefront, "Storefront Pages", "Next.js Server Components", "Renders /[slug], /faq, testimonials, gallery via (storefront) route group")
+    Container(adminui, "Admin Pages", "Next.js Client Components", "CRUD interfaces at /admin/* for 6 content types via (admin) route group")
+    Container(api, "Content API Routes", "Next.js Route Handlers", "REST endpoints at /api/content/* for pages, faqs, testimonials, gallery, hero, trust-bar")
+    Container(drizzle, "Drizzle ORM Layer", "TypeScript / drizzle-orm", "Schema definitions in lib/db/schema/content.ts with pgSchema('content')")
+}
+
+ContainerDb(pg, "PostgreSQL", "PostgreSQL 16", "content schema: pages, faqs, testimonials, gallery_images, hero_content, trust_bar_items")
+
+Rel(visitor, storefront, "Browses", "HTTPS")
+Rel(admin, adminui, "Manages content", "HTTPS")
+Rel(storefront, api, "Fetches content", "Internal fetch / JSON")
+Rel(adminui, api, "CRUD operations", "fetch via lib/api/content.ts")
+Rel(api, drizzle, "Queries & mutations", "TypeScript calls")
+Rel(drizzle, pg, "SQL queries", "node-postgres")
+
+@enduml

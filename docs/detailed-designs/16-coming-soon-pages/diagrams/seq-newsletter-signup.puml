@@ -1,0 +1,33 @@
+@startuml
+!theme plain
+
+title Coming Soon — Newsletter Signup Sequence
+
+actor Visitor as visitor
+participant "ComingSoonPage" as page
+participant "EmailSignup" as signup <<Client Component>>
+participant "Newsletter API\nPOST /api/newsletter/subscribers" as api
+database "PostgreSQL\nnewsletter.subscribers" as db
+
+visitor -> page : Visits /origin or /mane-haus
+page -> signup : Renders with brandTag
+
+visitor -> signup : Enters email, clicks "Notify Me"
+activate signup
+signup -> signup : setState("loading")
+signup -> api : POST { email, brandTag }
+activate api
+
+api -> db : db.insert(subscribers).values({ email, brandTag })
+activate db
+db --> api : [subscriber row]
+deactivate db
+
+api --> signup : 201 { id, email, brandTag, status: "pending" }
+deactivate api
+
+signup -> signup : setState("success")
+signup --> visitor : "Thank you for subscribing!"
+deactivate signup
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Team Collaboration Platform - Container Diagram
+
+Person(user, "Team Member / Admin", "Authenticated internal user")
+
+System_Boundary(crown, "CrownCommerce Platform") {
+    Container(browser, "Browser SPA", "React / Next.js CSR", "Chat UI, presence manager,\nmeeting forms, directory cards")
+
+    Container(nextServer, "Next.js Server", "Node.js / App Router", "SSR pages, API routes\nunder /api/scheduling/*.\nAuth guards in layout.")
+
+    Container(identityApi, "Identity API", "Next.js API Route", "/api/identity/auth\nJWT issuance & validation")
+
+    ContainerDb(pgScheduling, "PostgreSQL", "scheduling schema", "employees, channels,\nchannel_messages, meetings,\nmeeting_attendees, files")
+}
+
+Rel(user, browser, "Interacts", "HTTPS")
+Rel(browser, nextServer, "Fetches pages & API calls", "HTTPS / JSON")
+Rel(browser, identityApi, "Login", "POST /api/identity/auth")
+Rel(nextServer, pgScheduling, "Queries", "Drizzle ORM / SQL")
+Rel(nextServer, identityApi, "Verifies JWT", "jose library")
+
+@enduml

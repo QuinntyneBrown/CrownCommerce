@@ -1,0 +1,34 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Admin Dashboard & Management — Component Diagram
+
+Container_Boundary(admin, "Admin Route Group — app/(admin)/admin/") {
+    Component(layout, "AdminLayout", "RSC, layout.tsx", "Sidebar nav + requireAdmin() guard (L2-062, L2-077)")
+    Component(dashboard, "DashboardPage", "RSC, dashboard/page.tsx", "Metric cards, recent items, greeting (L2-024)")
+    Component(orders, "OrdersPage", "Client Component", "Order data table, status updates (L2-067)")
+    Component(users, "UsersPage", "Client Component", "User list, role update, delete (L2-068)")
+    Component(customers, "CustomersPage", "Client Component", "CRM customer list, tier badges (L2-069)")
+    Component(leads, "LeadsPage", "Client Component", "Lead pipeline, create/update (L2-070)")
+    Component(gallery, "GalleryPage", "Client Component", "Image CRUD grid (L2-072)")
+}
+
+Container_Boundary(api, "API Route Handlers") {
+    Component(apiRoutes, "Domain API Routes", "app/api/*", "REST endpoints per domain schema")
+}
+
+Component(guard, "Auth Guards", "lib/auth/guards.ts", "requireAdmin() → getSession() → JWT verify")
+
+ComponentDb(pg, "PostgreSQL", "7 schemas")
+
+Rel(layout, guard, "Calls requireAdmin()")
+Rel(layout, dashboard, "Renders child pages")
+Rel(orders, apiRoutes, "fetch /api/orders")
+Rel(users, apiRoutes, "fetch /api/identity/users")
+Rel(customers, apiRoutes, "fetch /api/crm/customers")
+Rel(leads, apiRoutes, "fetch /api/crm/leads")
+Rel(gallery, apiRoutes, "fetch /api/content/gallery")
+Rel(apiRoutes, pg, "Drizzle ORM queries")
+
+@enduml

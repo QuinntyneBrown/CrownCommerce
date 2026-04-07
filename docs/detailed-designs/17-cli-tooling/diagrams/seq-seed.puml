@@ -1,0 +1,47 @@
+@startuml
+!theme plain
+
+title CLI — Database Seed Workflow Sequence (L2-050)
+
+actor Developer as dev
+participant "cc/index.ts" as cli
+participant "lib/db/seed/index.ts" as seeder
+participant "lib/db/index.ts" as dbLayer
+database "PostgreSQL" as db
+
+dev -> cli : cc seed
+activate cli
+cli -> seeder : import("../lib/db/seed/index")
+activate seeder
+
+== Catalog Domain ==
+seeder -> dbLayer : db.select().from(origins)
+dbLayer -> db : SELECT count(*) FROM catalog.origins
+db --> dbLayer : count = 0
+dbLayer --> seeder : []
+seeder -> dbLayer : db.insert(origins).values([5 origins])
+dbLayer -> db : INSERT INTO catalog.origins ...
+seeder -> seeder : log "Seeded 5 origins"
+
+seeder -> dbLayer : db.select().from(products)
+dbLayer -> db : SELECT count(*) FROM catalog.products
+db --> dbLayer : count = 0
+seeder -> dbLayer : db.insert(products).values([12 products])
+seeder -> seeder : log "Seeded 12 products"
+
+== Identity Domain ==
+seeder -> dbLayer : db.select().from(users)
+dbLayer -> db : SELECT count(*) FROM identity.users
+db --> dbLayer : count = 5
+seeder -> seeder : log "Skipping users (already seeded)"
+
+== Content & Scheduling Domains ==
+seeder -> seeder : Same check-then-insert pattern\nfor pages, faqs, testimonials,\nemployees, channels, messages, meetings
+
+seeder -> seeder : log "Seeding complete"
+seeder -> cli : process.exit(0)
+deactivate seeder
+cli --> dev : Exit code 0
+deactivate cli
+
+@enduml

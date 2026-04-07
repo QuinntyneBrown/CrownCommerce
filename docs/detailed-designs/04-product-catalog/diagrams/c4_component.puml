@@ -1,0 +1,35 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Product Catalog & Search — Component Diagram [L2-001, L2-002, L2-064, L2-075, L2-076]
+
+Container_Boundary(storefront, "Storefront Pages") {
+    Component(shopPage, "ShopPage", "RSC, app/(storefront)/shop/page.tsx", "Product listing with search, filter, sort, pagination [L2-001]")
+    Component(productDetail, "ProductDetailPage", "RSC, app/(storefront)/product/[id]/page.tsx", "Full product info, reviews, add-to-cart [L2-002]")
+    Component(categoryPages, "CategoryPages", "RSC, app/(storefront)/bundles|closures|frontals/page.tsx", "Category collection pages with hero sections [L2-075]")
+    Component(productGrid, "ProductGrid", "lib/features/product-grid.tsx", "Responsive product grid layout")
+    Component(productCard, "ProductCard", "components/product-card.tsx", "Product thumbnail card with image, price, badges")
+    Component(reviewForm, "ReviewForm", "Client Component (planned)", "Star rating input, author, content fields [L2-064]")
+}
+
+Container_Boundary(api, "Catalog API Routes") {
+    Component(productsApi, "Products API", "app/api/catalog/products/route.ts", "GET (list/search/filter), POST (create) [L2-076]")
+    Component(productByIdApi, "Product By ID API", "app/api/catalog/products/[id]/route.ts", "GET, PUT, DELETE single product [L2-002, L2-003]")
+    Component(reviewsApi, "Reviews API", "app/api/catalog/reviews/route.ts", "GET (by productId), POST (create) [L2-064]")
+}
+
+ContainerDb(db, "PostgreSQL", "catalog schema")
+
+Rel(shopPage, productsApi, "GET /api/catalog/products?filters", "fetch")
+Rel(productDetail, productByIdApi, "GET /api/catalog/products/:id", "fetch")
+Rel(productDetail, reviewsApi, "GET /api/catalog/reviews?productId=", "fetch")
+Rel(categoryPages, productsApi, "GET /api/catalog/products?category=", "fetch")
+Rel(reviewForm, reviewsApi, "POST /api/catalog/reviews", "fetch")
+Rel(shopPage, productGrid, "Renders")
+Rel(productGrid, productCard, "Maps products to cards")
+Rel(productsApi, db, "Drizzle query", "SQL")
+Rel(productByIdApi, db, "Drizzle query", "SQL")
+Rel(reviewsApi, db, "Drizzle query", "SQL")
+
+@enduml

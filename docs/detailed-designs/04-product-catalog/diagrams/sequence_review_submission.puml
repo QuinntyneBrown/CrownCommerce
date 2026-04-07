@@ -1,0 +1,78 @@
+@startuml sequence_review_submission
+!theme plain
+skinparam sequenceMessageAlign center
+skinparam maxMessageSize 200
+
+title Product Review Submission Flow [L2-064]
+
+actor Shopper
+participant "ProductDetailPage\n(app/(storefront)/product/[id]/page.tsx)" as DetailPage
+participant "ReviewForm\n(Client Component)" as ReviewForm
+participant "catalogApi\n(lib/api/catalog.ts)" as Client
+participant "Reviews API\n(app/api/catalog/reviews/route.ts)" as API
+participant "Drizzle ORM" as ORM
+database "PostgreSQL\ncatalog.reviews" as DB
+
+== Load Product Detail with Reviews ==
+
+Shopper -> DetailPage : GET /product/:id
+activate DetailPage
+
+DetailPage -> DetailPage : SSR fetch product data\n(GET /api/catalog/products/:id)
+
+DetailPage -> API : GET /api/catalog/reviews\n?productId=:id
+activate API
+API -> ORM : db.select().from(reviews)\n  .where(eq(reviews.productId, id))
+activate ORM
+ORM -> DB : SELECT * FROM catalog.reviews\nWHERE product_id = $1\nORDER BY created_at DESC
+activate DB
+DB --> ORM : Review[]
+deactivate DB
+ORM --> API : Review[]
+deactivate ORM
+API --> DetailPage : 200 OK [reviews]
+deactivate API
+
+DetailPage --> Shopper : Product detail page with\nreview list and review form
+deactivate DetailPage
+
+== Submit Review ==
+
+Shopper -> ReviewForm : Fill author, select rating (1-5),\nwrite review content
+activate ReviewForm
+
+ReviewForm -> ReviewForm : Client-side validation:\n- author required\n- rating in [1, 5]\n- content optional
+
+ReviewForm -> Client : catalogApi.createReview({\n  productId, author, rating, content\n})
+activate Client
+Client -> API : POST /api/catalog/reviews\n{ productId: ":id",\n  author: "Jane D.",\n  rating: 5,\n  content: "Amazing quality!" }
+activate API
+
+API -> API : Server-side validation:\n- productId exists\n- rating between 1 and 5\n- author non-empty
+
+API -> ORM : db.insert(reviews)\n  .values(body).returning()
+activate ORM
+ORM -> DB : INSERT INTO catalog.reviews\n(product_id, author, rating, content)\nVALUES ($1, $2, $3, $4)\nRETURNING *
+activate DB
+DB --> ORM : new Review row
+deactivate DB
+ORM --> API : Review
+deactivate ORM
+
+API --> Client : 201 Created { review }
+deactivate API
+Client --> ReviewForm : Review
+deactivate Client
+
+ReviewForm --> Shopper : Review added to list,\nform reset,\navg rating updated
+deactivate ReviewForm
+
+== Validation Error ==
+
+Shopper -> ReviewForm : Submit with rating = 0
+activate ReviewForm
+ReviewForm -> ReviewForm : Client validation fails:\n"Rating is required"
+ReviewForm --> Shopper : Error message displayed\n(no API call made)
+deactivate ReviewForm
+
+@enduml

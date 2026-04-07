@@ -1,0 +1,37 @@
+@startuml sequence_meeting_rsvp
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Meeting RSVP Flow [L2-029]
+
+actor "Team Member" as User
+participant "Meetings Page\n/teams/meetings" as MeetUI
+participant "API Client\nlib/api/scheduling.ts" as Client
+participant "Meeting Routes\n/api/scheduling/meetings" as API
+database "PostgreSQL\nscheduling schema" as DB
+
+User -> MeetUI: Navigate to /teams/meetings
+MeetUI -> Client: getMeetings()
+Client -> API: GET /api/scheduling/meetings
+API -> DB: SELECT * FROM meetings\nJOIN meeting_attendees
+DB --> API: meetings with attendees
+API --> Client: 200 JSON
+Client --> MeetUI: Render date-grouped\nmeeting list
+
+User -> MeetUI: View meeting details
+MeetUI -> Client: getMeeting(meetingId)
+Client -> API: GET /api/scheduling/meetings/[id]
+API -> DB: SELECT meeting + attendees\nWHERE id = ?
+DB --> API: meeting detail
+API --> Client: 200 JSON
+Client --> MeetUI: Show title, time, location,\nattendees, RSVP status
+
+User -> MeetUI: Click "Accept" (or "Decline")
+MeetUI -> Client: updateMeeting(meetingId, {\n  rsvpStatus: "accepted" })
+Client -> API: PUT /api/scheduling/meetings/[id]
+API -> DB: UPDATE meeting_attendees\nSET rsvp_status = 'accepted'\nWHERE employee_id = ?
+DB --> API: updated
+API --> Client: 200 OK
+Client --> MeetUI: Refresh RSVP badge
+
+@enduml

@@ -1,0 +1,61 @@
+@startuml class_diagram
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+
+title Customer Account Management — Domain Model
+
+package "identity schema" {
+    class User <<identity.users>> {
+        +id: UUID <<PK>>
+        +name: varchar(255)
+        +email: varchar(255) <<unique>>
+        +passwordHash: text
+        +role: varchar(50) = "customer"
+        +createdAt: timestamp
+    }
+
+    class Session <<identity.sessions>> {
+        +id: UUID <<PK>>
+        +userId: UUID <<FK>>
+        +token: text <<unique>>
+        +expiresAt: timestamp
+    }
+}
+
+package "orders schema" {
+    class Order <<orders.orders>> {
+        +id: UUID <<PK>>
+        +userId: UUID
+        +status: varchar(50) = "pending"
+        +total: decimal(10,2)
+        +shippingAddress: text
+        +createdAt: timestamp
+        +updatedAt: timestamp
+    }
+
+    class OrderItem <<orders.order_items>> {
+        +id: UUID <<PK>>
+        +orderId: UUID <<FK>>
+        +productId: UUID
+        +quantity: integer
+        +unitPrice: decimal(10,2)
+    }
+}
+
+package "auth runtime" <<Frame>> {
+    class SessionPayload <<JWT payload>> {
+        +sub: string
+        +email: string
+        +name: string
+        +role: string
+        +exp: number
+    }
+}
+
+User "1" --> "*" Session : has
+User "1" --> "*" Order : places
+Order "1" --> "*" OrderItem : contains
+User ..> SessionPayload : serialized into JWT
+
+@enduml

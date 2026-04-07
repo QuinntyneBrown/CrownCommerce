@@ -1,0 +1,38 @@
+@startuml sequence_campaign_send
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Campaign Send Flow (L2-071)
+
+actor Admin
+participant "Admin\nCampaigns Page" as UI
+participant "Campaigns API\n/api/newsletter/campaigns" as API
+database "newsletter.*" as DB
+participant "Resend\nBatch API" as Resend
+
+== Create & Schedule ==
+Admin -> UI: Create campaign
+UI -> API: POST { subject, htmlBody,\ntextBody, tag, scheduledAt }
+API -> DB: INSERT campaign (status: "draft")
+DB --> API: Campaign
+API --> UI: 201 Campaign
+
+Admin -> UI: Set schedule or send now
+UI -> API: PUT /campaigns/{id}\n{ status: "sending" }
+
+== Send Execution ==
+API -> DB: SELECT confirmed subscribers\nWHERE brandTag = campaign.tag
+DB --> API: Subscriber list
+API -> DB: INSERT campaign_recipients\n(deliveryStatus: "pending")
+
+loop Batch of 100 recipients
+    API -> Resend: POST /emails/batch\n[{ to, subject, html }]
+    Resend --> API: { id, status } per email
+    API -> DB: UPDATE campaign_recipients\ndeliveryStatus = "sent"
+end
+
+API -> DB: UPDATE campaign\nstatus = "sent", sentAt = now()
+API --> UI: 200 Campaign (sent)
+UI --> Admin: "Campaign sent successfully"
+
+@enduml

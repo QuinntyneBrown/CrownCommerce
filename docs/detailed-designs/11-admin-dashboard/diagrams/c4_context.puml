@@ -1,0 +1,18 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Admin Dashboard & Management — System Context
+
+Person(admin, "Admin User", "Authenticated user with role=admin who manages the CrownCommerce platform")
+
+System(cc, "CrownCommerce Platform", "Next.js 15 App Router application serving storefront, admin, and team portals")
+
+System_Ext(browser, "Web Browser", "Chrome, Firefox, Safari — renders admin SPA pages")
+SystemDb_Ext(pg, "PostgreSQL", "Multi-schema database: catalog, orders, identity, content, newsletter, inquiries, crm")
+
+Rel(admin, browser, "Accesses admin panel", "HTTPS")
+Rel(browser, cc, "Requests admin pages & API calls", "HTTPS / JSON")
+Rel(cc, pg, "Reads/writes domain data", "SQL via Drizzle ORM")
+
+@enduml

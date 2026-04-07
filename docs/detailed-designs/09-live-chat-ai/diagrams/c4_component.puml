@@ -1,0 +1,26 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Live Chat & AI Integration - Component Diagram
+
+Container_Boundary(nextjs, "Next.js Application") {
+    Component(chatWidget, "ChatWidget", "React Client Component", "Presentational: FAB toggle,\nmessage bubbles, input form\ncomponents/chat-widget.tsx")
+    Component(chatContainer, "ChatContainer", "React Feature Component", "Intelligent: useChat hook,\nconversation lifecycle\nlib/features/chat-container.tsx")
+    Component(convoApi, "Conversations API", "Route Handler", "POST create, GET list\napp/api/chat/conversations/")
+    Component(msgApi, "Messages API", "Route Handler", "GET history, POST + stream AI\napp/api/chat/conversations/[id]/messages/")
+    Component(aiService, "AI Service", "Vercel AI SDK", "streamText with OpenAI,\nsystem prompt config")
+}
+
+ContainerDb(db, "PostgreSQL", "chat.*", "conversations, messages")
+System_Ext(openai, "OpenAI", "GPT-4o-mini")
+
+Rel(chatContainer, chatWidget, "Passes messages,\ninput handlers")
+Rel(chatContainer, convoApi, "Create conversation")
+Rel(chatContainer, msgApi, "useChat streams\nmessages")
+Rel(msgApi, aiService, "Generate response")
+Rel(aiService, openai, "Stream tokens")
+Rel(convoApi, db, "Read/write\nconversations")
+Rel(msgApi, db, "Read/write\nmessages")
+
+@enduml

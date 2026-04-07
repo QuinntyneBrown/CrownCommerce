@@ -1,0 +1,59 @@
+@startuml
+!theme plain
+
+title E2E — CI Pipeline Flow
+
+actor "Developer" as dev
+participant "GitHub" as gh
+participant "GitHub Actions" as ci
+participant "Runner Environment" as runner
+participant "Playwright" as pw
+participant "Next.js App" as app
+collections "Test Reports" as reports
+
+dev -> gh : Push commit / Open PR
+activate gh
+
+gh -> ci : Trigger workflow
+activate ci
+
+ci -> runner : Provision runner
+activate runner
+runner -> runner : Checkout code
+runner -> runner : npm ci (install deps)
+runner -> runner : npx playwright install\n(install browsers)
+
+runner -> app : npm run dev (background)
+activate app
+app --> runner : Server ready at :3000
+
+runner -> pw : npx playwright test
+activate pw
+
+pw -> pw : Run storefront project\n(12 spec files, ~360 tests)
+pw -> pw : Run admin project\n(13 spec files, ~220 tests)
+pw -> pw : Run teams project\n(5 spec files, ~75 tests)
+
+alt All tests pass
+    pw --> runner : Exit code 0
+    runner -> reports : Upload playwright-report/
+else Tests fail (with retries)
+    pw -> pw : Retry failed tests (2x)
+    pw -> pw : Capture traces on retry
+    pw --> runner : Exit code 1
+    runner -> reports : Upload report + traces
+end
+deactivate pw
+
+deactivate app
+
+runner --> ci : Job result
+deactivate runner
+
+ci --> gh : Status check (pass/fail)
+deactivate ci
+
+gh --> dev : PR status update
+deactivate gh
+
+@enduml

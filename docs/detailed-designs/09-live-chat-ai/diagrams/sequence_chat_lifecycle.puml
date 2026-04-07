@@ -1,0 +1,46 @@
+@startuml sequence_chat_lifecycle
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Chat Widget Lifecycle (L2-020)
+
+actor Visitor
+participant "ChatWidget\n(collapsed FAB)" as FAB
+participant "ChatContainer\nuseChat hook" as Container
+participant "POST\n/conversations" as ConvoAPI
+participant "POST\n/conversations/{id}/messages" as MsgAPI
+database "chat.*" as DB
+
+== Open Widget ==
+Visitor -> FAB: Click chat icon
+FAB -> FAB: setIsOpen(true)
+FAB --> Visitor: Expanded chat card\n"How can we help?"
+
+== First Message ==
+Visitor -> FAB: Type message & submit
+FAB -> Container: onSubmit(message)
+Container -> ConvoAPI: POST /api/chat/conversations
+ConvoAPI -> DB: INSERT conversation
+DB --> ConvoAPI: { id }
+ConvoAPI --> Container: 201 { id }
+Container -> Container: Store conversationId\nin sessionStorage
+
+== Streaming Exchange ==
+Container -> MsgAPI: POST { messages }\nvia useChat
+MsgAPI -> DB: INSERT user message
+MsgAPI --> Container: Stream tokens...
+Container --> FAB: Render tokens\nincrementally
+note right: AI response appears\nword by word
+MsgAPI -> DB: INSERT assistant message\n(onFinish callback)
+
+== Continue or Close ==
+Visitor -> FAB: Send another message
+FAB -> Container: onSubmit(message)
+Container -> MsgAPI: POST { messages }\n(same conversationId)
+note right: Full conversation\nhistory sent for context
+
+Visitor -> FAB: Click X to close
+FAB -> FAB: setIsOpen(false)
+FAB --> Visitor: Collapsed FAB icon
+
+@enduml

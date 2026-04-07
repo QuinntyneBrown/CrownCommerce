@@ -1,0 +1,96 @@
+@startuml sequence_admin_crud
+!theme plain
+skinparam sequenceMessageAlign center
+skinparam maxMessageSize 200
+
+title Admin Product CRUD Flow [L2-003]
+
+actor Admin
+participant "AdminProductsPage\n(app/(admin)/admin/products/page.tsx)" as AdminPage
+participant "catalogApi\n(lib/api/catalog.ts)" as Client
+participant "Products API\n(app/api/catalog/products/route.ts)" as API
+participant "Product By ID API\n(app/api/catalog/products/[id]/route.ts)" as ByIdAPI
+participant "Drizzle ORM" as ORM
+database "PostgreSQL\ncatalog.products" as DB
+
+== Create Product ==
+
+Admin -> AdminPage : Click "Add Product"
+AdminPage --> Admin : Show product form modal
+
+Admin -> AdminPage : Fill form & submit
+AdminPage -> Client : catalogApi.createProduct(data)
+Client -> API : POST /api/catalog/products\n{ name, description, price,\n  texture, type, length,\n  originId, imageUrl }
+activate API
+API -> ORM : db.insert(products)\n  .values(body).returning()
+activate ORM
+ORM -> DB : INSERT INTO catalog.products (...)\nVALUES ($1,...) RETURNING *
+activate DB
+DB --> ORM : new Product row
+deactivate DB
+ORM --> API : Product
+deactivate ORM
+API --> Client : 201 Created { product }
+deactivate API
+Client --> AdminPage : Product
+AdminPage --> Admin : Table refreshed with new row
+
+== Edit Product ==
+
+Admin -> AdminPage : Click edit on product row
+AdminPage -> Client : catalogApi.getProduct(id)
+Client -> ByIdAPI : GET /api/catalog/products/:id
+activate ByIdAPI
+ByIdAPI -> ORM : db.select().from(products)\n  .where(eq(products.id, id))
+activate ORM
+ORM -> DB : SELECT * FROM catalog.products\nWHERE id = $1
+activate DB
+DB --> ORM : Product row
+deactivate DB
+ORM --> ByIdAPI : Product
+deactivate ORM
+ByIdAPI --> Client : 200 OK { product }
+deactivate ByIdAPI
+Client --> AdminPage : Product
+AdminPage --> Admin : Pre-populated edit form
+
+Admin -> AdminPage : Modify fields & submit
+AdminPage -> Client : catalogApi.updateProduct(id, data)
+Client -> ByIdAPI : PUT /api/catalog/products/:id\n{ updated fields }
+activate ByIdAPI
+ByIdAPI -> ORM : db.update(products).set(body)\n  .where(eq(products.id, id))\n  .returning()
+activate ORM
+ORM -> DB : UPDATE catalog.products\nSET ... WHERE id = $1\nRETURNING *
+activate DB
+DB --> ORM : updated Product
+deactivate DB
+ORM --> ByIdAPI : Product
+deactivate ORM
+ByIdAPI --> Client : 200 OK { product }
+deactivate ByIdAPI
+Client --> AdminPage : Product
+AdminPage --> Admin : Table refreshed
+
+== Delete Product ==
+
+Admin -> AdminPage : Click delete on product row
+AdminPage --> Admin : Confirmation dialog
+
+Admin -> AdminPage : Confirm delete
+AdminPage -> Client : catalogApi.deleteProduct(id)
+Client -> ByIdAPI : DELETE /api/catalog/products/:id
+activate ByIdAPI
+ByIdAPI -> ORM : db.delete(products)\n  .where(eq(products.id, id))
+activate ORM
+ORM -> DB : DELETE FROM catalog.products\nWHERE id = $1
+activate DB
+DB --> ORM : deleted
+deactivate DB
+ORM --> ByIdAPI : void
+deactivate ORM
+ByIdAPI --> Client : 200 OK { success: true }
+deactivate ByIdAPI
+Client --> AdminPage : success
+AdminPage --> Admin : Row removed from table
+
+@enduml

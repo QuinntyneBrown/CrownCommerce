@@ -1,0 +1,28 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Customer Account Management — Component Diagram (Next.js App Router)
+
+Container_Boundary(nextjs, "Next.js App Router") {
+    Component(loginPage, "Login Page", "Client Component", "Email/password form at /login")
+    Component(registerPage, "Register Page", "Client Component", "Name/email/password form at /register")
+    Component(accountPage, "Account Pages", "Server Components", "/account, /account/orders, /order/:id")
+    Component(authAPI, "Auth API Route", "POST /api/identity/auth", "login, register, logout, profile actions")
+    Component(ordersAPI, "Orders API Route", "GET /api/orders[/:id]", "List and fetch order data")
+    Component(guards, "Auth Guards", "lib/auth/guards.ts", "requireAuth(), requireAdmin()")
+    Component(session, "Session Manager", "lib/auth/session.ts", "JWT create, verify, cookie R/W via jose")
+}
+
+ContainerDb(pg, "PostgreSQL", "identity & orders schemas")
+
+Rel(loginPage, authAPI, "POST {action: login}")
+Rel(registerPage, authAPI, "POST {action: register}")
+Rel(accountPage, guards, "Calls requireAuth()")
+Rel(guards, session, "Calls getSession()")
+Rel(authAPI, session, "createToken(), setSessionCookie()")
+Rel(authAPI, pg, "Query/insert identity.users")
+Rel(accountPage, ordersAPI, "Fetch order data")
+Rel(ordersAPI, pg, "Query orders.orders, order_items")
+
+@enduml

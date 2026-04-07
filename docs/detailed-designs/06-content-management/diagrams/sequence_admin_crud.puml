@@ -1,0 +1,67 @@
+@startuml sequence_admin_crud
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Admin Content Page CRUD [L2-073]
+caption Admin manages dynamic content pages via /admin/content-pages
+
+actor Admin
+participant "ContentPagesAdmin\napp/(admin)/admin/\ncontent-pages/page.tsx" as AdminUI
+participant "contentApi\nlib/api/content.ts" as Client
+participant "Pages API\napp/api/content/\npages/route.ts" as API
+participant "Drizzle ORM" as Drizzle
+database "PostgreSQL\ncontent.pages" as DB
+
+== Load Page List ==
+
+Admin -> AdminUI: Navigate to /admin/content-pages
+AdminUI -> Client: contentApi.getPages()
+Client -> API: GET /api/content/pages
+API -> Drizzle: db.select().from(pages)
+Drizzle -> DB: SELECT * FROM content.pages
+DB --> Drizzle: Row[]
+Drizzle --> API: Page[]
+API --> Client: 200 OK — Page[]
+Client --> AdminUI: Page[]
+AdminUI --> Admin: Render data table\n(title, slug, createdAt)
+
+== Create New Page ==
+
+Admin -> AdminUI: Click "Add Page"\nFill title, slug, body
+AdminUI -> Client: contentApi.createPage(\n{ title, slug, body })
+Client -> API: POST /api/content/pages\n{ title, slug, body }
+API -> Drizzle: db.insert(pages)\n.values(body).returning()
+Drizzle -> DB: INSERT INTO content.pages\nRETURNING *
+DB --> Drizzle: Created row
+Drizzle --> API: Page
+API --> Client: 201 Created — Page
+Client --> AdminUI: Page
+AdminUI --> Admin: Refresh table\nwith new page
+
+== Update Page ==
+
+Admin -> AdminUI: Click edit on page row\nModify fields, save
+AdminUI -> Client: contentApi.updatePage(\nid, { title, body })
+Client -> API: PUT /api/content/pages/:id\n{ title, body }
+API -> Drizzle: db.update(pages).set(body)\n.where(eq(pages.id, id))\n.returning()
+Drizzle -> DB: UPDATE content.pages\nSET ... WHERE id = :id\nRETURNING *
+DB --> Drizzle: Updated row
+Drizzle --> API: Page
+API --> Client: 200 OK — Page
+Client --> AdminUI: Page
+AdminUI --> Admin: Show updated row
+
+== Delete Page ==
+
+Admin -> AdminUI: Click delete, confirm
+AdminUI -> Client: contentApi.deletePage(id)
+Client -> API: DELETE /api/content/pages/:id
+API -> Drizzle: db.delete(pages)\n.where(eq(pages.id, id))
+Drizzle -> DB: DELETE FROM content.pages\nWHERE id = :id
+DB --> Drizzle: OK
+Drizzle --> API: void
+API --> Client: 200 OK — { success: true }
+Client --> AdminUI: Success
+AdminUI --> Admin: Remove row from table
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Admin Dashboard & Management — Container Diagram
+
+Person(admin, "Admin User", "role=admin")
+
+System_Boundary(cc, "CrownCommerce Platform") {
+    Container(spa, "Admin UI", "Next.js 15 RSC + Client Components", "Server-rendered admin pages under app/(admin)/admin/*")
+    Container(api, "API Routes", "Next.js Route Handlers", "RESTful endpoints under app/api/* for each domain")
+    Container(auth, "Auth Layer", "jose JWT + httpOnly cookies", "Session verification via lib/auth/guards.ts")
+    Container(orm, "Drizzle ORM", "TypeScript ORM", "Schema-per-domain data access layer")
+}
+
+ContainerDb(pg, "PostgreSQL", "Multi-schema DB", "Schemas: catalog, orders, identity, content, newsletter, inquiries, crm")
+
+Rel(admin, spa, "Browses admin pages", "HTTPS")
+Rel(spa, auth, "requireAdmin() guard")
+Rel(spa, api, "Fetches/mutates data", "fetch() / JSON")
+Rel(api, orm, "Queries via Drizzle")
+Rel(orm, pg, "SQL queries", "pg driver")
+
+@enduml

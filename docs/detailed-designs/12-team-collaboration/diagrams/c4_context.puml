@@ -1,0 +1,21 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Team Collaboration Platform - System Context
+
+Person(teamMember, "Team Member", "Internal staff with role='team'.\nUses chat, meetings, directory.")
+Person(admin, "Admin", "Internal staff with role='admin'.\nManages employees, conversations.")
+
+System(teamsPlat, "CrownCommerce Teams Platform", "Collaboration workspace:\nchat channels, meetings,\nteam directory, presence.")
+
+System(identitySvc, "Identity Service", "JWT authentication via\n/api/identity/auth.\nhttpOnly cookie sessions.")
+
+SystemDb(postgres, "PostgreSQL", "scheduling schema:\nemployees, channels,\nmessages, meetings.")
+
+Rel(teamMember, teamsPlat, "Uses", "HTTPS /teams/*")
+Rel(admin, teamsPlat, "Manages", "HTTPS /admin/*")
+Rel(teamsPlat, identitySvc, "Authenticates via", "POST /api/identity/auth")
+Rel(teamsPlat, postgres, "Reads/Writes", "Drizzle ORM / SQL")
+
+@enduml

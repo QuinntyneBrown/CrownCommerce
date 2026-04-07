@@ -1,0 +1,29 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Newsletter & Email Campaigns - Component Diagram
+
+Container_Boundary(nextjs, "Next.js Application") {
+    Component(emailSignup, "EmailSignup", "React Client Component", "Email input + submit button\ncomponents/email-signup.tsx")
+    Component(confirmPage, "ConfirmPage", "React Server Component", "Token verification &\nstatus update")
+    Component(unsubPage, "UnsubscribePage", "React Server Component", "Token-based unsubscribe")
+    Component(subApi, "Subscribers API", "Next.js Route Handler", "POST subscribe, GET list,\nDELETE remove")
+    Component(campApi, "Campaigns API", "Next.js Route Handler", "CRUD + send trigger")
+    Component(tokenSvc, "Token Service", "jose JWT", "Sign & verify\nconfirmation tokens")
+    Component(emailSvc, "Email Service", "Resend SDK", "Send confirmation &\ncampaign emails")
+}
+
+ContainerDb(db, "PostgreSQL", "newsletter.*", "subscribers, campaigns,\ncampaign_recipients")
+
+Rel(emailSignup, subApi, "POST /subscribers", "JSON")
+Rel(confirmPage, tokenSvc, "Verify token")
+Rel(confirmPage, subApi, "Update status")
+Rel(unsubPage, tokenSvc, "Verify token")
+Rel(subApi, tokenSvc, "Generate token")
+Rel(subApi, emailSvc, "Send confirmation")
+Rel(campApi, emailSvc, "Send campaign batch")
+Rel(subApi, db, "Read/write subscribers")
+Rel(campApi, db, "Read/write campaigns\n& recipients")
+
+@enduml

@@ -1,0 +1,41 @@
+@startuml sequence_registration
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Customer Registration Flow (L2-066)
+
+actor Customer
+participant "Register Page\n/register" as RP
+participant "Auth API\nPOST /api/identity/auth" as API
+participant "Session Manager\nlib/auth/session.ts" as SM
+database "PostgreSQL\nidentity.users" as DB
+
+Customer -> RP: Fills name, email, password
+RP -> API: POST { action: "register",\nname, email, password }
+
+API -> API: Validate required fields
+alt Missing fields
+    API --> RP: 400 { error: "Name, email,\nand password are required" }
+    RP --> Customer: Show error message
+end
+
+API -> DB: SELECT * FROM users\nWHERE email = ?
+alt Email exists
+    DB --> API: existing user row
+    API --> RP: 409 { error: "Email\nalready registered" }
+    RP --> Customer: Show error message
+else Email available
+    DB --> API: empty result
+    API -> API: bcrypt.hash(password, 10)
+    API -> DB: INSERT INTO users\n(name, email, passwordHash, role)
+    DB --> API: new user row
+    API -> SM: createToken({ sub, email,\nname, role })
+    SM --> API: JWT string (7-day expiry)
+    API -> SM: setSessionCookie(token)
+    SM --> API: Set-Cookie: auth-token
+    API --> RP: 201 { user, token }
+    RP -> RP: router.push("/")
+    RP --> Customer: Redirect to home page
+end
+
+@enduml

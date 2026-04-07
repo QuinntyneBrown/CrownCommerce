@@ -1,0 +1,44 @@
+@startuml sequence_login
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Customer Login Flow (L2-066)
+
+actor Customer
+participant "Login Page\n/login" as LP
+participant "Auth API\nPOST /api/identity/auth" as API
+participant "Session Manager\nlib/auth/session.ts" as SM
+database "PostgreSQL\nidentity.users" as DB
+
+Customer -> LP: Enters email & password
+LP -> API: POST { action: "login",\nemail, password }
+
+API -> API: Validate required fields
+alt Missing fields
+    API --> LP: 400 { error: "Email and\npassword are required" }
+    LP --> Customer: Show error message
+end
+
+API -> DB: SELECT * FROM users\nWHERE email = ?
+alt User not found
+    DB --> API: empty result
+    API --> LP: 401 { error: "Invalid credentials" }
+    LP --> Customer: Show error message
+else User found
+    DB --> API: user row (with passwordHash)
+    API -> API: bcrypt.compare(\npassword, passwordHash)
+    alt Password mismatch
+        API --> LP: 401 { error: "Invalid credentials" }
+        LP --> Customer: Show error message
+    else Password matches
+        API -> SM: createToken({ sub, email,\nname, role })
+        SM --> API: JWT string (7-day expiry)
+        API -> SM: setSessionCookie(token)
+        SM --> API: Set-Cookie: auth-token
+        API --> LP: 200 { user, token }
+        LP -> LP: router.push("/")\nrouter.refresh()
+        LP --> Customer: Redirect to home page
+    end
+end
+
+@enduml

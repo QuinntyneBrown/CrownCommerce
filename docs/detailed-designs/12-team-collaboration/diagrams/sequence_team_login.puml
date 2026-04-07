@@ -1,0 +1,45 @@
+@startuml sequence_team_login
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Teams Login Flow [L2-080]
+
+actor "User" as User
+participant "Login Page\n/teams/login" as LoginUI
+participant "Identity API\n/api/identity/auth" as AuthAPI
+participant "Session Manager\nlib/auth/session.ts" as Session
+participant "Teams Layout\nlayout.tsx" as Layout
+participant "Auth Guard\nrequireTeamMember()" as Guard
+participant "Home Page\n/teams/home" as HomePage
+
+User -> LoginUI: Navigate to /teams/login
+User -> LoginUI: Enter email & password
+User -> LoginUI: Submit form
+
+LoginUI -> AuthAPI: POST /api/identity/auth\n{ action: "login", email, password }
+
+alt Invalid credentials
+    AuthAPI --> LoginUI: 401 Unauthorized
+    LoginUI --> User: Show error message
+else Valid credentials
+    AuthAPI -> Session: createToken(payload)\nsetSessionCookie(token)
+    Session --> AuthAPI: JWT set as httpOnly\ncookie "auth-token" (7d)
+    AuthAPI --> LoginUI: 200 OK { token, user }
+    LoginUI -> LoginUI: router.push("/teams/home")\nrouter.refresh()
+
+    User -> Layout: GET /teams/home
+    Layout -> Guard: requireTeamMember()
+    Guard -> Session: getSession()\nread "auth-token" cookie
+    Session -> Session: verifyToken(token)\ncheck exp, decode payload
+    Session --> Guard: SessionPayload\n{ sub, email, name, role }
+
+    alt role != "admin" && role != "team"
+        Guard --> User: redirect("/")
+    else Role is valid
+        Guard --> Layout: SessionPayload
+        Layout -> HomePage: Render children
+        HomePage --> User: Teams Home dashboard
+    end
+end
+
+@enduml

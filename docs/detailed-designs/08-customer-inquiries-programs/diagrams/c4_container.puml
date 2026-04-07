@@ -1,0 +1,25 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Customer Inquiries & Programs - Container Diagram
+
+Person(visitor, "Visitor", "Storefront user")
+Person(admin, "Admin", "CrownCommerce admin")
+
+System_Boundary(cc, "CrownCommerce Platform") {
+    Container(storefront, "Storefront Pages", "Next.js React", "/contact, /wholesale,\n/ambassador pages")
+    Container(adminui, "Admin Dashboard", "Next.js React", "Inquiry management\ndata table & detail view")
+    Container(api, "Next.js API Routes", "TypeScript", "Inquiry CRUD\nendpoints")
+    ContainerDb(db, "PostgreSQL", "inquiries schema", "inquiries table")
+    Container(contentApi, "Content API", "Next.js Route", "Ambassador program\ncontent")
+}
+
+Rel(visitor, storefront, "Fills forms", "HTTPS")
+Rel(admin, adminui, "Manages inquiries", "HTTPS")
+Rel(storefront, api, "POST /api/inquiries", "JSON")
+Rel(storefront, contentApi, "GET program content", "JSON")
+Rel(adminui, api, "GET/PUT/DELETE", "JSON")
+Rel(api, db, "Read/write", "Drizzle ORM")
+
+@enduml

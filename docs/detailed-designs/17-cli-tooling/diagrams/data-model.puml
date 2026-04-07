@@ -1,0 +1,75 @@
+@startuml
+!theme plain
+
+title CLI Tooling — Class Diagram
+
+package "cc/" {
+    class "index.ts\n(CLI Entry)" as CLI {
+        - args: string[]
+        - command: string
+        - commands: Record<string, string>
+        + printHelp(): void
+        + dispatch(command): void
+    }
+}
+
+package "lib/db/seed/" {
+    class "index.ts\n(Seeder)" as Seeder {
+        + main(): Promise<void>
+        - seedOrigins(): Promise<void>
+        - seedProducts(): Promise<void>
+        - seedUsers(): Promise<void>
+        - seedContent(): Promise<void>
+        - seedScheduling(): Promise<void>
+    }
+}
+
+package "lib/db/" {
+    class "index.ts\n(Database)" as DB {
+        + db: DrizzleInstance
+        - client: PostgresClient
+        - connectionString: string
+    }
+}
+
+package "lib/db/schema/" {
+    class "catalog.ts" as CatalogSchema {
+        + products: PgTable
+        + origins: PgTable
+        + reviews: PgTable
+        + bundleDeals: PgTable
+    }
+    class "identity.ts" as IdentitySchema {
+        + users: PgTable
+    }
+    class "content.ts" as ContentSchema {
+        + pages: PgTable
+        + faqs: PgTable
+        + testimonials: PgTable
+    }
+    class "scheduling.ts" as SchedulingSchema {
+        + employees: PgTable
+        + channels: PgTable
+        + channelMessages: PgTable
+        + meetings: PgTable
+    }
+}
+
+package "drizzle-kit" as DK {
+    class "drizzle.config.ts" as DrizzleConfig {
+        + schema: "./lib/db/schema/*.ts"
+        + out: "./drizzle"
+        + dialect: "postgresql"
+        + dbCredentials: { url: string }
+    }
+}
+
+CLI ..> Seeder : "cc seed\n(dynamic import)"
+Seeder --> DB : uses
+DB --> CatalogSchema : imports
+DB --> IdentitySchema : imports
+DB --> ContentSchema : imports
+DB --> SchedulingSchema : imports
+CLI ..> DrizzleConfig : "cc migrate\n(invokes drizzle-kit)"
+
+@enduml

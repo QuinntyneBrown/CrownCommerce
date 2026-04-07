@@ -1,0 +1,37 @@
+@startuml sequence_double_optin
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Double Opt-In Subscription Flow (L2-014)
+
+actor Visitor
+participant "EmailSignup\nComponent" as UI
+participant "POST\n/api/newsletter/subscribers" as API
+participant "Token Service\n(jose)" as JWT
+participant "Resend\nEmail API" as Resend
+database "newsletter.subscribers" as DB
+participant "ConfirmPage\n/newsletter/confirm" as Confirm
+
+== Subscribe ==
+Visitor -> UI: Enter email & submit
+UI -> API: POST { email, brandTag }
+API -> DB: SELECT WHERE email = ? AND brandTag = ?
+DB --> API: No existing record
+API -> DB: INSERT (status: "pending")
+DB --> API: Subscriber row
+API -> JWT: Sign { subscriberId, exp: 24h }
+JWT --> API: confirmToken
+API -> Resend: Send email with\nconfirm link
+Resend --> API: 200 OK
+API --> UI: 201 { status: "pending" }
+UI --> Visitor: "Check your inbox to confirm"
+
+== Confirm ==
+Visitor -> Confirm: GET /newsletter/confirm?token=X
+Confirm -> JWT: Verify token
+JWT --> Confirm: { subscriberId }
+Confirm -> DB: UPDATE status = "confirmed",\nconfirmedAt = now()
+DB --> Confirm: Updated
+Confirm --> Visitor: "Subscription Confirmed!"
+
+@enduml

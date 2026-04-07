@@ -1,0 +1,54 @@
+@startuml
+!theme plain
+
+title Coming Soon — Page Load & Countdown Sequence
+
+actor Visitor as visitor
+participant "Next.js Server" as server
+participant "ComingSoonLayout" as layout <<Server>>
+participant "BrandPage" as brandPage <<Server>>
+participant "CountdownTimer" as timer <<Client>>
+participant "Browser DOM" as dom
+
+visitor -> server : GET /origin (or /mane-haus)
+activate server
+
+server -> layout : Render layout (no header/footer)
+activate layout
+
+layout -> brandPage : Render brand page as children
+activate brandPage
+brandPage -> brandPage : Set data-brand attribute\n(activates CSS theme)
+brandPage --> layout : HTML with CountdownTimer placeholder
+deactivate brandPage
+
+layout --> server : Full HTML response
+deactivate layout
+
+server --> visitor : HTML + JS bundle
+deactivate server
+
+visitor -> dom : Browser hydrates React
+activate dom
+
+dom -> timer : Mount CountdownTimer(targetDate)
+activate timer
+timer -> timer : useEffect: calculate\n{ days, hours, minutes, seconds }
+timer -> timer : setInterval(1000ms)
+timer --> dom : Render countdown digits
+deactivate timer
+
+loop Every 1 second
+    timer -> timer : Recalculate time remaining
+    timer -> dom : Update digit display
+end
+
+note right of timer
+  Interval is cleared on
+  unmount or when target
+  date is reached
+end note
+
+deactivate dom
+
+@enduml

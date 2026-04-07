@@ -1,0 +1,18 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Shopping Cart & Checkout — System Context [L2-005, L2-006, L2-007]
+
+Person(shopper, "Shopper", "Authenticated customer browsing the storefront and purchasing hair products")
+Person(admin, "Admin", "Back-office user managing orders and processing refunds")
+
+System(crown, "CrownCommerce Platform", "Next.js 15 multi-brand e-commerce platform for hair products")
+
+SystemDb(postgres, "PostgreSQL", "Persistent storage with isolated schemas: orders, catalog, identity")
+
+Rel(shopper, crown, "Browses products, manages cart, checks out", "HTTPS")
+Rel(admin, crown, "Views orders, processes refunds", "HTTPS")
+Rel(crown, postgres, "Reads/writes cart, order, and payment data", "Drizzle ORM / SQL")
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+!theme plain
+!include <C4/C4_Container>
+
+title CLI Tooling & Database Seeding — C4 Container Diagram
+
+Person(developer, "Developer", "Runs cc commands")
+
+System_Boundary(platform, "CrownCommerce Platform") {
+    Container(cliEntry, "cc/index.ts", "Node.js CLI", "Entry point: argv parsing\nand command dispatch")
+    Container(seedScript, "lib/db/seed/index.ts", "TypeScript", "Idempotent per-domain\nseeders for 5 domains")
+    Container(dbLayer, "lib/db/index.ts", "Drizzle ORM", "Connection pool + schema\nimports for 11 domains")
+    Container(schemas, "lib/db/schema/*.ts", "Drizzle Schema", "10 schema files with\npgSchema isolation")
+    ContainerDb(postgres, "PostgreSQL", "Database", "crown_commerce DB\n11 isolated pgSchemas")
+}
+
+System_Ext(drizzleKit, "Drizzle Kit", "drizzle.config.ts", "Migration generation\nand schema push")
+
+Rel(developer, cliEntry, "cc <command>", "process.argv")
+Rel(cliEntry, seedScript, "cc seed", "dynamic import()")
+Rel(seedScript, dbLayer, "Insert seed data", "db.insert()")
+Rel(dbLayer, schemas, "Imports", "TypeScript")
+Rel(dbLayer, postgres, "SQL queries", "postgres-js driver")
+Rel(cliEntry, drizzleKit, "cc migrate", "subprocess")
+Rel(drizzleKit, postgres, "Schema diff/push", "SQL")
+
+@enduml

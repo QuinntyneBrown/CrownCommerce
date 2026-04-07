@@ -1,0 +1,18 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Customer Inquiries & Programs - System Context
+
+Person(visitor, "Visitor", "Storefront user submitting\ninquiries or applications")
+Person(admin, "Admin", "Reviews and manages\ninquiries")
+
+System(cc, "CrownCommerce Platform", "Multi-brand e-commerce\nNext.js 15 App Router")
+
+System_Ext(content, "Content API", "Stores ambassador program\ncontent & copy")
+
+Rel(visitor, cc, "Submits contact, wholesale,\nor ambassador inquiry", "HTTPS")
+Rel(admin, cc, "Reviews, filters, exports\ninquiries", "HTTPS")
+Rel(cc, content, "Loads program content", "REST API")
+
+@enduml

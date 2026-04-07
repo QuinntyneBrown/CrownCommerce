@@ -1,0 +1,70 @@
+@startuml class_diagram
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam linetype ortho
+
+title Product Catalog — Domain Model (catalog schema)
+
+package "catalog schema" {
+
+    class Product <<catalog.products>> {
+        +id : UUID <<PK>>
+        +name : VARCHAR(255) <<NOT NULL>>
+        +description : TEXT
+        +price : DECIMAL(10,2) <<NOT NULL>>
+        +texture : VARCHAR(100)
+        +type : VARCHAR(100)
+        +length : VARCHAR(50)
+        +originId : UUID <<FK>>
+        +imageUrl : VARCHAR(500)
+        +createdAt : TIMESTAMP <<NOT NULL>>
+        +updatedAt : TIMESTAMP <<NOT NULL>>
+    }
+
+    class Origin <<catalog.origins>> {
+        +id : UUID <<PK>>
+        +name : VARCHAR(255) <<NOT NULL>>
+        +country : VARCHAR(100) <<NOT NULL>>
+    }
+
+    class Review <<catalog.reviews>> {
+        +id : UUID <<PK>>
+        +productId : UUID <<FK, NOT NULL>>
+        +author : VARCHAR(255) <<NOT NULL>>
+        +rating : INTEGER <<NOT NULL>>
+        +content : TEXT
+        +createdAt : TIMESTAMP <<NOT NULL>>
+    }
+
+    class BundleDeal <<catalog.bundle_deals>> {
+        +id : UUID <<PK>>
+        +name : VARCHAR(255) <<NOT NULL>>
+        +items : TEXT <<NOT NULL, JSON array of product UUIDs>>
+        +originalPrice : DECIMAL(10,2) <<NOT NULL>>
+        +dealPrice : DECIMAL(10,2) <<NOT NULL>>
+    }
+
+}
+
+Origin "1" -- "0..*" Product : origin_id >
+Product "1" -- "0..*" Review : product_id >
+BundleDeal "1" ..> "1..*" Product : items (JSON UUIDs)
+
+note right of Product::texture
+  Enum values:
+  straight, curly, wavy,
+  kinky, body wave
+end note
+
+note right of Product::type
+  Enum values:
+  Bundle, Closure,
+  Frontal, Wig
+end note
+
+note right of Review::rating
+  Range: 1–5
+end note
+
+@enduml

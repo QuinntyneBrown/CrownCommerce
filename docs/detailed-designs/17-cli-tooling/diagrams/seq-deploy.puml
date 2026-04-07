@@ -1,0 +1,50 @@
+@startuml
+!theme plain
+
+title CLI — Deploy Workflow Sequence (L2-047)
+
+actor Developer as dev
+participant "cc deploy" as cli
+participant "HealthCheck" as health
+participant "MigrateCommand" as migrate
+database "PostgreSQL" as db
+participant "Build System" as build
+participant "Deploy Target" as target
+
+== Deploy Single Service ==
+dev -> cli : cc deploy api --env staging
+activate cli
+cli -> health : Check environment health
+activate health
+health -> db : SELECT 1 (connectivity)
+db --> health : OK
+health --> cli : Environment healthy
+deactivate health
+
+cli -> migrate : Apply pending migrations
+activate migrate
+migrate -> db : Run pending migrations
+db --> migrate : Migrations applied
+deactivate migrate
+
+cli -> build : Build service
+activate build
+build --> cli : Build artifact
+deactivate build
+
+cli -> target : Deploy to staging
+activate target
+target --> cli : Deployment successful
+deactivate target
+cli --> dev : "✅ api deployed to staging"
+deactivate cli
+
+== Deploy All Services ==
+dev -> cli : cc deploy all --env production
+activate cli
+cli -> cli : Resolve dependency order:\n1. database\n2. api\n3. web
+cli -> cli : Deploy each in order
+cli --> dev : "✅ All services deployed"
+deactivate cli
+
+@enduml

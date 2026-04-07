@@ -1,0 +1,20 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Authentication & Authorization — System Context (L2-008, L2-055)
+
+Person(customer, "Customer", "Registers, logs in,\nbrowses storefront")
+Person(admin, "Admin", "Manages platform data\nRequires admin role")
+Person(team, "Team Member", "Collaborates on team features\nRequires admin or team role")
+
+System(auth, "CrownCommerce Auth", "Custom JWT authentication with jose library\nhttpOnly cookie storage\nRole-based access control")
+
+SystemDb_Ext(pg, "PostgreSQL", "identity schema:\nusers, sessions tables")
+
+Rel(customer, auth, "Register / Login", "HTTPS")
+Rel(admin, auth, "Authenticate", "HTTPS")
+Rel(team, auth, "Authenticate", "HTTPS")
+Rel(auth, pg, "Read/write credentials", "Drizzle ORM")
+
+@enduml

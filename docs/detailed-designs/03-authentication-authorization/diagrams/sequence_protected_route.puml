@@ -1,0 +1,51 @@
+@startuml sequence_protected_route
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Protected Route Access — Admin Dashboard (L2-009, L2-055)
+
+actor "Admin" as admin
+participant "Browser" as browser
+participant "App Middleware\napp/middleware.ts" as app_mw
+participant "Admin Layout\napp/(admin)/layout.tsx" as layout
+participant "Route Guard\nrequireAdmin()" as guard
+participant "Session Manager\nverifyToken()" as session
+participant "Admin Page" as page
+
+admin -> browser: Navigate to /dashboard
+
+== Middleware Layer ==
+browser -> app_mw: GET /dashboard
+app_mw -> app_mw: Match /dashboard in\nadmin protected paths
+app_mw -> app_mw: Check auth-token cookie
+
+alt No auth-token cookie
+    app_mw --> browser: Redirect to /login
+end
+
+app_mw -> app_mw: Cookie present → forward
+
+== Server Component Layer ==
+app_mw -> layout: Forward request
+layout -> guard: requireAdmin()
+guard -> session: getSession()
+session -> session: Read auth-token cookie\nverifyToken(jwt)
+session -> session: jose.jwtVerify()\nCheck signature + expiration
+
+alt Token expired or invalid
+    guard --> browser: redirect("/login")
+end
+
+session --> guard: SessionPayload\n{ sub, email, role: "admin" }
+guard -> guard: Check role === "admin"
+
+alt Role is not admin
+    guard --> browser: redirect("/login")
+end
+
+guard --> layout: SessionPayload
+layout -> page: Render admin dashboard
+
+page --> browser: HTML response
+
+@enduml

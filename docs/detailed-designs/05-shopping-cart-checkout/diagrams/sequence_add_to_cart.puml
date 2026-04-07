@@ -1,0 +1,53 @@
+@startuml sequence_add_to_cart
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Add to Cart [L2-005]
+
+actor Shopper
+participant "ProductDetailPage\napp/(storefront)/product/[id]" as PDP
+participant "ordersApi\nlib/api/orders.ts" as Client
+participant "Cart API\napp/api/orders/cart/route.ts" as CartAPI
+participant "Cart Items API\napp/api/orders/cart/items/route.ts" as ItemsAPI
+participant "Drizzle ORM" as Drizzle
+database "PostgreSQL\norders schema" as DB
+
+Shopper -> PDP : Click "Add to Cart"\n(productId, quantity)
+
+== Check for existing cart ==
+PDP -> Client : getCart(userId)
+Client -> CartAPI : GET /api/orders/cart?userId=...
+CartAPI -> Drizzle : db.select().from(carts)\n.where(eq(carts.userId, userId))
+Drizzle -> DB : SELECT * FROM orders.carts\nWHERE user_id = $1
+DB --> Drizzle : row | empty
+Drizzle --> CartAPI : cart | null
+
+alt No cart exists
+    CartAPI --> Client : { items: [] }
+    Client --> PDP : empty cart
+    PDP -> Client : createCart({ userId })
+    Client -> CartAPI : POST /api/orders/cart
+    CartAPI -> Drizzle : db.insert(carts).values({ userId })
+    Drizzle -> DB : INSERT INTO orders.carts
+    DB --> Drizzle : new cart row
+    Drizzle --> CartAPI : cart
+    CartAPI --> Client : 201 { id, userId, createdAt }
+    Client --> PDP : cart with id
+else Cart exists
+    CartAPI --> Client : 200 { id, userId, items }
+    Client --> PDP : existing cart
+end
+
+== Add item to cart ==
+PDP -> Client : addCartItem({ cartId, productId, quantity })
+Client -> ItemsAPI : POST /api/orders/cart/items
+ItemsAPI -> Drizzle : db.insert(cartItems)\n.values({ cartId, productId, quantity })
+Drizzle -> DB : INSERT INTO orders.cart_items
+DB --> Drizzle : new item row
+Drizzle --> ItemsAPI : cartItem
+ItemsAPI --> Client : 201 { id, cartId, productId, quantity }
+Client --> PDP : cart item added
+
+PDP --> Shopper : Update cart badge count\n"Item added to cart"
+
+@enduml

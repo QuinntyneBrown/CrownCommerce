@@ -1,0 +1,32 @@
+@startuml sequence_dashboard_load
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Dashboard Page Load (L2-024)
+
+actor "Admin User" as Admin
+participant "AdminLayout\n(layout.tsx)" as Layout
+participant "requireAdmin()\n(guards.ts)" as Guard
+participant "DashboardPage\n(dashboard/page.tsx)" as Page
+database "PostgreSQL" as DB
+
+Admin -> Layout: GET /admin/dashboard
+Layout -> Guard: requireAdmin()
+Guard -> Guard: getSession() → verifyToken(JWT)
+Guard --> Layout: SessionPayload { name, role=admin }
+
+Layout -> Page: render child (session available)
+
+Page -> DB: SELECT count(*) FROM catalog.products
+Page -> DB: SELECT count(*) FROM orders.orders
+Page -> DB: SELECT count(*) FROM newsletter.subscribers
+Page -> DB: SELECT count(*) FROM inquiries.inquiries
+Page -> DB: SELECT count(*) FROM content.testimonials
+Page -> DB: SELECT * FROM catalog.products\nORDER BY created_at DESC LIMIT 4
+Page -> DB: SELECT * FROM inquiries.inquiries\nORDER BY created_at DESC LIMIT 4
+
+DB --> Page: aggregated counts + recent rows
+
+Page --> Admin: Rendered dashboard:\ngreeting, metric cards,\nrecent products & inquiries
+
+@enduml

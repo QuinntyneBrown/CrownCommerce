@@ -1,0 +1,18 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Customer Account Management — System Context
+
+Person(customer, "Customer", "Registered shopper on a CrownCommerce brand storefront")
+
+System(cc, "CrownCommerce Platform", "Multi-brand e-commerce platform built with Next.js 15 App Router")
+
+System_Ext(email, "Email Service", "Sends registration confirmations and order notifications")
+System_Ext(payment, "Payment Gateway", "Processes payments linked to customer orders")
+
+Rel(customer, cc, "Browses, registers, logs in, views account & orders", "HTTPS")
+Rel(cc, email, "Sends transactional emails", "SMTP/API")
+Rel(cc, payment, "Processes order payments", "HTTPS/API")
+
+@enduml

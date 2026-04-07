@@ -1,0 +1,60 @@
+@startuml class_diagram
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam linetype ortho
+
+title Shopping Cart & Checkout - Data Model (orders schema)
+
+package "orders schema" {
+
+    class Cart {
+        id : UUID [PK]
+        userId : UUID [nullable]
+        createdAt : timestamp
+    }
+
+    class CartItem {
+        id : UUID [PK]
+        cartId : UUID [FK]
+        productId : UUID
+        quantity : integer
+    }
+
+    class Order {
+        id : UUID [PK]
+        userId : UUID [nullable]
+        status : varchar(50)
+        total : decimal(10,2)
+        shippingAddress : text
+        createdAt : timestamp
+        updatedAt : timestamp
+    }
+
+    class OrderItem {
+        id : UUID [PK]
+        orderId : UUID [FK]
+        productId : UUID
+        quantity : integer
+        unitPrice : decimal(10,2)
+    }
+
+    class Payment {
+        id : UUID [PK]
+        orderId : UUID [FK]
+        amount : decimal(10,2)
+        status : varchar(50)
+        confirmedAt : timestamp
+        refundedAt : timestamp
+    }
+}
+
+Cart "1" --o "0..*" CartItem : contains
+Order "1" --o "1..*" OrderItem : contains
+Order "1" --o "0..*" Payment : has
+
+note right of CartItem : productId references\ncatalog.products (cross-schema)
+note right of OrderItem : unitPrice captured\nat checkout time
+note bottom of Payment : Status flow:\npending > confirmed > refunded
+
+@enduml

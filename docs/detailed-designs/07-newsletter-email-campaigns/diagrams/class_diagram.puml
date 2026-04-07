@@ -1,0 +1,49 @@
+@startuml class_diagram
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+
+title Newsletter & Email Campaigns - Domain Model (newsletter.*)
+
+class Subscriber {
+    +id: UUID <<PK>>
+    +email: VARCHAR(255)
+    +brandTag: VARCHAR(100)
+    +status: VARCHAR(50)
+    +confirmedAt: TIMESTAMP
+    +createdAt: TIMESTAMP
+}
+note right of Subscriber::status
+  "pending" | "confirmed" | "unsubscribed"
+end note
+
+class Campaign {
+    +id: UUID <<PK>>
+    +subject: VARCHAR(255)
+    +htmlBody: TEXT
+    +textBody: TEXT
+    +tag: VARCHAR(100)
+    +status: VARCHAR(50)
+    +scheduledAt: TIMESTAMP
+    +sentAt: TIMESTAMP
+}
+note right of Campaign::status
+  "draft" | "scheduled" |
+  "sending" | "sent" | "cancelled"
+end note
+
+class CampaignRecipient {
+    +id: UUID <<PK>>
+    +campaignId: UUID <<FK>>
+    +subscriberId: UUID <<FK>>
+    +deliveryStatus: VARCHAR(50)
+}
+note right of CampaignRecipient::deliveryStatus
+  "pending" | "sent" |
+  "delivered" | "bounced" | "failed"
+end note
+
+Campaign "1" -- "*" CampaignRecipient : has recipients
+Subscriber "1" -- "*" CampaignRecipient : targeted by
+
+@enduml

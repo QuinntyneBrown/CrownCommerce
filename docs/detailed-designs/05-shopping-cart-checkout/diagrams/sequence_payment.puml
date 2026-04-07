@@ -1,0 +1,59 @@
+@startuml sequence_payment
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Payment Lifecycle [L2-007]
+
+actor "Client\n(Checkout / Admin)" as Client
+participant "paymentsApi\nlib/api/payments.ts" as PayClient
+participant "Payment API\napp/api/payments/route.ts\napp/api/payments/[id]/route.ts" as PayAPI
+participant "Drizzle ORM" as Drizzle
+database "PostgreSQL\norders.payments" as DB
+
+== Create Payment [L2-007 AC1] ==
+Client -> PayClient : createPayment({ orderId, amount })
+PayClient -> PayAPI : POST /api/payments\n{ orderId, amount }
+PayAPI -> Drizzle : db.insert(payments)\n.values({ orderId, amount })
+Drizzle -> DB : INSERT INTO orders.payments\n(order_id, amount, status='pending')
+DB --> Drizzle : payment row
+Drizzle --> PayAPI : payment
+PayAPI --> PayClient : 201 Created
+PayClient --> Client : { id, orderId, amount,\nstatus: "pending",\nconfirmedAt: null,\nrefundedAt: null }
+
+note over DB : Status: **pending**
+
+== Confirm Payment [L2-007 AC2] ==
+Client -> PayClient : updatePayment(id,\n{ status:"confirmed", confirmedAt })
+PayClient -> PayAPI : PUT /api/payments/:id\n{ status:"confirmed", confirmedAt }
+PayAPI -> Drizzle : db.update(payments)\n.set({ status, confirmedAt })\n.where(eq(payments.id, id))
+Drizzle -> DB : UPDATE orders.payments\nSET status='confirmed',\nconfirmed_at=timestamp
+DB --> Drizzle : updated row
+Drizzle --> PayAPI : payment
+PayAPI --> PayClient : 200 OK
+PayClient --> Client : { status: "confirmed",\nconfirmedAt: "2025-..." }
+
+note over DB : Status: **confirmed**
+
+== Refund Payment [L2-007 AC3] ==
+Client -> PayClient : updatePayment(id,\n{ status:"refunded", refundedAt })
+PayClient -> PayAPI : PUT /api/payments/:id\n{ status:"refunded", refundedAt }
+PayAPI -> Drizzle : db.update(payments)\n.set({ status, refundedAt })\n.where(eq(payments.id, id))
+Drizzle -> DB : UPDATE orders.payments\nSET status='refunded',\nrefunded_at=timestamp
+DB --> Drizzle : updated row
+Drizzle --> PayAPI : payment
+PayAPI --> PayClient : 200 OK
+PayClient --> Client : { status: "refunded",\nrefundedAt: "2025-..." }
+
+note over DB : Status: **refunded**
+
+== Error: Invalid Payment ID [L2-007 AC4] ==
+Client -> PayClient : getPayment("invalid-uuid")
+PayClient -> PayAPI : GET /api/payments/invalid-uuid
+PayAPI -> Drizzle : db.select().from(payments)\n.where(eq(payments.id, id))
+Drizzle -> DB : SELECT * FROM orders.payments\nWHERE id = 'invalid-uuid'
+DB --> Drizzle : empty result
+Drizzle --> PayAPI : null
+PayAPI --> PayClient : 404 { error: "Not found" }
+PayClient --> Client : Error: Not found
+
+@enduml

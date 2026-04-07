@@ -1,0 +1,29 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Auth System — Container Diagram (L2-008, L2-009)
+
+Person(user, "User", "Customer, Admin, or Team Member")
+
+System_Boundary(cc, "CrownCommerce Platform") {
+    Container(browser, "Browser", "React", "Login/Register forms\nStores httpOnly cookie")
+    Container(app_mw, "App Middleware", "app/middleware.ts", "Route protection\nRedirects to /login")
+    Container(auth_api, "Auth API Route", "app/api/identity/auth", "Register, Login, Logout, Profile\nbcryptjs password hashing")
+    Container(session_mgr, "Session Manager", "lib/auth/session.ts", "createToken(), verifyToken()\ngetSession(), setSessionCookie()")
+    Container(guards, "Route Guards", "lib/auth/guards.ts", "requireAuth(), requireAdmin()\nrequireTeamMember()")
+    Container(auth_mw, "Auth Middleware", "lib/auth/middleware.ts", "withAuth(), withAdmin()\nAPI route protection")
+}
+
+ContainerDb(pg, "identity schema", "PostgreSQL", "users (email, passwordHash, role)\nsessions (userId, token, expiresAt)")
+
+Rel(user, browser, "Interacts", "HTTPS")
+Rel(browser, app_mw, "Request", "HTTPS")
+Rel(app_mw, auth_api, "Forward if auth-token present")
+Rel(browser, auth_api, "POST /api/identity/auth", "JSON")
+Rel(auth_api, session_mgr, "createToken()")
+Rel(auth_api, pg, "Query users", "Drizzle")
+Rel(session_mgr, browser, "Set-Cookie: auth-token")
+Rel(guards, session_mgr, "getSession()")
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Newsletter & Email Campaigns - Container Diagram
+
+Person(visitor, "Visitor", "Storefront user")
+Person(admin, "Admin", "CrownCommerce admin")
+
+System_Boundary(cc, "CrownCommerce Platform") {
+    Container(storefront, "Storefront SPA", "Next.js React", "Email signup, confirm\n& unsubscribe pages")
+    Container(adminui, "Admin Dashboard", "Next.js React", "Subscriber & campaign\nmanagement UI")
+    Container(api, "Next.js API Routes", "TypeScript", "Newsletter & campaign\nREST endpoints")
+    ContainerDb(db, "PostgreSQL", "newsletter schema", "subscribers, campaigns,\ncampaign_recipients")
+}
+
+System_Ext(resend, "Resend", "Email delivery API")
+
+Rel(visitor, storefront, "Enters email", "HTTPS")
+Rel(admin, adminui, "Manages", "HTTPS")
+Rel(storefront, api, "POST /api/newsletter/*", "JSON")
+Rel(adminui, api, "GET/POST/PUT/DELETE", "JSON")
+Rel(api, db, "Reads/writes", "Drizzle ORM")
+Rel(api, resend, "Sends emails", "REST API")
+
+@enduml

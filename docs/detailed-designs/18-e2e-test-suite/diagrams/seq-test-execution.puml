@@ -1,0 +1,57 @@
+@startuml
+!theme plain
+
+title E2E — Test Execution Flow
+
+actor Developer as dev
+participant "Playwright CLI" as pw
+participant "playwright.config.ts" as config
+participant "Web Server\n(npm run dev)" as server
+participant "e2e/fixtures/index.ts" as fixtures
+participant "*.spec.ts" as spec
+participant "Browser (Chromium)" as browser
+participant "Next.js App\nlocalhost:3000" as app
+
+dev -> pw : npx playwright test --project=storefront
+activate pw
+
+pw -> config : Load configuration
+config --> pw : projects, webServer, reporter
+
+pw -> server : Start dev server (if not running)
+activate server
+server --> pw : Server ready at :3000
+
+pw -> pw : Discover spec files\nin e2e/storefront/
+
+loop For each spec file
+    pw -> fixtures : Load custom fixtures
+    activate fixtures
+    fixtures --> pw : Extended test + expect
+    deactivate fixtures
+
+    pw -> spec : Execute test functions
+    activate spec
+
+    spec -> browser : Launch browser context
+    activate browser
+    browser -> app : Navigate to URL
+    activate app
+    app --> browser : Rendered HTML
+    deactivate app
+
+    spec -> browser : Assertions (expect)
+    browser --> spec : Pass / Fail
+    deactivate browser
+
+    spec --> pw : Test results
+    deactivate spec
+end
+
+pw -> pw : Generate HTML report\n(playwright-report/)
+pw --> dev : Summary: X passed, Y failed
+deactivate pw
+
+deactivate server
+
+@enduml

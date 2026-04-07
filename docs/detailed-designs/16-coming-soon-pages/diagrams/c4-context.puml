@@ -1,0 +1,19 @@
+@startuml
+!theme plain
+!include <C4/C4_Context>
+
+title Coming Soon Pages — C4 Context Diagram
+
+Person(visitor, "Brand Visitor", "Potential customer visiting\nbefore storefront launch")
+
+System(comingSoon, "Coming Soon Pages", "Standalone pre-launch pages\nfor each CrownCommerce brand")
+
+System_Ext(newsletter, "Newsletter Service", "Stores subscriber emails\nwith brand segmentation")
+
+System_Ext(socialMedia, "Social Media Platforms", "Instagram, TikTok,\nFacebook brand pages")
+
+Rel(visitor, comingSoon, "Visits coming-soon URL", "HTTPS")
+Rel(comingSoon, newsletter, "Submits email signup", "POST /api/newsletter/subscribers")
+Rel(visitor, socialMedia, "Follows brand links", "HTTPS")
+
+@enduml

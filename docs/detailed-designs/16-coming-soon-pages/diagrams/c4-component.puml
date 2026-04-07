@@ -1,0 +1,27 @@
+@startuml
+!theme plain
+!include <C4/C4_Component>
+
+title Coming Soon Pages — C4 Component Diagram
+
+Container_Boundary(comingSoon, "(coming-soon) Route Group") {
+    Component(layout, "ComingSoonLayout", "Server Component", "Minimal layout:\nmin-h-screen, centered,\nno header/footer")
+    Component(originPage, "OriginComingSoonPage", "Server Component", "Dark luxury theme\n/origin route")
+    Component(maneHausPage, "ManeHausComingSoonPage", "Server Component", "Warm luxury theme\n/mane-haus route")
+    Component(countdown, "CountdownTimer", "Client Component", "useEffect + setInterval\ntargetDate prop")
+    Component(emailSignup, "EmailSignup", "Client Component", "brandTag, placeholder,\nbuttonText props")
+    Component(socialLinks, "SocialLinks", "Server Component", "Instagram, TikTok,\nFacebook links")
+}
+
+Container(newsletterAPI, "Newsletter API", "Route Handler", "POST /api/newsletter/subscribers")
+
+Rel(layout, originPage, "Renders", "children")
+Rel(layout, maneHausPage, "Renders", "children")
+Rel(originPage, countdown, "Includes")
+Rel(originPage, emailSignup, "Includes")
+Rel(originPage, socialLinks, "Includes")
+Rel(maneHausPage, countdown, "Includes")
+Rel(maneHausPage, emailSignup, "Includes")
+Rel(emailSignup, newsletterAPI, "POST email + brandTag", "fetch")
+
+@enduml

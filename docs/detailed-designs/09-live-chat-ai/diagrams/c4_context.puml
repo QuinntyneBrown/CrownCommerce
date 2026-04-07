@@ -1,0 +1,16 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Live Chat & AI Integration - System Context
+
+Person(visitor, "Visitor", "Storefront user seeking\nproduct help or support")
+
+System(cc, "CrownCommerce Platform", "Multi-brand e-commerce\nNext.js 15 App Router")
+
+System_Ext(openai, "OpenAI API", "GPT-4o-mini language model\nfor generating responses")
+
+Rel(visitor, cc, "Chats via floating widget", "HTTPS streaming")
+Rel(cc, openai, "Sends conversation context,\nreceives streamed tokens", "REST API")
+
+@enduml

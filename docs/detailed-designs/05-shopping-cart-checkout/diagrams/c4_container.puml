@@ -1,0 +1,25 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Shopping Cart & Checkout — Container Diagram [L2-005, L2-006, L2-007]
+
+Person(shopper, "Shopper", "Customer purchasing products")
+
+System_Boundary(crown, "CrownCommerce Platform") {
+    Container(spa, "Storefront Pages", "Next.js 15 App Router, React, TypeScript", "Cart page at /cart, Checkout page at /checkout, CartSummary component")
+    Container(orderApi, "Order API Routes", "Next.js Route Handlers", "/api/orders/*, /api/orders/cart/*")
+    Container(paymentApi, "Payment API Routes", "Next.js Route Handlers", "/api/payments/*")
+    Container(apiClient, "API Client Layer", "TypeScript fetch wrapper", "ordersApi, paymentsApi in lib/api/")
+}
+
+ContainerDb(postgres, "PostgreSQL", "orders schema", "carts, cart_items, orders, order_items, payments tables")
+
+Rel(shopper, spa, "Browses, adds to cart, checks out", "HTTPS")
+Rel(spa, apiClient, "Calls typed API methods")
+Rel(apiClient, orderApi, "HTTP requests", "JSON/HTTPS")
+Rel(apiClient, paymentApi, "HTTP requests", "JSON/HTTPS")
+Rel(orderApi, postgres, "Reads/writes", "Drizzle ORM")
+Rel(paymentApi, postgres, "Reads/writes", "Drizzle ORM")
+
+@enduml

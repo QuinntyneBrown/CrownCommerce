@@ -1,0 +1,20 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Customer Account Management — Container Diagram
+
+Person(customer, "Customer", "Registered shopper")
+
+System_Boundary(cc, "CrownCommerce Platform") {
+    Container(browser, "Browser SPA", "React 19, Next.js Client Components", "Login & Register forms, client-side navigation")
+    Container(nextjs, "Next.js App Router", "Node.js, TypeScript", "SSR pages, API routes, auth guards, JWT session management")
+    ContainerDb(pg, "PostgreSQL", "Drizzle ORM", "identity.users, identity.sessions, orders.orders, orders.order_items")
+}
+
+Rel(customer, browser, "Interacts with", "HTTPS")
+Rel(browser, nextjs, "Form submissions & page requests", "HTTPS/JSON")
+Rel(nextjs, pg, "Reads/writes user, order data", "SQL via Drizzle")
+Rel(nextjs, browser, "Sets auth-token httpOnly cookie", "Set-Cookie header")
+
+@enduml

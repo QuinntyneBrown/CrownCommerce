@@ -1,0 +1,22 @@
+@startuml
+!theme plain
+!include <C4/C4_Context>
+
+title CLI Tooling & Database Seeding — C4 Context Diagram
+
+Person(developer, "Developer", "CrownCommerce developer\nusing CLI for operations")
+
+System(cli, "CrownCommerce CLI (cc)", "Developer CLI for migrations,\ndeployment, seeding, and ops")
+
+System_Ext(postgres, "PostgreSQL", "Database with 11\ndomain pgSchemas")
+
+System_Ext(deployTarget, "Deployment Target", "Hosting environment\n(Vercel, AWS, etc.)")
+
+System_Ext(drizzleKit, "Drizzle Kit", "Schema diffing and\nmigration generation")
+
+Rel(developer, cli, "Runs commands", "cc <command>")
+Rel(cli, postgres, "Reads/writes data", "SQL via Drizzle ORM")
+Rel(cli, drizzleKit, "Generates migrations", "drizzle-kit generate/push")
+Rel(cli, deployTarget, "Deploys services", "HTTPS / CLI")
+
+@enduml

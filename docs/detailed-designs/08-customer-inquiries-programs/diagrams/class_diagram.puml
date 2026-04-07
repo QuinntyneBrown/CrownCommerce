@@ -1,0 +1,39 @@
+@startuml class_diagram
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+
+title Customer Inquiries & Programs - Domain Model (inquiries.*)
+
+class Inquiry {
+    +id: UUID <<PK>>
+    +name: VARCHAR(255)
+    +email: VARCHAR(255)
+    +subject: VARCHAR(255)
+    +message: TEXT
+    +category: VARCHAR(100)
+    +status: VARCHAR(50)
+    +createdAt: TIMESTAMP
+}
+note right of Inquiry::category
+  "general" | "wholesale" | "ambassador"
+end note
+note right of Inquiry::status
+  General/Wholesale:
+    "new" | "in-review" | "resolved" | "archived"
+  Ambassador:
+    "pending" | "under-review" | "approved" | "declined"
+end note
+
+class AmbassadorFields <<JSON in message>> {
+    +fullName: string
+    +phone: string
+    +instagram: string
+    +tiktok: string?
+    +followerCount: string
+    +whyJoin: string
+}
+
+Inquiry *-- AmbassadorFields : message contains\n(when category = "ambassador")
+
+@enduml

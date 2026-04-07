@@ -1,0 +1,50 @@
+@startuml
+!theme plain
+
+title CLI — Migration Workflow Sequence (L2-046)
+
+actor Developer as dev
+participant "cc migrate" as cli
+participant "Drizzle Kit" as drizzle
+participant "lib/db/schema/*.ts" as schemas
+database "PostgreSQL" as db
+collections "./drizzle/" as files
+
+== Generate Migration ==
+dev -> cli : cc migrate add catalog
+activate cli
+cli -> drizzle : drizzle-kit generate\n--schema=lib/db/schema/catalog.ts
+activate drizzle
+drizzle -> schemas : Read schema definitions
+drizzle -> db : Introspect current state
+db --> drizzle : Current DDL
+drizzle -> drizzle : Diff schema vs database
+drizzle -> files : Write migration SQL file
+drizzle --> cli : Migration generated
+deactivate drizzle
+cli --> dev : "Created: drizzle/0001_catalog_update.sql"
+deactivate cli
+
+== Review & Apply ==
+dev -> dev : Review generated SQL
+dev -> cli : cc migrate apply
+activate cli
+cli -> files : Read pending migration files
+cli -> db : BEGIN transaction
+cli -> db : Execute migration SQL
+cli -> db : Record in __drizzle_migrations
+cli -> db : COMMIT
+cli --> dev : "Applied 1 migration(s)"
+deactivate cli
+
+== Check Status ==
+dev -> cli : cc migrate status
+activate cli
+cli -> db : SELECT * FROM __drizzle_migrations
+db --> cli : Applied migration list
+cli -> files : List all migration files
+cli -> cli : Compare applied vs available
+cli --> dev : Status table (all schemas)
+deactivate cli
+
+@enduml

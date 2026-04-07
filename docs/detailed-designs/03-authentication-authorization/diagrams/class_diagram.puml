@@ -1,0 +1,49 @@
+@startuml class_diagram
+!theme plain
+
+title Auth System — Identity Data Model (L2-055, L2-008)
+
+package "identity schema" <<Database>> {
+    class User {
+        +id : UUID <<PK>>
+        +name : varchar
+        +email : varchar <<unique>>
+        +passwordHash : text
+        +role : varchar = "customer"
+        +createdAt : timestamp
+    }
+
+    class Session {
+        +id : UUID <<PK>>
+        +userId : UUID <<FK>>
+        +token : text <<unique>>
+        +expiresAt : timestamp
+    }
+}
+
+class SessionPayload <<JWT Claims>> {
+    +sub : string (User ID)
+    +email : string
+    +name : string
+    +role : string
+    +exp : number (Unix timestamp)
+}
+
+class AuthResponse <<API Response>> {
+    +user : User
+    +token : string
+}
+
+enum Role {
+    customer
+    admin
+    team
+}
+
+User "1" --> "*" Session : has
+User --> Role : role
+SessionPayload ..> User : derived from
+AuthResponse ..> User : contains
+AuthResponse ..> SessionPayload : token encodes
+
+@enduml

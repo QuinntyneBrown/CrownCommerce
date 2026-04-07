@@ -1,0 +1,38 @@
+@startuml sequence_chat
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Chat Messaging Flow [L2-028]
+
+actor "Team Member" as User
+participant "Chat Page\n/teams/chat" as ChatUI
+participant "API Client\nlib/api/scheduling.ts" as Client
+participant "Channel Routes\n/api/scheduling/channels" as API
+database "PostgreSQL\nscheduling schema" as DB
+
+User -> ChatUI: Navigate to /teams/chat
+ChatUI -> Client: getChannels()
+Client -> API: GET /api/scheduling/channels
+API -> DB: SELECT * FROM channels
+DB --> API: channels[]
+API --> Client: 200 JSON
+Client --> ChatUI: Render channel list
+
+User -> ChatUI: Select channel
+ChatUI -> Client: getChannelMessages(channelId)
+Client -> API: GET /channels/[id]/messages
+API -> DB: SELECT * FROM channel_messages\nWHERE channel_id = ?
+DB --> API: messages[]
+API --> Client: 200 JSON
+Client --> ChatUI: Render messages
+
+User -> ChatUI: Type message + press Enter
+note right of ChatUI: Send disabled if\ninput is empty
+ChatUI -> Client: sendMessage(channelId, { senderId, content })
+Client -> API: POST /channels/[id]/messages
+API -> DB: INSERT INTO channel_messages
+DB --> API: new message
+API --> Client: 201 Created
+Client --> ChatUI: Append message to list
+
+@enduml

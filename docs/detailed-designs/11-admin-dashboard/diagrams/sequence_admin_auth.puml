@@ -1,0 +1,42 @@
+@startuml sequence_admin_auth
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Admin Authentication & Authorization Flow
+
+actor "User" as User
+participant "Browser" as Browser
+participant "AdminLayout\n(layout.tsx)" as Layout
+participant "requireAdmin()\n(guards.ts)" as Guard
+participant "getSession()\n(session.ts)" as Session
+participant "jose\njwtVerify()" as JWT
+
+== Successful Admin Access ==
+User -> Browser: Navigate to /admin/dashboard
+Browser -> Layout: Server-side render request
+Layout -> Guard: await requireAdmin()
+Guard -> Session: await getSession()
+Session -> Session: cookies().get("auth-token")
+Session -> JWT: verifyToken(token)
+JWT --> Session: SessionPayload\n{ sub, email, name, role, exp }
+Session --> Guard: SessionPayload
+Guard -> Guard: Check session.role === "admin"
+Guard --> Layout: SessionPayload (authorized)
+Layout --> Browser: Render sidebar + child page
+
+== Unauthenticated — No Token ==
+User -> Browser: Navigate to /admin/*
+Browser -> Layout: Server-side render
+Layout -> Guard: await requireAdmin()
+Guard -> Session: await getSession()
+Session --> Guard: null (no cookie)
+Guard --> Browser: redirect("/login")
+
+== Wrong Role — Not Admin ==
+User -> Browser: Navigate to /admin/*
+Browser -> Layout: Server-side render
+Layout -> Guard: await requireAdmin()
+Guard -> Guard: session.role !== "admin"
+Guard --> Browser: redirect("/")
+
+@enduml

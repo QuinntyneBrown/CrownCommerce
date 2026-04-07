@@ -1,0 +1,25 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Customer Inquiries & Programs - Component Diagram
+
+Container_Boundary(nextjs, "Next.js Application") {
+    Component(inquiryForm, "InquiryForm", "React Client Component", "General contact &\nwholesale form")
+    Component(ambassadorForm, "AmbassadorApplicationForm", "React Client Component", "Extended ambassador\napplication fields")
+    Component(adminPage, "InquiriesAdminPage", "React Server Component", "Data table, filters,\nexport actions")
+    Component(inquiriesApi, "Inquiries API", "Route Handler", "POST create, GET list,\nPUT update, DELETE")
+    Component(zodValidation, "Zod Schemas", "TypeScript", "Inquiry & ambassador\nvalidation schemas")
+}
+
+ContainerDb(db, "PostgreSQL", "inquiries.*", "inquiries table")
+Container_Ext(contentApi, "Content API", "", "Program content")
+
+Rel(inquiryForm, inquiriesApi, "POST /api/inquiries")
+Rel(ambassadorForm, inquiriesApi, "POST /api/inquiries\ncategory=ambassador")
+Rel(ambassadorForm, contentApi, "Load program info")
+Rel(adminPage, inquiriesApi, "GET, PUT, DELETE")
+Rel(inquiriesApi, zodValidation, "Validate input")
+Rel(inquiriesApi, db, "Read/write inquiries")
+
+@enduml

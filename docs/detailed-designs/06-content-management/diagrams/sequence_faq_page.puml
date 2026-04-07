@@ -1,0 +1,48 @@
+@startuml sequence_faq_page
+!theme plain
+skinparam sequenceMessageAlign center
+
+title FAQ Page with Category Grouping [L2-011]
+caption Visitor views /faq — FAQs grouped by category with accordion
+
+actor Visitor
+participant "Next.js Router" as Router
+participant "FAQPage\n(Server Component)\napp/(storefront)/faq/page.tsx" as FaqPage
+participant "FAQs API\napp/api/content/faqs/route.ts" as API
+participant "Drizzle ORM" as Drizzle
+database "PostgreSQL\ncontent.faqs" as DB
+participant "FAQList\n(Client Component)\nlib/features/faq-list.tsx" as FaqList
+
+== Page Load ==
+
+Visitor -> Router: GET /faq
+Router -> FaqPage: Render
+
+FaqPage -> API: fetch("/api/content/faqs",\n{ cache: "no-store" })
+API -> Drizzle: db.select().from(faqs)
+Drizzle -> DB: SELECT * FROM content.faqs
+DB --> Drizzle: FAQ[]
+Drizzle --> API: FAQ[]
+API --> FaqPage: 200 OK — FAQ[]
+
+FaqPage -> FaqList: <FAQList faqs={faqs} />\n(Server → Client handoff via props)
+
+FaqList -> FaqList: Group FAQs by category:\n• General\n• Products\n• Orders
+
+FaqList --> Visitor: Render SectionHeader\n+ category groups\n+ accordion items\n(all collapsed initially)
+
+== User Interaction ==
+
+Visitor -> FaqList: Click FAQ question
+FaqList -> FaqList: useState: setOpenId(faq.id)
+FaqList --> Visitor: Expand answer panel\nRotate ChevronDown icon 180°
+
+Visitor -> FaqList: Click same question
+FaqList -> FaqList: useState: setOpenId(null)
+FaqList --> Visitor: Collapse answer panel\nReset ChevronDown icon
+
+Visitor -> FaqList: Click different question
+FaqList -> FaqList: useState: setOpenId(newFaq.id)\n(previous auto-closes)
+FaqList --> Visitor: Close previous,\nopen new answer panel
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Team Collaboration Platform - Component Diagram
+
+Container_Boundary(teamsApp, "Teams Route Group (app/(teams)/teams/)") {
+    Component(layout, "Teams Layout", "Server Component", "Sidebar nav, auth guard\nvia requireTeamMember()\n[L2-063, L2-080]")
+
+    Component(homePage, "Home Page", "Server Component", "Dashboard: meetings,\nactivity feed, tz clocks\n[L2-027]")
+
+    Component(chatPage, "Chat Page", "Client Component", "Channel list, messages,\nsend input, unread counts\n[L2-028]")
+
+    Component(meetingsPage, "Meetings Page", "Client Component", "Meeting list, create form,\nRSVP accept/decline\n[L2-029]")
+
+    Component(teamDir, "Team Directory", "Client Component", "Employee cards, presence\ndots, DM chat icon\n[L2-030]")
+
+    Component(presenceMgr, "Presence Manager", "Client Hook", "Idle timer, beforeunload,\nonline/away/offline\n[L2-053]")
+}
+
+Container_Boundary(apiLayer, "Scheduling API Routes") {
+    Component(apiRoutes, "API Route Handlers", "Next.js Route Handlers", "/api/scheduling/*\nCRUD for all entities")
+}
+
+Component(authGuard, "Auth Guards", "lib/auth/guards.ts", "requireTeamMember()\nrequireAdmin()")
+
+Component(apiClient, "Scheduling API Client", "lib/api/scheduling.ts", "Typed fetch wrapper\nfor all endpoints")
+
+Rel(layout, authGuard, "Calls")
+Rel(homePage, apiClient, "Fetches data")
+Rel(chatPage, apiClient, "Channels & messages")
+Rel(meetingsPage, apiClient, "Meetings & RSVP")
+Rel(teamDir, apiClient, "Employees")
+Rel(presenceMgr, apiClient, "PUT presence")
+Rel(apiClient, apiRoutes, "HTTP calls")
+
+@enduml

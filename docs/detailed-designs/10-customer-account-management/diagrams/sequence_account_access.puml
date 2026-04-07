@@ -1,0 +1,39 @@
+@startuml sequence_account_access
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Protected Page Access — Auth Guard Flow (L2-065)
+
+actor Customer
+participant "Next.js Router" as Router
+participant "Account Page\n/account" as Page
+participant "Auth Guards\nlib/auth/guards.ts" as Guard
+participant "Session Manager\nlib/auth/session.ts" as SM
+
+Customer -> Router: GET /account
+Router -> Page: Render server component
+
+Page -> Guard: requireAuth()
+Guard -> SM: getSession()
+SM -> SM: Read "auth-token" cookie
+
+alt No cookie present
+    SM --> Guard: null
+    Guard -> Router: redirect("/login")
+    Router --> Customer: 307 Redirect to /login
+else Cookie exists
+    SM -> SM: verifyToken(token)\njwtVerify with HS256
+    alt Token invalid or expired
+        SM --> Guard: null
+        Guard -> Router: redirect("/login")
+        Router --> Customer: 307 Redirect to /login
+    else Token valid
+        SM --> Guard: SessionPayload\n{ sub, email, name, role }
+        Guard --> Page: SessionPayload
+        Page -> Page: Render profile with\nsession.name, session.email
+        Page --> Router: HTML response
+        Router --> Customer: Account page with profile data
+    end
+end
+
+@enduml

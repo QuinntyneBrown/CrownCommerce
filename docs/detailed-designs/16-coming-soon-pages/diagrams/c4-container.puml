@@ -1,0 +1,21 @@
+@startuml
+!theme plain
+!include <C4/C4_Container>
+
+title Coming Soon Pages — C4 Container Diagram
+
+Person(visitor, "Brand Visitor", "Pre-launch visitor")
+
+System_Boundary(platform, "CrownCommerce Platform") {
+    Container(comingSoonRoutes, "(coming-soon) Route Group", "Next.js App Router", "Standalone pages:\n/origin, /mane-haus")
+    Container(newsletterAPI, "Newsletter API", "Next.js Route Handler", "POST /api/newsletter/subscribers\nGET /api/newsletter/subscribers")
+    Container(globalCSS, "Theme System", "CSS Custom Properties", "@theme + [data-brand]\noverrides in globals.css")
+    ContainerDb(db, "PostgreSQL", "Drizzle ORM", "newsletter.subscribers table\npgSchema isolation")
+}
+
+Rel(visitor, comingSoonRoutes, "Views page", "HTTPS")
+Rel(comingSoonRoutes, globalCSS, "Applies brand theme", "CSS vars")
+Rel(comingSoonRoutes, newsletterAPI, "Submits email", "fetch POST")
+Rel(newsletterAPI, db, "Inserts subscriber", "Drizzle insert")
+
+@enduml

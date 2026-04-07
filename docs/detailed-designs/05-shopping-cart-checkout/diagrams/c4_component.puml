@@ -1,0 +1,32 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Shopping Cart & Checkout — Component Diagram [L2-005, L2-006, L2-007]
+
+Container_Boundary(storefront, "Storefront Pages") {
+    Component(cartPage, "CartPage", "React Client Component", "app/(storefront)/cart/page.tsx\nDisplays cart items, remove/clear [L2-005]")
+    Component(checkoutPage, "CheckoutPage", "React Component", "app/(storefront)/checkout/page.tsx\nShipping form, order placement [L2-006]")
+    Component(cartSummary, "CartSummary", "React Component", "lib/features/cart-summary.tsx\nPresentational cart item list")
+}
+
+Container_Boundary(api, "API Route Handlers") {
+    Component(cartApi, "Cart API", "Next.js Route Handler", "app/api/orders/cart/route.ts\nGET cart, POST create cart")
+    Component(cartItemsApi, "Cart Items API", "Next.js Route Handler", "app/api/orders/cart/items/route.ts\nPOST add item, DELETE remove item")
+    Component(orderApi, "Order API", "Next.js Route Handler", "app/api/orders/route.ts + [id]/route.ts\nCRUD orders [L2-006]")
+    Component(paymentApi, "Payment API", "Next.js Route Handler", "app/api/payments/route.ts + [id]/route.ts\nCreate, confirm, refund [L2-007]")
+}
+
+ContainerDb(db, "PostgreSQL orders schema", "Drizzle ORM", "carts, cart_items, orders, order_items, payments")
+
+Rel(cartPage, cartSummary, "Renders")
+Rel(cartPage, cartApi, "GET cart", "fetch")
+Rel(cartPage, cartItemsApi, "DELETE item", "fetch")
+Rel(checkoutPage, orderApi, "POST/PUT order", "fetch")
+Rel(checkoutPage, paymentApi, "POST/PUT payment", "fetch")
+Rel(cartApi, db, "SELECT/INSERT carts", "SQL")
+Rel(cartItemsApi, db, "INSERT/DELETE cart_items", "SQL")
+Rel(orderApi, db, "SELECT/INSERT/UPDATE orders", "SQL")
+Rel(paymentApi, db, "SELECT/INSERT/UPDATE payments", "SQL")
+
+@enduml

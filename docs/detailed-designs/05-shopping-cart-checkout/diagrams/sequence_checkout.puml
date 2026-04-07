@@ -1,0 +1,76 @@
+@startuml sequence_checkout
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Checkout Flow [L2-006]
+
+actor Shopper
+participant "CheckoutPage\napp/(storefront)/checkout" as Checkout
+participant "ordersApi\nlib/api/orders.ts" as OrderClient
+participant "paymentsApi\nlib/api/payments.ts" as PayClient
+participant "Order API\napp/api/orders/route.ts" as OrderAPI
+participant "Payment API\napp/api/payments/route.ts" as PayAPI
+participant "Drizzle ORM" as Drizzle
+database "PostgreSQL\norders schema" as DB
+
+Shopper -> Checkout : Navigate to /checkout
+
+== Load cart data ==
+Checkout -> OrderClient : getCart(userId)
+OrderClient -> Checkout : cart with items + totals
+Checkout --> Shopper : Display shipping form\n+ order summary
+
+== Fill form & submit ==
+Shopper -> Checkout : Enter shipping info\n(name, address, city, state, zip)\nClick "Place Order"
+
+== Client-side validation [L2-006 AC5] ==
+Checkout -> Checkout : Validate form fields
+alt Validation fails
+    Checkout --> Shopper : Show inline errors\nnext to invalid fields
+else Validation passes
+end
+
+== Create order [L2-006 AC2] ==
+Checkout -> OrderClient : createOrder({ userId,\ntotal, shippingAddress })
+OrderClient -> OrderAPI : POST /api/orders
+OrderAPI -> Drizzle : db.insert(orders).values(...)
+Drizzle -> DB : INSERT INTO orders.orders
+DB --> Drizzle : order row
+Drizzle --> OrderAPI : order
+OrderAPI --> OrderClient : 201 { id, status:"pending", ... }
+OrderClient --> Checkout : order created
+
+== Create payment [L2-006 AC3] ==
+Checkout -> PayClient : createPayment({ orderId, amount })
+PayClient -> PayAPI : POST /api/payments
+PayAPI -> Drizzle : db.insert(payments).values(...)
+Drizzle -> DB : INSERT INTO orders.payments
+DB --> Drizzle : payment row
+Drizzle --> PayAPI : payment
+PayAPI --> PayClient : 201 { id, status:"pending" }
+PayClient --> Checkout : payment created
+
+== Confirm payment [L2-007 AC2] ==
+Checkout -> PayClient : updatePayment(paymentId,\n{ status:"confirmed", confirmedAt })
+PayClient -> PayAPI : PUT /api/payments/:id
+PayAPI -> Drizzle : db.update(payments).set(...)
+Drizzle -> DB : UPDATE orders.payments\nSET status='confirmed'
+DB --> Drizzle : updated row
+Drizzle --> PayAPI : payment
+PayAPI --> PayClient : 200 { status:"confirmed" }
+PayClient --> Checkout : payment confirmed
+
+== Update order status ==
+Checkout -> OrderClient : updateOrder(orderId,\n{ status:"confirmed" })
+OrderClient -> OrderAPI : PUT /api/orders/:id
+OrderAPI -> Drizzle : db.update(orders).set(...)
+Drizzle -> DB : UPDATE orders.orders\nSET status='confirmed'
+DB --> Drizzle : updated row
+Drizzle --> OrderAPI : order
+OrderAPI --> OrderClient : 200 { status:"confirmed" }
+OrderClient --> Checkout : order confirmed
+
+== Confirmation [L2-006 AC4] ==
+Checkout --> Shopper : Display order confirmation\n(order ID, items, total)
+
+@enduml

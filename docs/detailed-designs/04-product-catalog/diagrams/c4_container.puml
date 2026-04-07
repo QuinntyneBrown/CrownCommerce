@@ -1,0 +1,26 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Product Catalog & Search — Container Diagram [L2-001 through L2-004, L2-059, L2-064, L2-075, L2-076]
+
+Person(shopper, "Shopper", "Browses storefront pages")
+Person(admin, "Admin", "Manages catalog via admin pages")
+
+System_Boundary(crown, "CrownCommerce Platform") {
+    Container(storefront, "Storefront Pages", "Next.js 15 RSC, TypeScript", "Server-rendered shop, product detail, and category collection pages\n/shop, /product/:id, /bundles, /closures, /frontals, /bundle-deals")
+    Container(adminui, "Admin Pages", "Next.js 15 RSC, TypeScript", "Product and origin management tables\n/admin/products, /admin/origins")
+    Container(api, "Catalog API Routes", "Next.js Route Handlers, TypeScript", "RESTful endpoints for products, origins, reviews, bundle deals\n/api/catalog/*")
+    Container(orm, "Drizzle ORM Layer", "Drizzle ORM, TypeScript", "Schema definitions, relations, and query builder\nlib/db/schema/catalog.ts")
+}
+
+ContainerDb(db, "PostgreSQL", "PostgreSQL 16", "catalog schema: products, origins, reviews, bundle_deals tables")
+
+Rel(shopper, storefront, "Browses, searches, filters, reviews", "HTTPS")
+Rel(admin, adminui, "CRUD operations", "HTTPS")
+Rel(storefront, api, "Fetches product data", "fetch() / SSR")
+Rel(adminui, api, "Sends CRUD requests", "fetch() / JSON")
+Rel(api, orm, "Queries & mutations", "TypeScript")
+Rel(orm, db, "SQL queries", "pg driver")
+
+@enduml

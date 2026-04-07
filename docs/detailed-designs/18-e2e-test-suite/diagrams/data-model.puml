@@ -1,0 +1,91 @@
+@startuml
+!theme plain
+
+title E2E Test Suite — Class Diagram
+
+package "playwright.config.ts" {
+    class PlaywrightConfig {
+        + testDir: "./e2e"
+        + fullyParallel: boolean
+        + retries: number
+        + workers: number
+        + reporter: "html"
+        + baseURL: string
+        + projects: Project[]
+        + webServer: WebServer
+    }
+
+    class Project {
+        + name: string
+        + testDir: string
+        + use: DeviceConfig
+    }
+}
+
+package "e2e/fixtures/" {
+    class "index.ts" as Fixtures {
+        + test: TestType
+        + expect: ExpectType
+        --
+        «fixture» adminPage: Page
+        «fixture» teamsPage: Page
+        «fixture» mockAPI: MockHelper
+        «fixture» mobileViewport: void
+        «fixture» tabletViewport: void
+    }
+
+    class MockHelper {
+        + products(data): Promise
+        + origins(data): Promise
+        + users(data): Promise
+        + subscribers(data): Promise
+        + pages(data): Promise
+    }
+}
+
+package "e2e/storefront/" {
+    class "home.spec.ts" as HomeSpec {
+        + should display hero section
+        + should show trust bar
+        + should show featured products
+        + should have navigation links
+    }
+
+    class "shop.spec.ts" as ShopSpec {
+        + should display product grid
+        + should filter by category
+        + should sort by price
+    }
+}
+
+package "e2e/admin/" {
+    class "login.spec.ts" as LoginSpec {
+        + should redirect when unauthenticated
+        + should login with valid credentials
+        + should show error on invalid login
+    }
+
+    class "dashboard.spec.ts" as DashSpec {
+        + should display stats cards
+        + should show recent orders
+        + should render charts
+    }
+}
+
+package "e2e/teams/" {
+    class "chat.spec.ts" as ChatSpec {
+        + should list channels
+        + should send message
+        + should show message history
+    }
+}
+
+PlaywrightConfig *-- "3" Project
+Fixtures --> MockHelper : creates
+HomeSpec ..> Fixtures : imports
+ShopSpec ..> Fixtures : imports
+LoginSpec ..> Fixtures : imports
+DashSpec ..> Fixtures : imports
+ChatSpec ..> Fixtures : imports
+
+@enduml

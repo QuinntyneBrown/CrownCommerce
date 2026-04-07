@@ -1,0 +1,32 @@
+@startuml
+!theme plain
+!include <C4/C4_Component>
+
+title CLI Tooling — C4 Component Diagram
+
+Container_Boundary(cli, "CrownCommerce CLI (cc/index.ts)") {
+    Component(argParser, "Argument Parser", "process.argv", "Extracts command and\nsub-commands from args")
+    Component(cmdRegistry, "Command Registry", "Record<string, string>", "Maps command names\nto descriptions")
+    Component(migrateCmd, "MigrateCommand", "Handler", "add, apply, status,\nscript, rollback, validate")
+    Component(deployCmd, "DeployCommand", "Handler", "Single service or\nall with dep ordering")
+    Component(seedCmd, "SeedCommand", "Handler", "Dynamic import of\nlib/db/seed/index.ts")
+    Component(healthCmd, "HealthCommand", "Handler", "DB connectivity and\nenvironment checks")
+    Component(helpCmd, "HelpCommand", "Handler", "Prints command list\nand usage info")
+}
+
+Container(seedScript, "Seeder", "lib/db/seed/index.ts", "Idempotent seeders")
+Container(drizzleKit, "Drizzle Kit", "CLI tool", "Migration engine")
+ContainerDb(postgres, "PostgreSQL", "Database")
+
+Rel(argParser, cmdRegistry, "Looks up command")
+Rel(cmdRegistry, migrateCmd, "Dispatches")
+Rel(cmdRegistry, deployCmd, "Dispatches")
+Rel(cmdRegistry, seedCmd, "Dispatches")
+Rel(cmdRegistry, healthCmd, "Dispatches")
+Rel(cmdRegistry, helpCmd, "Dispatches")
+Rel(seedCmd, seedScript, "import()", "dynamic")
+Rel(migrateCmd, drizzleKit, "Invokes", "subprocess")
+Rel(seedScript, postgres, "INSERT", "Drizzle ORM")
+Rel(healthCmd, postgres, "SELECT 1", "connectivity check")
+
+@enduml

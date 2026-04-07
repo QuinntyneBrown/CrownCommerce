@@ -1,0 +1,21 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Newsletter & Email Campaigns - System Context
+
+Person(visitor, "Visitor", "Unauthenticated storefront user")
+Person(admin, "Admin", "CrownCommerce team member")
+
+System(cc, "CrownCommerce Platform", "Multi-brand e-commerce platform\nNext.js 15 App Router")
+
+System_Ext(resend, "Resend", "Transactional & bulk\nemail delivery service")
+System_Ext(browser, "Email Client", "Gmail, Outlook, etc.")
+
+Rel(visitor, cc, "Subscribes to newsletter", "HTTPS")
+Rel(admin, cc, "Manages subscribers\n& campaigns", "HTTPS")
+Rel(cc, resend, "Sends confirmation &\ncampaign emails", "REST API")
+Rel(resend, browser, "Delivers emails")
+Rel_Back(cc, resend, "Receives delivery\nwebhooks", "HTTPS POST")
+
+@enduml

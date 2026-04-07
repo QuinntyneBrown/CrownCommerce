@@ -1,0 +1,26 @@
+@startuml sequence_contact_form
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Contact Form Submission (L2-016)
+
+actor Visitor
+participant "ContactPage\n/contact" as Page
+participant "InquiryForm\nComponent" as Form
+participant "POST\n/api/inquiries" as API
+participant "Zod\nValidation" as Zod
+database "inquiries.inquiries" as DB
+
+Visitor -> Page: Navigate to /contact
+Page -> Form: Render with\ncategory="general"
+Visitor -> Form: Fill name, email,\nsubject, message
+Visitor -> Form: Submit
+Form -> API: POST { name, email,\nsubject, message,\ncategory: "general" }
+API -> Zod: Validate body
+Zod --> API: Valid
+API -> DB: INSERT inquiry\n(status: "new")
+DB --> API: Inquiry row
+API --> Form: 201 Created
+Form --> Visitor: "Thank you!\nWe'll get back to you soon."
+
+@enduml

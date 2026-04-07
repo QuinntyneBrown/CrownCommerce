@@ -1,0 +1,22 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Content Management System — System Context
+caption CrownCommerce CMS (L2-010 through L2-013, L2-025, L2-026, L2-073, L2-074)
+
+Person(visitor, "Visitor", "Unauthenticated storefront user viewing dynamic pages, FAQs, testimonials, gallery")
+Person(admin, "Admin", "Authenticated team member managing content via admin panel")
+
+System(crown, "CrownCommerce Platform", "Next.js 15 multi-brand e-commerce platform with integrated CMS for 6 content types")
+
+System_Ext(pg, "PostgreSQL Database", "Persistent storage for all content in the 'content' schema")
+System_Ext(browser, "Web Browser", "Renders storefront and admin UI")
+
+Rel(visitor, crown, "Views content pages, FAQs, testimonials, gallery", "HTTPS")
+Rel(admin, crown, "Manages content via admin panel", "HTTPS")
+Rel(crown, pg, "Reads/writes content data", "SQL / Drizzle ORM")
+Rel_L(visitor, browser, "Uses")
+Rel_L(admin, browser, "Uses")
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml sequence_content_rendering
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Dynamic Content Page Rendering [L2-010]
+caption Visitor navigates to /{slug} (e.g., /about, /shipping-info)
+
+actor Visitor
+participant "Next.js Router" as Router
+participant "SlugPage\n(Server Component)\napp/(storefront)/[slug]/page.tsx" as SlugPage
+participant "Content Pages API\napp/api/content/pages/route.ts" as API
+participant "Drizzle ORM\nlib/db/schema/content.ts" as Drizzle
+database "PostgreSQL\ncontent.pages" as DB
+
+Visitor -> Router: GET /{slug}
+Router -> SlugPage: Render with params.slug
+
+SlugPage -> API: fetch("/api/content/pages",\n{ cache: "no-store" })
+API -> Drizzle: db.select().from(pages)
+Drizzle -> DB: SELECT * FROM content.pages
+DB --> Drizzle: Row[]
+Drizzle --> API: Page[]
+API --> SlugPage: 200 OK — JSON array of all pages
+
+SlugPage -> SlugPage: pages.find(p => p.slug === slug)
+
+alt Page found
+    SlugPage --> Visitor: Render <h1>{title}</h1>\n+ <div class="prose">{body}</div>
+else Page not found
+    SlugPage -> Router: notFound()
+    Router --> Visitor: 404 Not Found page
+end
+
+@enduml

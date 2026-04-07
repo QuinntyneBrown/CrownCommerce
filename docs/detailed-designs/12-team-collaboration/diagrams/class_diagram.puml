@@ -1,0 +1,71 @@
+@startuml class_diagram
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+
+title Team Collaboration Platform - Domain Model\n(scheduling PostgreSQL schema)
+
+class Employee {
+    +id: UUID <<PK>>
+    +userId: UUID <<FK → identity.users>>
+    +name: VARCHAR(255)
+    +role: VARCHAR(100)
+    +department: VARCHAR(100)
+    +timezone: VARCHAR(100) = "UTC"
+    +presence: VARCHAR(50) = "offline"
+    +avatarUrl: VARCHAR(500)
+}
+
+class Channel {
+    +id: UUID <<PK>>
+    +name: VARCHAR(255)
+    +type: VARCHAR(50) = "public"
+    +createdBy: UUID <<FK>>
+    +createdAt: TIMESTAMP
+}
+
+class ChannelMessage {
+    +id: UUID <<PK>>
+    +channelId: UUID <<FK>>
+    +senderId: UUID <<FK>>
+    +content: TEXT
+    +attachments: TEXT
+    +createdAt: TIMESTAMP
+}
+
+class Meeting {
+    +id: UUID <<PK>>
+    +title: VARCHAR(255)
+    +description: TEXT
+    +date: DATE
+    +startTime: TIME
+    +endTime: TIME
+    +location: VARCHAR(255)
+    +organizerId: UUID <<FK>>
+}
+
+class MeetingAttendee {
+    +id: UUID <<PK>>
+    +meetingId: UUID <<FK>>
+    +employeeId: UUID <<FK>>
+    +rsvpStatus: VARCHAR(50) = "pending"
+}
+
+class File {
+    +id: UUID <<PK>>
+    +filename: VARCHAR(255)
+    +url: VARCHAR(500)
+    +contentType: VARCHAR(100)
+    +uploadedBy: UUID <<FK>>
+    +createdAt: TIMESTAMP
+}
+
+Employee "1" -- "*" Channel : creates >
+Employee "1" -- "*" ChannelMessage : sends >
+Channel "1" -- "*" ChannelMessage : contains >
+Employee "1" -- "*" Meeting : organizes >
+Meeting "1" -- "*" MeetingAttendee : has >
+Employee "1" -- "*" MeetingAttendee : attends >
+Employee "1" -- "*" File : uploads >
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Content Management System — Component Diagram
+caption Internal components within the Next.js CMS feature
+
+Container_Boundary(storefront, "Storefront Components") {
+    Component(slugPage, "SlugPage", "Server Component", "app/(storefront)/[slug]/page.tsx\nRenders dynamic content pages [L2-010]")
+    Component(faqPage, "FaqPage + FaqList", "Server + Client Component", "app/(storefront)/faq/page.tsx\nlib/features/faq-list.tsx\nFAQ accordion grouped by category [L2-011]")
+    Component(testimonials, "TestimonialsSection", "Server Component", "lib/features/testimonials-section.tsx\nTestimonial card grid [L2-012]")
+    Component(gallery, "GalleryGrid", "Component", "Responsive image grid on homepage\n2-col mobile / 3-col desktop [L2-013]")
+}
+
+Container_Boundary(adminpanel, "Admin Components") {
+    Component(adminPages, "ContentPagesAdmin", "Client Component", "app/(admin)/admin/content-pages/page.tsx\nCRUD for pages [L2-073]")
+    Component(adminFaqs, "FAQsAdmin", "Client Component", "app/(admin)/admin/faqs/page.tsx\nCRUD by category [L2-074]")
+    Component(adminHero, "HeroAdmin", "Client Component", "app/(admin)/admin/hero-content/page.tsx\nHero form with save/reset [L2-025]")
+    Component(adminTrust, "TrustBarAdmin", "Client Component", "app/(admin)/admin/trust-bar/page.tsx\nCRUD for trust items [L2-026]")
+}
+
+Container_Boundary(apiLayer, "Content API Layer") {
+    Component(contentApi, "Content API Routes", "Route Handlers", "app/api/content/*/route.ts\n6 resource endpoints with Drizzle ORM")
+}
+
+ContainerDb(pg, "PostgreSQL", "content schema", "6 tables in pgSchema('content')")
+
+Rel(slugPage, contentApi, "GET /api/content/pages")
+Rel(faqPage, contentApi, "GET /api/content/faqs")
+Rel(testimonials, contentApi, "GET /api/content/testimonials")
+Rel(gallery, contentApi, "GET /api/content/gallery")
+Rel(adminPages, contentApi, "CRUD /api/content/pages")
+Rel(adminFaqs, contentApi, "CRUD /api/content/faqs")
+Rel(adminHero, contentApi, "GET/POST /api/content/hero")
+Rel(adminTrust, contentApi, "GET/POST /api/content/trust-bar")
+Rel(contentApi, pg, "SQL via Drizzle")
+
+@enduml

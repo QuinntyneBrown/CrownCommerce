@@ -1,0 +1,47 @@
+@startuml
+!theme plain
+
+title Coming Soon Pages — Data Model
+
+package "newsletter pgSchema" {
+    entity "subscribers" as sub {
+        * **id** : uuid <<PK>>
+        --
+        * email : varchar(255)
+        brand_tag : varchar(100)
+        * status : varchar(50) = "pending"
+        confirmed_at : timestamp
+        * created_at : timestamp
+    }
+
+    entity "campaigns" as camp {
+        * **id** : uuid <<PK>>
+        --
+        * subject : varchar(255)
+        html_body : text
+        text_body : text
+        tag : varchar(100)
+        * status : varchar(50) = "draft"
+        scheduled_at : timestamp
+        sent_at : timestamp
+    }
+
+    entity "campaign_recipients" as cr {
+        * **id** : uuid <<PK>>
+        --
+        * campaign_id : uuid <<FK>>
+        * subscriber_id : uuid <<FK>>
+        * delivery_status : varchar(50) = "pending"
+    }
+}
+
+camp ||--o{ cr : "has recipients"
+sub ||--o{ cr : "receives campaigns"
+
+note right of sub
+  Coming-soon signups create rows
+  with brand_tag = "origin" or
+  brand_tag = "mane-haus"
+end note
+
+@enduml

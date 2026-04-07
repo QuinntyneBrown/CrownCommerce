@@ -1,0 +1,33 @@
+@startuml sequence_crud_operation
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Generic CRUD Operation (Orders Example — L2-067)
+
+actor "Admin" as Admin
+participant "OrdersPage\n(Client Component)" as Page
+participant "API Route\n/api/orders/[id]" as API
+participant "Drizzle ORM\n(db.update)" as ORM
+database "orders.orders\n(PostgreSQL)" as DB
+
+== List (initial load) ==
+Admin -> Page: Navigate to /admin/orders
+Page -> API: GET /api/orders
+API -> ORM: db.select().from(orders)
+ORM -> DB: SELECT * FROM orders.orders
+DB --> ORM: rows[]
+ORM --> API: Order[]
+API --> Page: JSON response
+Page --> Admin: Render data table
+
+== Update (status change) ==
+Admin -> Page: Click "Mark as Shipped"\n+ enter tracking number
+Page -> API: PUT /api/orders/{id}\n{ status: "shipped", trackingNumber: "..." }
+API -> ORM: db.update(orders).set({...})\n.where(eq(orders.id, id))
+ORM -> DB: UPDATE orders.orders SET ...
+DB --> ORM: updated row
+ORM --> API: Order
+API --> Page: 200 OK + updated order
+Page --> Admin: Table row refreshed\nwith new status badge
+
+@enduml

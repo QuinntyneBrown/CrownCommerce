@@ -1,0 +1,53 @@
+@startuml
+!theme plain
+
+title E2E — API Mocking Flow
+
+participant "Test (*.spec.ts)" as test
+participant "mockAPI Fixture" as mock
+participant "Playwright Page" as page
+participant "Browser Network" as network
+participant "Next.js App\nlocalhost:3000" as app
+participant "API Route Handler\n/api/catalog/products" as api
+
+== Setup: Register Mock Routes ==
+test -> mock : await mockAPI.products(mockData)
+activate mock
+mock -> page : page.route("**/api/catalog/products**", handler)
+page -> network : Register route intercept
+mock --> test : Mock registered
+deactivate mock
+
+== Test: Page Makes API Call ==
+test -> page : await page.goto("/shop")
+activate page
+page -> app : GET /shop (HTML)
+app --> page : HTML with React components
+
+page -> network : fetch("/api/catalog/products")
+activate network
+
+note right of network
+  Playwright intercepts the
+  request BEFORE it reaches
+  the actual API route
+end note
+
+network -> network : Match against registered routes
+network --> page : Fulfill with mock data\n(200, mockData)
+deactivate network
+
+page -> page : React renders\nwith mock product data
+
+== Assertions ==
+test -> page : expect(page.getByText("Brazilian Body Wave")).toBeVisible()
+page --> test : ✅ Assertion passed
+deactivate page
+
+note right of api
+  Real API route handler
+  is NEVER called — full
+  backend isolation
+end note
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml c4_context
+!theme plain
+!include <C4/C4_Context>
+
+title Product Catalog & Search — System Context [L2-001, L2-002, L2-003, L2-076]
+
+Person(shopper, "Shopper", "Browses products, searches, filters, reads reviews, adds items to cart")
+Person(admin, "Admin", "Manages products, origins, reviews, and bundle deals via admin panel")
+
+System(crown, "CrownCommerce Platform", "Next.js 15 App Router application serving branded storefronts and admin dashboard for premium hair products")
+
+SystemDb_Ext(postgres, "PostgreSQL Database", "Stores product catalog, origins, reviews, and bundle deals in the 'catalog' schema")
+
+Rel(shopper, crown, "Browses catalog, searches, filters, submits reviews", "HTTPS")
+Rel(admin, crown, "CRUD products, origins, bundle deals", "HTTPS")
+Rel(crown, postgres, "Reads/writes catalog data", "SQL / Drizzle ORM")
+
+@enduml

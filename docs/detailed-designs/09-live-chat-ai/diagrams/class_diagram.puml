@@ -1,0 +1,32 @@
+@startuml class_diagram
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+
+title Live Chat & AI Integration - Domain Model (chat.*)
+
+class Conversation {
+    +id: UUID <<PK>>
+    +userId: UUID <<FK, optional>>
+    +createdAt: TIMESTAMP
+}
+note right of Conversation::userId
+  NULL for anonymous visitors
+  FK → identity.users for
+  authenticated users
+end note
+
+class Message {
+    +id: UUID <<PK>>
+    +conversationId: UUID <<FK>>
+    +role: VARCHAR(50)
+    +content: TEXT
+    +createdAt: TIMESTAMP
+}
+note right of Message::role
+  "user" | "assistant" | "system"
+end note
+
+Conversation "1" -- "*" Message : contains\n(ordered by createdAt)
+
+@enduml

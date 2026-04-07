@@ -1,0 +1,29 @@
+@startuml c4_component
+!theme plain
+!include <C4/C4_Component>
+
+title Auth System — Component Diagram (L2-009, L2-055)
+
+Container_Boundary(auth_system, "Authentication System") {
+    Component(session, "Session Manager", "lib/auth/session.ts", "JWT via jose (HS256)\n7-day expiration\nCookie: auth-token")
+    Component(guards, "Route Guards", "lib/auth/guards.ts", "requireAuth()\nrequireAdmin()\nrequireTeamMember()")
+    Component(auth_mw, "Auth Middleware", "lib/auth/middleware.ts", "withAuth()\nwithAdmin()\nBearer or Cookie token")
+    Component(auth_route, "Auth API Route", "app/api/identity/auth", "register, login\nlogout, profile")
+    Component(app_mw, "App Middleware", "app/middleware.ts", "Route matching\nAdmin: /dashboard, /products…\nTeam: /home, /chat…")
+}
+
+Container_Boundary(pages, "Protected Pages") {
+    Component(admin_pages, "Admin Pages", "app/(admin)/**", "requireAdmin() guard")
+    Component(team_pages, "Team Pages", "app/(teams)/**", "requireTeamMember() guard")
+    Component(auth_pages, "Login / Register", "app/(storefront)/login|register", "Public pages")
+}
+
+Rel(auth_route, session, "createToken()\nverifyToken()")
+Rel(guards, session, "getSession()")
+Rel(auth_mw, session, "verifyToken()")
+Rel(app_mw, session, "Check auth-token cookie")
+Rel(admin_pages, guards, "requireAdmin()")
+Rel(team_pages, guards, "requireTeamMember()")
+Rel(auth_pages, auth_route, "POST /api/identity/auth")
+
+@enduml

@@ -1,0 +1,63 @@
+@startuml sequence_product_search
+!theme plain
+skinparam sequenceMessageAlign center
+skinparam maxMessageSize 200
+
+title Product Search & Filter Flow [L2-001, L2-076]
+
+actor Shopper
+participant "ShopPage\n(app/(storefront)/shop/page.tsx)" as ShopPage
+participant "ProductGrid\n(lib/features/product-grid.tsx)" as Grid
+participant "Products API\n(app/api/catalog/products/route.ts)" as API
+participant "Drizzle ORM\n(lib/db/schema/catalog.ts)" as ORM
+database "PostgreSQL\ncatalog.products" as DB
+
+== Initial Page Load ==
+
+Shopper -> ShopPage : GET /shop?category=Bundle&texture=straight\n&sortBy=price&sortDirection=asc&page=1
+activate ShopPage
+
+ShopPage -> API : GET /api/catalog/products\n?category=Bundle&texture=straight\n&sortBy=price&sortDirection=asc\n&page=1&pageSize=12
+activate API
+
+API -> API : Parse searchParams:\ncategory, texture, sortBy,\nsortDirection, page, pageSize
+
+API -> ORM : db.select().from(products)\n.where(and(\n  eq(products.type, "Bundle"),\n  eq(products.texture, "straight")\n))\n.orderBy(asc(products.price))\n.limit(12).offset(0)
+activate ORM
+
+ORM -> DB : SELECT * FROM catalog.products\nWHERE type = $1 AND texture = $2\nORDER BY price ASC\nLIMIT 12 OFFSET 0
+activate DB
+DB --> ORM : ResultSet (rows + count)
+deactivate DB
+
+ORM --> API : Product[]
+deactivate ORM
+
+API --> ShopPage : 200 OK\n{ items: Product[],\n  totalCount: 47,\n  page: 1, pageSize: 12 }
+deactivate API
+
+ShopPage -> Grid : <products={items}>
+Grid --> Shopper : Rendered product grid\nwith pagination controls
+deactivate ShopPage
+
+== Pagination ==
+
+Shopper -> ShopPage : Click "Page 2"
+activate ShopPage
+ShopPage -> API : GET /api/catalog/products\n?category=Bundle&texture=straight\n&sortBy=price&sortDirection=asc\n&page=2&pageSize=12
+activate API
+API -> ORM : .limit(12).offset(12)
+activate ORM
+ORM -> DB : SELECT ... LIMIT 12 OFFSET 12
+activate DB
+DB --> ORM : ResultSet
+deactivate DB
+ORM --> API : Product[]
+deactivate ORM
+API --> ShopPage : 200 OK { items, totalCount, page: 2, pageSize: 12 }
+deactivate API
+ShopPage -> Grid : <products={items}>
+Grid --> Shopper : Page 2 results
+deactivate ShopPage
+
+@enduml

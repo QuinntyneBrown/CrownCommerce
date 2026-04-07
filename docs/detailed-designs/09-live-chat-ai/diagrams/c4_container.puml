@@ -1,0 +1,24 @@
+@startuml c4_container
+!theme plain
+!include <C4/C4_Container>
+
+title Live Chat & AI Integration - Container Diagram
+
+Person(visitor, "Visitor", "Storefront user")
+
+System_Boundary(cc, "CrownCommerce Platform") {
+    Container(widget, "Chat Widget", "React Client Component", "Floating chat UI with\nmessage list & input")
+    Container(container, "ChatContainer", "React Feature Comp.", "Conversation lifecycle,\nuseChat hook state")
+    Container(api, "Chat API Routes", "Next.js Route Handlers", "Conversation CRUD &\nAI streaming endpoint")
+    ContainerDb(db, "PostgreSQL", "chat schema", "conversations &\nmessages tables")
+}
+
+System_Ext(openai, "OpenAI API", "GPT-4o-mini model")
+
+Rel(visitor, widget, "Types messages", "HTTPS")
+Rel(widget, container, "Props & callbacks")
+Rel(container, api, "useChat hook\nstreaming", "HTTPS SSE")
+Rel(api, openai, "streamText()", "REST API")
+Rel(api, db, "Persist messages", "Drizzle ORM")
+
+@enduml

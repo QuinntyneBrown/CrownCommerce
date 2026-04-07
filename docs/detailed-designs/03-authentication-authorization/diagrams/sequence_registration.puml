@@ -1,0 +1,49 @@
+@startuml sequence_registration
+!theme plain
+skinparam sequenceMessageAlign center
+
+title User Registration Flow (L2-008, L2-055, L2-056)
+
+actor "Customer" as customer
+participant "Register Page\n/(storefront)/register" as page
+participant "identityApi\nlib/api/identity.ts" as client
+participant "Auth Route\nPOST /api/identity/auth" as api
+participant "bcryptjs" as bcrypt
+participant "Session Manager\nlib/auth/session.ts" as session
+database "identity.users" as db
+
+customer -> page: Fill form (name, email, password)
+page -> page: Client-side validation\n(L2-056)
+
+page -> client: identityApi.register(\n{ name, email, password })
+client -> api: POST /api/identity/auth\n{ action: "register", name, email, password }
+
+api -> api: Validate input (L2-056)\nCheck required fields\nValidate email format
+
+api -> db: SELECT * FROM identity.users\nWHERE email = ?
+db --> api: null (no existing user)
+
+api -> bcrypt: hash(password)
+bcrypt --> api: passwordHash
+
+api -> db: INSERT INTO identity.users\n(name, email, passwordHash,\nrole: "customer")
+db --> api: User { id, name, email, role }
+
+api -> session: createToken({ sub: user.id,\nemail, name, role })
+session -> session: jose.SignJWT()\n.setExpirationTime("7d")\n.sign(HS256 secret)
+session --> api: JWT token string
+
+api -> api: setSessionCookie(token)\nhttpOnly, secure, sameSite: lax
+
+api --> client: { user, token } (201)
+client --> page: AuthResponse
+page -> page: redirect("/")
+
+note right of api
+  Error Cases:
+  - Missing fields → 400
+  - Duplicate email → 409
+  - Invalid data → 400
+end note
+
+@enduml

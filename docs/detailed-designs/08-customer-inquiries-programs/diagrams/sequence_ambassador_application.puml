@@ -1,0 +1,30 @@
+@startuml sequence_ambassador_application
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Ambassador Application Flow (L2-018, L2-078)
+
+actor Visitor
+participant "AmbassadorPage\n/ambassador" as Page
+participant "Content API" as Content
+participant "AmbassadorForm\nComponent" as Form
+participant "POST\n/api/inquiries" as API
+database "inquiries.inquiries" as DB
+
+== Page Load ==
+Visitor -> Page: Navigate to /ambassador
+Page -> Content: GET program content
+Content --> Page: Benefits, requirements,\ntestimonials
+Page --> Visitor: Program info + form
+
+== Application Submit ==
+Visitor -> Form: Fill extended fields:\nname, email, phone,\nInstagram, follower count,\nwhy join
+Visitor -> Form: Submit
+Form -> Form: Zod validate\n(required fields check)
+Form -> API: POST {\n  name, email,\n  subject: "[AMBASSADOR APPLICATION]",\n  message: { fullName, phone,\n    instagram, tiktok,\n    followerCount, whyJoin },\n  category: "ambassador"\n}
+API -> DB: INSERT inquiry\n(status: "pending")
+DB --> API: Inquiry row
+API --> Form: 201 Created
+Form --> Visitor: "Application submitted!\nWe'll review and contact you."
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml sequence_ai_streaming
+!theme plain
+skinparam sequenceMessageAlign center
+
+title AI Response Streaming Detail (L2-020)
+
+participant "ChatContainer\nuseChat hook" as Client
+participant "Messages API\nRoute Handler" as API
+participant "Vercel AI SDK\nstreamText()" as SDK
+participant "OpenAI API\ngpt-4o-mini" as OpenAI
+database "chat.messages" as DB
+
+Client -> API: POST /conversations/{id}/messages\n{ messages: [...] }
+API -> DB: INSERT user message\n(role: "user")
+
+API -> SDK: streamText({\n  model: openai("gpt-4o-mini"),\n  system: SYSTEM_PROMPT,\n  messages: [...]\n})
+SDK -> OpenAI: POST /v1/chat/completions\n(stream: true)
+
+loop Token streaming
+    OpenAI --> SDK: Token chunk
+    SDK --> API: Data stream chunk
+    API --> Client: SSE data frame
+    Client -> Client: Append token to\nassistant message
+end
+
+OpenAI --> SDK: [DONE]
+SDK --> API: Stream complete
+API --> Client: Stream end
+
+SDK -> SDK: onFinish callback fires
+SDK -> DB: INSERT assistant message\n(role: "assistant",\ncontent: full response)
+
+@enduml

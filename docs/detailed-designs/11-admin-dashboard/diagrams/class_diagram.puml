@@ -1,0 +1,71 @@
+@startuml class_diagram
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+
+title Admin Dashboard — Domain Model (Key Entities)
+
+package "orders.*" {
+    class Order {
+        +id: UUID
+        +userId: UUID
+        +status: varchar(50) = "pending"
+        +total: decimal(10,2)
+        +shippingAddress: text
+        +createdAt: timestamp
+        +updatedAt: timestamp
+    }
+    class OrderItem {
+        +id: UUID
+        +orderId: UUID <<FK>>
+        +productId: UUID
+        +quantity: integer
+        +unitPrice: decimal(10,2)
+    }
+}
+
+package "identity.*" {
+    class User {
+        +id: UUID
+        +name: varchar(255)
+        +email: varchar(255) <<unique>>
+        +passwordHash: text
+        +role: varchar(50) = "customer"
+        +createdAt: timestamp
+    }
+}
+
+package "crm.*" {
+    class Customer {
+        +id: UUID
+        +name: varchar(255)
+        +email: varchar(255)
+        +status: varchar(50) = "active"
+        +tier: varchar(50) = "standard"
+        +orderCount: integer = 0
+    }
+    class Lead {
+        +id: UUID
+        +name: varchar(255)
+        +email: varchar(255)
+        +phone: varchar(50)
+        +source: varchar(100)
+        +status: varchar(50) = "new"
+        +notes: text
+        +createdAt: timestamp
+    }
+}
+
+package "content.*" {
+    class GalleryImage {
+        +id: UUID
+        +url: varchar(500)
+        +altText: varchar(255)
+        +category: varchar(100)
+    }
+}
+
+Order "1" -- "*" OrderItem : contains
+User "1" -- "*" Order : places (via userId)
+
+@enduml

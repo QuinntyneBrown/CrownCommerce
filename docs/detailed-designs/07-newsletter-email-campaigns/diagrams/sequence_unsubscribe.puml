@@ -1,0 +1,22 @@
+@startuml sequence_unsubscribe
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Unsubscribe Flow (L2-079)
+
+actor Subscriber
+participant "Email Client" as Email
+participant "UnsubscribePage\n/newsletter/unsubscribe" as Page
+participant "Token Service\n(jose)" as JWT
+database "newsletter.subscribers" as DB
+
+Subscriber -> Email: Opens campaign email
+Email -> Subscriber: Email with unsubscribe link
+Subscriber -> Page: GET /newsletter/unsubscribe?token=X
+Page -> JWT: Verify token signature & expiry
+JWT --> Page: { subscriberId }
+Page -> DB: UPDATE status = "unsubscribed"\nWHERE id = subscriberId
+DB --> Page: Updated
+Page --> Subscriber: "You have been unsubscribed"
+
+@enduml

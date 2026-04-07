@@ -1,0 +1,41 @@
+@startuml sequence_login
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Login & Session Creation Flow (L2-008, L2-055)
+
+actor "User" as user
+participant "Login Page\n/(storefront)/login" as page
+participant "Auth Route\nPOST /api/identity/auth" as api
+participant "bcryptjs" as bcrypt
+participant "Session Manager\nlib/auth/session.ts" as session
+database "identity.users" as db
+
+user -> page: Enter email + password
+page -> api: POST /api/identity/auth\n{ action: "login", email, password }
+
+api -> api: Validate input\nCheck required fields
+
+api -> db: SELECT * FROM identity.users\nWHERE email = ?
+db --> api: User { id, passwordHash, role }
+
+alt User not found
+    api --> page: 401 { error: "Invalid credentials" }
+end
+
+api -> bcrypt: compare(password, passwordHash)
+bcrypt --> api: true
+
+alt Password mismatch
+    api --> page: 401 { error: "Invalid credentials" }
+end
+
+api -> session: createToken(\n{ sub, email, name, role })
+session --> api: JWT token
+
+api -> api: setSessionCookie(token)\nSet-Cookie: auth-token=<jwt>;\nhttpOnly; Secure; SameSite=Lax;\nMax-Age=604800
+
+api --> page: { user, token } (200)
+page -> page: redirect to appropriate\ndashboard based on role
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml sequence_presence
+!theme plain
+skinparam stateFontSize 12
+
+title Employee Presence State Machine [L2-053]
+
+state "Offline" as Offline : employees.presence = "offline"\nDefault state
+state "Online" as Online : employees.presence = "online"\nActive user
+state "Away" as Away : employees.presence = "away"\nIdle > 5 minutes
+
+[*] --> Offline : Initial state
+
+Offline --> Online : Login success\nPUT /api/scheduling/employees/[id]\n{ presence: "online" }
+
+Online --> Away : 5 min idle timer expires\n(no mousemove/keydown/mousedown)\nPUT { presence: "away" }
+
+Away --> Online : Activity resumes\n(mousemove/keydown detected)\nPUT { presence: "online" }
+
+Online --> Offline : Logout clicked\nPUT { presence: "offline" }\nthen clear auth-token cookie
+
+Away --> Offline : Logout clicked\nPUT { presence: "offline" }\nthen clear auth-token cookie
+
+Online --> Offline : Tab close / navigate away\nbeforeunload event\nnavigator.sendBeacon()
+
+Away --> Offline : Tab close / navigate away\nbeforeunload event\nnavigator.sendBeacon()
+
+Offline --> [*]
+
+@enduml

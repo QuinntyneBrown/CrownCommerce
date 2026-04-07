@@ -1,0 +1,42 @@
+@startuml sequence_admin_management
+!theme plain
+skinparam sequenceMessageAlign center
+
+title Admin Inquiry Management (L2-019)
+
+actor Admin
+participant "InquiriesPage\n/admin/inquiries" as Page
+participant "GET\n/api/inquiries" as ListAPI
+participant "PUT\n/api/inquiries/[id]" as UpdateAPI
+database "inquiries.inquiries" as DB
+
+== Load & Filter ==
+Admin -> Page: Navigate to /admin/inquiries
+Page -> ListAPI: GET /api/inquiries
+ListAPI -> DB: SELECT all inquiries
+DB --> ListAPI: Inquiry[]
+ListAPI --> Page: 200 { data, total }
+Page --> Admin: Render data table
+
+Admin -> Page: Filter by category="ambassador"
+Page -> ListAPI: GET ?category=ambassador
+ListAPI -> DB: SELECT WHERE\ncategory = "ambassador"
+DB --> ListAPI: Filtered results
+ListAPI --> Page: 200 { data, total }
+
+== Review & Update ==
+Admin -> Page: Click inquiry row
+Page --> Admin: Detail modal/slide-over
+Admin -> Page: Update status to "under-review"
+Page -> UpdateAPI: PUT { status: "under-review" }
+UpdateAPI -> DB: UPDATE status
+DB --> UpdateAPI: Updated inquiry
+UpdateAPI --> Page: 200 Inquiry
+Page --> Admin: Status badge updated
+
+== Export ==
+Admin -> Page: Click "Export CSV"
+Page -> Page: Generate CSV from\ncurrent filtered data
+Page --> Admin: Download CSV file
+
+@enduml

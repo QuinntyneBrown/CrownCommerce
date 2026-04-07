@@ -1,0 +1,31 @@
+@startuml
+!theme plain
+!include <C4/C4_Container>
+
+title E2E Test Suite — C4 Container Diagram
+
+Person(developer, "Developer", "Runs tests locally")
+
+System_Boundary(testFramework, "E2E Test Framework") {
+    Container(playwrightConfig, "playwright.config.ts", "Playwright", "3 projects: storefront,\nadmin, teams")
+    Container(fixtures, "e2e/fixtures/index.ts", "TypeScript", "Custom fixtures:\nadminPage, mockAPI,\nviewport helpers")
+    Container(storefrontTests, "e2e/storefront/*.spec.ts", "Playwright", "12 spec files\n~360 tests (2 brands)")
+    Container(adminTests, "e2e/admin/*.spec.ts", "Playwright", "13 spec files\n~220 tests")
+    Container(teamsTests, "e2e/teams/*.spec.ts", "Playwright", "5 spec files\n~75 tests")
+}
+
+System_Boundary(app, "CrownCommerce App") {
+    Container(nextDev, "Next.js Dev Server", "npm run dev", "Auto-started by Playwright\nwebServer config")
+    Container(apiRoutes, "API Route Handlers", "Next.js", "Mocked by page.route()\nin test setup")
+}
+
+Rel(developer, playwrightConfig, "npx playwright test")
+Rel(playwrightConfig, fixtures, "Loads fixtures")
+Rel(fixtures, storefrontTests, "Extends test")
+Rel(fixtures, adminTests, "Extends test")
+Rel(fixtures, teamsTests, "Extends test")
+Rel(playwrightConfig, nextDev, "Starts before tests", "webServer")
+Rel(storefrontTests, nextDev, "HTTP requests", "localhost:3000")
+Rel(adminTests, nextDev, "HTTP requests", "localhost:3000")
+
+@enduml
