@@ -8,11 +8,17 @@ import { withAuth } from "@/lib/auth/middleware";
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   return withAuth(request, async () => {
     const { id } = await params;
+    const page = Math.max(1, parseInt(request.nextUrl.searchParams.get("page") || "1", 10) || 1);
+    const pageSize = Math.min(100, Math.max(1, parseInt(request.nextUrl.searchParams.get("pageSize") || "50", 10) || 50));
+    const offset = (page - 1) * pageSize;
+
     const msgs = await db
       .select()
       .from(channelMessages)
       .where(eq(channelMessages.channelId, id))
-      .orderBy(asc(channelMessages.createdAt));
+      .orderBy(asc(channelMessages.createdAt))
+      .limit(pageSize)
+      .offset(offset);
     return NextResponse.json(msgs);
   });
 }
