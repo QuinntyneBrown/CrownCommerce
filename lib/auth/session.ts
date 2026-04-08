@@ -1,9 +1,18 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.AUTH_SECRET || "development-secret-change-in-production"
-);
+let _jwtSecret: Uint8Array | null = null;
+
+function getJwtSecret(): Uint8Array {
+  if (!_jwtSecret) {
+    const secret = process.env.AUTH_SECRET;
+    if (!secret && process.env.NODE_ENV === "production") {
+      throw new Error("AUTH_SECRET environment variable is required in production");
+    }
+    _jwtSecret = new TextEncoder().encode(secret || "development-secret-change-in-production");
+  }
+  return _jwtSecret;
+}
 
 export interface SessionPayload {
   sub: string;
@@ -18,12 +27,12 @@ export async function createToken(payload: Omit<SessionPayload, "exp">): Promise
     .setProtectedHeader({ alg: "HS256" })
     .setExpirationTime("7d")
     .setIssuedAt()
-    .sign(JWT_SECRET);
+    .sign(getJwtSecret());
 }
 
 export async function verifyToken(token: string): Promise<SessionPayload | null> {
   try {
-    const { payload } = await jwtVerify(token, JWT_SECRET);
+    const { payload } = await jwtVerify(token, getJwtSecret());
     return payload as unknown as SessionPayload;
   } catch {
     return null;
