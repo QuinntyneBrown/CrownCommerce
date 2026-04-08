@@ -1,22 +1,21 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { db } from "@/lib/db";
 import { conversations } from "@/lib/db/schema/chat";
+import { withAdmin } from "@/lib/auth/middleware";
+import { desc } from "drizzle-orm";
 
-export async function GET() {
-  try {
-    const all = await db.select().from(conversations);
+export async function GET(request: NextRequest) {
+  return withAdmin(request, async () => {
+    const all = await db.select().from(conversations).orderBy(desc(conversations.createdAt));
     return NextResponse.json(all);
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch conversations" }, { status: 500 });
-  }
+  });
 }
 
-export async function POST(request: Request) {
+export async function POST() {
   try {
-    const body = await request.json();
-    const [convo] = await db.insert(conversations).values(body).returning();
+    const [convo] = await db.insert(conversations).values({}).returning();
     return NextResponse.json(convo, { status: 201 });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to create conversation" }, { status: 500 });
   }
 }
