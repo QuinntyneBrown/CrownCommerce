@@ -12,7 +12,7 @@ Track audit progress for each detailed design against its implementation.
 | 06 | Content Management | [x] |
 | 07 | Newsletter & Email Campaigns | [x] |
 | 08 | Customer Inquiries & Programs | [x] |
-| 09 | Live Chat & AI | [ ] |
+| 09 | Live Chat & AI | [x] |
 | 10 | Customer Account Management | [ ] |
 | 11 | Admin Dashboard | [ ] |
 | 12 | Team Collaboration | [ ] |

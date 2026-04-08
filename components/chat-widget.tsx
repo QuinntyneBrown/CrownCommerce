@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,27 +16,51 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const conversationId = useRef<string | null>(null);
+
+  const ensureConversation = async (): Promise<string> => {
+    if (conversationId.current) return conversationId.current;
+    const res = await fetch("/api/chat/conversations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    });
+    const convo = await res.json();
+    conversationId.current = convo.id;
+    return convo.id;
+  };
 
   const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim()) return;
+    if (!input.trim() || loading) return;
 
     const userMessage: ChatMessage = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
+    const messageContent = input;
     setInput("");
     setLoading(true);
 
     try {
-      const res = await fetch("/api/chat/conversations", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}) });
-      const convo = await res.json();
-      await fetch(`/api/chat/conversations/${convo.id}/messages`, {
+      const convoId = await ensureConversation();
+      const res = await fetch(`/api/chat/conversations/${convoId}/messages`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ role: "user", content: input }),
+        body: JSON.stringify({ content: messageContent }),
       });
-      setMessages((prev) => [...prev, { role: "assistant", content: "Thank you for your message! Our team will get back to you shortly." }]);
+
+      if (!res.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      const data = await res.json();
+      if (data.assistantMessage) {
+        setMessages((prev) => [...prev, { role: "assistant", content: data.assistantMessage }]);
+      }
     } catch {
-      setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, something went wrong. Please try again." }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: "Sorry, something went wrong. Please try again." },
+      ]);
     } finally {
       setLoading(false);
     }
