@@ -16,7 +16,7 @@ Track audit progress for each detailed design against its implementation.
 | 10 | Customer Account Management | [x] |
 | 11 | Admin Dashboard | [x] |
 | 12 | Team Collaboration | [x] |
-| 13 | Schedule & Meeting Management | [ ] |
+| 13 | Schedule & Meeting Management | [x] |
 | 14 | Realtime Communication | [ ] |
 | 15 | CRM & Notification Services | [ ] |
 | 16 | Coming Soon Pages | [ ] |

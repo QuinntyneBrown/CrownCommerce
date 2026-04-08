@@ -3,7 +3,7 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { meetings } from "@/lib/db/schema/scheduling";
 import { eq } from "drizzle-orm";
-import { withAuth } from "@/lib/auth/middleware";
+import { withAuth, withAdmin } from "@/lib/auth/middleware";
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   return withAuth(request, async () => {
@@ -24,7 +24,7 @@ const updateMeetingSchema = z.object({
 });
 
 export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  return withAuth(request, async () => {
+  return withAdmin(request, async () => {
     const { id } = await params;
     const json = await request.json();
     const input = updateMeetingSchema.parse(json);
@@ -35,7 +35,7 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  return withAuth(request, async () => {
+  return withAdmin(request, async () => {
     const { id } = await params;
     await db.delete(meetings).where(eq(meetings.id, id));
     return NextResponse.json({ success: true });
