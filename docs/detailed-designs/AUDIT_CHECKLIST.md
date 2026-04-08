@@ -5,8 +5,8 @@ Track audit progress for each detailed design against its implementation.
 | # | Design | Audited |
 |---|--------|---------|
 | 01 | Platform Architecture & API Gateway | [x] |
-| 02 | Design System & Multi-Brand Theming | [x] |
-| 03 | Authentication & Authorization | [x] |
+| 02 | Design System & Multi-Brand Theming | [ ] |
+| 03 | Authentication & Authorization | [ ] |
 | 04 | Product Catalog | [ ] |
 | 05 | Shopping Cart & Checkout | [ ] |
 | 06 | Content Management | [ ] |
