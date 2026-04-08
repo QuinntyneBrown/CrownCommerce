@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { subscribers } from "@/lib/db/schema/newsletter";
 import { withAdmin } from "@/lib/auth/middleware";
 import { eq, and, desc } from "drizzle-orm";
+import { checkRateLimit } from "@/lib/auth/rate-limit";
 
 export async function GET(request: NextRequest) {
   return withAdmin(request, async () => {
@@ -18,6 +19,15 @@ const subscribeSchema = z.object({
 });
 
 export async function POST(request: Request) {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const { allowed, retryAfterSeconds } = checkRateLimit(`${ip}:newsletter`);
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(retryAfterSeconds) } }
+    );
+  }
+
   try {
     const json = await request.json();
     const input = subscribeSchema.parse(json);

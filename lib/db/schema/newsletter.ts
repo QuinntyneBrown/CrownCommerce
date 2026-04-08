@@ -8,6 +8,7 @@ export const subscribers = newsletterSchema.table("subscribers", {
   email: varchar("email", { length: 255 }).notNull(),
   brandTag: varchar("brand_tag", { length: 100 }),
   status: varchar("status", { length: 50 }).notNull().default("pending"),
+  token: uuid("token").defaultRandom().notNull(),
   confirmedAt: timestamp("confirmed_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
