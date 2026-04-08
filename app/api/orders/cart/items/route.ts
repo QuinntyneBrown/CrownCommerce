@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
 import { carts, cartItems } from "@/lib/db/schema/orders";
+import { products } from "@/lib/db/schema/catalog";
 import { eq, and } from "drizzle-orm";
 import { withAuth } from "@/lib/auth/middleware";
 
@@ -14,6 +15,12 @@ export async function POST(request: NextRequest) {
   return withAuth(request, async (session) => {
     const json = await request.json();
     const input = addItemSchema.parse(json);
+
+    // Validate product exists
+    const [product] = await db.select({ id: products.id }).from(products).where(eq(products.id, input.productId));
+    if (!product) {
+      return NextResponse.json({ error: "Product not found" }, { status: 400 });
+    }
 
     const [cart] = await db.select({ id: carts.id }).from(carts).where(eq(carts.userId, session.sub));
     if (!cart) {

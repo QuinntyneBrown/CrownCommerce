@@ -22,6 +22,7 @@ export const orders = ordersSchema.table("orders", {
   status: varchar("status", { length: 50 }).notNull().default("pending"),
   total: decimal("total", { precision: 10, scale: 2 }).notNull(),
   shippingAddress: text("shipping_address"),
+  idempotencyKey: uuid("idempotency_key").unique(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
