@@ -18,10 +18,6 @@ export default async function RootLayout({
     <html lang="en">
       <body
         data-brand={brand.id === "mane-haus" ? "mane-haus" : undefined}
-        style={{
-          fontFamily:
-            "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
-        }}
       >
         {children}
       </body>
