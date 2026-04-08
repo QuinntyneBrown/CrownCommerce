@@ -19,6 +19,6 @@ Track audit progress for each detailed design against its implementation.
 | 13 | Schedule & Meeting Management | [x] |
 | 14 | Realtime Communication | [x] |
 | 15 | CRM & Notification Services | [x] |
-| 16 | Coming Soon Pages | [ ] |
+| 16 | Coming Soon Pages | [x] |
 | 17 | CLI Tooling | [ ] |
 | 18 | E2E Test Suite | [ ] |
