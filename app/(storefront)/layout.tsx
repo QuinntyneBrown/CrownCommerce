@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getBrand } from "@/lib/theme";
 import { ChatContainer } from "@/lib/features/chat-container";
+import { MobileNav } from "@/components/mobile-nav";
 
 export default async function StorefrontLayout({
   children,
@@ -28,6 +29,7 @@ export default async function StorefrontLayout({
           <div className="flex items-center gap-4">
             <Link href="/cart" className="hover:text-accent transition-colors text-sm">Cart</Link>
             <Link href="/login" className="hover:text-accent transition-colors text-sm">Login</Link>
+            <MobileNav />
           </div>
         </div>
       </header>

@@ -17,7 +17,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        data-brand={brand.id === "mane-haus" ? "mane-haus" : undefined}
+        data-brand={brand.id}
       >
         {children}
       </body>
