@@ -2,6 +2,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 async function getProduct(id: string) {
   try {
@@ -16,12 +17,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   const product = await getProduct(id);
 
   if (!product) {
-    return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-2xl font-heading font-bold mb-4">Product Not Found</h1>
-        <Link href="/shop" className={buttonVariants({ variant: "outline" })}>Back to Shop</Link>
-      </div>
-    );
+    notFound();
   }
 
   return (

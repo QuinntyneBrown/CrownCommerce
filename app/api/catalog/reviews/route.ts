@@ -1,27 +1,44 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import { db } from "@/lib/db";
 import { reviews } from "@/lib/db/schema/catalog";
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const productId = searchParams.get("productId");
-    const allReviews = productId
-      ? await db.select().from(reviews).where(eq(reviews.productId, productId))
-      : await db.select().from(reviews);
-    return NextResponse.json(allReviews);
-  } catch (error) {
+    if (!productId) {
+      return NextResponse.json({ error: "productId is required" }, { status: 400 });
+    }
+    const productReviews = await db
+      .select()
+      .from(reviews)
+      .where(eq(reviews.productId, productId))
+      .orderBy(desc(reviews.createdAt));
+    return NextResponse.json(productReviews);
+  } catch {
     return NextResponse.json({ error: "Failed to fetch reviews" }, { status: 500 });
   }
 }
 
+const createReviewSchema = z.object({
+  productId: z.string().uuid(),
+  author: z.string().min(1).max(255),
+  rating: z.number().int().min(1).max(5),
+  content: z.string().max(2000).optional(),
+});
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const [review] = await db.insert(reviews).values(body).returning();
+    const json = await request.json();
+    const input = createReviewSchema.parse(json);
+    const [review] = await db.insert(reviews).values(input).returning();
     return NextResponse.json(review, { status: 201 });
   } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json({ error: "Invalid review data", details: error.flatten().fieldErrors }, { status: 400 });
+    }
     return NextResponse.json({ error: "Failed to create review" }, { status: 500 });
   }
 }
