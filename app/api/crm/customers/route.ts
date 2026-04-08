@@ -3,11 +3,24 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { customers } from "@/lib/db/schema/crm";
 import { withAdmin } from "@/lib/auth/middleware";
-import { asc } from "drizzle-orm";
+import { asc, ilike, eq, and, type SQL } from "drizzle-orm";
 
 export async function GET(request: NextRequest) {
   return withAdmin(request, async () => {
-    const all = await db.select().from(customers).orderBy(asc(customers.name));
+    const params = request.nextUrl.searchParams;
+    const q = params.get("q");
+    const status = params.get("status");
+    const page = Math.max(1, parseInt(params.get("page") || "1", 10) || 1);
+    const pageSize = Math.min(100, Math.max(1, parseInt(params.get("pageSize") || "25", 10) || 25));
+    const offset = (page - 1) * pageSize;
+
+    const conditions: SQL[] = [];
+    if (q) conditions.push(ilike(customers.name, `%${q}%`));
+    if (status) conditions.push(eq(customers.status, status));
+
+    const where = conditions.length > 0 ? and(...conditions) : undefined;
+
+    const all = await db.select().from(customers).where(where).orderBy(asc(customers.name)).limit(pageSize).offset(offset);
     return NextResponse.json(all);
   });
 }
