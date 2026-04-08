@@ -1,4 +1,4 @@
-import { pgSchema, uuid, varchar, text, timestamp } from "drizzle-orm/pg-core";
+import { pgSchema, uuid, varchar, text, timestamp, jsonb } from "drizzle-orm/pg-core";
 
 export const inquiriesSchema = pgSchema("inquiries");
 
@@ -10,5 +10,6 @@ export const inquiries = inquiriesSchema.table("inquiries", {
   message: text("message").notNull(),
   category: varchar("category", { length: 100 }).notNull().default("general"),
   status: varchar("status", { length: 50 }).notNull().default("new"),
+  metadata: jsonb("metadata"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
