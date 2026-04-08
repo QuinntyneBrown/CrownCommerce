@@ -20,5 +20,5 @@ Track audit progress for each detailed design against its implementation.
 | 14 | Realtime Communication | [x] |
 | 15 | CRM & Notification Services | [x] |
 | 16 | Coming Soon Pages | [x] |
-| 17 | CLI Tooling | [ ] |
+| 17 | CLI Tooling | [x] |
 | 18 | E2E Test Suite | [ ] |
