@@ -1,16 +1,11 @@
 import { notFound } from "next/navigation";
-
-async function getPage(slug: string) {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"}/api/content/pages?slug=${encodeURIComponent(slug)}`, { cache: "no-store" });
-    if (!res.ok) return null;
-    return res.json();
-  } catch { return null; }
-}
+import { db } from "@/lib/db";
+import { pages } from "@/lib/db/schema/content";
+import { eq } from "drizzle-orm";
 
 export default async function ContentPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const page = await getPage(slug);
+  const [page] = await db.select().from(pages).where(eq(pages.slug, slug));
   if (!page) notFound();
 
   return (

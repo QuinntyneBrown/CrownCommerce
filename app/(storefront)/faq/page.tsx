@@ -1,19 +1,14 @@
+import { db } from "@/lib/db";
+import { faqs } from "@/lib/db/schema/content";
+import { asc } from "drizzle-orm";
 import { FAQList } from "@/lib/features/faq-list";
 
-async function getFaqs() {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"}/api/content/faqs`, { cache: "no-store" });
-    if (!res.ok) return [];
-    return res.json();
-  } catch { return []; }
-}
-
 export default async function FAQPage() {
-  const faqs = await getFaqs();
+  const allFaqs = await db.select().from(faqs).orderBy(asc(faqs.category));
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <FAQList faqs={faqs} />
+      <FAQList faqs={allFaqs} />
     </div>
   );
 }
