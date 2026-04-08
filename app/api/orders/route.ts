@@ -1,22 +1,39 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
+import { z } from "zod";
 import { db } from "@/lib/db";
 import { orders } from "@/lib/db/schema/orders";
+import { withAdmin } from "@/lib/auth/middleware";
+import { desc } from "drizzle-orm";
 
-export async function GET() {
-  try {
-    const allOrders = await db.select().from(orders);
+export async function GET(request: NextRequest) {
+  return withAdmin(request, async () => {
+    const allOrders = await db
+      .select({
+        id: orders.id,
+        userId: orders.userId,
+        status: orders.status,
+        total: orders.total,
+        createdAt: orders.createdAt,
+      })
+      .from(orders)
+      .orderBy(desc(orders.createdAt));
     return NextResponse.json(allOrders);
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch orders" }, { status: 500 });
-  }
+  });
 }
 
-export async function POST(request: Request) {
-  try {
-    const body = await request.json();
-    const [order] = await db.insert(orders).values(body).returning();
+const createOrderSchema = z.object({
+  userId: z.string().uuid().optional(),
+  shippingAddress: z.string().min(1).optional(),
+});
+
+export async function POST(request: NextRequest) {
+  return withAdmin(request, async () => {
+    const json = await request.json();
+    const input = createOrderSchema.parse(json);
+    const [order] = await db.insert(orders).values({
+      ...input,
+      total: "0.00",
+    }).returning();
     return NextResponse.json(order, { status: 201 });
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to create order" }, { status: 500 });
-  }
+  });
 }
