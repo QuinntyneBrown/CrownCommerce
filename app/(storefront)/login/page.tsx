@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +10,7 @@ import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -24,7 +25,12 @@ export default function LoginPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "login", email: formData.get("email"), password: formData.get("password") }),
       });
-      if (res.ok) { router.push("/"); router.refresh(); }
+      if (res.ok) {
+        const returnTo = searchParams.get("returnTo");
+        const destination = returnTo && returnTo.startsWith("/") && !returnTo.startsWith("//") ? returnTo : "/";
+        router.push(destination);
+        router.refresh();
+      }
       else { const data = await res.json(); setError(data.error || "Login failed"); }
     } catch { setError("Something went wrong"); }
     finally { setLoading(false); }
