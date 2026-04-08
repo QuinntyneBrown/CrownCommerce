@@ -5,6 +5,7 @@ import { users } from "@/lib/db/schema/identity";
 import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
 import { createToken, setSessionCookie, getSession, clearSession } from "@/lib/auth/session";
+import { checkRateLimit } from "@/lib/auth/rate-limit";
 
 const registerSchema = z.object({
   action: z.literal("register"),
@@ -43,6 +44,18 @@ export async function POST(request: Request) {
   }
 
   const data = parsed.data;
+
+  if (data.action === "login" || data.action === "register") {
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+    const rateLimitKey = `${ip}:${data.action}`;
+    const { allowed, retryAfterSeconds } = checkRateLimit(rateLimitKey);
+    if (!allowed) {
+      return NextResponse.json(
+        { error: "Too many attempts. Please try again later." },
+        { status: 429, headers: { "Retry-After": String(retryAfterSeconds) } }
+      );
+    }
+  }
 
   try {
     if (data.action === "register") {
