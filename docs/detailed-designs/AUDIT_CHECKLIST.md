@@ -9,7 +9,7 @@ Track audit progress for each detailed design against its implementation.
 | 03 | Authentication & Authorization | [x] |
 | 04 | Product Catalog | [x] |
 | 05 | Shopping Cart & Checkout | [x] |
-| 06 | Content Management | [ ] |
+| 06 | Content Management | [x] |
 | 07 | Newsletter & Email Campaigns | [ ] |
 | 08 | Customer Inquiries & Programs | [ ] |
 | 09 | Live Chat & AI | [ ] |
