@@ -3,6 +3,7 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { reviews } from "@/lib/db/schema/catalog";
 import { eq, desc } from "drizzle-orm";
+import { checkRateLimit } from "@/lib/auth/rate-limit";
 
 export async function GET(request: Request) {
   try {
@@ -30,6 +31,15 @@ const createReviewSchema = z.object({
 });
 
 export async function POST(request: Request) {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const { allowed, retryAfterSeconds } = checkRateLimit(`${ip}:review`);
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many review submissions. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(retryAfterSeconds) } }
+    );
+  }
+
   try {
     const json = await request.json();
     const input = createReviewSchema.parse(json);
