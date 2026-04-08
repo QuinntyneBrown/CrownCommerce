@@ -2,10 +2,9 @@ import { notFound } from "next/navigation";
 
 async function getPage(slug: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"}/api/content/pages`, { cache: "no-store" });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"}/api/content/pages?slug=${encodeURIComponent(slug)}`, { cache: "no-store" });
     if (!res.ok) return null;
-    const pages = await res.json();
-    return pages.find((p: { slug: string }) => p.slug === slug) || null;
+    return res.json();
   } catch { return null; }
 }
 

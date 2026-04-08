@@ -1,7 +1,9 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
+import { z } from "zod";
 import { db } from "@/lib/db";
 import { pages } from "@/lib/db/schema/content";
 import { eq } from "drizzle-orm";
+import { withAdmin } from "@/lib/auth/middleware";
 
 export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
@@ -9,29 +11,32 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     const [page] = await db.select().from(pages).where(eq(pages.id, id));
     if (!page) return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json(page);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to fetch page" }, { status: 500 });
   }
 }
 
-export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
-  try {
+const updatePageSchema = z.object({
+  title: z.string().min(1).optional(),
+  slug: z.string().min(1).max(255).regex(/^[a-z0-9-]+$/).optional(),
+  body: z.string().min(1).optional(),
+});
+
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  return withAdmin(request, async () => {
     const { id } = await params;
-    const body = await request.json();
-    const [page] = await db.update(pages).set(body).where(eq(pages.id, id)).returning();
+    const json = await request.json();
+    const input = updatePageSchema.parse(json);
+    const [page] = await db.update(pages).set(input).where(eq(pages.id, id)).returning();
     if (!page) return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json(page);
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to update page" }, { status: 500 });
-  }
+  });
 }
 
-export async function DELETE(_req: Request, { params }: { params: Promise<{ id: string }> }) {
-  try {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  return withAdmin(request, async () => {
     const { id } = await params;
     await db.delete(pages).where(eq(pages.id, id));
     return NextResponse.json({ success: true });
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to delete page" }, { status: 500 });
-  }
+  });
 }
