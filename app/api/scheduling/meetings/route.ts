@@ -3,12 +3,24 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { meetings } from "@/lib/db/schema/scheduling";
 import { withAuth } from "@/lib/auth/middleware";
-import { asc } from "drizzle-orm";
+import { asc, gte, lte, and } from "drizzle-orm";
 
 export async function GET(request: NextRequest) {
   return withAuth(request, async () => {
-    const all = await db.select().from(meetings).orderBy(asc(meetings.date), asc(meetings.startTime));
-    return NextResponse.json(all);
+    const { searchParams } = new URL(request.url);
+    const from = searchParams.get("from");
+    const to = searchParams.get("to");
+
+    const conditions = [];
+    if (from) conditions.push(gte(meetings.date, from));
+    if (to) conditions.push(lte(meetings.date, to));
+
+    const query = db.select().from(meetings);
+    const result = conditions.length > 0
+      ? await query.where(and(...conditions)).orderBy(asc(meetings.date), asc(meetings.startTime))
+      : await query.orderBy(asc(meetings.date), asc(meetings.startTime));
+
+    return NextResponse.json(result);
   });
 }
 
