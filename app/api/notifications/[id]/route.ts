@@ -1,16 +1,25 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
+import { z } from "zod";
 import { db } from "@/lib/db";
 import { notifications } from "@/lib/db/schema/notifications";
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
+import { withAuth } from "@/lib/auth/middleware";
 
-export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
-  try {
+const markReadSchema = z.object({
+  read: z.boolean(),
+});
+
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  return withAuth(request, async (session) => {
     const { id } = await params;
-    const body = await request.json();
-    const [notif] = await db.update(notifications).set(body).where(eq(notifications.id, id)).returning();
+    const json = await request.json();
+    const input = markReadSchema.parse(json);
+    const [notif] = await db
+      .update(notifications)
+      .set(input)
+      .where(and(eq(notifications.id, id), eq(notifications.recipientId, session.sub)))
+      .returning();
     if (!notif) return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json(notif);
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to update notification" }, { status: 500 });
-  }
+  });
 }

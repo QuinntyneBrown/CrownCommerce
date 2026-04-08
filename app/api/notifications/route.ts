@@ -1,27 +1,32 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
+import { z } from "zod";
 import { db } from "@/lib/db";
 import { notifications } from "@/lib/db/schema/notifications";
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
+import { withAuth } from "@/lib/auth/middleware";
 
-export async function GET(request: Request) {
-  try {
-    const { searchParams } = new URL(request.url);
-    const recipientId = searchParams.get("recipientId");
-    const all = recipientId
-      ? await db.select().from(notifications).where(eq(notifications.recipientId, recipientId))
-      : await db.select().from(notifications);
-    return NextResponse.json(all);
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch notifications" }, { status: 500 });
-  }
+export async function GET(request: NextRequest) {
+  return withAuth(request, async (session) => {
+    const userNotifications = await db
+      .select()
+      .from(notifications)
+      .where(eq(notifications.recipientId, session.sub))
+      .orderBy(desc(notifications.createdAt));
+    return NextResponse.json(userNotifications);
+  });
 }
 
-export async function POST(request: Request) {
-  try {
-    const body = await request.json();
-    const [notif] = await db.insert(notifications).values(body).returning();
+const createNotificationSchema = z.object({
+  recipientId: z.string().uuid(),
+  type: z.string().min(1).max(100),
+  message: z.string().min(1),
+});
+
+export async function POST(request: NextRequest) {
+  return withAuth(request, async () => {
+    const json = await request.json();
+    const input = createNotificationSchema.parse(json);
+    const [notif] = await db.insert(notifications).values(input).returning();
     return NextResponse.json(notif, { status: 201 });
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to create notification" }, { status: 500 });
-  }
+  });
 }
