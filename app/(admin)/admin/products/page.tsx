@@ -1,17 +1,22 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { db } from "@/lib/db";
+import { products } from "@/lib/db/schema/catalog";
+import { desc } from "drizzle-orm";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-async function getProducts() {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"}/api/catalog/products`, { cache: "no-store" });
-    if (!res.ok) return [];
-    return res.json();
-  } catch { return []; }
-}
-
 export default async function ProductsPage() {
-  const products = await getProducts();
+  const allProducts = await db
+    .select({
+      id: products.id,
+      name: products.name,
+      type: products.type,
+      price: products.price,
+      length: products.length,
+    })
+    .from(products)
+    .orderBy(desc(products.createdAt))
+    .limit(50);
 
   return (
     <div>
@@ -29,7 +34,7 @@ export default async function ProductsPage() {
               <th className="text-left p-4">Length</th>
             </tr></thead>
             <tbody>
-              {products.map((p: { id: string; name: string; type: string; price: string; length: string }) => (
+              {allProducts.map((p) => (
                 <tr key={p.id} className="border-b border-border hover:bg-muted/50">
                   <td className="p-4 font-medium">{p.name}</td>
                   <td className="p-4"><Badge variant="secondary">{p.type}</Badge></td>
